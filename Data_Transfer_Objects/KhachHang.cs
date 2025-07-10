@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +11,49 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
     internal class KhachHang
     {
-        private string maKhachHang { get; set; }
-        private string hoTen { get; set; }
-        private string diaChi { get; set; }
-        private string soDienThoai { get; set; }
-        private string email { get; set; }
+        [Key]
+        [Column("MaKH")]
+        [DisplayName("Mã Khách Hàng")]
+        [StringLength(20)]
+        public string maKhachHang { get; set; }
+
+        [Required]
+        [Column("HoTen")]
+        [DisplayName("Họ Tên")]
+        [StringLength(100)]
+        public string hoTen { get; set; }
+
+        [Required]
+        [Column("DiaChi")]
+        [DisplayName("Địa Chỉ")]
+        [StringLength(200)]
+        public string diaChi { get; set; }
+
+        [Required]
+        [Phone]
+        [Column("SoDienThoai")]
+        [DisplayName("Số Điện Thoại")]
+        [StringLength(15)]
+        public string soDienThoai { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Column("Email")]
+        [DisplayName("Email")]
+        [StringLength(100)]
+        public string email { get; set; }
+
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
+
+        public KhachHang()
+        {
+            maKhachHang = string.Empty;
+            hoTen = string.Empty;
+            diaChi = string.Empty;
+            soDienThoai = string.Empty;
+            email = string.Empty;
+            HoaDons = new HashSet<HoaDon>();
+        }
+
     }
 }

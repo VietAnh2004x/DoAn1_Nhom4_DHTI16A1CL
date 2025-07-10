@@ -21,309 +21,335 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.TongQuan
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usSideBar));
-            this.tbTong = new System.Windows.Forms.TableLayoutPanel();
-            this.tbLogo = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTieuDe = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.panelButton = new System.Windows.Forms.Panel();
-            this.btnDangXuat = new System.Windows.Forms.Button();
-            this.btnQLTaiKhoan = new System.Windows.Forms.Button();
-            this.btnBaoCao = new System.Windows.Forms.Button();
-            this.btnQLDaiLy = new System.Windows.Forms.Button();
-            this.btnQLBaoHanh = new System.Windows.Forms.Button();
-            this.btnQLHoaDon = new System.Windows.Forms.Button();
-            this.btnQLTonKho = new System.Windows.Forms.Button();
-            this.btnQLKhachHang = new System.Windows.Forms.Button();
-            this.subMenuPanel = new System.Windows.Forms.Panel();
-            this.btnQLXeMayDien = new System.Windows.Forms.Button();
-            this.btnQLXeDapDien = new System.Windows.Forms.Button();
-            this.btnQLXe = new System.Windows.Forms.Button();
-            this.btnTongQuan = new System.Windows.Forms.Button();
-            this.tbTong.SuspendLayout();
-            this.tbLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            this.panelButton.SuspendLayout();
-            this.subMenuPanel.SuspendLayout();
-            this.SuspendLayout();
+            tbTong = new TableLayoutPanel();
+            tbLogo = new TableLayoutPanel();
+            lblTieuDe = new Label();
+            picLogo = new PictureBox();
+            panelButton = new Panel();
+            btnDangXuat = new Button();
+            btnQLTaiKhoan = new Button();
+            btnBaoCao = new Button();
+            btnQLDaiLy = new Button();
+            btnQLBaoHanh = new Button();
+            btnQLHoaDon = new Button();
+            btnQLTonKho = new Button();
+            btnQLKhachHang = new Button();
+            subMenuPanel = new Panel();
+            btnQLXeMayDien = new Button();
+            btnQLXeDapDien = new Button();
+            btnQLXe = new Button();
+            btnTongQuan = new Button();
+            tbTong.SuspendLayout();
+            tbLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            panelButton.SuspendLayout();
+            subMenuPanel.SuspendLayout();
+            SuspendLayout();
             // 
             // tbTong
             // 
-            this.tbTong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbTong.ColumnCount = 1;
-            this.tbTong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbTong.Controls.Add(this.tbLogo, 0, 0);
-            this.tbTong.Controls.Add(this.panelButton, 0, 1);
-            this.tbTong.Location = new System.Drawing.Point(0, 0);
-            this.tbTong.Name = "tbTong";
-            this.tbTong.RowCount = 2;
-            this.tbTong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tbTong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tbTong.Size = new System.Drawing.Size(200, 750);
-            this.tbTong.TabIndex = 0;
+            tbTong.ColumnCount = 1;
+            tbTong.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tbTong.Controls.Add(tbLogo, 0, 0);
+            tbTong.Controls.Add(panelButton, 0, 1);
+            tbTong.Location = new Point(0, 0);
+            tbTong.Margin = new Padding(4, 5, 4, 5);
+            tbTong.Name = "tbTong";
+            tbTong.RowCount = 2;
+            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tbTong.Size = new Size(267, 1154);
+            tbTong.TabIndex = 0;
             // 
             // tbLogo
             // 
-            this.tbLogo.ColumnCount = 1;
-            this.tbLogo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 194F));
-            this.tbLogo.Controls.Add(this.lblTieuDe, 0, 1);
-            this.tbLogo.Controls.Add(this.picLogo, 0, 0);
-            this.tbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbLogo.Location = new System.Drawing.Point(3, 3);
-            this.tbLogo.Name = "tbLogo";
-            this.tbLogo.RowCount = 2;
-            this.tbLogo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tbLogo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbLogo.Size = new System.Drawing.Size(194, 144);
-            this.tbLogo.TabIndex = 0;
+            tbLogo.ColumnCount = 1;
+            tbLogo.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 259F));
+            tbLogo.Controls.Add(picLogo, 0, 0);
+            tbLogo.Controls.Add(lblTieuDe, 0, 1);
+            tbLogo.Dock = DockStyle.Fill;
+            tbLogo.Location = new Point(4, 5);
+            tbLogo.Margin = new Padding(4, 5, 4, 5);
+            tbLogo.Name = "tbLogo";
+            tbLogo.RowCount = 2;
+            tbLogo.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
+            tbLogo.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tbLogo.Size = new Size(259, 220);
+            tbLogo.TabIndex = 0;
             // 
             // lblTieuDe
             // 
-            this.lblTieuDe.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTieuDe.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTieuDe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(160)))));
-            this.lblTieuDe.Location = new System.Drawing.Point(16, 116);
-            this.lblTieuDe.Name = "lblTieuDe";
-            this.lblTieuDe.Size = new System.Drawing.Size(162, 19);
-            this.lblTieuDe.TabIndex = 1;
-            this.lblTieuDe.Text = "Xin chào Vanh Vanh";
-            this.lblTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTieuDe.Anchor = AnchorStyles.None;
+            lblTieuDe.Font = new Font("Arial", 12F, FontStyle.Bold);
+            lblTieuDe.ForeColor = Color.FromArgb(30, 90, 160);
+            lblTieuDe.Location = new Point(21, 178);
+            lblTieuDe.Margin = new Padding(4, 0, 4, 0);
+            lblTieuDe.Name = "lblTieuDe";
+            lblTieuDe.Size = new Size(216, 29);
+            lblTieuDe.TabIndex = 1;
+            lblTieuDe.Text = "Xin chào Quản Lý";
+            lblTieuDe.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // picLogo
             // 
-            this.picLogo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
-            this.picLogo.Location = new System.Drawing.Point(35, 13);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(123, 92);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 0;
-            this.picLogo.TabStop = false;
+            picLogo.Anchor = AnchorStyles.Bottom;
+            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+            picLogo.Location = new Point(47, 18);
+            picLogo.Margin = new Padding(4, 5, 4, 5);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(164, 142);
+            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            picLogo.TabIndex = 0;
+            picLogo.TabStop = false;
             // 
             // panelButton
             // 
-            this.panelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(160)))));
-            this.panelButton.Controls.Add(this.btnDangXuat);
-            this.panelButton.Controls.Add(this.btnQLTaiKhoan);
-            this.panelButton.Controls.Add(this.btnBaoCao);
-            this.panelButton.Controls.Add(this.btnQLDaiLy);
-            this.panelButton.Controls.Add(this.btnQLBaoHanh);
-            this.panelButton.Controls.Add(this.btnQLHoaDon);
-            this.panelButton.Controls.Add(this.btnQLTonKho);
-            this.panelButton.Controls.Add(this.btnQLKhachHang);
-            this.panelButton.Controls.Add(this.subMenuPanel);
-            this.panelButton.Controls.Add(this.btnQLXe);
-            this.panelButton.Controls.Add(this.btnTongQuan);
-            this.panelButton.Font = new System.Drawing.Font("Arial", 10F);
-            this.panelButton.ForeColor = Color.White;
-            this.panelButton.Location = new System.Drawing.Point(3, 153);
-            this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(194, 594);
-            this.panelButton.TabIndex = 1;
+            panelButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            panelButton.BackColor = Color.FromArgb(30, 90, 160);
+            panelButton.Controls.Add(btnDangXuat);
+            panelButton.Controls.Add(btnQLTaiKhoan);
+            panelButton.Controls.Add(btnBaoCao);
+            panelButton.Controls.Add(btnQLDaiLy);
+            panelButton.Controls.Add(btnQLBaoHanh);
+            panelButton.Controls.Add(btnQLHoaDon);
+            panelButton.Controls.Add(btnQLTonKho);
+            panelButton.Controls.Add(btnQLKhachHang);
+            panelButton.Controls.Add(subMenuPanel);
+            panelButton.Controls.Add(btnQLXe);
+            panelButton.Controls.Add(btnTongQuan);
+            panelButton.Font = new Font("Arial", 10F);
+            panelButton.ForeColor = Color.White;
+            panelButton.Location = new Point(4, 235);
+            panelButton.Margin = new Padding(4, 5, 4, 5);
+            panelButton.Name = "panelButton";
+            panelButton.Size = new Size(259, 914);
+            panelButton.TabIndex = 1;
             // 
             // btnDangXuat
             // 
-            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDangXuat.FlatAppearance.BorderSize = 0;
-            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnDangXuat.Size = new System.Drawing.Size(194, 40);
-            this.btnDangXuat.TabIndex = 10;
-            this.btnDangXuat.Text = "Đăng Xuất";
-            this.btnDangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangXuat.UseVisualStyleBackColor = false;
+            btnDangXuat.Dock = DockStyle.Top;
+            btnDangXuat.FlatAppearance.BorderSize = 0;
+            btnDangXuat.FlatStyle = FlatStyle.Flat;
+            btnDangXuat.Location = new Point(0, 558);
+            btnDangXuat.Margin = new Padding(4, 5, 4, 5);
+            btnDangXuat.Name = "btnDangXuat";
+            btnDangXuat.Padding = new Padding(13, 0, 0, 0);
+            btnDangXuat.Size = new Size(259, 55);
+            btnDangXuat.TabIndex = 10;
+            btnDangXuat.Text = "Đăng Xuất";
+            btnDangXuat.TextAlign = ContentAlignment.MiddleLeft;
+            btnDangXuat.UseVisualStyleBackColor = false;
             // 
             // btnQLTaiKhoan
             // 
-            this.btnQLTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLTaiKhoan.FlatAppearance.BorderSize = 0;
-            this.btnQLTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLTaiKhoan.Name = "btnQLTaiKhoan";
-            this.btnQLTaiKhoan.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnQLTaiKhoan.Size = new System.Drawing.Size(194, 40);
-            this.btnQLTaiKhoan.TabIndex = 9;
-            this.btnQLTaiKhoan.Text = "Quản Lí Tài Khoản";
-            this.btnQLTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLTaiKhoan.UseVisualStyleBackColor = false;
-            this.btnQLTaiKhoan.Click += new System.EventHandler(this.btnQLTaiKhoan_Click);
+            btnQLTaiKhoan.Dock = DockStyle.Top;
+            btnQLTaiKhoan.FlatAppearance.BorderSize = 0;
+            btnQLTaiKhoan.FlatStyle = FlatStyle.Flat;
+            btnQLTaiKhoan.Location = new Point(0, 496);
+            btnQLTaiKhoan.Margin = new Padding(4, 5, 4, 5);
+            btnQLTaiKhoan.Name = "btnQLTaiKhoan";
+            btnQLTaiKhoan.Padding = new Padding(13, 0, 0, 0);
+            btnQLTaiKhoan.Size = new Size(259, 55);
+            btnQLTaiKhoan.TabIndex = 9;
+            btnQLTaiKhoan.Text = "Quản Lí Tài Khoản";
+            btnQLTaiKhoan.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLTaiKhoan.UseVisualStyleBackColor = false;
+            btnQLTaiKhoan.Click += btnQLTaiKhoan_Click;
             // 
             // btnBaoCao
             // 
-            this.btnBaoCao.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBaoCao.FlatAppearance.BorderSize = 0;
-            this.btnBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnBaoCao.Size = new System.Drawing.Size(194, 40);
-            this.btnBaoCao.TabIndex = 8;
-            this.btnBaoCao.Text = "Báo Cáo";
-            this.btnBaoCao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBaoCao.UseVisualStyleBackColor = false;
-            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
+            btnBaoCao.Dock = DockStyle.Top;
+            btnBaoCao.FlatAppearance.BorderSize = 0;
+            btnBaoCao.FlatStyle = FlatStyle.Flat;
+            btnBaoCao.Location = new Point(0, 434);
+            btnBaoCao.Margin = new Padding(4, 5, 4, 5);
+            btnBaoCao.Name = "btnBaoCao";
+            btnBaoCao.Padding = new Padding(13, 0, 0, 0);
+            btnBaoCao.Size = new Size(259, 55);
+            btnBaoCao.TabIndex = 8;
+            btnBaoCao.Text = "Báo Cáo";
+            btnBaoCao.TextAlign = ContentAlignment.MiddleLeft;
+            btnBaoCao.UseVisualStyleBackColor = false;
+            btnBaoCao.Click += btnBaoCao_Click;
             // 
             // btnQLDaiLy
             // 
-            this.btnQLDaiLy.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLDaiLy.FlatAppearance.BorderSize = 0;
-            this.btnQLDaiLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLDaiLy.Name = "btnQLDaiLy";
-            this.btnQLDaiLy.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnQLDaiLy.Size = new System.Drawing.Size(194, 40);
-            this.btnQLDaiLy.TabIndex = 7;
-            this.btnQLDaiLy.Text = "Quản Lí Đại Lý";
-            this.btnQLDaiLy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLDaiLy.UseVisualStyleBackColor = false;
-            this.btnQLDaiLy.Click += new System.EventHandler(this.btnQLDaiLy_Click);
+            btnQLDaiLy.Dock = DockStyle.Top;
+            btnQLDaiLy.FlatAppearance.BorderSize = 0;
+            btnQLDaiLy.FlatStyle = FlatStyle.Flat;
+            btnQLDaiLy.Location = new Point(0, 372);
+            btnQLDaiLy.Margin = new Padding(4, 5, 4, 5);
+            btnQLDaiLy.Name = "btnQLDaiLy";
+            btnQLDaiLy.Padding = new Padding(13, 0, 0, 0);
+            btnQLDaiLy.Size = new Size(259, 55);
+            btnQLDaiLy.TabIndex = 7;
+            btnQLDaiLy.Text = "Quản Lí Đại Lý";
+            btnQLDaiLy.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLDaiLy.UseVisualStyleBackColor = false;
+            btnQLDaiLy.Click += btnQLDaiLy_Click;
             // 
             // btnQLBaoHanh
             // 
-            this.btnQLBaoHanh.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLBaoHanh.FlatAppearance.BorderSize = 0;
-            this.btnQLBaoHanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLBaoHanh.Name = "btnQLBaoHanh";
-            this.btnQLBaoHanh.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnQLBaoHanh.Size = new System.Drawing.Size(194, 40);
-            this.btnQLBaoHanh.TabIndex = 6;
-            this.btnQLBaoHanh.Text = "Quản Lí Bảo Hành";
-            this.btnQLBaoHanh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLBaoHanh.UseVisualStyleBackColor = false;
-            this.btnQLBaoHanh.Click += new System.EventHandler(this.btnQLBaoHanh_Click);
+            btnQLBaoHanh.Dock = DockStyle.Top;
+            btnQLBaoHanh.FlatAppearance.BorderSize = 0;
+            btnQLBaoHanh.FlatStyle = FlatStyle.Flat;
+            btnQLBaoHanh.Location = new Point(0, 310);
+            btnQLBaoHanh.Margin = new Padding(4, 5, 4, 5);
+            btnQLBaoHanh.Name = "btnQLBaoHanh";
+            btnQLBaoHanh.Padding = new Padding(13, 0, 0, 0);
+            btnQLBaoHanh.Size = new Size(259, 55);
+            btnQLBaoHanh.TabIndex = 6;
+            btnQLBaoHanh.Text = "Quản Lí Bảo Hành";
+            btnQLBaoHanh.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLBaoHanh.UseVisualStyleBackColor = false;
+            btnQLBaoHanh.Click += btnQLBaoHanh_Click;
             // 
             // btnQLHoaDon
             // 
-            this.btnQLHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLHoaDon.FlatAppearance.BorderSize = 0;
-            this.btnQLHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLHoaDon.Name = "btnQLHoaDon";
-            this.btnQLHoaDon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnQLHoaDon.Size = new System.Drawing.Size(194, 40);
-            this.btnQLHoaDon.TabIndex = 5;
-            this.btnQLHoaDon.Text = "Quản Lí Hóa Đơn";
-            this.btnQLHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLHoaDon.UseVisualStyleBackColor = false;
-            this.btnQLHoaDon.Click += new System.EventHandler(this.btnQLHoaDon_Click);
+            btnQLHoaDon.Dock = DockStyle.Top;
+            btnQLHoaDon.FlatAppearance.BorderSize = 0;
+            btnQLHoaDon.FlatStyle = FlatStyle.Flat;
+            btnQLHoaDon.Location = new Point(0, 248);
+            btnQLHoaDon.Margin = new Padding(4, 5, 4, 5);
+            btnQLHoaDon.Name = "btnQLHoaDon";
+            btnQLHoaDon.Padding = new Padding(13, 0, 0, 0);
+            btnQLHoaDon.Size = new Size(259, 55);
+            btnQLHoaDon.TabIndex = 5;
+            btnQLHoaDon.Text = "Quản Lí Hóa Đơn";
+            btnQLHoaDon.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLHoaDon.UseVisualStyleBackColor = false;
+            btnQLHoaDon.Click += btnQLHoaDon_Click;
             // 
             // btnQLTonKho
             // 
-            this.btnQLTonKho.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLTonKho.FlatAppearance.BorderSize = 0;
-            this.btnQLTonKho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLTonKho.Name = "btnQLTonKho";
-            this.btnQLTonKho.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnQLTonKho.Size = new System.Drawing.Size(194, 40);
-            this.btnQLTonKho.TabIndex = 4;
-            this.btnQLTonKho.Text = "Quản Lí Tồn Kho";
-            this.btnQLTonKho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLTonKho.UseVisualStyleBackColor = false;
-            this.btnQLTonKho.Click += new System.EventHandler(this.btnQLTonKho_Click);
+            btnQLTonKho.Dock = DockStyle.Top;
+            btnQLTonKho.FlatAppearance.BorderSize = 0;
+            btnQLTonKho.FlatStyle = FlatStyle.Flat;
+            btnQLTonKho.Location = new Point(0, 186);
+            btnQLTonKho.Margin = new Padding(4, 5, 4, 5);
+            btnQLTonKho.Name = "btnQLTonKho";
+            btnQLTonKho.Padding = new Padding(13, 0, 0, 0);
+            btnQLTonKho.Size = new Size(259, 55);
+            btnQLTonKho.TabIndex = 4;
+            btnQLTonKho.Text = "Quản Lí Tồn Kho";
+            btnQLTonKho.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLTonKho.UseVisualStyleBackColor = false;
+            btnQLTonKho.Click += btnQLTonKho_Click;
             // 
             // btnQLKhachHang
             // 
-            this.btnQLKhachHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLKhachHang.FlatAppearance.BorderSize = 0;
-            this.btnQLKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLKhachHang.Name = "btnQLKhachHang";
-            this.btnQLKhachHang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnQLKhachHang.Size = new System.Drawing.Size(194, 40);
-            this.btnQLKhachHang.TabIndex = 3;
-            this.btnQLKhachHang.Text = "Quản Lí Khách Hàng";
-            this.btnQLKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLKhachHang.UseVisualStyleBackColor = false;
-            this.btnQLKhachHang.Click += new System.EventHandler(this.btnQLKhachHang_Click);
+            btnQLKhachHang.Dock = DockStyle.Top;
+            btnQLKhachHang.FlatAppearance.BorderSize = 0;
+            btnQLKhachHang.FlatStyle = FlatStyle.Flat;
+            btnQLKhachHang.Location = new Point(0, 124);
+            btnQLKhachHang.Margin = new Padding(4, 5, 4, 5);
+            btnQLKhachHang.Name = "btnQLKhachHang";
+            btnQLKhachHang.Padding = new Padding(13, 0, 0, 0);
+            btnQLKhachHang.Size = new Size(259, 55);
+            btnQLKhachHang.TabIndex = 3;
+            btnQLKhachHang.Text = "Quản Lí Khách Hàng";
+            btnQLKhachHang.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLKhachHang.UseVisualStyleBackColor = false;
+            btnQLKhachHang.Click += btnQLKhachHang_Click;
             // 
             // subMenuPanel
             // 
-            this.subMenuPanel.Controls.Add(this.btnQLXeMayDien);
-            this.subMenuPanel.Controls.Add(this.btnQLXeDapDien);
-            this.subMenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subMenuPanel.Name = "subMenuPanel";
-            this.subMenuPanel.Size = new System.Drawing.Size(194, 0);
-            this.subMenuPanel.TabIndex = 2;
-            this.subMenuPanel.Visible = false;
+            subMenuPanel.Controls.Add(btnQLXeMayDien);
+            subMenuPanel.Controls.Add(btnQLXeDapDien);
+            subMenuPanel.Dock = DockStyle.Top;
+            subMenuPanel.Location = new Point(0, 124);
+            subMenuPanel.Margin = new Padding(4, 5, 4, 5);
+            subMenuPanel.Name = "subMenuPanel";
+            subMenuPanel.Size = new Size(259, 0);
+            subMenuPanel.TabIndex = 2;
+            subMenuPanel.Visible = false;
             // 
             // btnQLXeMayDien
             // 
-            this.btnQLXeMayDien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLXeMayDien.FlatAppearance.BorderSize = 0;
-            this.btnQLXeMayDien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLXeMayDien.Location = new System.Drawing.Point(0, 40);
-            this.btnQLXeMayDien.Name = "btnQLXeMayDien";
-            this.btnQLXeMayDien.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnQLXeMayDien.Size = new System.Drawing.Size(194, 40);
-            this.btnQLXeMayDien.TabIndex = 0;
-            this.btnQLXeMayDien.Text = "Xe Máy Điện";
-            this.btnQLXeMayDien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLXeMayDien.UseVisualStyleBackColor = false;
-            this.btnQLXeMayDien.Click += new System.EventHandler(this.btnQLXeMayDien_Click);
+            btnQLXeMayDien.Dock = DockStyle.Top;
+            btnQLXeMayDien.FlatAppearance.BorderSize = 0;
+            btnQLXeMayDien.FlatStyle = FlatStyle.Flat;
+            btnQLXeMayDien.Location = new Point(0, 62);
+            btnQLXeMayDien.Margin = new Padding(4, 5, 4, 5);
+            btnQLXeMayDien.Name = "btnQLXeMayDien";
+            btnQLXeMayDien.Padding = new Padding(47, 0, 0, 0);
+            btnQLXeMayDien.Size = new Size(259, 55);
+            btnQLXeMayDien.TabIndex = 0;
+            btnQLXeMayDien.Text = "Xe Máy Điện";
+            btnQLXeMayDien.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLXeMayDien.UseVisualStyleBackColor = false;
+            btnQLXeMayDien.Click += btnQLXeMayDien_Click;
             // 
             // btnQLXeDapDien
             // 
-            this.btnQLXeDapDien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLXeDapDien.FlatAppearance.BorderSize = 0;
-            this.btnQLXeDapDien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLXeDapDien.Location = new System.Drawing.Point(0, 0);
-            this.btnQLXeDapDien.Name = "btnQLXeDapDien";
-            this.btnQLXeDapDien.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnQLXeDapDien.Size = new System.Drawing.Size(194, 40);
-            this.btnQLXeDapDien.TabIndex = 1;
-            this.btnQLXeDapDien.Text = "Xe Đạp Điện";
-            this.btnQLXeDapDien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLXeDapDien.UseVisualStyleBackColor = false;
-            this.btnQLXeDapDien.Click += new System.EventHandler(this.btnQLXeDapDien_Click);
+            btnQLXeDapDien.Dock = DockStyle.Top;
+            btnQLXeDapDien.FlatAppearance.BorderSize = 0;
+            btnQLXeDapDien.FlatStyle = FlatStyle.Flat;
+            btnQLXeDapDien.Location = new Point(0, 0);
+            btnQLXeDapDien.Margin = new Padding(4, 5, 4, 5);
+            btnQLXeDapDien.Name = "btnQLXeDapDien";
+            btnQLXeDapDien.Padding = new Padding(47, 0, 0, 0);
+            btnQLXeDapDien.Size = new Size(259, 55);
+            btnQLXeDapDien.TabIndex = 1;
+            btnQLXeDapDien.Text = "Xe Đạp Điện";
+            btnQLXeDapDien.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLXeDapDien.UseVisualStyleBackColor = false;
+            btnQLXeDapDien.Click += btnQLXeDapDien_Click;
             // 
             // btnQLXe
             // 
-            this.btnQLXe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQLXe.FlatAppearance.BorderSize = 0;
-            this.btnQLXe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQLXe.Name = "btnQLXe";
-            this.btnQLXe.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnQLXe.Size = new System.Drawing.Size(194, 40);
-            this.btnQLXe.TabIndex = 1;
-            this.btnQLXe.Text = "Quản Lí Xe";
-            this.btnQLXe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQLXe.UseVisualStyleBackColor = false;
-            this.btnQLXe.Click += new System.EventHandler(this.BtnQLXe_Click);
+            btnQLXe.Dock = DockStyle.Top;
+            btnQLXe.FlatAppearance.BorderSize = 0;
+            btnQLXe.FlatStyle = FlatStyle.Flat;
+            btnQLXe.Location = new Point(0, 62);
+            btnQLXe.Margin = new Padding(4, 5, 4, 5);
+            btnQLXe.Name = "btnQLXe";
+            btnQLXe.Padding = new Padding(13, 0, 0, 0);
+            btnQLXe.Size = new Size(259, 55);
+            btnQLXe.TabIndex = 1;
+            btnQLXe.Text = "Quản Lí Xe";
+            btnQLXe.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLXe.UseVisualStyleBackColor = false;
+            btnQLXe.Click += BtnQLXe_Click;
             // 
             // btnTongQuan
             // 
-            this.btnTongQuan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTongQuan.FlatAppearance.BorderSize = 0;
-            this.btnTongQuan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTongQuan.Name = "btnTongQuan";
-            this.btnTongQuan.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnTongQuan.Size = new System.Drawing.Size(194, 40);
-            this.btnTongQuan.TabIndex = 0;
-            this.btnTongQuan.Text = "Tổng Quan";
-            this.btnTongQuan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTongQuan.UseVisualStyleBackColor = false;
-            this.btnTongQuan.Click += new System.EventHandler(this.btnTongQuan_Click);
+            btnTongQuan.Dock = DockStyle.Top;
+            btnTongQuan.FlatAppearance.BorderSize = 0;
+            btnTongQuan.FlatStyle = FlatStyle.Flat;
+            btnTongQuan.Location = new Point(0, 0);
+            btnTongQuan.Margin = new Padding(4, 5, 4, 5);
+            btnTongQuan.Name = "btnTongQuan";
+            btnTongQuan.Padding = new Padding(13, 0, 0, 0);
+            btnTongQuan.Size = new Size(259, 55);
+            btnTongQuan.TabIndex = 0;
+            btnTongQuan.Text = "Tổng Quan";
+            btnTongQuan.TextAlign = ContentAlignment.MiddleLeft;
+            btnTongQuan.UseVisualStyleBackColor = false;
+            btnTongQuan.Click += btnTongQuan_Click;
             // 
             // usSideBar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.tbTong);
-            this.Name = "usSideBar";
-            this.Size = new System.Drawing.Size(200, 750);
-            this.tbTong.ResumeLayout(false);
-            this.tbLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            this.panelButton.ResumeLayout(false);
-            this.subMenuPanel.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(tbTong);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "usSideBar";
+            Size = new Size(267, 1154);
+            tbTong.ResumeLayout(false);
+            tbLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+            panelButton.ResumeLayout(false);
+            subMenuPanel.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         private void BtnQLXe_Click(object sender, EventArgs e)
         {
             subMenuVisible = !subMenuVisible;
             subMenuPanel.Visible = subMenuVisible;
-            subMenuPanel.Height = subMenuVisible ? 90 : 0;
+            subMenuPanel.Height = subMenuVisible ? 110 : 0;
         }
 
         private void ActivateButton(Button btn)

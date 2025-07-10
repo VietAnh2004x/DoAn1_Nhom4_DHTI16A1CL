@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +11,41 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
     internal class HoaDon
     {
-        private string maHoaDon { get; set; }
-        private string maKhachHang { get; set; }
-        private string tenDangNhap { get; set; }
-        private DateTime ngayLap { get; set; }
-        private double tongTien { get; set; }
+        [Key]
+        [Column("MaHD")]
+        [DisplayName("Mã Hóa Đơn")]
+        [StringLength(20)]
+        public string maHoaDon { get; set; }
+
+        [Required]
+        [Column("MaKH")]
+        [DisplayName("Mã Khách Hàng")]
+        [StringLength(20)]
+        public string maKhachHang { get; set; }
+
+        [Required]
+        [Column("TenNhanVien")]
+        [DisplayName("Tên Nhân Viên")]
+        [StringLength(100)]
+        public string tenNhanVien { get; set; }
+
+        [Required]
+        [Column("NgayLap")]
+        [DisplayName("Ngày Lập")]
+        [DataType(DataType.Date)]
+        public DateTime ngayLap { get; set; }
+
+        [Required]
+        [Column("TongTien")]
+        [DisplayName("Tổng Tiền")]
+        [DataType(DataType.Currency)]
+        public decimal tongTien { get; set; }
+
+        public virtual KhachHang KhachHang { get; set; }
+        public virtual TaiKhoan TaiKhoan { get; set; }
+
+        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+        public virtual ICollection<BaoHanh> BaoHanhs { get; set; }
+
     }
 }

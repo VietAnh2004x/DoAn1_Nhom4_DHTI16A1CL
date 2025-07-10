@@ -17,431 +17,423 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
 
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tbTong = new System.Windows.Forms.TableLayoutPanel();
-            this.tbHienThi = new System.Windows.Forms.TableLayoutPanel();
-            this.tbTrai = new System.Windows.Forms.TableLayoutPanel();
-            this.grpTTBaoHanh = new System.Windows.Forms.GroupBox();
-            this.txtMaBaoHanh = new System.Windows.Forms.TextBox();
-            this.lblMaBaoHanh = new System.Windows.Forms.Label();
-            this.txtThoiHan = new System.Windows.Forms.TextBox();
-            this.txtNgayBatDau = new System.Windows.Forms.TextBox();
-            this.txtMaHoaDon = new System.Windows.Forms.TextBox();
-            this.txtMaXe = new System.Windows.Forms.TextBox();
-            this.lblThoiHan = new System.Windows.Forms.Label();
-            this.lblNgayBatDau = new System.Windows.Forms.Label();
-            this.lblMaXe = new System.Windows.Forms.Label();
-            this.lblMaHoaDon = new System.Windows.Forms.Label();
-            this.grpTacVu = new System.Windows.Forms.GroupBox();
-            this.btnLamMoi = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.tbPhai = new System.Windows.Forms.TableLayoutPanel();
-            this.grpTimKiemPhieuBaoHanh = new System.Windows.Forms.GroupBox();
-            this.txtTimKiemPhieuBaoHanh = new System.Windows.Forms.TextBox();
-            this.lblTimKiemPhieuBaoHanh = new System.Windows.Forms.Label();
-            this.btnTimKiem = new System.Windows.Forms.Button();
-            this.grpDSBaoHanh = new System.Windows.Forms.GroupBox();
-            this.dgvDSBaoHanh = new System.Windows.Forms.DataGridView();
-            this.colMaBaoHanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaXe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThoiHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTieuDe = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.tbTong.SuspendLayout();
-            this.tbHienThi.SuspendLayout();
-            this.tbTrai.SuspendLayout();
-            this.grpTTBaoHanh.SuspendLayout();
-            this.grpTacVu.SuspendLayout();
-            this.tbPhai.SuspendLayout();
-            this.grpTimKiemPhieuBaoHanh.SuspendLayout();
-            this.grpDSBaoHanh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDSBaoHanh)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            tbTong = new TableLayoutPanel();
+            tbHienThi = new TableLayoutPanel();
+            tbTrai = new TableLayoutPanel();
+            grpTTBaoHanh = new GroupBox();
+            txtMaBaoHanh = new TextBox();
+            lblMaBaoHanh = new Label();
+            txtThoiHan = new TextBox();
+            txtNgayBatDau = new TextBox();
+            txtMaHoaDon = new TextBox();
+            txtMaXe = new TextBox();
+            lblThoiHan = new Label();
+            lblNgayBatDau = new Label();
+            lblMaXe = new Label();
+            lblMaHoaDon = new Label();
+            grpTacVu = new GroupBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            btnLamMoi = new Button();
+            btnThem = new Button();
+            btnXoa = new Button();
+            btnSua = new Button();
+            tbPhai = new TableLayoutPanel();
+            grpTimKiemPhieuBaoHanh = new GroupBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            lblTimKiemPhieuBaoHanh = new Label();
+            txtTimKiemPhieuBaoHanh = new TextBox();
+            btnTimKiem = new Button();
+            grpDSBaoHanh = new GroupBox();
+            dgvDSBaoHanh = new DataGridView();
+            lblTieuDe = new Label();
+            panel1.SuspendLayout();
+            tbTong.SuspendLayout();
+            tbHienThi.SuspendLayout();
+            tbTrai.SuspendLayout();
+            grpTTBaoHanh.SuspendLayout();
+            grpTacVu.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tbPhai.SuspendLayout();
+            grpTimKiemPhieuBaoHanh.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            grpDSBaoHanh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDSBaoHanh).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LavenderBlush;
-            this.panel1.Controls.Add(this.tbTong);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 750);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = Color.LavenderBlush;
+            panel1.Controls.Add(tbTong);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1000, 750);
+            panel1.TabIndex = 0;
             // 
             // tbTong
             // 
-            this.tbTong.ColumnCount = 1;
-            this.tbTong.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tbTong.Controls.Add(this.tbHienThi, 0, 1);
-            this.tbTong.Controls.Add(this.lblTieuDe, 0, 0);
-            this.tbTong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTong.Location = new System.Drawing.Point(0, 0);
-            this.tbTong.Name = "tbTong";
-            this.tbTong.RowCount = 2;
-            this.tbTong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tbTong.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tbTong.Size = new System.Drawing.Size(1000, 750);
-            this.tbTong.TabIndex = 0;
+            tbTong.ColumnCount = 1;
+            tbTong.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tbTong.Controls.Add(tbHienThi, 0, 1);
+            tbTong.Controls.Add(lblTieuDe, 0, 0);
+            tbTong.Dock = DockStyle.Fill;
+            tbTong.Location = new Point(0, 0);
+            tbTong.Name = "tbTong";
+            tbTong.RowCount = 2;
+            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 85F));
+            tbTong.Size = new Size(1000, 750);
+            tbTong.TabIndex = 0;
             // 
             // tbHienThi
             // 
-            this.tbHienThi.ColumnCount = 2;
-            this.tbHienThi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tbHienThi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tbHienThi.Controls.Add(this.tbTrai, 0, 0);
-            this.tbHienThi.Controls.Add(this.tbPhai, 1, 0);
-            this.tbHienThi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbHienThi.Location = new System.Drawing.Point(3, 115);
-            this.tbHienThi.Name = "tbHienThi";
-            this.tbHienThi.RowCount = 1;
-            this.tbHienThi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 632F));
-            this.tbHienThi.Size = new System.Drawing.Size(994, 632);
-            this.tbHienThi.TabIndex = 0;
+            tbHienThi.ColumnCount = 2;
+            tbHienThi.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tbHienThi.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            tbHienThi.Controls.Add(tbTrai, 0, 0);
+            tbHienThi.Controls.Add(tbPhai, 1, 0);
+            tbHienThi.Dock = DockStyle.Fill;
+            tbHienThi.Location = new Point(3, 115);
+            tbHienThi.Name = "tbHienThi";
+            tbHienThi.RowCount = 1;
+            tbHienThi.RowStyles.Add(new RowStyle(SizeType.Absolute, 632F));
+            tbHienThi.Size = new Size(994, 632);
+            tbHienThi.TabIndex = 0;
             // 
             // tbTrai
             // 
-            this.tbTrai.ColumnCount = 1;
-            this.tbTrai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 391F));
-            this.tbTrai.Controls.Add(this.grpTTBaoHanh, 0, 0);
-            this.tbTrai.Controls.Add(this.grpTacVu, 0, 1);
-            this.tbTrai.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTrai.Location = new System.Drawing.Point(3, 3);
-            this.tbTrai.Name = "tbTrai";
-            this.tbTrai.RowCount = 2;
-            this.tbTrai.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tbTrai.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tbTrai.Size = new System.Drawing.Size(391, 626);
-            this.tbTrai.TabIndex = 0;
+            tbTrai.ColumnCount = 1;
+            tbTrai.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 391F));
+            tbTrai.Controls.Add(grpTTBaoHanh, 0, 0);
+            tbTrai.Controls.Add(grpTacVu, 0, 1);
+            tbTrai.Dock = DockStyle.Fill;
+            tbTrai.Location = new Point(3, 3);
+            tbTrai.Name = "tbTrai";
+            tbTrai.RowCount = 2;
+            tbTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
+            tbTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tbTrai.Size = new Size(391, 626);
+            tbTrai.TabIndex = 0;
             // 
             // grpTTBaoHanh
             // 
-            this.grpTTBaoHanh.Controls.Add(this.txtMaBaoHanh);
-            this.grpTTBaoHanh.Controls.Add(this.lblMaBaoHanh);
-            this.grpTTBaoHanh.Controls.Add(this.txtThoiHan);
-            this.grpTTBaoHanh.Controls.Add(this.txtNgayBatDau);
-            this.grpTTBaoHanh.Controls.Add(this.txtMaHoaDon);
-            this.grpTTBaoHanh.Controls.Add(this.txtMaXe);
-            this.grpTTBaoHanh.Controls.Add(this.lblThoiHan);
-            this.grpTTBaoHanh.Controls.Add(this.lblNgayBatDau);
-            this.grpTTBaoHanh.Controls.Add(this.lblMaXe);
-            this.grpTTBaoHanh.Controls.Add(this.lblMaHoaDon);
-            this.grpTTBaoHanh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpTTBaoHanh.Location = new System.Drawing.Point(3, 3);
-            this.grpTTBaoHanh.Name = "grpTTBaoHanh";
-            this.grpTTBaoHanh.Size = new System.Drawing.Size(385, 463);
-            this.grpTTBaoHanh.TabIndex = 0;
-            this.grpTTBaoHanh.TabStop = false;
-            this.grpTTBaoHanh.Text = "Thông Tin Bảo Hành";
+            grpTTBaoHanh.Controls.Add(txtMaBaoHanh);
+            grpTTBaoHanh.Controls.Add(lblMaBaoHanh);
+            grpTTBaoHanh.Controls.Add(txtThoiHan);
+            grpTTBaoHanh.Controls.Add(txtNgayBatDau);
+            grpTTBaoHanh.Controls.Add(txtMaHoaDon);
+            grpTTBaoHanh.Controls.Add(txtMaXe);
+            grpTTBaoHanh.Controls.Add(lblThoiHan);
+            grpTTBaoHanh.Controls.Add(lblNgayBatDau);
+            grpTTBaoHanh.Controls.Add(lblMaXe);
+            grpTTBaoHanh.Controls.Add(lblMaHoaDon);
+            grpTTBaoHanh.Dock = DockStyle.Fill;
+            grpTTBaoHanh.Location = new Point(3, 3);
+            grpTTBaoHanh.Name = "grpTTBaoHanh";
+            grpTTBaoHanh.Size = new Size(385, 463);
+            grpTTBaoHanh.TabIndex = 0;
+            grpTTBaoHanh.TabStop = false;
+            grpTTBaoHanh.Text = "Thông Tin Bảo Hành";
             // 
             // txtMaBaoHanh
             // 
-            this.txtMaBaoHanh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaBaoHanh.Location = new System.Drawing.Point(165, 67);
-            this.txtMaBaoHanh.Name = "txtMaBaoHanh";
-            this.txtMaBaoHanh.Size = new System.Drawing.Size(140, 30);
-            this.txtMaBaoHanh.TabIndex = 11;
+            txtMaBaoHanh.BorderStyle = BorderStyle.FixedSingle;
+            txtMaBaoHanh.Location = new Point(165, 67);
+            txtMaBaoHanh.Name = "txtMaBaoHanh";
+            txtMaBaoHanh.Size = new Size(140, 30);
+            txtMaBaoHanh.TabIndex = 11;
             // 
             // lblMaBaoHanh
             // 
-            this.lblMaBaoHanh.Location = new System.Drawing.Point(6, 69);
-            this.lblMaBaoHanh.Name = "lblMaBaoHanh";
-            this.lblMaBaoHanh.Size = new System.Drawing.Size(153, 32);
-            this.lblMaBaoHanh.TabIndex = 10;
-            this.lblMaBaoHanh.Text = "Mã Bảo Hành";
+            lblMaBaoHanh.Location = new Point(6, 69);
+            lblMaBaoHanh.Name = "lblMaBaoHanh";
+            lblMaBaoHanh.Size = new Size(153, 32);
+            lblMaBaoHanh.TabIndex = 10;
+            lblMaBaoHanh.Text = "Mã Bảo Hành";
             // 
             // txtThoiHan
             // 
-            this.txtThoiHan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtThoiHan.Location = new System.Drawing.Point(165, 376);
-            this.txtThoiHan.Name = "txtThoiHan";
-            this.txtThoiHan.Size = new System.Drawing.Size(140, 30);
-            this.txtThoiHan.TabIndex = 9;
+            txtThoiHan.BorderStyle = BorderStyle.FixedSingle;
+            txtThoiHan.Location = new Point(165, 376);
+            txtThoiHan.Name = "txtThoiHan";
+            txtThoiHan.Size = new Size(140, 30);
+            txtThoiHan.TabIndex = 9;
             // 
             // txtNgayBatDau
             // 
-            this.txtNgayBatDau.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNgayBatDau.Location = new System.Drawing.Point(165, 298);
-            this.txtNgayBatDau.Name = "txtNgayBatDau";
-            this.txtNgayBatDau.Size = new System.Drawing.Size(140, 30);
-            this.txtNgayBatDau.TabIndex = 8;
+            txtNgayBatDau.BorderStyle = BorderStyle.FixedSingle;
+            txtNgayBatDau.Location = new Point(165, 298);
+            txtNgayBatDau.Name = "txtNgayBatDau";
+            txtNgayBatDau.Size = new Size(140, 30);
+            txtNgayBatDau.TabIndex = 8;
             // 
             // txtMaHoaDon
             // 
-            this.txtMaHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaHoaDon.Location = new System.Drawing.Point(165, 145);
-            this.txtMaHoaDon.Name = "txtMaHoaDon";
-            this.txtMaHoaDon.Size = new System.Drawing.Size(140, 30);
-            this.txtMaHoaDon.TabIndex = 7;
+            txtMaHoaDon.BorderStyle = BorderStyle.FixedSingle;
+            txtMaHoaDon.Location = new Point(165, 145);
+            txtMaHoaDon.Name = "txtMaHoaDon";
+            txtMaHoaDon.Size = new Size(140, 30);
+            txtMaHoaDon.TabIndex = 7;
             // 
             // txtMaXe
             // 
-            this.txtMaXe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaXe.Location = new System.Drawing.Point(165, 223);
-            this.txtMaXe.Name = "txtMaXe";
-            this.txtMaXe.Size = new System.Drawing.Size(140, 30);
-            this.txtMaXe.TabIndex = 6;
+            txtMaXe.BorderStyle = BorderStyle.FixedSingle;
+            txtMaXe.Location = new Point(165, 223);
+            txtMaXe.Name = "txtMaXe";
+            txtMaXe.Size = new Size(140, 30);
+            txtMaXe.TabIndex = 6;
             // 
             // lblThoiHan
             // 
-            this.lblThoiHan.Location = new System.Drawing.Point(6, 378);
-            this.lblThoiHan.Name = "lblThoiHan";
-            this.lblThoiHan.Size = new System.Drawing.Size(103, 34);
-            this.lblThoiHan.TabIndex = 4;
-            this.lblThoiHan.Text = "Thời Hạn:";
+            lblThoiHan.Location = new Point(6, 378);
+            lblThoiHan.Name = "lblThoiHan";
+            lblThoiHan.Size = new Size(103, 34);
+            lblThoiHan.TabIndex = 4;
+            lblThoiHan.Text = "Thời Hạn:";
             // 
             // lblNgayBatDau
             // 
-            this.lblNgayBatDau.Location = new System.Drawing.Point(6, 300);
-            this.lblNgayBatDau.Name = "lblNgayBatDau";
-            this.lblNgayBatDau.Size = new System.Drawing.Size(147, 32);
-            this.lblNgayBatDau.TabIndex = 3;
-            this.lblNgayBatDau.Text = "Ngày Bắt Đầu:";
+            lblNgayBatDau.Location = new Point(6, 300);
+            lblNgayBatDau.Name = "lblNgayBatDau";
+            lblNgayBatDau.Size = new Size(147, 32);
+            lblNgayBatDau.TabIndex = 3;
+            lblNgayBatDau.Text = "Ngày Bắt Đầu:";
             // 
             // lblMaXe
             // 
-            this.lblMaXe.Location = new System.Drawing.Point(6, 225);
-            this.lblMaXe.Name = "lblMaXe";
-            this.lblMaXe.Size = new System.Drawing.Size(127, 29);
-            this.lblMaXe.TabIndex = 2;
-            this.lblMaXe.Text = "Mã Xe:";
+            lblMaXe.Location = new Point(6, 225);
+            lblMaXe.Name = "lblMaXe";
+            lblMaXe.Size = new Size(127, 29);
+            lblMaXe.TabIndex = 2;
+            lblMaXe.Text = "Mã Xe:";
             // 
             // lblMaHoaDon
             // 
-            this.lblMaHoaDon.Location = new System.Drawing.Point(6, 147);
-            this.lblMaHoaDon.Name = "lblMaHoaDon";
-            this.lblMaHoaDon.Size = new System.Drawing.Size(127, 32);
-            this.lblMaHoaDon.TabIndex = 1;
-            this.lblMaHoaDon.Text = "Mã Hóa Đơn:";
+            lblMaHoaDon.Location = new Point(6, 147);
+            lblMaHoaDon.Name = "lblMaHoaDon";
+            lblMaHoaDon.Size = new Size(127, 32);
+            lblMaHoaDon.TabIndex = 1;
+            lblMaHoaDon.Text = "Mã Hóa Đơn:";
             // 
             // grpTacVu
             // 
-            this.grpTacVu.Controls.Add(this.btnLamMoi);
-            this.grpTacVu.Controls.Add(this.btnXoa);
-            this.grpTacVu.Controls.Add(this.btnSua);
-            this.grpTacVu.Controls.Add(this.btnThem);
-            this.grpTacVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpTacVu.Location = new System.Drawing.Point(3, 472);
-            this.grpTacVu.Name = "grpTacVu";
-            this.grpTacVu.Size = new System.Drawing.Size(385, 151);
-            this.grpTacVu.TabIndex = 1;
-            this.grpTacVu.TabStop = false;
-            this.grpTacVu.Text = "Tác Vụ";
+            grpTacVu.Controls.Add(tableLayoutPanel1);
+            grpTacVu.Dock = DockStyle.Fill;
+            grpTacVu.Location = new Point(3, 472);
+            grpTacVu.Name = "grpTacVu";
+            grpTacVu.Size = new Size(385, 151);
+            grpTacVu.TabIndex = 1;
+            grpTacVu.TabStop = false;
+            grpTacVu.Text = "Tác Vụ";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(btnLamMoi, 1, 1);
+            tableLayoutPanel1.Controls.Add(btnThem, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnXoa, 0, 1);
+            tableLayoutPanel1.Controls.Add(btnSua, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(3, 26);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(379, 122);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btnLamMoi.Location = new System.Drawing.Point(224, 97);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(100, 35);
-            this.btnLamMoi.TabIndex = 3;
-            this.btnLamMoi.Text = "Làm Mới";
-            this.btnLamMoi.UseVisualStyleBackColor = false;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(59, 97);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(100, 35);
-            this.btnXoa.TabIndex = 2;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = false;
-            // 
-            // btnSua
-            // 
-            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
-            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(224, 36);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(100, 35);
-            this.btnSua.TabIndex = 1;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = false;
+            btnLamMoi.Anchor = AnchorStyles.None;
+            btnLamMoi.BackColor = Color.FromArgb(255, 193, 7);
+            btnLamMoi.FlatStyle = FlatStyle.Flat;
+            btnLamMoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLamMoi.ForeColor = Color.White;
+            btnLamMoi.Location = new Point(227, 69);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(113, 45);
+            btnLamMoi.TabIndex = 15;
+            btnLamMoi.Text = "Làm Mới";
+            btnLamMoi.UseVisualStyleBackColor = false;
             // 
             // btnThem
             // 
-            this.btnThem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(59, 36);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(100, 35);
-            this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = false;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            btnThem.Anchor = AnchorStyles.None;
+            btnThem.BackColor = Color.FromArgb(40, 167, 69);
+            btnThem.FlatStyle = FlatStyle.Flat;
+            btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnThem.ForeColor = Color.White;
+            btnThem.Location = new Point(38, 8);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(113, 45);
+            btnThem.TabIndex = 12;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
+            // 
+            // btnXoa
+            // 
+            btnXoa.Anchor = AnchorStyles.None;
+            btnXoa.BackColor = Color.FromArgb(220, 53, 69);
+            btnXoa.FlatStyle = FlatStyle.Flat;
+            btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnXoa.ForeColor = Color.White;
+            btnXoa.Location = new Point(38, 69);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(113, 45);
+            btnXoa.TabIndex = 14;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = false;
+            // 
+            // btnSua
+            // 
+            btnSua.Anchor = AnchorStyles.None;
+            btnSua.BackColor = Color.FromArgb(0, 123, 255);
+            btnSua.FlatStyle = FlatStyle.Flat;
+            btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnSua.ForeColor = Color.White;
+            btnSua.Location = new Point(227, 8);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(113, 45);
+            btnSua.TabIndex = 13;
+            btnSua.Text = "Sửa";
+            btnSua.UseVisualStyleBackColor = false;
             // 
             // tbPhai
             // 
-            this.tbPhai.ColumnCount = 1;
-            this.tbPhai.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 591F));
-            this.tbPhai.Controls.Add(this.grpTimKiemPhieuBaoHanh, 0, 0);
-            this.tbPhai.Controls.Add(this.grpDSBaoHanh, 0, 1);
-            this.tbPhai.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPhai.Location = new System.Drawing.Point(400, 3);
-            this.tbPhai.Name = "tbPhai";
-            this.tbPhai.RowCount = 2;
-            this.tbPhai.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tbPhai.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tbPhai.Size = new System.Drawing.Size(591, 626);
-            this.tbPhai.TabIndex = 1;
+            tbPhai.ColumnCount = 1;
+            tbPhai.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 591F));
+            tbPhai.Controls.Add(grpTimKiemPhieuBaoHanh, 0, 0);
+            tbPhai.Controls.Add(grpDSBaoHanh, 0, 1);
+            tbPhai.Dock = DockStyle.Fill;
+            tbPhai.Location = new Point(400, 3);
+            tbPhai.Name = "tbPhai";
+            tbPhai.RowCount = 2;
+            tbPhai.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tbPhai.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tbPhai.Size = new Size(591, 626);
+            tbPhai.TabIndex = 1;
             // 
             // grpTimKiemPhieuBaoHanh
             // 
-            this.grpTimKiemPhieuBaoHanh.Controls.Add(this.txtTimKiemPhieuBaoHanh);
-            this.grpTimKiemPhieuBaoHanh.Controls.Add(this.lblTimKiemPhieuBaoHanh);
-            this.grpTimKiemPhieuBaoHanh.Controls.Add(this.btnTimKiem);
-            this.grpTimKiemPhieuBaoHanh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpTimKiemPhieuBaoHanh.Location = new System.Drawing.Point(3, 3);
-            this.grpTimKiemPhieuBaoHanh.Name = "grpTimKiemPhieuBaoHanh";
-            this.grpTimKiemPhieuBaoHanh.Size = new System.Drawing.Size(585, 119);
-            this.grpTimKiemPhieuBaoHanh.TabIndex = 0;
-            this.grpTimKiemPhieuBaoHanh.TabStop = false;
-            this.grpTimKiemPhieuBaoHanh.Text = "Tìm Kiếm Phiếu Bảo Hành";
+            grpTimKiemPhieuBaoHanh.Controls.Add(tableLayoutPanel2);
+            grpTimKiemPhieuBaoHanh.Dock = DockStyle.Fill;
+            grpTimKiemPhieuBaoHanh.Location = new Point(3, 3);
+            grpTimKiemPhieuBaoHanh.Name = "grpTimKiemPhieuBaoHanh";
+            grpTimKiemPhieuBaoHanh.Size = new Size(585, 119);
+            grpTimKiemPhieuBaoHanh.TabIndex = 0;
+            grpTimKiemPhieuBaoHanh.TabStop = false;
+            grpTimKiemPhieuBaoHanh.Text = "Tìm Kiếm Phiếu Bảo Hành";
             // 
-            // txtTimKiemPhieuBaoHanh
+            // tableLayoutPanel2
             // 
-            this.txtTimKiemPhieuBaoHanh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTimKiemPhieuBaoHanh.Location = new System.Drawing.Point(180, 49);
-            this.txtTimKiemPhieuBaoHanh.Name = "txtTimKiemPhieuBaoHanh";
-            this.txtTimKiemPhieuBaoHanh.Size = new System.Drawing.Size(196, 30);
-            this.txtTimKiemPhieuBaoHanh.TabIndex = 6;
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel2.Controls.Add(lblTimKiemPhieuBaoHanh, 0, 0);
+            tableLayoutPanel2.Controls.Add(txtTimKiemPhieuBaoHanh, 1, 0);
+            tableLayoutPanel2.Controls.Add(btnTimKiem, 2, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 26);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(579, 90);
+            tableLayoutPanel2.TabIndex = 0;
             // 
             // lblTimKiemPhieuBaoHanh
             // 
-            this.lblTimKiemPhieuBaoHanh.Location = new System.Drawing.Point(14, 52);
-            this.lblTimKiemPhieuBaoHanh.Name = "lblTimKiemPhieuBaoHanh";
-            this.lblTimKiemPhieuBaoHanh.Size = new System.Drawing.Size(160, 23);
-            this.lblTimKiemPhieuBaoHanh.TabIndex = 5;
-            this.lblTimKiemPhieuBaoHanh.Text = "Mã Phiếu Bảo Hành:";
+            lblTimKiemPhieuBaoHanh.Anchor = AnchorStyles.None;
+            lblTimKiemPhieuBaoHanh.Location = new Point(3, 33);
+            lblTimKiemPhieuBaoHanh.Name = "lblTimKiemPhieuBaoHanh";
+            lblTimKiemPhieuBaoHanh.Size = new Size(167, 23);
+            lblTimKiemPhieuBaoHanh.TabIndex = 13;
+            lblTimKiemPhieuBaoHanh.Text = "Mã Phiếu Bảo Hành:";
+            // 
+            // txtTimKiemPhieuBaoHanh
+            // 
+            txtTimKiemPhieuBaoHanh.Anchor = AnchorStyles.None;
+            txtTimKiemPhieuBaoHanh.BorderStyle = BorderStyle.FixedSingle;
+            txtTimKiemPhieuBaoHanh.Location = new Point(190, 30);
+            txtTimKiemPhieuBaoHanh.Name = "txtTimKiemPhieuBaoHanh";
+            txtTimKiemPhieuBaoHanh.Size = new Size(196, 30);
+            txtTimKiemPhieuBaoHanh.TabIndex = 14;
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
-            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
-            this.btnTimKiem.Location = new System.Drawing.Point(433, 43);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(125, 35);
-            this.btnTimKiem.TabIndex = 4;
-            this.btnTimKiem.Text = "Tìm Kiếm";
-            this.btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Anchor = AnchorStyles.None;
+            btnTimKiem.BackColor = Color.FromArgb(108, 117, 125);
+            btnTimKiem.FlatStyle = FlatStyle.Flat;
+            btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnTimKiem.ForeColor = Color.White;
+            btnTimKiem.Location = new Point(429, 27);
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(125, 35);
+            btnTimKiem.TabIndex = 12;
+            btnTimKiem.Text = "Tìm Kiếm";
+            btnTimKiem.UseVisualStyleBackColor = false;
             // 
             // grpDSBaoHanh
             // 
-            this.grpDSBaoHanh.Controls.Add(this.dgvDSBaoHanh);
-            this.grpDSBaoHanh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpDSBaoHanh.Location = new System.Drawing.Point(3, 128);
-            this.grpDSBaoHanh.Name = "grpDSBaoHanh";
-            this.grpDSBaoHanh.Size = new System.Drawing.Size(585, 495);
-            this.grpDSBaoHanh.TabIndex = 1;
-            this.grpDSBaoHanh.TabStop = false;
-            this.grpDSBaoHanh.Text = "Danh Sách Bảo Hành";
+            grpDSBaoHanh.Controls.Add(dgvDSBaoHanh);
+            grpDSBaoHanh.Dock = DockStyle.Fill;
+            grpDSBaoHanh.Location = new Point(3, 128);
+            grpDSBaoHanh.Name = "grpDSBaoHanh";
+            grpDSBaoHanh.Size = new Size(585, 495);
+            grpDSBaoHanh.TabIndex = 1;
+            grpDSBaoHanh.TabStop = false;
+            grpDSBaoHanh.Text = "Danh Sách Bảo Hành";
             // 
             // dgvDSBaoHanh
             // 
-            this.dgvDSBaoHanh.AllowUserToAddRows = false;
-            this.dgvDSBaoHanh.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDSBaoHanh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDSBaoHanh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMaBaoHanh,
-            this.colMaHoaDon,
-            this.colMaXe,
-            this.colNgayBatDau,
-            this.colThoiHan});
-            this.dgvDSBaoHanh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDSBaoHanh.Location = new System.Drawing.Point(3, 26);
-            this.dgvDSBaoHanh.Name = "dgvDSBaoHanh";
-            this.dgvDSBaoHanh.RowHeadersWidth = 51;
-            this.dgvDSBaoHanh.Size = new System.Drawing.Size(579, 466);
-            this.dgvDSBaoHanh.TabIndex = 0;
-            // 
-            // colMaBaoHanh
-            // 
-            this.colMaBaoHanh.HeaderText = "Mã Bảo Hành";
-            this.colMaBaoHanh.MinimumWidth = 6;
-            this.colMaBaoHanh.Name = "colMaBaoHanh";
-            this.colMaBaoHanh.Width = 150;
-            // 
-            // colMaHoaDon
-            // 
-            this.colMaHoaDon.HeaderText = "Mã Hóa Đơn";
-            this.colMaHoaDon.MinimumWidth = 6;
-            this.colMaHoaDon.Name = "colMaHoaDon";
-            this.colMaHoaDon.ReadOnly = true;
-            this.colMaHoaDon.Width = 150;
-            // 
-            // colMaXe
-            // 
-            this.colMaXe.HeaderText = "Mã Xe";
-            this.colMaXe.MinimumWidth = 6;
-            this.colMaXe.Name = "colMaXe";
-            this.colMaXe.ReadOnly = true;
-            this.colMaXe.Width = 150;
-            // 
-            // colNgayBatDau
-            // 
-            this.colNgayBatDau.HeaderText = "Ngày Bắt Đầu";
-            this.colNgayBatDau.MinimumWidth = 6;
-            this.colNgayBatDau.Name = "colNgayBatDau";
-            this.colNgayBatDau.ReadOnly = true;
-            this.colNgayBatDau.Width = 150;
-            // 
-            // colThoiHan
-            // 
-            this.colThoiHan.HeaderText = "Thời Hạn";
-            this.colThoiHan.MinimumWidth = 6;
-            this.colThoiHan.Name = "colThoiHan";
-            this.colThoiHan.ReadOnly = true;
-            this.colThoiHan.Width = 150;
+            dgvDSBaoHanh.AllowUserToAddRows = false;
+            dgvDSBaoHanh.BackgroundColor = Color.White;
+            dgvDSBaoHanh.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDSBaoHanh.Dock = DockStyle.Fill;
+            dgvDSBaoHanh.Location = new Point(3, 26);
+            dgvDSBaoHanh.Name = "dgvDSBaoHanh";
+            dgvDSBaoHanh.RowHeadersWidth = 51;
+            dgvDSBaoHanh.Size = new Size(579, 466);
+            dgvDSBaoHanh.TabIndex = 0;
             // 
             // lblTieuDe
             // 
-            this.lblTieuDe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTieuDe.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTieuDe.ForeColor = System.Drawing.Color.MediumPurple;
-            this.lblTieuDe.Location = new System.Drawing.Point(3, 0);
-            this.lblTieuDe.Name = "lblTieuDe";
-            this.lblTieuDe.Size = new System.Drawing.Size(994, 112);
-            this.lblTieuDe.TabIndex = 1;
-            this.lblTieuDe.Text = "QUẢN LÝ BẢO HÀNH";
-            this.lblTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTieuDe.Dock = DockStyle.Fill;
+            lblTieuDe.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTieuDe.ForeColor = Color.MediumPurple;
+            lblTieuDe.Location = new Point(3, 0);
+            lblTieuDe.Name = "lblTieuDe";
+            lblTieuDe.Size = new Size(994, 112);
+            lblTieuDe.TabIndex = 1;
+            lblTieuDe.Text = "QUẢN LÝ BẢO HÀNH";
+            lblTieuDe.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // usBaoHanh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
-            this.AutoScaleMode = AutoScaleMode.None;
-            this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.Name = "usBaoHanh";
-            this.Size = new System.Drawing.Size(1000, 750);
-            this.panel1.ResumeLayout(false);
-            this.tbTong.ResumeLayout(false);
-            this.tbHienThi.ResumeLayout(false);
-            this.tbTrai.ResumeLayout(false);
-            this.grpTTBaoHanh.ResumeLayout(false);
-            this.grpTTBaoHanh.PerformLayout();
-            this.grpTacVu.ResumeLayout(false);
-            this.tbPhai.ResumeLayout(false);
-            this.grpTimKiemPhieuBaoHanh.ResumeLayout(false);
-            this.grpTimKiemPhieuBaoHanh.PerformLayout();
-            this.grpDSBaoHanh.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDSBaoHanh)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleMode = AutoScaleMode.None;
+            Controls.Add(panel1);
+            Font = new Font("Segoe UI", 10F);
+            Name = "usBaoHanh";
+            Size = new Size(1000, 750);
+            panel1.ResumeLayout(false);
+            tbTong.ResumeLayout(false);
+            tbHienThi.ResumeLayout(false);
+            tbTrai.ResumeLayout(false);
+            grpTTBaoHanh.ResumeLayout(false);
+            grpTTBaoHanh.PerformLayout();
+            grpTacVu.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tbPhai.ResumeLayout(false);
+            grpTimKiemPhieuBaoHanh.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            grpDSBaoHanh.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDSBaoHanh).EndInit();
+            ResumeLayout(false);
 
         }
 
@@ -459,24 +451,21 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
         private System.Windows.Forms.TextBox txtNgayBatDau;
         private System.Windows.Forms.Label lblThoiHan;
         private System.Windows.Forms.Label lblNgayBatDau;
-        private System.Windows.Forms.Button btnLamMoi;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.TextBox txtTimKiemPhieuBaoHanh;
-        private System.Windows.Forms.Label lblTimKiemPhieuBaoHanh;
-        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridView dgvDSBaoHanh;
-        private DataGridViewTextBoxColumn colMaBaoHanh;
-        private DataGridViewTextBoxColumn colMaHoaDon;
-        private DataGridViewTextBoxColumn colMaXe;
-        private DataGridViewTextBoxColumn colNgayBatDau;
-        private DataGridViewTextBoxColumn colThoiHan;
         private TextBox txtMaHoaDon;
         private TextBox txtMaXe;
         private Label lblMaXe;
         private Label lblMaHoaDon;
         private TextBox txtMaBaoHanh;
         private Label lblMaBaoHanh;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Button btnLamMoi;
+        private Button btnThem;
+        private Button btnXoa;
+        private Button btnSua;
+        private TextBox txtTimKiemPhieuBaoHanh;
+        private Label lblTimKiemPhieuBaoHanh;
+        private Button btnTimKiem;
+        private TableLayoutPanel tableLayoutPanel2;
     }
 }

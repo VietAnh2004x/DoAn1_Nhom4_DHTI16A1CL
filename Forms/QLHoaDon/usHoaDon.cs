@@ -15,6 +15,20 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
         public usHoaDon()
         {
             InitializeComponent();
+            using (var context = new DoAn.Data_Access_Layer.DataDbContext())
+            {
+                BindingSource hoaDonBindingSource = new BindingSource();
+                hoaDonBindingSource.DataSource = context.HoaDon.ToList();
+                dgvDSHoaDon.DataSource = hoaDonBindingSource;
+
+                dgvDSHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvDSHoaDon.Columns["tongTien"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
+
+                dgvDSHoaDon.Columns["ChiTietHoaDons"]!.Visible = false;
+                dgvDSHoaDon.Columns["BaoHanhs"]!.Visible = false;
+                dgvDSHoaDon.Columns["KhachHang"]!.Visible = false;
+                dgvDSHoaDon.Columns["TaiKhoan"]!.Visible = false;
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)

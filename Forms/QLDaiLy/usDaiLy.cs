@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DoAn.Data_Access_Layer;
+using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,15 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
         public usDaiLy()
         {
             InitializeComponent();
+            using (var context = new DataDbContext())
+            {
+                BindingSource daiLyBindingSource = new BindingSource();
+                daiLyBindingSource.DataSource = context.Daily.ToList();
+                dgvDSDaiLy.DataSource = daiLyBindingSource;
+
+                dgvDSDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvDSDaiLy.Columns["Xes"]!.Visible = false;
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
