@@ -1,10 +1,6 @@
-﻿using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
+﻿using DoAn.Data_Transfer_Objects;
+using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoAn.Data_Access_Layer
 {
@@ -16,6 +12,7 @@ namespace DoAn.Data_Access_Layer
         public DbSet<DongXe> DongXe { get; set; }
         public DbSet<HoaDon> HoaDon { get; set; }
         public DbSet<KhachHang> KhachHang { get; set; }
+        public DbSet<NhanVien> NhanVien { get; set; }
         public DbSet<PhanQuyen> PhanQuyen { get; set; }
         public DbSet<TaiKhoan> TaiKhoan { get; set; }
         public DbSet<TonXe> TonXe { get; set; }
@@ -90,6 +87,12 @@ namespace DoAn.Data_Access_Layer
                 .HasMany(tk => tk.HoaDons)
                 .WithOne(hd => hd.TaiKhoan)
                 .HasForeignKey(hd => hd.tenNhanVien);
+
+            // Quan hệ 1-1: NhanVien - TaiKhoan
+            modelBuilder.Entity<NhanVien>()
+                .HasOne(nv => nv.TaiKhoan)
+                .WithOne(tk => tk.NhanVien)
+                .HasForeignKey<NhanVien>(nv => nv.maNV);
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
-    internal class HoaDon
+    public class HoaDon
     {
         [Key]
         [Column("MaHD")]
@@ -41,11 +41,23 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [DataType(DataType.Currency)]
         public decimal tongTien { get; set; }
 
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual TaiKhoan TaiKhoan { get; set; }
+        [ForeignKey("maKhachHang")]
+        public virtual KhachHang? KhachHang { get; set; }
+        [ForeignKey("tenNhanVien")]
+        public virtual TaiKhoan? TaiKhoan { get; set; }
 
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual ICollection<BaoHanh> BaoHanhs { get; set; }
 
+        public HoaDon()
+        {
+            maHoaDon = string.Empty;
+            maKhachHang = string.Empty;
+            tenNhanVien = string.Empty;
+            ngayLap = DateTime.Now;
+            tongTien = 0;
+            ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
+            BaoHanhs = new HashSet<BaoHanh>();
+        }
     }
 }

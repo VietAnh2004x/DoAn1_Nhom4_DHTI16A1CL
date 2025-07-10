@@ -30,7 +30,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.MainForm
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 83F));
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel1.Margin = new Padding(4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -38,12 +38,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.MainForm
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1500, 900);
+            ClientSize = new Size(1250, 750);
             Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(4, 5, 4, 5);
+            Margin = new Padding(4);
             Name = "MainForm";
             Text = "Quản lí kinh doanh cửa hàng";
             ResumeLayout(false);

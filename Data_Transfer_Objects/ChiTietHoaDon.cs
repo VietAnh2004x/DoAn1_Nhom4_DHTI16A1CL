@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
-    internal class ChiTietHoaDon
+    public class ChiTietHoaDon
     {
         [Key]
         [Column("MaHD", Order = 0)]
@@ -34,8 +34,10 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [DataType(DataType.Currency)]
         public double donGia { get; set; }
 
-        public virtual HoaDon HoaDon { get; set; }
-        public virtual ThongTinXe Xe { get; set; }
+        [ForeignKey("maHopDong")]
+        public virtual HoaDon? HoaDon { get; set; }
+        [ForeignKey("maXe")]
+        public virtual ThongTinXe? Xe { get; set; }
 
         public ChiTietHoaDon()
         {
@@ -43,8 +45,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
             maXe = string.Empty;
             soLuong = 0;
             donGia = 0.0;
-            HoaDon = new HoaDon();
-            Xe = new ThongTinXe();
         }
     }
 }

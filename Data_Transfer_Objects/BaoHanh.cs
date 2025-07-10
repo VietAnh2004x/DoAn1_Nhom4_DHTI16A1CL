@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
-    internal class BaoHanh
+    public class BaoHanh
     {
         [Key]
         [Column("MaBH")]
@@ -39,8 +39,10 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [DisplayName("Thời Hạn (Tháng)")]
         public int thoiHanThang { get; set; }
 
-        public virtual HoaDon HoaDon { get; set; }
-        public virtual ThongTinXe Xe { get; set; }
+        [ForeignKey("maHopDong")]
+        public virtual HoaDon? HoaDon { get; set; }
+        [ForeignKey("maXe")]
+        public virtual ThongTinXe? Xe { get; set; }
 
         public BaoHanh() {
             maBaoHanh = string.Empty;
@@ -48,8 +50,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
             maXe = string.Empty;
             ngayBatDau = DateTime.MinValue;
             thoiHanThang = 0;
-            HoaDon = new HoaDon();
-            Xe = new ThongTinXe();
         }
 
     }

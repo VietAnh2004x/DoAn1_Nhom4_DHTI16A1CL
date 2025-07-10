@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
-    internal class DongXe
+    public class DongXe
     {
         [Key]
         [Column("MaDongXe")]

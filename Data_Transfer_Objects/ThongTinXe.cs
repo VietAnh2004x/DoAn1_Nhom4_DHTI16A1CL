@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
-    internal class ThongTinXe
+    public class ThongTinXe
     {
         [Key]
         [Column("MaXe")]
@@ -64,8 +64,10 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [StringLength(200)]
         public string hinhAnh { get; set; }
 
-        public virtual DaiLy DaiLy { get; set; }
-        public virtual DongXe DongXe { get; set; }
+        [ForeignKey("maDaiLy")]
+        public virtual DaiLy? DaiLy { get; set; }
+        [ForeignKey("maDongXe")]
+        public virtual DongXe? DongXe { get; set; }
 
         public virtual ICollection<BaoHanh> BaoHanhs { get; set; }
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
@@ -82,8 +84,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
             dungLuongAcQuy = string.Empty;
             gia = 0;
             hinhAnh = string.Empty;
-            DaiLy = new DaiLy();
-            DongXe = new DongXe();
             BaoHanhs = new HashSet<BaoHanh>();
             ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
             TonXes = new HashSet<TonXe>();

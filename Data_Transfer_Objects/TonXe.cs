@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
-    internal class TonXe
+    public class TonXe
     {
         [Key]
         [Column("MaNhap")]
@@ -34,14 +34,14 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [DisplayName("Số Lượng")]
         public int soLuong { get; set; }
 
-        public virtual ThongTinXe Xe { get; set; }
+        [ForeignKey("maXe")]
+        public virtual ThongTinXe? Xe { get; set; }
         public TonXe()
         {
             maNhap = string.Empty;
             maXe = string.Empty;
             ngayNhap = DateTime.MinValue;
             soLuong = 0;
-            Xe = new ThongTinXe();
         }
 
     }

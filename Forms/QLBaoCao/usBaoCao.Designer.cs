@@ -99,7 +99,7 @@
             tableLayoutPanel3.Controls.Add(txtSoKhachHang, 1, 1);
             tableLayoutPanel3.Controls.Add(lblDaiLy, 2, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(5, 25);
+            tableLayoutPanel3.Location = new Point(5, 21);
             tableLayoutPanel3.Margin = new Padding(5);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
@@ -107,27 +107,27 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel3.Size = new Size(1189, 113);
+            tableLayoutPanel3.Size = new Size(1189, 117);
             tableLayoutPanel3.TabIndex = 5;
             // 
             // txtDaiLy
             // 
             txtDaiLy.Anchor = AnchorStyles.None;
             txtDaiLy.BorderStyle = BorderStyle.FixedSingle;
-            txtDaiLy.Location = new Point(939, 71);
+            txtDaiLy.Location = new Point(939, 76);
             txtDaiLy.Margin = new Padding(5);
             txtDaiLy.Name = "txtDaiLy";
-            txtDaiLy.Size = new Size(202, 27);
+            txtDaiLy.Size = new Size(202, 23);
             txtDaiLy.TabIndex = 7;
             // 
             // txtTongDoanhThu
             // 
             txtTongDoanhThu.Anchor = AnchorStyles.None;
             txtTongDoanhThu.BorderStyle = BorderStyle.FixedSingle;
-            txtTongDoanhThu.Location = new Point(344, 14);
+            txtTongDoanhThu.Location = new Point(344, 17);
             txtTongDoanhThu.Margin = new Padding(5);
             txtTongDoanhThu.Name = "txtTongDoanhThu";
-            txtTongDoanhThu.Size = new Size(202, 27);
+            txtTongDoanhThu.Size = new Size(202, 23);
             txtTongDoanhThu.TabIndex = 3;
             // 
             // lblTongDoanhThu
@@ -135,10 +135,10 @@
             lblTongDoanhThu.Anchor = AnchorStyles.Right;
             lblTongDoanhThu.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTongDoanhThu.ForeColor = Color.FromArgb(50, 50, 50);
-            lblTongDoanhThu.Location = new Point(103, 11);
+            lblTongDoanhThu.Location = new Point(103, 16);
             lblTongDoanhThu.Margin = new Padding(5, 0, 5, 0);
             lblTongDoanhThu.Name = "lblTongDoanhThu";
-            lblTongDoanhThu.Size = new Size(189, 34);
+            lblTongDoanhThu.Size = new Size(189, 25);
             lblTongDoanhThu.TabIndex = 0;
             lblTongDoanhThu.Text = "Tổng Doanh Thu";
             // 
@@ -146,10 +146,10 @@
             // 
             txtTongSoXeBanRa.Anchor = AnchorStyles.None;
             txtTongSoXeBanRa.BorderStyle = BorderStyle.FixedSingle;
-            txtTongSoXeBanRa.Location = new Point(939, 14);
+            txtTongSoXeBanRa.Location = new Point(939, 17);
             txtTongSoXeBanRa.Margin = new Padding(5);
             txtTongSoXeBanRa.Name = "txtTongSoXeBanRa";
-            txtTongSoXeBanRa.Size = new Size(202, 27);
+            txtTongSoXeBanRa.Size = new Size(202, 23);
             txtTongSoXeBanRa.TabIndex = 4;
             // 
             // lblTongSoXeBanRa
@@ -157,10 +157,10 @@
             lblTongSoXeBanRa.Anchor = AnchorStyles.Right;
             lblTongSoXeBanRa.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTongSoXeBanRa.ForeColor = Color.FromArgb(50, 50, 50);
-            lblTongSoXeBanRa.Location = new Point(676, 11);
+            lblTongSoXeBanRa.Location = new Point(676, 16);
             lblTongSoXeBanRa.Margin = new Padding(5, 0, 5, 0);
             lblTongSoXeBanRa.Name = "lblTongSoXeBanRa";
-            lblTongSoXeBanRa.Size = new Size(210, 34);
+            lblTongSoXeBanRa.Size = new Size(210, 25);
             lblTongSoXeBanRa.TabIndex = 1;
             lblTongSoXeBanRa.Text = "Tổng Số Xe Bán Ra";
             // 
@@ -169,10 +169,10 @@
             lblSoKhachHang.Anchor = AnchorStyles.Right;
             lblSoKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblSoKhachHang.ForeColor = Color.FromArgb(50, 50, 50);
-            lblSoKhachHang.Location = new Point(106, 67);
+            lblSoKhachHang.Location = new Point(106, 74);
             lblSoKhachHang.Margin = new Padding(5, 0, 5, 0);
             lblSoKhachHang.Name = "lblSoKhachHang";
-            lblSoKhachHang.Size = new Size(186, 34);
+            lblSoKhachHang.Size = new Size(186, 26);
             lblSoKhachHang.TabIndex = 2;
             lblSoKhachHang.Text = "Số Khách Hàng";
             // 
@@ -180,10 +180,10 @@
             // 
             txtSoKhachHang.Anchor = AnchorStyles.None;
             txtSoKhachHang.BorderStyle = BorderStyle.FixedSingle;
-            txtSoKhachHang.Location = new Point(344, 71);
+            txtSoKhachHang.Location = new Point(344, 76);
             txtSoKhachHang.Margin = new Padding(5);
             txtSoKhachHang.Name = "txtSoKhachHang";
-            txtSoKhachHang.Size = new Size(202, 27);
+            txtSoKhachHang.Size = new Size(202, 23);
             txtSoKhachHang.TabIndex = 5;
             // 
             // lblDaiLy
@@ -191,10 +191,10 @@
             lblDaiLy.Anchor = AnchorStyles.Right;
             lblDaiLy.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblDaiLy.ForeColor = Color.FromArgb(50, 50, 50);
-            lblDaiLy.Location = new Point(688, 67);
+            lblDaiLy.Location = new Point(676, 74);
             lblDaiLy.Margin = new Padding(5, 0, 5, 0);
             lblDaiLy.Name = "lblDaiLy";
-            lblDaiLy.Size = new Size(198, 34);
+            lblDaiLy.Size = new Size(210, 26);
             lblDaiLy.TabIndex = 6;
             lblDaiLy.Text = "Đại Lý";
             // 
@@ -224,27 +224,27 @@
             tableLayoutPanel2.Controls.Add(cboLuaChon, 2, 0);
             tableLayoutPanel2.Controls.Add(btnThongKe, 3, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(5, 25);
+            tableLayoutPanel2.Location = new Point(5, 21);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1189, 74);
+            tableLayoutPanel2.Size = new Size(1189, 78);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // dtpNgayKetThuc
             // 
             dtpNgayKetThuc.Anchor = AnchorStyles.None;
-            dtpNgayKetThuc.Location = new Point(339, 23);
+            dtpNgayKetThuc.Location = new Point(339, 27);
             dtpNgayKetThuc.Name = "dtpNgayKetThuc";
-            dtpNgayKetThuc.Size = new Size(213, 27);
+            dtpNgayKetThuc.Size = new Size(213, 23);
             dtpNgayKetThuc.TabIndex = 4;
             // 
             // dtpNgayBatDau
             // 
             dtpNgayBatDau.Anchor = AnchorStyles.None;
-            dtpNgayBatDau.Location = new Point(42, 23);
+            dtpNgayBatDau.Location = new Point(42, 27);
             dtpNgayBatDau.Name = "dtpNgayBatDau";
-            dtpNgayBatDau.Size = new Size(213, 27);
+            dtpNgayBatDau.Size = new Size(213, 23);
             dtpNgayBatDau.TabIndex = 0;
             dtpNgayBatDau.Value = new DateTime(2025, 7, 10, 7, 54, 38, 0);
             // 
@@ -253,9 +253,9 @@
             cboLuaChon.Anchor = AnchorStyles.None;
             cboLuaChon.FormattingEnabled = true;
             cboLuaChon.Items.AddRange(new object[] { "Doanh Thu", "Số Lượng" });
-            cboLuaChon.Location = new Point(667, 23);
+            cboLuaChon.Location = new Point(667, 27);
             cboLuaChon.Name = "cboLuaChon";
-            cboLuaChon.Size = new Size(151, 28);
+            cboLuaChon.Size = new Size(151, 23);
             cboLuaChon.TabIndex = 2;
             // 
             // btnThongKe
@@ -265,10 +265,10 @@
             btnThongKe.FlatStyle = FlatStyle.Flat;
             btnThongKe.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnThongKe.ForeColor = Color.White;
-            btnThongKe.Location = new Point(973, 16);
+            btnThongKe.Location = new Point(981, 19);
             btnThongKe.Margin = new Padding(4);
             btnThongKe.Name = "btnThongKe";
-            btnThongKe.Size = new Size(134, 42);
+            btnThongKe.Size = new Size(118, 40);
             btnThongKe.TabIndex = 3;
             btnThongKe.Text = "Thống Kê";
             btnThongKe.UseVisualStyleBackColor = false;
@@ -277,7 +277,6 @@
             // 
             lblTieuDe.Dock = DockStyle.Fill;
             lblTieuDe.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTieuDe.ForeColor = Color.FromArgb(50, 50, 50);
             lblTieuDe.Location = new Point(5, 0);
             lblTieuDe.Margin = new Padding(5, 0, 5, 0);
             lblTieuDe.Name = "lblTieuDe";
@@ -314,11 +313,11 @@
             dgvDoanhThuTheoThongKe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDoanhThuTheoThongKe.Dock = DockStyle.Fill;
             dgvDoanhThuTheoThongKe.EnableHeadersVisualStyles = false;
-            dgvDoanhThuTheoThongKe.Location = new Point(5, 25);
+            dgvDoanhThuTheoThongKe.Location = new Point(5, 21);
             dgvDoanhThuTheoThongKe.Margin = new Padding(5);
             dgvDoanhThuTheoThongKe.Name = "dgvDoanhThuTheoThongKe";
             dgvDoanhThuTheoThongKe.RowHeadersWidth = 51;
-            dgvDoanhThuTheoThongKe.Size = new Size(1189, 266);
+            dgvDoanhThuTheoThongKe.Size = new Size(1189, 270);
             dgvDoanhThuTheoThongKe.TabIndex = 0;
             // 
             // btnXuatExcel
@@ -328,10 +327,10 @@
             btnXuatExcel.FlatStyle = FlatStyle.Flat;
             btnXuatExcel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnXuatExcel.ForeColor = Color.White;
-            btnXuatExcel.Location = new Point(534, 702);
+            btnXuatExcel.Location = new Point(547, 706);
             btnXuatExcel.Margin = new Padding(5);
             btnXuatExcel.Name = "btnXuatExcel";
-            btnXuatExcel.Size = new Size(140, 49);
+            btnXuatExcel.Size = new Size(115, 41);
             btnXuatExcel.TabIndex = 4;
             btnXuatExcel.Text = "Xuất Excel";
             btnXuatExcel.UseVisualStyleBackColor = false;
