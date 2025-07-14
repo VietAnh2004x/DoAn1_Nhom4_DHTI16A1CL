@@ -13,9 +13,9 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
     {
         [Key]
         [Column("MaHD", Order = 0)]
-        [DisplayName("Mã Hợp Đồng")]
+        [DisplayName("Mã Hóa Đơn")]
         [StringLength(20)]
-        public string maHopDong { get; set; }
+        public string maHoaDon { get; set; }
 
         [Required]
         [Column("MaXe", Order = 1)]
@@ -34,14 +34,14 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [DataType(DataType.Currency)]
         public double donGia { get; set; }
 
-        [ForeignKey("maHopDong")]
+        [ForeignKey("maHoaDon")]
         public virtual HoaDon? HoaDon { get; set; }
         [ForeignKey("maXe")]
         public virtual ThongTinXe? Xe { get; set; }
 
         public ChiTietHoaDon()
         {
-            maHopDong = string.Empty;
+            maHoaDon = string.Empty;
             maXe = string.Empty;
             soLuong = 0;
             donGia = 0.0;

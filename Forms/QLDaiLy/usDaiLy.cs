@@ -20,7 +20,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
             using (var context = new DataDbContext())
             {
                 BindingSource daiLyBindingSource = new BindingSource();
-                daiLyBindingSource.DataSource = context.Daily.ToList();
+                daiLyBindingSource.DataSource = context.DaiLy.ToList();
                 dgvDSDaiLy.DataSource = daiLyBindingSource;
 
                 dgvDSDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

@@ -8,7 +8,7 @@ namespace DoAn.Data_Access_Layer
     {
         public DbSet<BaoHanh> BaoHanh { get; set; }
         public DbSet<ChiTietHoaDon> ChiTietHoaDon { get; set; }
-        public DbSet<DaiLy> Daily { get; set; }
+        public DbSet<DaiLy> DaiLy { get; set; }
         public DbSet<DongXe> DongXe { get; set; }
         public DbSet<HoaDon> HoaDon { get; set; }
         public DbSet<KhachHang> KhachHang { get; set; }
@@ -26,13 +26,13 @@ namespace DoAn.Data_Access_Layer
         {
             // Khóa chính tổng hợp ChiTietHoaDon
             modelBuilder.Entity<ChiTietHoaDon>()
-                .HasKey(ct => new { ct.maHopDong, ct.maXe });
+                .HasKey(ct => new { ct.maHoaDon, ct.maXe });
 
             // Quan hệ 1-n: HoaDon - ChiTietHoaDon
             modelBuilder.Entity<ChiTietHoaDon>()
                 .HasOne(ct => ct.HoaDon)
                 .WithMany(hd => hd.ChiTietHoaDons)
-                .HasForeignKey(ct => ct.maHopDong);
+                .HasForeignKey(ct => ct.maHoaDon);
 
             // Quan hệ 1-n: Xe - ChiTietHoaDon
             modelBuilder.Entity<ChiTietHoaDon>()
@@ -86,13 +86,13 @@ namespace DoAn.Data_Access_Layer
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(tk => tk.HoaDons)
                 .WithOne(hd => hd.TaiKhoan)
-                .HasForeignKey(hd => hd.tenNhanVien);
+                .HasForeignKey(hd => hd.tenTK);
 
             // Quan hệ 1-1: NhanVien - TaiKhoan
             modelBuilder.Entity<NhanVien>()
                 .HasOne(nv => nv.TaiKhoan)
                 .WithOne(tk => tk.NhanVien)
-                .HasForeignKey<NhanVien>(nv => nv.maNV);
+                .HasForeignKey<NhanVien>(nv => nv.tenTK);
         }
     }
 }

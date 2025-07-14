@@ -1,12 +1,7 @@
 ﻿using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoAn.Data_Transfer_Objects
 {
@@ -19,10 +14,10 @@ namespace DoAn.Data_Transfer_Objects
         public string maNV { get; set; }
 
         [Required]
-        [Column("TenNV")]
-        [DisplayName("Tên Nhân Viên")]
-        [StringLength(100)]
-        public string tenNV { get; set; }
+        [Column("TenTaiKhoan")]
+        [DisplayName("Tên Tài Khoản")]
+        [StringLength(50)]
+        public string tenTK { get; set; }
 
         [Required]
         [Column("ChucVu")]
@@ -56,12 +51,13 @@ namespace DoAn.Data_Transfer_Objects
         [StringLength(100)]
         public string email { get; set; }
 
+        [ForeignKey("tenTK")]
         public virtual TaiKhoan? TaiKhoan { get; set; }        
 
         public NhanVien()
         {
             maNV = string.Empty;
-            tenNV = string.Empty;
+            tenTK = string.Empty;
             chucVu = string.Empty;
             gioiTinh = string.Empty;
             ngaySinh = DateTime.MinValue;

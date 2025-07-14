@@ -13,10 +13,10 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
     public class TaiKhoan
     {
         [Key]
-        [Column("TenNhanVien")]
-        [DisplayName("Tên Nhân Viên")]
+        [Column("TenTaiKhoan")]
+        [DisplayName("Tên Tài Khoản")]
         [StringLength(50)]
-        public string tenNhanVien { get; set; }
+        public string tenTK { get; set; }
 
         [Required]
         [Column("MatKhau")]
@@ -32,15 +32,13 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [ForeignKey("maQuyen")]
         public virtual PhanQuyen? PhanQuyen { get; set; }
 
-        [ForeignKey("tenNhanVien")]
-
         public virtual NhanVien? NhanVien { get; set; }
 
         public virtual ICollection<HoaDon> HoaDons { get; set; }
 
         public TaiKhoan()
         {
-            tenNhanVien = string.Empty;
+            tenTK = string.Empty;
             matKhau = string.Empty;
             maQuyen = 0;
             HoaDons = new HashSet<HoaDon>();

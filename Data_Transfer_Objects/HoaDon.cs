@@ -24,10 +24,10 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         public string maKhachHang { get; set; }
 
         [Required]
-        [Column("TenNhanVien")]
-        [DisplayName("Tên Nhân Viên")]
-        [StringLength(100)]
-        public string tenNhanVien { get; set; }
+        [Column("TenTaiKhoan")]
+        [DisplayName("Tên Tài Khoản")]
+        [StringLength(50)]
+        public string tenTK { get; set; }
 
         [Required]
         [Column("NgayLap")]
@@ -43,7 +43,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 
         [ForeignKey("maKhachHang")]
         public virtual KhachHang? KhachHang { get; set; }
-        [ForeignKey("tenNhanVien")]
+        [ForeignKey("tenTK")]
         public virtual TaiKhoan? TaiKhoan { get; set; }
 
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
@@ -53,7 +53,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         {
             maHoaDon = string.Empty;
             maKhachHang = string.Empty;
-            tenNhanVien = string.Empty;
+            tenTK = string.Empty;
             ngayLap = DateTime.Now;
             tongTien = 0;
             ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
