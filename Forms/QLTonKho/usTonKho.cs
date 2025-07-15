@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DoAn.Data_Access_Layer;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +17,42 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
         public usTonKho()
         {
             InitializeComponent();
-            BindingSource tonKhoBindingSource = new BindingSource();
-            using (var context = new DoAn.Data_Access_Layer.DataDbContext())
+            LoadTonXe();
+        }
+        private void LoadTonXe()
+        {
+            using (var context = new DataDbContext())
             {
-                tonKhoBindingSource.DataSource = context.TonXe.ToList();
-                dgvDSTonKho.DataSource = tonKhoBindingSource;
-                dgvDSTonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dgvDSTonKho.Columns["Xe"]!.Visible = false;
+                var danhSachTonXe = (from ton in context.TonXe
+                                     join xe in context.ThongTinXe
+                                     on ton.maXe equals xe.maXe
+                                     select new
+                                     {
+                                         ton.maNhap,
+                                         ton.maXe,
+                                         xe.tenXe,
+                                         ton.ngayNhap,
+                                         ton.soLuong
+                                     }).ToList();
+                dgvDSTonKho.DataSource = danhSachTonXe.ToList();
+            }
+            dgvDSTonKho.Columns["maNhap"].HeaderText = "Mã Nhập";
+            dgvDSTonKho.Columns["maXe"].HeaderText = "Mã Xe";
+            dgvDSTonKho.Columns["tenXe"].HeaderText = "Tên Xe";
+            dgvDSTonKho.Columns["ngayNhap"].HeaderText = "Ngày Nhập";
+            dgvDSTonKho.Columns["soLuong"].HeaderText = "Số Lượng";
+
+            dgvDSTonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+        private void dgvDSTonKho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvDSTonKho.Rows[e.RowIndex].Cells["tenXe"].Value != null)
+            {
+                DataGridViewRow row = dgvDSTonKho.Rows[e.RowIndex];
+
+                txtTenXe.Text = row.Cells["tenXe"].Value?.ToString();
+                txtNgayNhap.Text = Convert.ToDateTime(row.Cells["ngayNhap"].Value).ToString("dd/MM/yyyy");
+                txtSoLuong.Text = row.Cells["soLuong"].Value?.ToString();
             }
         }
     }

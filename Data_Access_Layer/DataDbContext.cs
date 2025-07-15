@@ -1,6 +1,7 @@
 ﻿using DoAn.Data_Transfer_Objects;
 using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
+using DoAn.Data_Transfer_Objects;
 
 namespace DoAn.Data_Access_Layer
 {
@@ -20,19 +21,19 @@ namespace DoAn.Data_Access_Layer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QLXe;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=a;Integrated Security=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Khóa chính tổng hợp ChiTietHoaDon
             modelBuilder.Entity<ChiTietHoaDon>()
-                .HasKey(ct => new { ct.maHopDong, ct.maXe });
+                .HasKey(ct => new { ct.maHoaDon, ct.maXe });
 
             // Quan hệ 1-n: HoaDon - ChiTietHoaDon
             modelBuilder.Entity<ChiTietHoaDon>()
                 .HasOne(ct => ct.HoaDon)
                 .WithMany(hd => hd.ChiTietHoaDons)
-                .HasForeignKey(ct => ct.maHopDong);
+                .HasForeignKey(ct => ct.maHoaDon);
 
             // Quan hệ 1-n: Xe - ChiTietHoaDon
             modelBuilder.Entity<ChiTietHoaDon>()
@@ -66,9 +67,10 @@ namespace DoAn.Data_Access_Layer
 
             // Quan hệ 1-n: HoaDon - BaoHanh
             modelBuilder.Entity<BaoHanh>()
-                .HasOne(bh => bh.HoaDon)
-                .WithMany(hd => hd.BaoHanhs)
-                .HasForeignKey(bh => bh.maHopDong);
+                 .HasOne(bh => bh.HoaDon)
+                 .WithMany(hd => hd.BaoHanhs)
+                 .HasForeignKey(bh => bh.maHoaDon); 
+
 
             // Quan hệ 1-n: PhanQuyen - TaiKhoan
             modelBuilder.Entity<TaiKhoan>()
@@ -86,7 +88,7 @@ namespace DoAn.Data_Access_Layer
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(tk => tk.HoaDons)
                 .WithOne(hd => hd.TaiKhoan)
-                .HasForeignKey(hd => hd.tenNhanVien);
+                .HasForeignKey(hd => hd.tenTaiKhoan);
 
             // Quan hệ 1-1: NhanVien - TaiKhoan
             modelBuilder.Entity<NhanVien>()

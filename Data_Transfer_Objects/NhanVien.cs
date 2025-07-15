@@ -1,13 +1,11 @@
-﻿using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace DoAn.Data_Transfer_Objects
 {
     public class NhanVien
@@ -15,20 +13,20 @@ namespace DoAn.Data_Transfer_Objects
         [Key]
         [Column("MaNV")]
         [DisplayName("Mã Nhân Viên")]
-        [StringLength(20)]
+        [StringLength(10)]
         public string maNV { get; set; }
 
         [Required]
-        [Column("TenNV")]
-        [DisplayName("Tên Nhân Viên")]
-        [StringLength(100)]
-        public string tenNV { get; set; }
+        [Column("TenTaiKhoan")]
+        [DisplayName("Tên Tài Khoản")]
+        [StringLength(50)]
+        public string tenTaiKhoan { get; set; }
 
         [Required]
-        [Column("ChucVu")]
-        [DisplayName("Chức Vụ")]
-        [StringLength(50)]
-        public string chucVu { get; set; }
+        [Column("HoTen")]
+        [DisplayName("Họ Tên")]
+        [StringLength(100)]
+        public string hoTen { get; set; }
 
         [Required]
         [Column("GioiTinh")]
@@ -45,24 +43,23 @@ namespace DoAn.Data_Transfer_Objects
         [Required]
         [Column("SoDienThoai")]
         [DisplayName("Số Điện Thoại")]
-        [Phone]
         [StringLength(15)]
         public string soDienThoai { get; set; }
 
         [Required]
         [Column("Email")]
         [DisplayName("Email")]
-        [EmailAddress]
         [StringLength(100)]
         public string email { get; set; }
 
-        public virtual TaiKhoan? TaiKhoan { get; set; }        
+        [ForeignKey("tenTaiKhoan")]
+        public virtual TaiKhoan? TaiKhoan { get; set; }
 
         public NhanVien()
         {
             maNV = string.Empty;
-            tenNV = string.Empty;
-            chucVu = string.Empty;
+            tenTaiKhoan = string.Empty;
+            hoTen = string.Empty;
             gioiTinh = string.Empty;
             ngaySinh = DateTime.MinValue;
             soDienThoai = string.Empty;

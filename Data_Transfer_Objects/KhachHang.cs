@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using DoAn.Data_Transfer_Objects;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -38,7 +39,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [StringLength(100)]
         public string email { get; set; }
 
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; } = new HashSet<HoaDon>();
 
         public KhachHang()
         {
