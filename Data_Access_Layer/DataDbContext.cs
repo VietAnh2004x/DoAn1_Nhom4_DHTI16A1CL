@@ -1,6 +1,7 @@
 ﻿using DoAn.Data_Transfer_Objects;
 using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
+using DoAn.Data_Transfer_Objects;
 
 namespace DoAn.Data_Access_Layer
 {
@@ -20,7 +21,7 @@ namespace DoAn.Data_Access_Layer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QLXe;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=a;Integrated Security=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -66,9 +67,10 @@ namespace DoAn.Data_Access_Layer
 
             // Quan hệ 1-n: HoaDon - BaoHanh
             modelBuilder.Entity<BaoHanh>()
-                .HasOne(bh => bh.HoaDon)
-                .WithMany(hd => hd.BaoHanhs)
-                .HasForeignKey(bh => bh.maHopDong);
+                 .HasOne(bh => bh.HoaDon)
+                 .WithMany(hd => hd.BaoHanhs)
+                 .HasForeignKey(bh => bh.maHoaDon); 
+
 
             // Quan hệ 1-n: PhanQuyen - TaiKhoan
             modelBuilder.Entity<TaiKhoan>()

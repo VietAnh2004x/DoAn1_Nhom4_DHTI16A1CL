@@ -122,7 +122,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             txtSoLuong.BorderStyle = BorderStyle.FixedSingle;
             txtSoLuong.Location = new Point(176, 295);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(139, 25);
+            txtSoLuong.Size = new Size(139, 34);
             txtSoLuong.TabIndex = 9;
             // 
             // txtNgayNhap
@@ -130,7 +130,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             txtNgayNhap.BorderStyle = BorderStyle.FixedSingle;
             txtNgayNhap.Location = new Point(176, 195);
             txtNgayNhap.Name = "txtNgayNhap";
-            txtNgayNhap.Size = new Size(139, 25);
+            txtNgayNhap.Size = new Size(139, 34);
             txtNgayNhap.TabIndex = 8;
             // 
             // txtTenXe
@@ -138,14 +138,14 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             txtTenXe.BorderStyle = BorderStyle.FixedSingle;
             txtTenXe.Location = new Point(176, 95);
             txtTenXe.Name = "txtTenXe";
-            txtTenXe.Size = new Size(139, 25);
+            txtTenXe.Size = new Size(139, 34);
             txtTenXe.TabIndex = 6;
             // 
             // lblSoLuong
             // 
             lblSoLuong.Location = new Point(18, 297);
             lblSoLuong.Name = "lblSoLuong";
-            lblSoLuong.Size = new Size(127, 22);
+            lblSoLuong.Size = new Size(127, 32);
             lblSoLuong.TabIndex = 4;
             lblSoLuong.Text = "Số Lượng:";
             // 
@@ -153,7 +153,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             // 
             lblNgayNhap.Location = new Point(18, 197);
             lblNgayNhap.Name = "lblNgayNhap";
-            lblNgayNhap.Size = new Size(127, 22);
+            lblNgayNhap.Size = new Size(127, 32);
             lblNgayNhap.TabIndex = 3;
             lblNgayNhap.Text = "Ngày Nhập:";
             // 
@@ -161,7 +161,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             // 
             lblTenXe.Location = new Point(18, 97);
             lblTenXe.Name = "lblTenXe";
-            lblTenXe.Size = new Size(127, 22);
+            lblTenXe.Size = new Size(127, 32);
             lblTenXe.TabIndex = 2;
             lblTenXe.Text = "Tên Xe:";
             // 
@@ -201,17 +201,17 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             tableLayoutPanel1.Controls.Add(txtTimKiemMaXe, 1, 0);
             tableLayoutPanel1.Controls.Add(btnTimKiem, 2, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 21);
+            tableLayoutPanel1.Location = new Point(3, 30);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(579, 95);
+            tableLayoutPanel1.Size = new Size(579, 86);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // lblTimKiemMaXe
             // 
             lblTimKiemMaXe.Anchor = AnchorStyles.None;
-            lblTimKiemMaXe.Location = new Point(6, 36);
+            lblTimKiemMaXe.Location = new Point(6, 31);
             lblTimKiemMaXe.Name = "lblTimKiemMaXe";
             lblTimKiemMaXe.Size = new Size(160, 23);
             lblTimKiemMaXe.TabIndex = 11;
@@ -221,9 +221,9 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             // 
             txtTimKiemMaXe.Anchor = AnchorStyles.None;
             txtTimKiemMaXe.BorderStyle = BorderStyle.FixedSingle;
-            txtTimKiemMaXe.Location = new Point(190, 35);
+            txtTimKiemMaXe.Location = new Point(190, 26);
             txtTimKiemMaXe.Name = "txtTimKiemMaXe";
-            txtTimKiemMaXe.Size = new Size(196, 25);
+            txtTimKiemMaXe.Size = new Size(196, 34);
             txtTimKiemMaXe.TabIndex = 12;
             // 
             // btnTimKiem
@@ -233,7 +233,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(441, 30);
+            btnTimKiem.Location = new Point(441, 25);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(101, 35);
             btnTimKiem.TabIndex = 10;
@@ -257,11 +257,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             dgvDSTonKho.BackgroundColor = Color.White;
             dgvDSTonKho.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDSTonKho.Dock = DockStyle.Fill;
-            dgvDSTonKho.Location = new Point(3, 21);
+            dgvDSTonKho.Location = new Point(3, 30);
             dgvDSTonKho.Name = "dgvDSTonKho";
             dgvDSTonKho.RowHeadersWidth = 51;
-            dgvDSTonKho.Size = new Size(579, 471);
+            dgvDSTonKho.Size = new Size(579, 462);
             dgvDSTonKho.TabIndex = 0;
+            dgvDSTonKho.CellContentClick += dgvDSTonKho_CellContentClick;
             // 
             // lblTieuDe
             // 
@@ -277,9 +278,9 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             // usTonKho
             // 
             AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.FromArgb(255, 255, 230);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 10F);
-            BackColor = Color.FromArgb(255, 255, 230);
             Name = "usTonKho";
             Size = new Size(1000, 750);
             panel1.ResumeLayout(false);

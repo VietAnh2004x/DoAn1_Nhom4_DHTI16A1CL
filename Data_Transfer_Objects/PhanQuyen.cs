@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAn.Data_Transfer_Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -14,7 +15,9 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [Key]
         [Column("MaQuyen")]
         [DisplayName("Mã Quyền")]
-        public int maQuyen { get; set; }
+        [StringLength(10)]
+        public string maQuyen { get; set; } = string.Empty;
+
 
         [Required]
         [Column("TenQuyen")]
@@ -22,11 +25,11 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [StringLength(50)]
         public string tenQuyen { get; set; }
 
-        public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
+        public virtual ICollection<TaiKhoan> TaiKhoans { get; set; } = new HashSet<TaiKhoan>();
 
         public PhanQuyen()
         {
-            maQuyen = 0;
+            maQuyen = "";
             tenQuyen = string.Empty;
             TaiKhoans = new HashSet<TaiKhoan>();
         }

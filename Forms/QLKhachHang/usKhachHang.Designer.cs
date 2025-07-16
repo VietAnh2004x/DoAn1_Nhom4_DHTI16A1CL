@@ -23,6 +23,8 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             tbHienThiChung = new TableLayoutPanel();
             tbTrai = new TableLayoutPanel();
             grpTTKhachHang = new GroupBox();
+            txtMaKH = new TextBox();
+            label1 = new Label();
             txtEmail = new TextBox();
             txtSoDienThoai = new TextBox();
             txtHoTen = new TextBox();
@@ -126,6 +128,8 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             // 
             // grpTTKhachHang
             // 
+            grpTTKhachHang.Controls.Add(txtMaKH);
+            grpTTKhachHang.Controls.Add(label1);
             grpTTKhachHang.Controls.Add(txtEmail);
             grpTTKhachHang.Controls.Add(txtSoDienThoai);
             grpTTKhachHang.Controls.Add(txtHoTen);
@@ -142,10 +146,26 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             grpTTKhachHang.TabStop = false;
             grpTTKhachHang.Text = "Thông tin khách hàng";
             // 
+            // txtMaKH
+            // 
+            txtMaKH.Location = new Point(174, 81);
+            txtMaKH.Name = "txtMaKH";
+            txtMaKH.Size = new Size(157, 34);
+            txtMaKH.TabIndex = 12;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 72);
+            label1.Name = "label1";
+            label1.Size = new Size(150, 28);
+            label1.TabIndex = 11;
+            label1.Text = "Mã Khách Hàng";
+            // 
             // txtEmail
             // 
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
-            txtEmail.Location = new Point(170, 333);
+            txtEmail.Location = new Point(177, 397);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(154, 30);
             txtEmail.TabIndex = 10;
@@ -153,7 +173,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             // txtSoDienThoai
             // 
             txtSoDienThoai.BorderStyle = BorderStyle.FixedSingle;
-            txtSoDienThoai.Location = new Point(170, 250);
+            txtSoDienThoai.Location = new Point(177, 314);
             txtSoDienThoai.Name = "txtSoDienThoai";
             txtSoDienThoai.Size = new Size(154, 30);
             txtSoDienThoai.TabIndex = 9;
@@ -161,7 +181,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             // txtHoTen
             // 
             txtHoTen.BorderStyle = BorderStyle.FixedSingle;
-            txtHoTen.Location = new Point(170, 84);
+            txtHoTen.Location = new Point(177, 148);
             txtHoTen.Name = "txtHoTen";
             txtHoTen.Size = new Size(154, 30);
             txtHoTen.TabIndex = 8;
@@ -169,14 +189,14 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             // txtDiaChi
             // 
             txtDiaChi.BorderStyle = BorderStyle.FixedSingle;
-            txtDiaChi.Location = new Point(170, 167);
+            txtDiaChi.Location = new Point(177, 231);
             txtDiaChi.Name = "txtDiaChi";
             txtDiaChi.Size = new Size(154, 30);
             txtDiaChi.TabIndex = 7;
             // 
             // lblDiaChi
             // 
-            lblDiaChi.Location = new Point(6, 169);
+            lblDiaChi.Location = new Point(13, 233);
             lblDiaChi.Name = "lblDiaChi";
             lblDiaChi.Size = new Size(100, 23);
             lblDiaChi.TabIndex = 5;
@@ -184,7 +204,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             // 
             // lblHoTen
             // 
-            lblHoTen.Location = new Point(6, 86);
+            lblHoTen.Location = new Point(13, 150);
             lblHoTen.Name = "lblHoTen";
             lblHoTen.Size = new Size(100, 23);
             lblHoTen.TabIndex = 4;
@@ -192,7 +212,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             // 
             // lblSoDienThoai
             // 
-            lblSoDienThoai.Location = new Point(6, 252);
+            lblSoDienThoai.Location = new Point(13, 316);
             lblSoDienThoai.Name = "lblSoDienThoai";
             lblSoDienThoai.Size = new Size(121, 23);
             lblSoDienThoai.TabIndex = 3;
@@ -200,7 +220,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             // 
             // lblEmail
             // 
-            lblEmail.Location = new Point(6, 335);
+            lblEmail.Location = new Point(13, 399);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(100, 23);
             lblEmail.TabIndex = 2;
@@ -283,6 +303,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -299,6 +320,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             btnSua.TabIndex = 12;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // tbPhai
             // 
@@ -350,7 +372,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             lblTimKiemKhachHang.Name = "lblTimKiemKhachHang";
             lblTimKiemKhachHang.Size = new Size(160, 23);
             lblTimKiemKhachHang.TabIndex = 11;
-            lblTimKiemKhachHang.Text = "Mã khách hàng:";
+            lblTimKiemKhachHang.Text = "Tên khách hàng:";
             // 
             // txtTimKiemKhachHang
             // 
@@ -376,6 +398,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             btnTimKiem.TabIndex = 13;
             btnTimKiem.Text = "Tìm kiếm";
             btnTimKiem.UseVisualStyleBackColor = true;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // grpDSKhachHang
             // 
@@ -399,6 +422,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
             dgvDSKhachHang.RowHeadersWidth = 51;
             dgvDSKhachHang.Size = new Size(579, 466);
             dgvDSKhachHang.TabIndex = 0;
+            dgvDSKhachHang.CellContentClick += dgvDSKhachHang_CellContentClick;
             // 
             // usKhachHang
             // 
@@ -454,5 +478,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
         private Label lblTimKiemKhachHang;
         private TextBox txtTimKiemKhachHang;
         private Button btnTimKiem;
+        private TextBox txtMaKH;
+        private Label label1;
     }
 }

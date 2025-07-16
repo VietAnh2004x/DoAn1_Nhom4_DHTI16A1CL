@@ -1,11 +1,9 @@
-﻿using System;
+﻿using DoAn.Data_Transfer_Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
@@ -15,19 +13,19 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [Column("MaBH")]
         [DisplayName("Mã Bảo Hành")]
         [StringLength(20)]
-        public string maBaoHanh { get; set; }
+        public string maBaoHanh { get; set; } = string.Empty;
 
         [Required]
         [Column("MaHD")]
-        [DisplayName("Mã Hợp Đồng")]
+        [DisplayName("Mã Hóa Đơn")]
         [StringLength(20)]
-        public string maHopDong { get; set; }
+        public string maHoaDon { get; set; } = string.Empty;
 
         [Required]
         [Column("MaXe")]
         [DisplayName("Mã Xe")]
         [StringLength(20)]
-        public string maXe { get; set; }
+        public string maXe { get; set; } = string.Empty;
 
         [Required]
         [Column("NgayBatDau")]
@@ -39,18 +37,19 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [DisplayName("Thời Hạn (Tháng)")]
         public int thoiHanThang { get; set; }
 
-        [ForeignKey("maHopDong")]
-        public virtual HoaDon? HoaDon { get; set; }
+        [ForeignKey("maHoaDon")]
+        public virtual HoaDon HoaDon { get; set; } = null!;
+
         [ForeignKey("maXe")]
         public virtual ThongTinXe? Xe { get; set; }
 
-        public BaoHanh() {
+        public BaoHanh()
+        {
             maBaoHanh = string.Empty;
-            maHopDong = string.Empty;
+            maHoaDon = string.Empty;
             maXe = string.Empty;
             ngayBatDau = DateTime.MinValue;
             thoiHanThang = 0;
         }
-
     }
 }

@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
+namespace DoAn.Data_Transfer_Objects
 {
     public class HoaDon
     {
         [Key]
         [Column("MaHD")]
         [DisplayName("Mã Hóa Đơn")]
-        [StringLength(20)]
+        [StringLength(10)]
         public string maHoaDon { get; set; }
 
         [Required]
         [Column("MaKH")]
         [DisplayName("Mã Khách Hàng")]
-        [StringLength(20)]
+        [StringLength(10)]
         public string maKhachHang { get; set; }
 
         [Required]
@@ -38,16 +35,14 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [Required]
         [Column("TongTien")]
         [DisplayName("Tổng Tiền")]
-        [DataType(DataType.Currency)]
         public decimal tongTien { get; set; }
-
         [ForeignKey("maKhachHang")]
-        public virtual KhachHang? KhachHang { get; set; }
-        [ForeignKey("tenTK")]
-        public virtual TaiKhoan? TaiKhoan { get; set; }
+        public virtual KhachHang KhachHang { get; set; } = null!;
 
-        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        public virtual ICollection<BaoHanh> BaoHanhs { get; set; }
+        [ForeignKey("tenTaiKhoan")]
+        public virtual TaiKhoan? TaiKhoan { get; set; }
+        public virtual ICollection<BaoHanh> BaoHanhs { get; set; } = new HashSet<BaoHanh>();
+        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; } = new HashSet<ChiTietHoaDon>();
 
         public HoaDon()
         {
@@ -56,8 +51,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
             tenTK = string.Empty;
             ngayLap = DateTime.Now;
             tongTien = 0;
-            ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-            BaoHanhs = new HashSet<BaoHanh>();
         }
     }
 }

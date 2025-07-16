@@ -142,6 +142,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             dgvDSXeMayDien.RowHeadersWidth = 51;
             dgvDSXeMayDien.Size = new Size(579, 465);
             dgvDSXeMayDien.TabIndex = 0;
+            dgvDSXeMayDien.CellContentClick += dgvDSXeMayDien_CellContentClick;
             // 
             // grpTacVu
             // 
@@ -203,6 +204,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             btnSua.TabIndex = 17;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
@@ -218,6 +220,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             btnXoa.TabIndex = 18;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnLamMoi
             // 
@@ -233,6 +236,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             btnLamMoi.TabIndex = 19;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // grpTTXe
             // 

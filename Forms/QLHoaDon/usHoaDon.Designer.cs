@@ -268,6 +268,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnLamMoi.TabIndex = 19;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
@@ -297,6 +298,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnXoa.TabIndex = 18;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -311,6 +313,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnSua.TabIndex = 17;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // tbPhai
             // 
@@ -386,6 +389,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnTimKiem.TabIndex = 16;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // grDSHoaDon
             // 
@@ -409,6 +413,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             dgvDSHoaDon.RowHeadersWidth = 51;
             dgvDSHoaDon.Size = new Size(579, 466);
             dgvDSHoaDon.TabIndex = 16;
+            dgvDSHoaDon.CellContentClick += dgvDSHoaDon_CellContentClick;
             // 
             // lblTieuDe
             // 

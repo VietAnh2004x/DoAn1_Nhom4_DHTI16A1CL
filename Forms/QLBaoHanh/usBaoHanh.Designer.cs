@@ -22,10 +22,10 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
             tbHienThi = new TableLayoutPanel();
             tbTrai = new TableLayoutPanel();
             grpTTBaoHanh = new GroupBox();
+            dtpNgayBatDau = new DateTimePicker();
             txtMaBaoHanh = new TextBox();
             lblMaBaoHanh = new Label();
             txtThoiHan = new TextBox();
-            txtNgayBatDau = new TextBox();
             txtMaHoaDon = new TextBox();
             txtMaXe = new TextBox();
             lblThoiHan = new Label();
@@ -118,10 +118,10 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
             // 
             // grpTTBaoHanh
             // 
+            grpTTBaoHanh.Controls.Add(dtpNgayBatDau);
             grpTTBaoHanh.Controls.Add(txtMaBaoHanh);
             grpTTBaoHanh.Controls.Add(lblMaBaoHanh);
             grpTTBaoHanh.Controls.Add(txtThoiHan);
-            grpTTBaoHanh.Controls.Add(txtNgayBatDau);
             grpTTBaoHanh.Controls.Add(txtMaHoaDon);
             grpTTBaoHanh.Controls.Add(txtMaXe);
             grpTTBaoHanh.Controls.Add(lblThoiHan);
@@ -135,6 +135,14 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
             grpTTBaoHanh.TabIndex = 0;
             grpTTBaoHanh.TabStop = false;
             grpTTBaoHanh.Text = "Thông Tin Bảo Hành";
+            // 
+            // dtpNgayBatDau
+            // 
+            dtpNgayBatDau.Location = new Point(126, 300);
+            dtpNgayBatDau.Name = "dtpNgayBatDau";
+            dtpNgayBatDau.Size = new Size(253, 34);
+            dtpNgayBatDau.TabIndex = 12;
+            dtpNgayBatDau.ValueChanged += dtpNgayBatDau_ValueChanged;
             // 
             // txtMaBaoHanh
             // 
@@ -194,9 +202,9 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
             // 
             // lblNgayBatDau
             // 
-            lblNgayBatDau.Location = new Point(6, 300);
+            lblNgayBatDau.Location = new Point(-3, 302);
             lblNgayBatDau.Name = "lblNgayBatDau";
-            lblNgayBatDau.Size = new Size(147, 32);
+            lblNgayBatDau.Size = new Size(136, 32);
             lblNgayBatDau.TabIndex = 3;
             lblNgayBatDau.Text = "Ngày Bắt Đầu:";
             // 
@@ -258,6 +266,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
             btnLamMoi.TabIndex = 15;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
@@ -287,6 +296,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
             btnXoa.TabIndex = 14;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -301,6 +311,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
             btnSua.TabIndex = 13;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // tbPhai
             // 
@@ -376,6 +387,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
             btnTimKiem.TabIndex = 12;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // grpDSBaoHanh
             // 
@@ -399,6 +411,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
             dgvDSBaoHanh.RowHeadersWidth = 51;
             dgvDSBaoHanh.Size = new Size(579, 466);
             dgvDSBaoHanh.TabIndex = 0;
+            dgvDSBaoHanh.CellContentClick += dgvDSBaoHanh_CellContentClick;
             // 
             // lblTieuDe
             // 
@@ -447,7 +460,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
         private System.Windows.Forms.GroupBox grpTimKiemPhieuBaoHanh;
         private System.Windows.Forms.GroupBox grpDSBaoHanh;
         private System.Windows.Forms.TextBox txtThoiHan;
-        private System.Windows.Forms.TextBox txtNgayBatDau;
         private System.Windows.Forms.Label lblThoiHan;
         private System.Windows.Forms.Label lblNgayBatDau;
         private System.Windows.Forms.DataGridView dgvDSBaoHanh;
@@ -466,5 +478,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
         private Label lblTimKiemPhieuBaoHanh;
         private Button btnTimKiem;
         private TableLayoutPanel tableLayoutPanel2;
+        private DateTimePicker dtpNgayBatDau;
     }
 }
