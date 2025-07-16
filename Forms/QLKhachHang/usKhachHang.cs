@@ -1,12 +1,7 @@
 ﻿using DoAn.Data_Access_Layer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoAn1.Forms.QLKhachHang
@@ -16,13 +11,22 @@ namespace DoAn1.Forms.QLKhachHang
         public usKhachHang()
         {
             InitializeComponent();
-            using (var context = new DoAn.Data_Access_Layer.DataDbContext())
+            loadDanhSachKhachHang();
+        }
+
+        private void loadDanhSachKhachHang()
+        {
+            using (var context = new DataDbContext())
             {
-                BindingSource khachHangBindingSource = new BindingSource();
-                khachHangBindingSource.DataSource = context.KhachHang.ToList();
-                dgvDSKhachHang.DataSource = khachHangBindingSource;
+                var danhSach = context.KhachHang.ToList();
+
+                dgvDSKhachHang.DataSource = danhSach;
                 dgvDSKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dgvDSKhachHang.Columns["HoaDons"]!.Visible = false;
+
+                if (dgvDSKhachHang.Columns.Contains("HoaDons"))
+                {
+                    dgvDSKhachHang.Columns["HoaDons"].Visible = false;
+                }
             }
         }
 
@@ -30,69 +34,13 @@ namespace DoAn1.Forms.QLKhachHang
         {
             frmPhieuKhachHang phieuKhachHangForm = new frmPhieuKhachHang();
             if (phieuKhachHangForm.ShowDialog() == DialogResult.OK)
+            {
                 MessageBox.Show("Thêm khách hàng thành công!");
+                loadDanhSachKhachHang(); // Load lại danh sách
+            }
             else
+            {
                 MessageBox.Show("Thêm khách hàng thất bại!");
-        }
-
-        private void dgvDSKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.RowIndex < dgvDSKhachHang.Rows.Count)
-            {
-                DataGridViewRow row = dgvDSKhachHang.Rows[e.RowIndex];
-
-                txtMaKH.Text = row.Cells["maKhachHang"]?.Value?.ToString() ?? "";
-                txtHoTen.Text = row.Cells["hoTen"]?.Value?.ToString() ?? "";
-                txtDiaChi.Text = row.Cells["diaChi"]?.Value?.ToString() ?? "";
-                txtSoDienThoai.Text = row.Cells["soDienThoai"]?.Value?.ToString() ?? "";
-                txtEmail.Text = row.Cells["email"]?.Value?.ToString() ?? "";
-            }
-        }
-        private void loadDanhSachKhachHang()
-        {
-            using (var context = new DataDbContext())
-            {
-                var ds = context.KhachHang
-                    .Select(kh => new
-                    {
-                        MaKH = kh.maKhachHang,
-                        HoTen = kh.hoTen,
-                        DiaChi = kh.diaChi,
-                        SoDienThoai = kh.soDienThoai,
-                        Email = kh.email
-                    })
-                    .ToList();
-
-                dgvDSKhachHang.DataSource = ds;
-            }
-        }
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            string tenKH = txtTimKiemKhachHang.Text.Trim();
-
-            if (string.IsNullOrEmpty(tenKH))
-            {
-                MessageBox.Show("Vui lòng nhập tên khách hàng cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            using (var context = new DataDbContext())
-            {
-                // Tìm theo tên, không phân biệt hoa thường
-                var ketQua = context.KhachHang
-                                    .Where(kh => kh.hoTen.Contains(tenKH))
-                                    .ToList();
-
-                if (ketQua.Any())
-                {
-                    dgvDSKhachHang.DataSource = ketQua;
-                }
-                else
-                {
-                    MessageBox.Show("Không tìm thấy khách hàng có tên chứa: " + tenKH, "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvDSKhachHang.DataSource = null;
-                }
             }
         }
 
@@ -119,11 +67,12 @@ namespace DoAn1.Forms.QLKhachHang
                 khachHang.diaChi = txtDiaChi.Text.Trim();
                 khachHang.soDienThoai = txtSoDienThoai.Text.Trim();
                 khachHang.email = txtEmail.Text.Trim();
+
                 try
                 {
                     context.SaveChanges();
                     MessageBox.Show("Cập nhật khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadDanhSachKhachHang(); // gọi hàm load lại dữ liệu nếu có
+                    loadDanhSachKhachHang();
                 }
                 catch (Exception ex)
                 {
@@ -162,7 +111,6 @@ namespace DoAn1.Forms.QLKhachHang
                         return;
                     }
 
-                    // Xóa các hóa đơn liên quan trước (nếu cần)
                     var hoaDons = context.HoaDon.Where(hd => hd.maKhachHang == maKH).ToList();
                     if (hoaDons.Any())
                         context.HoaDon.RemoveRange(hoaDons);
@@ -171,7 +119,7 @@ namespace DoAn1.Forms.QLKhachHang
                     context.SaveChanges();
 
                     MessageBox.Show("Xóa khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadDanhSachKhachHang(); // Làm mới lưới dữ liệu
+                    loadDanhSachKhachHang();
                 }
                 catch (Exception ex)
                 {
@@ -180,9 +128,64 @@ namespace DoAn1.Forms.QLKhachHang
             }
         }
 
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string tenKH = txtTimKiemKhachHang.Text.Trim();
+
+            if (string.IsNullOrEmpty(tenKH))
+            {
+                MessageBox.Show("Vui lòng nhập tên khách hàng cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (var context = new DataDbContext())
+            {
+                var ketQua = context.KhachHang
+                                    .Where(kh => kh.hoTen.Contains(tenKH))
+                                    .ToList();
+
+                if (ketQua.Any())
+                {
+                    dgvDSKhachHang.DataSource = ketQua;
+
+                    if (dgvDSKhachHang.Columns.Contains("HoaDons"))
+                    {
+                        dgvDSKhachHang.Columns["HoaDons"].Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy khách hàng có tên chứa: " + tenKH, "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvDSKhachHang.DataSource = null;
+                }
+            }
+        }
+
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            
+            txtMaKH.Clear();
+            txtHoTen.Clear();
+            txtDiaChi.Clear();
+            txtSoDienThoai.Clear();
+            txtEmail.Clear();
+            txtTimKiemKhachHang.Clear();
+
+            loadDanhSachKhachHang();
+            dgvDSKhachHang.ClearSelection();
+        }
+
+        private void dgvDSKhachHang_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvDSKhachHang.Rows.Count)
+            {
+                DataGridViewRow row = dgvDSKhachHang.Rows[e.RowIndex];
+
+                txtMaKH.Text = row.Cells["maKhachHang"]?.Value?.ToString() ?? "";
+                txtHoTen.Text = row.Cells["hoTen"]?.Value?.ToString() ?? "";
+                txtDiaChi.Text = row.Cells["diaChi"]?.Value?.ToString() ?? "";
+                txtSoDienThoai.Text = row.Cells["soDienThoai"]?.Value?.ToString() ?? "";
+                txtEmail.Text = row.Cells["email"]?.Value?.ToString() ?? "";
+            }
         }
     }
 }

@@ -1,12 +1,6 @@
 ﻿using DoAn.Data_Access_Layer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoAn1.Forms.QLHoaDon
@@ -25,22 +19,46 @@ namespace DoAn1.Forms.QLHoaDon
             {
                 var data = from hd in context.HoaDon
                            join kh in context.KhachHang on hd.maKhachHang equals kh.maKhachHang
-                           join tk in context.TaiKhoan on hd.tenTK equals tk.tenTK
-                           join nv in context.NhanVien on tk.tenTK equals nv.tenTK
+                           join tk in context.TaiKhoan on hd.tenTaiKhoan equals tk.tenTaiKhoan
+                           join nv in context.NhanVien on tk.tenTaiKhoan equals nv.tenTaiKhoan
+                           join cthd in context.ChiTietHoaDon on hd.maHoaDon equals cthd.maHoaDon into cthdGroup
+                           from cthd in cthdGroup.DefaultIfEmpty()
+                           join xe in context.ThongTinXe on cthd.maXe equals xe.maXe into xeGroup
+                           from xe in xeGroup.DefaultIfEmpty()
                            select new
                            {
                                MaHD = hd.maHoaDon,
                                TenKhachHang = kh.hoTen,
                                TenNhanVien = nv.hoTen,
                                NgayLap = hd.ngayLap,
-                               TongTien = hd.tongTien
+                               TongTien = hd.tongTien,
+                               GhiChuKhuyenMai = cthd == null ? "" : cthd.ghiChuKhuyenMai,
+                               GiaBan = xe == null ? 0 : xe.giaBan
                            };
 
                 dgvDSHoaDon.DataSource = data.ToList();
 
-                dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                // Định dạng cột tiền
+                if (dgvDSHoaDon.Columns["TongTien"] != null)
+                {
+                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                }
+
+                if (dgvDSHoaDon.Columns["GiaBan"] != null)
+                {
+                    dgvDSHoaDon.Columns["GiaBan"].HeaderText = "Giá Bán";
+                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                }
+
+                if (dgvDSHoaDon.Columns["GhiChuKhuyenMai"] != null)
+                {
+                    dgvDSHoaDon.Columns["GhiChuKhuyenMai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                }
             }
         }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmPhieuHoaDon frmPhieuHoaDon = new frmPhieuHoaDon();
@@ -48,58 +66,56 @@ namespace DoAn1.Forms.QLHoaDon
                 MessageBox.Show("Thêm hóa đơn thành công!");
             else
                 MessageBox.Show("Thêm hóa đơn thất bại!");
-        }
-
-        private void dgvDSHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0) // Kiểm tra chỉ số dòng hợp lệ
-            {
-                DataGridViewRow row = dgvDSHoaDon.Rows[e.RowIndex];
-
-                // Giả sử bạn có các TextBox với tên:
-                // txtMaHD, txtTenKH, txtTenNV, txtNgayLap, txtTongTien
-
-                txtMaHoaDon.Text = row.Cells["MaHD"].Value?.ToString();
-                txtTenKhachHang.Text = row.Cells["TenKhachHang"].Value?.ToString();
-                txtTenNhanVien.Text = row.Cells["TenNhanVien"].Value?.ToString();
-
-                // Format ngày lập (nếu cần)
-                if (DateTime.TryParse(row.Cells["NgayLap"].Value?.ToString(), out DateTime ngayLap))
-                    txtNgayLap.Text = ngayLap.ToString("dd/MM/yyyy");
-                else
-                    txtNgayLap.Text = "";
-
-                // Tổng tiền định dạng số
-                if (decimal.TryParse(row.Cells["TongTien"].Value?.ToString(), out decimal tongTien))
-                    txtTongTien.Text = tongTien.ToString("#,##0 'VNĐ'");
-                else
-                    txtTongTien.Text = "";
-            }
+            LoadHoaDon();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            string tuKhoa = txtTimKiemHoaDon.Text.Trim().ToLower(); // textbox tìm kiếm
+            string tuKhoa = txtTimKiemHoaDon.Text.Trim().ToLower();
 
             using (var context = new DataDbContext())
             {
                 var ketQua = from hd in context.HoaDon
                              join kh in context.KhachHang on hd.maKhachHang equals kh.maKhachHang
-                             join tk in context.TaiKhoan on hd.tenTK equals tk.tenTK
-                             join nv in context.NhanVien on tk.tenTK equals nv.tenTK
+                             join tk in context.TaiKhoan on hd.tenTaiKhoan equals tk.tenTaiKhoan
+                             join nv in context.NhanVien on tk.tenTaiKhoan equals nv.tenTaiKhoan
+                             join cthd in context.ChiTietHoaDon on hd.maHoaDon equals cthd.maHoaDon into cthdGroup
+                             from cthd in cthdGroup.DefaultIfEmpty()
+                             join xe in context.ThongTinXe on cthd.maXe equals xe.maXe into xeGroup
+                             from xe in xeGroup.DefaultIfEmpty()
                              where hd.maHoaDon.ToLower().Contains(tuKhoa)
                                 || kh.hoTen.ToLower().Contains(tuKhoa)
+                                || (cthd != null && (cthd.ghiChuKhuyenMai ?? "").ToLower().Contains(tuKhoa))
                              select new
                              {
                                  MaHD = hd.maHoaDon,
                                  TenKhachHang = kh.hoTen,
                                  TenNhanVien = nv.hoTen,
                                  NgayLap = hd.ngayLap,
-                                 TongTien = hd.tongTien
+                                 TongTien = hd.tongTien,
+                                 GhiChuKhuyenMai = cthd == null ? "" : cthd.ghiChuKhuyenMai,
+                                 GiaBan = xe == null ? 0 : xe.giaBan
                              };
 
                 dgvDSHoaDon.DataSource = ketQua.ToList();
-                dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
+
+                if (dgvDSHoaDon.Columns["TongTien"] != null)
+                {
+                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                }
+
+                if (dgvDSHoaDon.Columns["GiaBan"] != null)
+                {
+                    dgvDSHoaDon.Columns["GiaBan"].HeaderText = "Giá Bán";
+                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                }
+
+                if (dgvDSHoaDon.Columns["GhiChuKhuyenMai"] != null)
+                {
+                    dgvDSHoaDon.Columns["GhiChuKhuyenMai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                }
             }
         }
 
@@ -123,7 +139,6 @@ namespace DoAn1.Forms.QLHoaDon
                     return;
                 }
 
-                // Tìm mã khách hàng dựa vào tên khách hàng (nếu cần)
                 var khach = context.KhachHang.FirstOrDefault(k => k.hoTen == txtTenKhachHang.Text.Trim());
                 if (khach == null)
                 {
@@ -131,9 +146,8 @@ namespace DoAn1.Forms.QLHoaDon
                     return;
                 }
 
-                // Tìm tài khoản dựa vào tên nhân viên (nếu đang nhập họ tên)
                 var nhanVien = (from tk in context.TaiKhoan
-                                join nv in context.NhanVien on tk.tenTK equals nv.tenTK
+                                join nv in context.NhanVien on tk.tenTaiKhoan equals nv.tenTaiKhoan
                                 where nv.hoTen == txtTenNhanVien.Text.Trim()
                                 select tk).FirstOrDefault();
 
@@ -143,9 +157,8 @@ namespace DoAn1.Forms.QLHoaDon
                     return;
                 }
 
-                // Gán lại các giá trị
                 hoaDon.maKhachHang = khach.maKhachHang;
-                hoaDon.tenTK = nhanVien.tenTK;
+                hoaDon.tenTaiKhoan = nhanVien.tenTaiKhoan;
 
                 if (DateTime.TryParse(txtNgayLap.Text, out DateTime ngayLap))
                     hoaDon.ngayLap = ngayLap;
@@ -157,10 +170,16 @@ namespace DoAn1.Forms.QLHoaDon
 
                 context.SaveChanges();
 
+                // Cập nhật ghi chú khuyến mãi trong ChiTietHoaDon (bản ghi đầu tiên)
+                var chiTiet = context.ChiTietHoaDon.FirstOrDefault(ct => ct.maHoaDon == maHD);
+                if (chiTiet != null)
+                {
+                    chiTiet.ghiChuKhuyenMai = txtKhuyenMai.Text.Trim();
+                    context.SaveChanges();
+                }
+
                 MessageBox.Show("Sửa hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            // Gợi ý: Gọi lại hàm load danh sách nếu có
             LoadHoaDon();
         }
 
@@ -172,11 +191,10 @@ namespace DoAn1.Forms.QLHoaDon
             txtNgayLap.Clear();
             txtTongTien.Clear();
             txtTimKiemHoaDon.Clear();
+            txtKhuyenMai.Clear();
+            txtGiaBan.Clear();
 
-            // Load lại danh sách hóa đơn
             LoadHoaDon();
-
-            // Đặt lại focus nếu cần
             txtTimKiemHoaDon.Focus();
         }
 
@@ -207,23 +225,53 @@ namespace DoAn1.Forms.QLHoaDon
                         return;
                     }
 
-                    // Nếu có ràng buộc, xóa ChiTietHoaDon trước
+                    // Xóa chi tiết hóa đơn liên quan
                     var chiTiet = context.ChiTietHoaDon.Where(ct => ct.maHoaDon == maHD).ToList();
                     if (chiTiet.Any())
                         context.ChiTietHoaDon.RemoveRange(chiTiet);
 
-                    // Nếu có bảo hành thì xóa tiếp
+                    // Xóa bảo hành liên quan
                     var baoHanhs = context.BaoHanh.Where(bh => bh.maHoaDon == maHD).ToList();
                     if (baoHanhs.Any())
                         context.BaoHanh.RemoveRange(baoHanhs);
 
+                    // Xóa hóa đơn
                     context.HoaDon.Remove(hoaDon);
                     context.SaveChanges();
                 }
 
                 MessageBox.Show("Đã xóa hóa đơn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadHoaDon(); // Tải lại danh sách sau khi xóa
-                btnLamMoi_Click(sender, e); // Reset form nếu muốn
+                LoadHoaDon();
+                btnLamMoi_Click(sender, e);
+            }
+        }
+
+        private void dgvDSHoaDon_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Kiểm tra chỉ số dòng hợp lệ
+            {
+                DataGridViewRow row = dgvDSHoaDon.Rows[e.RowIndex];
+
+                txtMaHoaDon.Text = row.Cells["MaHD"].Value?.ToString();
+                txtTenKhachHang.Text = row.Cells["TenKhachHang"].Value?.ToString();
+                txtTenNhanVien.Text = row.Cells["TenNhanVien"].Value?.ToString();
+
+                if (DateTime.TryParse(row.Cells["NgayLap"].Value?.ToString(), out DateTime ngayLap))
+                    txtNgayLap.Text = ngayLap.ToString("dd/MM/yyyy");
+                else
+                    txtNgayLap.Text = "";
+
+                if (decimal.TryParse(row.Cells["TongTien"].Value?.ToString(), out decimal tongTien))
+                    txtTongTien.Text = tongTien.ToString("#,##0 'VNĐ'");
+                else
+                    txtTongTien.Text = "";
+
+                txtKhuyenMai.Text = row.Cells["GhiChuKhuyenMai"].Value?.ToString() ?? "";
+
+                if (decimal.TryParse(row.Cells["GiaBan"].Value?.ToString(), out decimal giaBan))
+                    txtGiaBan.Text = giaBan.ToString("#,##0 'VNĐ'");
+                else
+                    txtGiaBan.Text = "0 VNĐ";
             }
         }
     }

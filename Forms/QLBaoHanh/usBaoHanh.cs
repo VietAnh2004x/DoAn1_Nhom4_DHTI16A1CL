@@ -1,12 +1,7 @@
 ﻿using DoAn.Data_Access_Layer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoAn1.Forms.QLBaoHanh
@@ -17,16 +12,25 @@ namespace DoAn1.Forms.QLBaoHanh
         {
             InitializeComponent();
             LoadBaoHanh();
+            SetupDateTimePicker();
         }
+
+        private void SetupDateTimePicker()
+        {
+            dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
+            dtpNgayBatDau.CustomFormat = " "; // Hiển thị trống ban đầu
+            dtpNgayBatDau.ValueChanged += dtpNgayBatDau_ValueChanged;
+        }
+
         private void LoadBaoHanh()
         {
             using (var context = new DataDbContext())
             {
                 var danhSachBaoHanh = (from bh in context.BaoHanh
                                        join xe in context.ThongTinXe
-                                       on bh.maXe equals xe.maXe
+                                         on bh.maXe equals xe.maXe
                                        join hd in context.HoaDon
-                                       on bh.maHoaDon equals hd.maHoaDon
+                                         on bh.maHoaDon equals hd.maHoaDon
                                        select new
                                        {
                                            bh.maBaoHanh,
@@ -40,18 +44,17 @@ namespace DoAn1.Forms.QLBaoHanh
                 dgvDSBaoHanh.DataSource = danhSachBaoHanh;
 
                 // Đặt tên cột hiển thị
-                dgvDSBaoHanh.Columns["maBaoHanh"]!.HeaderText = "Mã Bảo Hành";
-                dgvDSBaoHanh.Columns["maHoaDon"]!.HeaderText = "Mã Hóa Đơn";
-                dgvDSBaoHanh.Columns["maXe"]!.HeaderText = "Mã Xe";
-                dgvDSBaoHanh.Columns["tenXe"]!.HeaderText = "Tên Xe";
-                dgvDSBaoHanh.Columns["ngayBatDau"]!.HeaderText = "Ngày Bắt Đầu";
-                dgvDSBaoHanh.Columns["thoiHanThang"]!.HeaderText = "Thời Hạn (Tháng)";
+                dgvDSBaoHanh.Columns["maBaoHanh"].HeaderText = "Mã Bảo Hành";
+                dgvDSBaoHanh.Columns["maHoaDon"].HeaderText = "Mã Hóa Đơn";
+                dgvDSBaoHanh.Columns["maXe"].HeaderText = "Mã Xe";
+                dgvDSBaoHanh.Columns["tenXe"].HeaderText = "Tên Xe";
+                dgvDSBaoHanh.Columns["ngayBatDau"].HeaderText = "Ngày Bắt Đầu";
+                dgvDSBaoHanh.Columns["thoiHanThang"].HeaderText = "Thời Hạn (Tháng)";
 
                 dgvDSBaoHanh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
-                dtpNgayBatDau.CustomFormat = " ";
             }
         }
+
         private void dtpNgayBatDau_ValueChanged(object sender, EventArgs e)
         {
             dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
@@ -77,15 +80,28 @@ namespace DoAn1.Forms.QLBaoHanh
                 txtMaHoaDon.Text = row.Cells["maHoaDon"].Value?.ToString();
                 txtMaXe.Text = row.Cells["maXe"].Value?.ToString();
 
-                if (row.Cells["ngayBatDau"].Value != null)
+                if (row.Cells["ngayBatDau"].Value != null &&
+                    DateTime.TryParse(row.Cells["ngayBatDau"].Value.ToString(), out DateTime ngayBD))
                 {
-                    dtpNgayBatDau.Value = Convert.ToDateTime(row.Cells["ngayBatDau"].Value);
+                    if (ngayBD == DateTime.MinValue)
+                    {
+                        dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
+                        dtpNgayBatDau.CustomFormat = " ";
+                    }
+                    else
+                    {
+                        dtpNgayBatDau.Value = ngayBD;
+                        dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
+                        dtpNgayBatDau.CustomFormat = "dd/MM/yyyy";
+                    }
+                }
+                else
+                {
+                    dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
+                    dtpNgayBatDau.CustomFormat = " ";
                 }
 
-                if (row.Cells["thoiHanThang"].Value != null)
-                {
-                    txtThoiHan.Text = row.Cells["thoiHanThang"].Value!.ToString();
-                }
+                txtThoiHan.Text = row.Cells["thoiHanThang"].Value?.ToString();
             }
         }
 
@@ -110,10 +126,19 @@ namespace DoAn1.Forms.QLBaoHanh
                 var baoHanh = context.BaoHanh.FirstOrDefault(bh => bh.maBaoHanh == maBH);
                 if (baoHanh != null)
                 {
-                    // Cập nhật dữ liệu
                     baoHanh.maHoaDon = txtMaHoaDon.Text.Trim();
                     baoHanh.maXe = txtMaXe.Text.Trim();
-                    baoHanh.ngayBatDau = dtpNgayBatDau.Value;
+
+                    // Gán DateTime.MinValue nếu dtp hiển thị rỗng
+                    if (dtpNgayBatDau.Format == DateTimePickerFormat.Custom && dtpNgayBatDau.CustomFormat == " ")
+                    {
+                        baoHanh.ngayBatDau = DateTime.MinValue;
+                    }
+                    else
+                    {
+                        baoHanh.ngayBatDau = dtpNgayBatDau.Value;
+                    }
+
                     baoHanh.thoiHanThang = thoiHan;
 
                     try
@@ -180,7 +205,6 @@ namespace DoAn1.Forms.QLBaoHanh
             txtMaXe.Clear();
             txtThoiHan.Clear();
 
-            // Làm trống ngày
             dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
             dtpNgayBatDau.CustomFormat = " ";
 
@@ -221,6 +245,5 @@ namespace DoAn1.Forms.QLBaoHanh
                 }
             }
         }
-
     }
 }
