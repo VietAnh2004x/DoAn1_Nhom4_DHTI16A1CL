@@ -1,5 +1,5 @@
 ﻿using DoAn.Data_Access_Layer;
-using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
+using DoAn1.Data_Transfer_Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
+namespace DoAn1.Forms.QLDaiLy
 {
     public partial class usDaiLy : UserControl
     {
@@ -23,7 +23,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
         {
             using (var context = new DataDbContext())
             {
-                var danhSachDaiLy = context.Daily
+                var danhSachDaiLy = context.DaiLy
                     .Select(dl => new
                     {
                         dl.maDaiLy,
@@ -38,11 +38,11 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
                 // Đặt tên cột hiển thị
                 if (dgvDSDaiLy.Columns.Count > 0)
                 {
-                    dgvDSDaiLy.Columns["maDaiLy"].HeaderText = "Mã Đại Lý";
-                    dgvDSDaiLy.Columns["tenDaiLy"].HeaderText = "Tên Đại Lý";
-                    dgvDSDaiLy.Columns["diaChi"].HeaderText = "Địa Chỉ";
-                    dgvDSDaiLy.Columns["soDienThoai"].HeaderText = "Số Điện Thoại";
-                    dgvDSDaiLy.Columns["email"].HeaderText = "Email";
+                    dgvDSDaiLy.Columns["maDaiLy"]!.HeaderText = "Mã Đại Lý";
+                    dgvDSDaiLy.Columns["tenDaiLy"]!.HeaderText = "Tên Đại Lý";
+                    dgvDSDaiLy.Columns["diaChi"]!.HeaderText = "Địa Chỉ";
+                    dgvDSDaiLy.Columns["soDienThoai"]!.HeaderText = "Số Điện Thoại";
+                    dgvDSDaiLy.Columns["email"]!.HeaderText = "Email";
                 }
 
                 dgvDSDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -85,7 +85,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
             using (var context = new DataDbContext())
             {
                 // Tìm đại lý theo mã
-                var daiLy = context.Daily.FirstOrDefault(dl => dl.maDaiLy == txtMaDaiLy.Text);
+                var daiLy = context.DaiLy.FirstOrDefault(dl => dl.maDaiLy == txtMaDaiLy.Text);
 
                 if (daiLy != null)
                 {
@@ -132,7 +132,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
             using (var context = new DataDbContext())
             {
                 var maDL = txtMaDaiLy.Text;
-                var daiLy = context.Daily.FirstOrDefault(dl => dl.maDaiLy == maDL);
+                var daiLy = context.DaiLy.FirstOrDefault(dl => dl.maDaiLy == maDL);
 
                 // ❗ Kiểm tra xem có xe nào đang tham chiếu đại lý này không
                 bool coXeLienKet = context.ThongTinXe.Any(x => x.maDaiLy == maDL);
@@ -145,7 +145,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
 
                 if (daiLy != null)
                 {
-                    context.Daily.Remove(daiLy);
+                    context.DaiLy.Remove(daiLy);
                     context.SaveChanges();
 
                     MessageBox.Show("Xóa đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -171,7 +171,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
 
             using (var context = new DataDbContext())
             {
-                var ketQua = context.Daily
+                var ketQua = context.DaiLy
                     .Where(dl =>
                         dl.maDaiLy.ToLower().Contains(tuKhoa) ||
                         dl.tenDaiLy.ToLower().Contains(tuKhoa) ||
@@ -190,11 +190,11 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
                 {
                     dgvDSDaiLy.DataSource = ketQua;
 
-                    dgvDSDaiLy.Columns["maDaiLy"].HeaderText = "Mã Đại Lý";
-                    dgvDSDaiLy.Columns["tenDaiLy"].HeaderText = "Tên Đại Lý";
-                    dgvDSDaiLy.Columns["diaChi"].HeaderText = "Địa Chỉ";
-                    dgvDSDaiLy.Columns["soDienThoai"].HeaderText = "Số Điện Thoại";
-                    dgvDSDaiLy.Columns["email"].HeaderText = "Email";
+                    dgvDSDaiLy.Columns["maDaiLy"]!.HeaderText = "Mã Đại Lý";
+                    dgvDSDaiLy.Columns["tenDaiLy"]!.HeaderText = "Tên Đại Lý";
+                    dgvDSDaiLy.Columns["diaChi"]!.HeaderText = "Địa Chỉ";
+                    dgvDSDaiLy.Columns["soDienThoai"]!.HeaderText = "Số Điện Thoại";
+                    dgvDSDaiLy.Columns["email"]!.HeaderText = "Email";
                     dgvDSDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
                 else

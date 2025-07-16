@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms.DataVisualization.Charting;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.TongQuan
+namespace DoAn1.Forms.TongQuan
 {
     partial class usTongQuan
     {

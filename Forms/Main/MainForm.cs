@@ -1,29 +1,44 @@
-﻿using DoAn1_Nhom4_DHTI16A1CL.Forms.TongQuan;
+﻿using FontAwesome.Sharp;
+using Microsoft.VisualBasic.Logging;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.MainForm
+namespace DoAn1.Forms.Main
 {
     public partial class MainForm : Form
     {
-
         public MainForm()
         {
             InitializeComponent();
-            usSideBar sidebar = new usSideBar(LoadUserControl);
-            sidebar.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Controls.Add(sidebar, 0, 0);
+        }
 
-            LoadUserControl(new usTongQuan());
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            // Logo
+            usLogo logo = new usLogo();
+            logo.Dock = DockStyle.Fill;
+            panelLogo.Controls.Add(logo);
+
+            // Tiêu đề
+            usTieuDe TieuDe = new usTieuDe();
+            TieuDe.Dock = DockStyle.Fill;
+            panelTieuDe.Controls.Add(TieuDe);
+
+            // Sidebar
+            usSideBar sideBar = new usSideBar((title, icon, uc) =>
+            {
+                TieuDe.SetTieuDe(title, icon);
+                LoadUserControl(uc);
+            });
+            sideBar.Dock = DockStyle.Fill;
+            panelSideBar.Controls.Add(sideBar);
         }
 
         private void LoadUserControl(UserControl uc)
         {
-            if (tableLayoutPanel1.Controls.Count > 1)
-                tableLayoutPanel1.Controls.RemoveAt(1);
-
+            panelNoiDung.Controls.Clear(); // Dọn sạch cũ
             uc.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Controls.Add(uc, 1, 0);
+            panelNoiDung.Controls.Add(uc);
         }
-
     }
 }

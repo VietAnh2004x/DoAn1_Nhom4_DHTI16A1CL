@@ -1,4 +1,4 @@
-﻿using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
+﻿using DoAn1.Data_Transfer_Objects;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLTaiKhoan
+namespace DoAn1.Forms.Main
 {
-    public partial class usTaiKhoan : UserControl
+    public partial class usRong : UserControl
     {
-        public usTaiKhoan()
+        public usRong()
         {
             InitializeComponent();
         }

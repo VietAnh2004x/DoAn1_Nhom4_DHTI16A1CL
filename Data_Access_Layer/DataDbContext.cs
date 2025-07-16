@@ -1,5 +1,5 @@
 ﻿using DoAn.Data_Transfer_Objects;
-using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
+using DoAn1.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
 using DoAn.Data_Transfer_Objects;
 
@@ -21,7 +21,7 @@ namespace DoAn.Data_Access_Layer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=a;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=QLXe;Integrated Security=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
+namespace DoAn1.Forms.QLXe
 {
     partial class usXeDapDien
     {
@@ -17,17 +17,13 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
-            tbTong = new TableLayoutPanel();
-            lblTieuDe = new Label();
             tbHienThiXe = new TableLayoutPanel();
             tbHienThiBang = new TableLayoutPanel();
             grpDSXeDapDien = new GroupBox();
             dgvDSXeDapDien = new DataGridView();
             grpTacVu = new GroupBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            tbTacVu = new TableLayoutPanel();
             btnThem = new Button();
             btnSua = new Button();
             btnXoa = new Button();
@@ -45,13 +41,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             lblGia = new Label();
             lblTenXe = new Label();
             panel1.SuspendLayout();
-            tbTong.SuspendLayout();
             tbHienThiXe.SuspendLayout();
             tbHienThiBang.SuspendLayout();
             grpDSXeDapDien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDSXeDapDien).BeginInit();
             grpTacVu.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
+            tbTacVu.SuspendLayout();
             grpTTXe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picAnhXe).BeginInit();
             SuspendLayout();
@@ -59,38 +54,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(241, 248, 233);
-            panel1.Controls.Add(tbTong);
+            panel1.Controls.Add(tbHienThiXe);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1000, 750);
             panel1.TabIndex = 0;
-            // 
-            // tbTong
-            // 
-            tbTong.ColumnCount = 1;
-            tbTong.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tbTong.Controls.Add(lblTieuDe, 0, 0);
-            tbTong.Controls.Add(tbHienThiXe, 0, 1);
-            tbTong.Dock = DockStyle.Fill;
-            tbTong.Location = new Point(0, 0);
-            tbTong.Name = "tbTong";
-            tbTong.RowCount = 2;
-            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
-            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 85F));
-            tbTong.Size = new Size(1000, 750);
-            tbTong.TabIndex = 0;
-            // 
-            // lblTieuDe
-            // 
-            lblTieuDe.Dock = DockStyle.Fill;
-            lblTieuDe.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTieuDe.Location = new Point(3, 0);
-            lblTieuDe.Name = "lblTieuDe";
-            lblTieuDe.Size = new Size(994, 112);
-            lblTieuDe.TabIndex = 0;
-            lblTieuDe.Text = "THÔNG TIN XE ĐẠP ĐIỆN";
-            lblTieuDe.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tbHienThiXe
             // 
@@ -101,12 +70,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             tbHienThiXe.Controls.Add(tbHienThiBang, 1, 0);
             tbHienThiXe.Controls.Add(grpTTXe, 0, 0);
             tbHienThiXe.Dock = DockStyle.Fill;
-            tbHienThiXe.Location = new Point(3, 115);
+            tbHienThiXe.Location = new Point(0, 0);
             tbHienThiXe.Name = "tbHienThiXe";
             tbHienThiXe.RowCount = 1;
             tbHienThiXe.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tbHienThiXe.Size = new Size(994, 632);
-            tbHienThiXe.TabIndex = 1;
+            tbHienThiXe.Size = new Size(1000, 750);
+            tbHienThiXe.TabIndex = 2;
             // 
             // tbHienThiBang
             // 
@@ -115,12 +84,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             tbHienThiBang.Controls.Add(grpDSXeDapDien, 0, 0);
             tbHienThiBang.Controls.Add(grpTacVu, 0, 1);
             tbHienThiBang.Dock = DockStyle.Fill;
-            tbHienThiBang.Location = new Point(400, 3);
+            tbHienThiBang.Location = new Point(403, 3);
             tbHienThiBang.Name = "tbHienThiBang";
             tbHienThiBang.RowCount = 2;
             tbHienThiBang.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
             tbHienThiBang.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tbHienThiBang.Size = new Size(591, 626);
+            tbHienThiBang.Size = new Size(594, 744);
             tbHienThiBang.TabIndex = 0;
             // 
             // grpDSXeDapDien
@@ -129,7 +98,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             grpDSXeDapDien.Dock = DockStyle.Fill;
             grpDSXeDapDien.Location = new Point(3, 3);
             grpDSXeDapDien.Name = "grpDSXeDapDien";
-            grpDSXeDapDien.Size = new Size(585, 494);
+            grpDSXeDapDien.Size = new Size(588, 589);
             grpDSXeDapDien.TabIndex = 0;
             grpDSXeDapDien.TabStop = false;
             grpDSXeDapDien.Text = "Danh sách xe đạp điện";
@@ -143,39 +112,38 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             dgvDSXeDapDien.Location = new Point(3, 26);
             dgvDSXeDapDien.Name = "dgvDSXeDapDien";
             dgvDSXeDapDien.RowHeadersWidth = 51;
-            dgvDSXeDapDien.Size = new Size(579, 465);
+            dgvDSXeDapDien.Size = new Size(582, 560);
             dgvDSXeDapDien.TabIndex = 0;
-            dgvDSXeDapDien.CellContentClick += dgvDSXeDapDien_CellContentClick;
             // 
             // grpTacVu
             // 
-            grpTacVu.Controls.Add(tableLayoutPanel1);
+            grpTacVu.Controls.Add(tbTacVu);
             grpTacVu.Dock = DockStyle.Fill;
-            grpTacVu.Location = new Point(3, 503);
+            grpTacVu.Location = new Point(3, 598);
             grpTacVu.Name = "grpTacVu";
-            grpTacVu.Size = new Size(585, 120);
+            grpTacVu.Size = new Size(588, 143);
             grpTacVu.TabIndex = 1;
             grpTacVu.TabStop = false;
             grpTacVu.Text = "Tác vụ";
             // 
-            // tableLayoutPanel1
+            // tbTacVu
             // 
-            tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Controls.Add(btnThem, 0, 0);
-            tableLayoutPanel1.Controls.Add(btnSua, 1, 0);
-            tableLayoutPanel1.Controls.Add(btnXoa, 2, 0);
-            tableLayoutPanel1.Controls.Add(btnLamMoi, 3, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 26);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(579, 91);
-            tableLayoutPanel1.TabIndex = 0;
+            tbTacVu.ColumnCount = 4;
+            tbTacVu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tbTacVu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tbTacVu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tbTacVu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tbTacVu.Controls.Add(btnThem, 0, 0);
+            tbTacVu.Controls.Add(btnSua, 1, 0);
+            tbTacVu.Controls.Add(btnXoa, 2, 0);
+            tbTacVu.Controls.Add(btnLamMoi, 3, 0);
+            tbTacVu.Dock = DockStyle.Fill;
+            tbTacVu.Location = new Point(3, 26);
+            tbTacVu.Name = "tbTacVu";
+            tbTacVu.RowCount = 1;
+            tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tbTacVu.Size = new Size(582, 114);
+            tbTacVu.TabIndex = 0;
             // 
             // btnThem
             // 
@@ -185,13 +153,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(23, 28);
+            btnThem.Location = new Point(23, 39);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(98, 35);
             btnThem.TabIndex = 16;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += btnThem_Click;
             // 
             // btnSua
             // 
@@ -201,13 +168,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSua.ForeColor = Color.White;
-            btnSua.Location = new Point(167, 28);
+            btnSua.Location = new Point(168, 39);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(98, 35);
             btnSua.TabIndex = 17;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
-            btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
@@ -217,13 +183,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnXoa.ForeColor = Color.White;
-            btnXoa.Location = new Point(311, 28);
+            btnXoa.Location = new Point(313, 39);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(98, 35);
             btnXoa.TabIndex = 18;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
-            btnXoa.Click += btnXoa_Click;
             // 
             // btnLamMoi
             // 
@@ -233,13 +198,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLamMoi.ForeColor = Color.White;
-            btnLamMoi.Location = new Point(456, 28);
+            btnLamMoi.Location = new Point(459, 39);
             btnLamMoi.Name = "btnLamMoi";
             btnLamMoi.Size = new Size(98, 35);
             btnLamMoi.TabIndex = 19;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = false;
-            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // grpTTXe
             // 
@@ -257,7 +221,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             grpTTXe.Dock = DockStyle.Fill;
             grpTTXe.Location = new Point(3, 3);
             grpTTXe.Name = "grpTTXe";
-            grpTTXe.Size = new Size(391, 626);
+            grpTTXe.Size = new Size(394, 744);
             grpTTXe.TabIndex = 1;
             grpTTXe.TabStop = false;
             grpTTXe.Text = "Thông tin xe";
@@ -362,13 +326,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
             Name = "usXeDapDien";
             Size = new Size(1000, 750);
             panel1.ResumeLayout(false);
-            tbTong.ResumeLayout(false);
             tbHienThiXe.ResumeLayout(false);
             tbHienThiBang.ResumeLayout(false);
             grpDSXeDapDien.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvDSXeDapDien).EndInit();
             grpTacVu.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
+            tbTacVu.ResumeLayout(false);
             grpTTXe.ResumeLayout(false);
             grpTTXe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picAnhXe).EndInit();
@@ -377,29 +340,27 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
         }
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tbTong;
-        private System.Windows.Forms.Label lblTieuDe;
-        private System.Windows.Forms.TableLayoutPanel tbHienThiXe;
-        private System.Windows.Forms.TableLayoutPanel tbHienThiBang;
-        private System.Windows.Forms.GroupBox grpDSXeDapDien;
-        private System.Windows.Forms.GroupBox grpTTXe;
-        private System.Windows.Forms.GroupBox grpTacVu;
-        private System.Windows.Forms.Label lblSoBinhAcQuy;
-        private System.Windows.Forms.Label lblDungLuongAcQuy;
-        private System.Windows.Forms.Label lblGia;
-        private System.Windows.Forms.Label lblTenXe;
-        private System.Windows.Forms.DataGridView dgvDSXeDapDien;
-        private System.Windows.Forms.TextBox txtGia;
-        private System.Windows.Forms.TextBox txtTenXe;
-        private System.Windows.Forms.PictureBox picAnhXe;
-        private TextBox txtSoBinhAcQuy;
-        private TextBox txtDungLuongAcQuy;
-        private TextBox txtMauSac;
-        private Label lblMauSac;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tbHienThiXe;
+        private TableLayoutPanel tbHienThiBang;
+        private GroupBox grpDSXeDapDien;
+        private DataGridView dgvDSXeDapDien;
+        private GroupBox grpTacVu;
+        private TableLayoutPanel tbTacVu;
         private Button btnThem;
         private Button btnSua;
         private Button btnXoa;
         private Button btnLamMoi;
+        private GroupBox grpTTXe;
+        private TextBox txtSoBinhAcQuy;
+        private TextBox txtDungLuongAcQuy;
+        private TextBox txtMauSac;
+        private TextBox txtGia;
+        private TextBox txtTenXe;
+        private PictureBox picAnhXe;
+        private Label lblSoBinhAcQuy;
+        private Label lblDungLuongAcQuy;
+        private Label lblMauSac;
+        private Label lblGia;
+        private Label lblTenXe;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
+﻿namespace DoAn1.Forms.QLDaiLy
 {
     partial class frmPhieuDaiLy
     {

@@ -1,4 +1,4 @@
-﻿namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLXe
+﻿namespace DoAn1.Forms.QLXe
 {
     partial class frmPhieuThemXe
     {

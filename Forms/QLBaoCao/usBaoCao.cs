@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoCao
+namespace DoAn1.Forms.QLBaoCao
 {
     public partial class usBaoCao : UserControl
     {
@@ -137,6 +137,11 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoCao
             txtTongSoXeBanRa.Text = baoCaoBLL.ThongKeSoXeBanRa(ngayBatDau, ngayKetThuc, loaiThongKe).ToString();
             txtTongDoanhThu.Text = baoCaoBLL.ThongKeTongDoanhThu(ngayBatDau, ngayKetThuc, loaiThongKe);
             txtTongSoXeTheoLoai.Text = baoCaoBLL.ThongKeTongSoXeTheoLoai(ngayBatDau, ngayKetThuc, loaiThongKe).ToString();
+        }
+
+        private void usBaoCao_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

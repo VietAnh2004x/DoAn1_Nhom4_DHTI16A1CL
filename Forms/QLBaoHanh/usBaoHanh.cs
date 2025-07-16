@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
+namespace DoAn1.Forms.QLBaoHanh
 {
     public partial class usBaoHanh : UserControl
     {
@@ -40,12 +40,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
                 dgvDSBaoHanh.DataSource = danhSachBaoHanh;
 
                 // Đặt tên cột hiển thị
-                dgvDSBaoHanh.Columns["maBaoHanh"].HeaderText = "Mã Bảo Hành";
-                dgvDSBaoHanh.Columns["maHoaDon"].HeaderText = "Mã Hóa Đơn";
-                dgvDSBaoHanh.Columns["maXe"].HeaderText = "Mã Xe";
-                dgvDSBaoHanh.Columns["tenXe"].HeaderText = "Tên Xe";
-                dgvDSBaoHanh.Columns["ngayBatDau"].HeaderText = "Ngày Bắt Đầu";
-                dgvDSBaoHanh.Columns["thoiHanThang"].HeaderText = "Thời Hạn (Tháng)";
+                dgvDSBaoHanh.Columns["maBaoHanh"]!.HeaderText = "Mã Bảo Hành";
+                dgvDSBaoHanh.Columns["maHoaDon"]!.HeaderText = "Mã Hóa Đơn";
+                dgvDSBaoHanh.Columns["maXe"]!.HeaderText = "Mã Xe";
+                dgvDSBaoHanh.Columns["tenXe"]!.HeaderText = "Tên Xe";
+                dgvDSBaoHanh.Columns["ngayBatDau"]!.HeaderText = "Ngày Bắt Đầu";
+                dgvDSBaoHanh.Columns["thoiHanThang"]!.HeaderText = "Thời Hạn (Tháng)";
 
                 dgvDSBaoHanh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
@@ -84,7 +84,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
 
                 if (row.Cells["thoiHanThang"].Value != null)
                 {
-                    txtThoiHan.Text = row.Cells["thoiHanThang"].Value.ToString();
+                    txtThoiHan.Text = row.Cells["thoiHanThang"].Value!.ToString();
                 }
             }
         }

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
+namespace DoAn1.Forms.QLTonKho
 {
     partial class usTonKho
     {
@@ -18,7 +18,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            tbTong = new TableLayoutPanel();
             grpTTHoaDon = new TableLayoutPanel();
             tbTrai = new TableLayoutPanel();
             grTTXe = new GroupBox();
@@ -30,48 +29,31 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             lblTenXe = new Label();
             tbPhai = new TableLayoutPanel();
             grpTimKiemXe = new GroupBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            tbTimKiem = new TableLayoutPanel();
             lblTimKiemMaXe = new Label();
             txtTimKiemMaXe = new TextBox();
             btnTimKiem = new Button();
             grDSXe = new GroupBox();
             dgvDSTonKho = new DataGridView();
-            lblTieuDe = new Label();
             panel1.SuspendLayout();
-            tbTong.SuspendLayout();
             grpTTHoaDon.SuspendLayout();
             tbTrai.SuspendLayout();
             grTTXe.SuspendLayout();
             tbPhai.SuspendLayout();
             grpTimKiemXe.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
+            tbTimKiem.SuspendLayout();
             grDSXe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDSTonKho).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(tbTong);
+            panel1.Controls.Add(grpTTHoaDon);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1000, 750);
             panel1.TabIndex = 0;
-            // 
-            // tbTong
-            // 
-            tbTong.ColumnCount = 1;
-            tbTong.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tbTong.Controls.Add(grpTTHoaDon, 0, 1);
-            tbTong.Controls.Add(lblTieuDe, 0, 0);
-            tbTong.Dock = DockStyle.Fill;
-            tbTong.Location = new Point(0, 0);
-            tbTong.Name = "tbTong";
-            tbTong.RowCount = 2;
-            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
-            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 85F));
-            tbTong.Size = new Size(1000, 750);
-            tbTong.TabIndex = 0;
             // 
             // grpTTHoaDon
             // 
@@ -81,12 +63,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             grpTTHoaDon.Controls.Add(tbTrai, 0, 0);
             grpTTHoaDon.Controls.Add(tbPhai, 1, 0);
             grpTTHoaDon.Dock = DockStyle.Fill;
-            grpTTHoaDon.Location = new Point(3, 115);
+            grpTTHoaDon.Location = new Point(0, 0);
             grpTTHoaDon.Name = "grpTTHoaDon";
             grpTTHoaDon.RowCount = 1;
             grpTTHoaDon.RowStyles.Add(new RowStyle(SizeType.Absolute, 632F));
-            grpTTHoaDon.Size = new Size(994, 632);
-            grpTTHoaDon.TabIndex = 0;
+            grpTTHoaDon.Size = new Size(1000, 750);
+            grpTTHoaDon.TabIndex = 1;
             // 
             // tbTrai
             // 
@@ -98,7 +80,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             tbTrai.Name = "tbTrai";
             tbTrai.RowCount = 1;
             tbTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tbTrai.Size = new Size(391, 626);
+            tbTrai.Size = new Size(394, 744);
             tbTrai.TabIndex = 0;
             // 
             // grTTXe
@@ -112,7 +94,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             grTTXe.Dock = DockStyle.Fill;
             grTTXe.Location = new Point(3, 3);
             grTTXe.Name = "grTTXe";
-            grTTXe.Size = new Size(385, 620);
+            grTTXe.Size = new Size(388, 738);
             grTTXe.TabIndex = 0;
             grTTXe.TabStop = false;
             grTTXe.Text = "Thông Tin Xe";
@@ -122,7 +104,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             txtSoLuong.BorderStyle = BorderStyle.FixedSingle;
             txtSoLuong.Location = new Point(176, 295);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(139, 34);
+            txtSoLuong.Size = new Size(139, 30);
             txtSoLuong.TabIndex = 9;
             // 
             // txtNgayNhap
@@ -130,7 +112,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             txtNgayNhap.BorderStyle = BorderStyle.FixedSingle;
             txtNgayNhap.Location = new Point(176, 195);
             txtNgayNhap.Name = "txtNgayNhap";
-            txtNgayNhap.Size = new Size(139, 34);
+            txtNgayNhap.Size = new Size(139, 30);
             txtNgayNhap.TabIndex = 8;
             // 
             // txtTenXe
@@ -138,7 +120,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             txtTenXe.BorderStyle = BorderStyle.FixedSingle;
             txtTenXe.Location = new Point(176, 95);
             txtTenXe.Name = "txtTenXe";
-            txtTenXe.Size = new Size(139, 34);
+            txtTenXe.Size = new Size(139, 30);
             txtTenXe.TabIndex = 6;
             // 
             // lblSoLuong
@@ -172,46 +154,46 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             tbPhai.Controls.Add(grpTimKiemXe, 0, 0);
             tbPhai.Controls.Add(grDSXe, 0, 1);
             tbPhai.Dock = DockStyle.Fill;
-            tbPhai.Location = new Point(400, 3);
+            tbPhai.Location = new Point(403, 3);
             tbPhai.Name = "tbPhai";
             tbPhai.RowCount = 2;
             tbPhai.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tbPhai.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tbPhai.Size = new Size(591, 626);
+            tbPhai.Size = new Size(594, 744);
             tbPhai.TabIndex = 1;
             // 
             // grpTimKiemXe
             // 
-            grpTimKiemXe.Controls.Add(tableLayoutPanel1);
+            grpTimKiemXe.Controls.Add(tbTimKiem);
             grpTimKiemXe.Dock = DockStyle.Fill;
             grpTimKiemXe.Location = new Point(3, 3);
             grpTimKiemXe.Name = "grpTimKiemXe";
-            grpTimKiemXe.Size = new Size(585, 119);
+            grpTimKiemXe.Size = new Size(588, 142);
             grpTimKiemXe.TabIndex = 0;
             grpTimKiemXe.TabStop = false;
             grpTimKiemXe.Text = "Tìm Kiếm Xe";
             // 
-            // tableLayoutPanel1
+            // tbTimKiem
             // 
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanel1.Controls.Add(lblTimKiemMaXe, 0, 0);
-            tableLayoutPanel1.Controls.Add(txtTimKiemMaXe, 1, 0);
-            tableLayoutPanel1.Controls.Add(btnTimKiem, 2, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 30);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(579, 86);
-            tableLayoutPanel1.TabIndex = 0;
+            tbTimKiem.ColumnCount = 3;
+            tbTimKiem.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tbTimKiem.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tbTimKiem.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tbTimKiem.Controls.Add(lblTimKiemMaXe, 0, 0);
+            tbTimKiem.Controls.Add(txtTimKiemMaXe, 1, 0);
+            tbTimKiem.Controls.Add(btnTimKiem, 2, 0);
+            tbTimKiem.Dock = DockStyle.Fill;
+            tbTimKiem.Location = new Point(3, 26);
+            tbTimKiem.Name = "tbTimKiem";
+            tbTimKiem.RowCount = 1;
+            tbTimKiem.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tbTimKiem.Size = new Size(582, 113);
+            tbTimKiem.TabIndex = 0;
             // 
             // lblTimKiemMaXe
             // 
             lblTimKiemMaXe.Anchor = AnchorStyles.None;
-            lblTimKiemMaXe.Location = new Point(6, 31);
+            lblTimKiemMaXe.Location = new Point(7, 45);
             lblTimKiemMaXe.Name = "lblTimKiemMaXe";
             lblTimKiemMaXe.Size = new Size(160, 23);
             lblTimKiemMaXe.TabIndex = 11;
@@ -221,9 +203,9 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             // 
             txtTimKiemMaXe.Anchor = AnchorStyles.None;
             txtTimKiemMaXe.BorderStyle = BorderStyle.FixedSingle;
-            txtTimKiemMaXe.Location = new Point(190, 26);
+            txtTimKiemMaXe.Location = new Point(192, 41);
             txtTimKiemMaXe.Name = "txtTimKiemMaXe";
-            txtTimKiemMaXe.Size = new Size(196, 34);
+            txtTimKiemMaXe.Size = new Size(196, 30);
             txtTimKiemMaXe.TabIndex = 12;
             // 
             // btnTimKiem
@@ -233,7 +215,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(441, 25);
+            btnTimKiem.Location = new Point(443, 39);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(101, 35);
             btnTimKiem.TabIndex = 10;
@@ -244,9 +226,9 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             // 
             grDSXe.Controls.Add(dgvDSTonKho);
             grDSXe.Dock = DockStyle.Fill;
-            grDSXe.Location = new Point(3, 128);
+            grDSXe.Location = new Point(3, 151);
             grDSXe.Name = "grDSXe";
-            grDSXe.Size = new Size(585, 495);
+            grDSXe.Size = new Size(588, 590);
             grDSXe.TabIndex = 1;
             grDSXe.TabStop = false;
             grDSXe.Text = "Danh Sách Xe";
@@ -257,23 +239,11 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             dgvDSTonKho.BackgroundColor = Color.White;
             dgvDSTonKho.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDSTonKho.Dock = DockStyle.Fill;
-            dgvDSTonKho.Location = new Point(3, 30);
+            dgvDSTonKho.Location = new Point(3, 26);
             dgvDSTonKho.Name = "dgvDSTonKho";
             dgvDSTonKho.RowHeadersWidth = 51;
-            dgvDSTonKho.Size = new Size(579, 462);
+            dgvDSTonKho.Size = new Size(582, 561);
             dgvDSTonKho.TabIndex = 0;
-            dgvDSTonKho.CellContentClick += dgvDSTonKho_CellContentClick;
-            // 
-            // lblTieuDe
-            // 
-            lblTieuDe.Dock = DockStyle.Fill;
-            lblTieuDe.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTieuDe.Location = new Point(3, 0);
-            lblTieuDe.Name = "lblTieuDe";
-            lblTieuDe.Size = new Size(994, 112);
-            lblTieuDe.TabIndex = 1;
-            lblTieuDe.Text = "QUẢN LÝ TỒN KHO";
-            lblTieuDe.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // usTonKho
             // 
@@ -284,15 +254,14 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
             Name = "usTonKho";
             Size = new Size(1000, 750);
             panel1.ResumeLayout(false);
-            tbTong.ResumeLayout(false);
             grpTTHoaDon.ResumeLayout(false);
             tbTrai.ResumeLayout(false);
             grTTXe.ResumeLayout(false);
             grTTXe.PerformLayout();
             tbPhai.ResumeLayout(false);
             grpTimKiemXe.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
+            tbTimKiem.ResumeLayout(false);
+            tbTimKiem.PerformLayout();
             grDSXe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvDSTonKho).EndInit();
             ResumeLayout(false);
@@ -300,24 +269,22 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
         }
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tbTong;
-        private System.Windows.Forms.TableLayoutPanel grpTTHoaDon;
-        private System.Windows.Forms.TableLayoutPanel tbTrai;
-        private System.Windows.Forms.TableLayoutPanel tbPhai;
-        private System.Windows.Forms.GroupBox grTTXe;
-        private System.Windows.Forms.Label lblTieuDe;
-        private System.Windows.Forms.GroupBox grpTimKiemXe;
-        private System.Windows.Forms.GroupBox grDSXe;
-        private System.Windows.Forms.TextBox txtSoLuong;
-        private System.Windows.Forms.TextBox txtNgayNhap;
-        private System.Windows.Forms.TextBox txtTenXe;
-        private System.Windows.Forms.Label lblSoLuong;
-        private System.Windows.Forms.Label lblNgayNhap;
-        private System.Windows.Forms.Label lblTenXe;
-        private System.Windows.Forms.DataGridView dgvDSTonKho;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel grpTTHoaDon;
+        private TableLayoutPanel tbTrai;
+        private GroupBox grTTXe;
+        private TextBox txtSoLuong;
+        private TextBox txtNgayNhap;
+        private TextBox txtTenXe;
+        private Label lblSoLuong;
+        private Label lblNgayNhap;
+        private Label lblTenXe;
+        private TableLayoutPanel tbPhai;
+        private GroupBox grpTimKiemXe;
+        private TableLayoutPanel tbTimKiem;
         private Label lblTimKiemMaXe;
         private TextBox txtTimKiemMaXe;
         private Button btnTimKiem;
+        private GroupBox grDSXe;
+        private DataGridView dgvDSTonKho;
     }
 }

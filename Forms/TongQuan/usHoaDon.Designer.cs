@@ -1,20 +1,12 @@
 ﻿using System.Windows.Forms;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
+namespace DoAn1.Forms.QLHoaDon
 {
     partial class usHoaDon
     {
         private System.ComponentModel.IContainer components = null;
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tbTong;
-        private System.Windows.Forms.TableLayoutPanel grpTTHoaDon;
-        private System.Windows.Forms.TableLayoutPanel tbTrai;
-        private System.Windows.Forms.TableLayoutPanel tbPhai;
-        private System.Windows.Forms.Label lblTieuDe;
-        private System.Windows.Forms.GroupBox grpTacVu;
-        private System.Windows.Forms.GroupBox grpTimKiemHoaDon;
-        private System.Windows.Forms.GroupBox grDSHoaDon;
 
         protected override void Dispose(bool disposing)
         {
@@ -28,7 +20,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            tbTong = new TableLayoutPanel();
             grpTTHoaDon = new TableLayoutPanel();
             tbTrai = new TableLayoutPanel();
             grTTDaiLy = new GroupBox();
@@ -43,7 +34,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             lblTongTien = new Label();
             lblNgayLap = new Label();
             grpTacVu = new GroupBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            tbTacVu = new TableLayoutPanel();
             btnLamMoi = new Button();
             btnThem = new Button();
             btnXoa = new Button();
@@ -56,14 +47,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnTimKiem = new Button();
             grDSHoaDon = new GroupBox();
             dgvDSHoaDon = new DataGridView();
-            lblTieuDe = new Label();
             panel1.SuspendLayout();
-            tbTong.SuspendLayout();
             grpTTHoaDon.SuspendLayout();
             tbTrai.SuspendLayout();
             grTTDaiLy.SuspendLayout();
             grpTacVu.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
+            tbTacVu.SuspendLayout();
             tbPhai.SuspendLayout();
             grpTimKiemHoaDon.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -74,27 +63,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             // panel1
             // 
             panel1.BackColor = Color.SeaShell;
-            panel1.Controls.Add(tbTong);
+            panel1.Controls.Add(grpTTHoaDon);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1000, 750);
             panel1.TabIndex = 0;
-            // 
-            // tbTong
-            // 
-            tbTong.ColumnCount = 1;
-            tbTong.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tbTong.Controls.Add(grpTTHoaDon, 0, 1);
-            tbTong.Controls.Add(lblTieuDe, 0, 0);
-            tbTong.Dock = DockStyle.Fill;
-            tbTong.Location = new Point(0, 0);
-            tbTong.Name = "tbTong";
-            tbTong.RowCount = 2;
-            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
-            tbTong.RowStyles.Add(new RowStyle(SizeType.Percent, 85F));
-            tbTong.Size = new Size(1000, 750);
-            tbTong.TabIndex = 0;
             // 
             // grpTTHoaDon
             // 
@@ -104,12 +78,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             grpTTHoaDon.Controls.Add(tbTrai, 0, 0);
             grpTTHoaDon.Controls.Add(tbPhai, 1, 0);
             grpTTHoaDon.Dock = DockStyle.Fill;
-            grpTTHoaDon.Location = new Point(3, 115);
+            grpTTHoaDon.Location = new Point(0, 0);
             grpTTHoaDon.Name = "grpTTHoaDon";
             grpTTHoaDon.RowCount = 1;
             grpTTHoaDon.RowStyles.Add(new RowStyle(SizeType.Absolute, 632F));
-            grpTTHoaDon.Size = new Size(994, 632);
-            grpTTHoaDon.TabIndex = 0;
+            grpTTHoaDon.Size = new Size(1000, 750);
+            grpTTHoaDon.TabIndex = 1;
             // 
             // tbTrai
             // 
@@ -123,7 +97,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             tbTrai.RowCount = 2;
             tbTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
             tbTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tbTrai.Size = new Size(391, 626);
+            tbTrai.Size = new Size(394, 744);
             tbTrai.TabIndex = 0;
             // 
             // grTTDaiLy
@@ -141,7 +115,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             grTTDaiLy.Dock = DockStyle.Fill;
             grTTDaiLy.Location = new Point(3, 3);
             grTTDaiLy.Name = "grTTDaiLy";
-            grTTDaiLy.Size = new Size(385, 463);
+            grTTDaiLy.Size = new Size(388, 552);
             grTTDaiLy.TabIndex = 0;
             grTTDaiLy.TabStop = false;
             grTTDaiLy.Text = "Thông Tin Hóa Đơn";
@@ -228,32 +202,32 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             // 
             // grpTacVu
             // 
-            grpTacVu.Controls.Add(tableLayoutPanel1);
+            grpTacVu.Controls.Add(tbTacVu);
             grpTacVu.Dock = DockStyle.Fill;
-            grpTacVu.Location = new Point(3, 472);
+            grpTacVu.Location = new Point(3, 561);
             grpTacVu.Name = "grpTacVu";
-            grpTacVu.Size = new Size(385, 151);
+            grpTacVu.Size = new Size(388, 180);
             grpTacVu.TabIndex = 1;
             grpTacVu.TabStop = false;
             grpTacVu.Text = "Tác Vụ";
             // 
-            // tableLayoutPanel1
+            // tbTacVu
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(btnLamMoi, 1, 1);
-            tableLayoutPanel1.Controls.Add(btnThem, 0, 0);
-            tableLayoutPanel1.Controls.Add(btnXoa, 0, 1);
-            tableLayoutPanel1.Controls.Add(btnSua, 1, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(3, 26);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(379, 122);
-            tableLayoutPanel1.TabIndex = 0;
+            tbTacVu.ColumnCount = 2;
+            tbTacVu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tbTacVu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tbTacVu.Controls.Add(btnLamMoi, 1, 1);
+            tbTacVu.Controls.Add(btnThem, 0, 0);
+            tbTacVu.Controls.Add(btnXoa, 0, 1);
+            tbTacVu.Controls.Add(btnSua, 1, 0);
+            tbTacVu.Dock = DockStyle.Fill;
+            tbTacVu.Location = new Point(3, 26);
+            tbTacVu.Name = "tbTacVu";
+            tbTacVu.RowCount = 2;
+            tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tbTacVu.Size = new Size(382, 151);
+            tbTacVu.TabIndex = 0;
             // 
             // btnLamMoi
             // 
@@ -262,13 +236,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLamMoi.ForeColor = Color.White;
-            btnLamMoi.Location = new Point(235, 75);
+            btnLamMoi.Location = new Point(238, 96);
             btnLamMoi.Name = "btnLamMoi";
             btnLamMoi.Size = new Size(97, 33);
             btnLamMoi.TabIndex = 19;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = false;
-            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
@@ -277,13 +250,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(46, 14);
+            btnThem.Location = new Point(47, 21);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(97, 33);
             btnThem.TabIndex = 16;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += btnThem_Click;
             // 
             // btnXoa
             // 
@@ -292,13 +264,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnXoa.ForeColor = Color.White;
-            btnXoa.Location = new Point(46, 75);
+            btnXoa.Location = new Point(47, 96);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(97, 33);
             btnXoa.TabIndex = 18;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
-            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -307,13 +278,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSua.ForeColor = Color.White;
-            btnSua.Location = new Point(235, 14);
+            btnSua.Location = new Point(238, 21);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(97, 33);
             btnSua.TabIndex = 17;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
-            btnSua.Click += btnSua_Click;
             // 
             // tbPhai
             // 
@@ -322,12 +292,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             tbPhai.Controls.Add(grpTimKiemHoaDon, 0, 0);
             tbPhai.Controls.Add(grDSHoaDon, 0, 1);
             tbPhai.Dock = DockStyle.Fill;
-            tbPhai.Location = new Point(400, 3);
+            tbPhai.Location = new Point(403, 3);
             tbPhai.Name = "tbPhai";
             tbPhai.RowCount = 2;
             tbPhai.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tbPhai.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tbPhai.Size = new Size(591, 626);
+            tbPhai.Size = new Size(594, 744);
             tbPhai.TabIndex = 1;
             // 
             // grpTimKiemHoaDon
@@ -336,7 +306,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             grpTimKiemHoaDon.Dock = DockStyle.Fill;
             grpTimKiemHoaDon.Location = new Point(3, 3);
             grpTimKiemHoaDon.Name = "grpTimKiemHoaDon";
-            grpTimKiemHoaDon.Size = new Size(585, 119);
+            grpTimKiemHoaDon.Size = new Size(588, 142);
             grpTimKiemHoaDon.TabIndex = 0;
             grpTimKiemHoaDon.TabStop = false;
             grpTimKiemHoaDon.Text = "Tìm Kiếm Hóa Đơn";
@@ -355,13 +325,13 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(579, 90);
+            tableLayoutPanel2.Size = new Size(582, 113);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // lblTimKiemHoaDon
             // 
             lblTimKiemHoaDon.Anchor = AnchorStyles.None;
-            lblTimKiemHoaDon.Location = new Point(6, 33);
+            lblTimKiemHoaDon.Location = new Point(7, 45);
             lblTimKiemHoaDon.Name = "lblTimKiemHoaDon";
             lblTimKiemHoaDon.Size = new Size(160, 23);
             lblTimKiemHoaDon.TabIndex = 17;
@@ -371,7 +341,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             // 
             txtTimKiemHoaDon.Anchor = AnchorStyles.None;
             txtTimKiemHoaDon.BorderStyle = BorderStyle.FixedSingle;
-            txtTimKiemHoaDon.Location = new Point(190, 30);
+            txtTimKiemHoaDon.Location = new Point(192, 41);
             txtTimKiemHoaDon.Name = "txtTimKiemHoaDon";
             txtTimKiemHoaDon.Size = new Size(196, 30);
             txtTimKiemHoaDon.TabIndex = 18;
@@ -383,21 +353,20 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(440, 27);
+            btnTimKiem.Location = new Point(442, 39);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(103, 35);
             btnTimKiem.TabIndex = 16;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
-            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // grDSHoaDon
             // 
             grDSHoaDon.Controls.Add(dgvDSHoaDon);
             grDSHoaDon.Dock = DockStyle.Fill;
-            grDSHoaDon.Location = new Point(3, 128);
+            grDSHoaDon.Location = new Point(3, 151);
             grDSHoaDon.Name = "grDSHoaDon";
-            grDSHoaDon.Size = new Size(585, 495);
+            grDSHoaDon.Size = new Size(588, 590);
             grDSHoaDon.TabIndex = 1;
             grDSHoaDon.TabStop = false;
             grDSHoaDon.Text = "Danh Sách Hóa Đơn";
@@ -411,20 +380,8 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             dgvDSHoaDon.Location = new Point(3, 26);
             dgvDSHoaDon.Name = "dgvDSHoaDon";
             dgvDSHoaDon.RowHeadersWidth = 51;
-            dgvDSHoaDon.Size = new Size(579, 466);
+            dgvDSHoaDon.Size = new Size(582, 561);
             dgvDSHoaDon.TabIndex = 16;
-            dgvDSHoaDon.CellContentClick += dgvDSHoaDon_CellContentClick;
-            // 
-            // lblTieuDe
-            // 
-            lblTieuDe.Dock = DockStyle.Fill;
-            lblTieuDe.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTieuDe.Location = new Point(3, 0);
-            lblTieuDe.Name = "lblTieuDe";
-            lblTieuDe.Size = new Size(994, 112);
-            lblTieuDe.TabIndex = 1;
-            lblTieuDe.Text = "QUẢN LÝ HÓA ĐƠN";
-            lblTieuDe.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // usHoaDon
             // 
@@ -434,13 +391,12 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             Name = "usHoaDon";
             Size = new Size(1000, 750);
             panel1.ResumeLayout(false);
-            tbTong.ResumeLayout(false);
             grpTTHoaDon.ResumeLayout(false);
             tbTrai.ResumeLayout(false);
             grTTDaiLy.ResumeLayout(false);
             grTTDaiLy.PerformLayout();
             grpTacVu.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
+            tbTacVu.ResumeLayout(false);
             tbPhai.ResumeLayout(false);
             grpTimKiemHoaDon.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
@@ -450,26 +406,32 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             ResumeLayout(false);
 
         }
+        private TableLayoutPanel grpTTHoaDon;
+        private TableLayoutPanel tbTrai;
         private GroupBox grTTDaiLy;
+        private TextBox txtTenKhachHang;
+        private Label lblMaKhachHang;
+        private TextBox txtMaHoaDon;
+        private Label lblMaHoaDon;
         private TextBox txtTenNhanVien;
         private Label lblTenNhanVien;
         private TextBox txtTongTien;
         private TextBox txtNgayLap;
         private Label lblTongTien;
         private Label lblNgayLap;
-        private TextBox txtTenKhachHang;
-        private Label lblMaKhachHang;
-        private TextBox txtMaHoaDon;
-        private Label lblMaHoaDon;
-        private DataGridView dgvDSHoaDon;
-        private TableLayoutPanel tableLayoutPanel1;
+        private GroupBox grpTacVu;
+        private TableLayoutPanel tbTacVu;
         private Button btnLamMoi;
         private Button btnThem;
         private Button btnXoa;
         private Button btnSua;
+        private TableLayoutPanel tbPhai;
+        private GroupBox grpTimKiemHoaDon;
         private TableLayoutPanel tableLayoutPanel2;
         private Label lblTimKiemHoaDon;
         private TextBox txtTimKiemHoaDon;
         private Button btnTimKiem;
+        private GroupBox grDSHoaDon;
+        private DataGridView dgvDSHoaDon;
     }
 }

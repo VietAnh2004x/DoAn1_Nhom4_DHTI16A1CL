@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTaiKhoan
+namespace DoAn1.Forms.QLTaiKhoan
 {
     partial class usTaiKhoan
     {
@@ -17,296 +17,280 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTaiKhoan
 
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTieuDe = new System.Windows.Forms.Label();
-            this.grpTTTaiKhoan = new System.Windows.Forms.GroupBox();
-            this.tbTTaiKhoan = new System.Windows.Forms.TableLayoutPanel();
-            this.txtPhanQuyen = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtSoDienThoai = new System.Windows.Forms.TextBox();
-            this.txtNgaySinh = new System.Windows.Forms.TextBox();
-            this.txtGioiTinh = new System.Windows.Forms.TextBox();
-            this.txtHoVaTen = new System.Windows.Forms.TextBox();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.lblMatKhau = new System.Windows.Forms.Label();
-            this.lblTenDangNhap = new System.Windows.Forms.Label();
-            this.lblHoVaTen = new System.Windows.Forms.Label();
-            this.lblGioiTinh = new System.Windows.Forms.Label();
-            this.lblNgaySinh = new System.Windows.Forms.Label();
-            this.lblSoDienThoai = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblPhanQuyen = new System.Windows.Forms.Label();
-            this.txtTenDangNhap = new System.Windows.Forms.TextBox();
-            this.btnDoiMatKhau = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.grpTTTaiKhoan.SuspendLayout();
-            this.tbTTaiKhoan.SuspendLayout();
-            this.SuspendLayout();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            btnDoiMatKhau = new Button();
+            grpTTTaiKhoan = new GroupBox();
+            tbTTaiKhoan = new TableLayoutPanel();
+            txtPhanQuyen = new TextBox();
+            txtEmail = new TextBox();
+            txtSoDienThoai = new TextBox();
+            txtNgaySinh = new TextBox();
+            txtGioiTinh = new TextBox();
+            txtHoVaTen = new TextBox();
+            txtMatKhau = new TextBox();
+            lblMatKhau = new Label();
+            lblTenDangNhap = new Label();
+            lblHoVaTen = new Label();
+            lblGioiTinh = new Label();
+            lblNgaySinh = new Label();
+            lblSoDienThoai = new Label();
+            lblEmail = new Label();
+            lblPhanQuyen = new Label();
+            txtTenDangNhap = new TextBox();
+            tableLayoutPanel1.SuspendLayout();
+            grpTTTaiKhoan.SuspendLayout();
+            tbTTaiKhoan.SuspendLayout();
+            SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.lblTieuDe, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.grpTTTaiKhoan, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnDoiMatKhau, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 10);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(980, 730);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // lblTieuDe
-            // 
-            this.lblTieuDe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTieuDe.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTieuDe.Location = new System.Drawing.Point(3, 0);
-            this.lblTieuDe.Name = "lblTieuDe";
-            this.lblTieuDe.Size = new System.Drawing.Size(974, 109);
-            this.lblTieuDe.TabIndex = 0;
-            this.lblTieuDe.Text = "QUẢN LÍ TÀI KHOẢN";
-            this.lblTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // grpTTTaiKhoan
-            // 
-            this.grpTTTaiKhoan.Controls.Add(this.tbTTaiKhoan);
-            this.grpTTTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpTTTaiKhoan.Location = new System.Drawing.Point(3, 112);
-            this.grpTTTaiKhoan.Name = "grpTTTaiKhoan";
-            this.grpTTTaiKhoan.Size = new System.Drawing.Size(974, 505);
-            this.grpTTTaiKhoan.TabIndex = 1;
-            this.grpTTTaiKhoan.TabStop = false;
-            this.grpTTTaiKhoan.Text = "Thông Tin Tài Khoản";
-            // 
-            // tbTTaiKhoan
-            // 
-            this.tbTTaiKhoan.ColumnCount = 2;
-            this.tbTTaiKhoan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbTTaiKhoan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbTTaiKhoan.Controls.Add(this.txtPhanQuyen, 1, 7);
-            this.tbTTaiKhoan.Controls.Add(this.txtEmail, 1, 6);
-            this.tbTTaiKhoan.Controls.Add(this.txtSoDienThoai, 1, 5);
-            this.tbTTaiKhoan.Controls.Add(this.txtNgaySinh, 1, 4);
-            this.tbTTaiKhoan.Controls.Add(this.txtGioiTinh, 1, 3);
-            this.tbTTaiKhoan.Controls.Add(this.txtHoVaTen, 1, 2);
-            this.tbTTaiKhoan.Controls.Add(this.txtMatKhau, 1, 1);
-            this.tbTTaiKhoan.Controls.Add(this.lblMatKhau, 0, 1);
-            this.tbTTaiKhoan.Controls.Add(this.lblTenDangNhap, 0, 0);
-            this.tbTTaiKhoan.Controls.Add(this.lblHoVaTen, 0, 2);
-            this.tbTTaiKhoan.Controls.Add(this.lblGioiTinh, 0, 3);
-            this.tbTTaiKhoan.Controls.Add(this.lblNgaySinh, 0, 4);
-            this.tbTTaiKhoan.Controls.Add(this.lblSoDienThoai, 0, 5);
-            this.tbTTaiKhoan.Controls.Add(this.lblEmail, 0, 6);
-            this.tbTTaiKhoan.Controls.Add(this.lblPhanQuyen, 0, 7);
-            this.tbTTaiKhoan.Controls.Add(this.txtTenDangNhap, 1, 0);
-            this.tbTTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.tbTTaiKhoan.ForeColor = System.Drawing.Color.DimGray;
-            this.tbTTaiKhoan.Location = new System.Drawing.Point(3, 16);
-            this.tbTTaiKhoan.Name = "tbTTaiKhoan";
-            this.tbTTaiKhoan.RowCount = 8;
-            this.tbTTaiKhoan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tbTTaiKhoan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tbTTaiKhoan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tbTTaiKhoan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tbTTaiKhoan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tbTTaiKhoan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tbTTaiKhoan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tbTTaiKhoan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tbTTaiKhoan.Size = new System.Drawing.Size(968, 486);
-            this.tbTTaiKhoan.TabIndex = 0;
-            // 
-            // txtPhanQuyen
-            // 
-            this.txtPhanQuyen.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPhanQuyen.Location = new System.Drawing.Point(487, 439);
-            this.txtPhanQuyen.Name = "txtPhanQuyen";
-            this.txtPhanQuyen.Size = new System.Drawing.Size(156, 27);
-            this.txtPhanQuyen.TabIndex = 15;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtEmail.Location = new System.Drawing.Point(487, 376);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(156, 27);
-            this.txtEmail.TabIndex = 14;
-            // 
-            // txtSoDienThoai
-            // 
-            this.txtSoDienThoai.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtSoDienThoai.Location = new System.Drawing.Point(487, 316);
-            this.txtSoDienThoai.Name = "txtSoDienThoai";
-            this.txtSoDienThoai.Size = new System.Drawing.Size(156, 27);
-            this.txtSoDienThoai.TabIndex = 13;
-            // 
-            // txtNgaySinh
-            // 
-            this.txtNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtNgaySinh.Location = new System.Drawing.Point(487, 256);
-            this.txtNgaySinh.Name = "txtNgaySinh";
-            this.txtNgaySinh.Size = new System.Drawing.Size(156, 27);
-            this.txtNgaySinh.TabIndex = 12;
-            // 
-            // txtGioiTinh
-            // 
-            this.txtGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtGioiTinh.Location = new System.Drawing.Point(487, 196);
-            this.txtGioiTinh.Name = "txtGioiTinh";
-            this.txtGioiTinh.Size = new System.Drawing.Size(156, 27);
-            this.txtGioiTinh.TabIndex = 11;
-            // 
-            // txtHoVaTen
-            // 
-            this.txtHoVaTen.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtHoVaTen.Location = new System.Drawing.Point(487, 136);
-            this.txtHoVaTen.Name = "txtHoVaTen";
-            this.txtHoVaTen.Size = new System.Drawing.Size(156, 27);
-            this.txtHoVaTen.TabIndex = 10;
-            // 
-            // txtMatKhau
-            // 
-            this.txtMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMatKhau.Location = new System.Drawing.Point(487, 76);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(156, 27);
-            this.txtMatKhau.TabIndex = 9;
-            // 
-            // lblMatKhau
-            // 
-            this.lblMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblMatKhau.Location = new System.Drawing.Point(355, 78);
-            this.lblMatKhau.Name = "lblMatKhau";
-            this.lblMatKhau.Size = new System.Drawing.Size(126, 23);
-            this.lblMatKhau.TabIndex = 1;
-            this.lblMatKhau.Text = "Mật Khẩu";
-            // 
-            // lblTenDangNhap
-            // 
-            this.lblTenDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblTenDangNhap.Location = new System.Drawing.Point(352, 18);
-            this.lblTenDangNhap.Name = "lblTenDangNhap";
-            this.lblTenDangNhap.Size = new System.Drawing.Size(129, 23);
-            this.lblTenDangNhap.TabIndex = 0;
-            this.lblTenDangNhap.Text = "Tên Đăng Nhập";
-            // 
-            // lblHoVaTen
-            // 
-            this.lblHoVaTen.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblHoVaTen.Location = new System.Drawing.Point(355, 138);
-            this.lblHoVaTen.Name = "lblHoVaTen";
-            this.lblHoVaTen.Size = new System.Drawing.Size(126, 23);
-            this.lblHoVaTen.TabIndex = 2;
-            this.lblHoVaTen.Text = "Họ Và Tên";
-            // 
-            // lblGioiTinh
-            // 
-            this.lblGioiTinh.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblGioiTinh.Location = new System.Drawing.Point(355, 198);
-            this.lblGioiTinh.Name = "lblGioiTinh";
-            this.lblGioiTinh.Size = new System.Drawing.Size(126, 23);
-            this.lblGioiTinh.TabIndex = 3;
-            this.lblGioiTinh.Text = "Giới Tính";
-            // 
-            // lblNgaySinh
-            // 
-            this.lblNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblNgaySinh.Location = new System.Drawing.Point(355, 258);
-            this.lblNgaySinh.Name = "lblNgaySinh";
-            this.lblNgaySinh.Size = new System.Drawing.Size(126, 23);
-            this.lblNgaySinh.TabIndex = 4;
-            this.lblNgaySinh.Text = "Ngày Sinh";
-            // 
-            // lblSoDienThoai
-            // 
-            this.lblSoDienThoai.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblSoDienThoai.Location = new System.Drawing.Point(355, 318);
-            this.lblSoDienThoai.Name = "lblSoDienThoai";
-            this.lblSoDienThoai.Size = new System.Drawing.Size(126, 23);
-            this.lblSoDienThoai.TabIndex = 5;
-            this.lblSoDienThoai.Text = "Số Điện Thoại";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblEmail.Location = new System.Drawing.Point(355, 378);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(126, 23);
-            this.lblEmail.TabIndex = 6;
-            this.lblEmail.Text = "Email";
-            // 
-            // lblPhanQuyen
-            // 
-            this.lblPhanQuyen.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblPhanQuyen.Location = new System.Drawing.Point(358, 441);
-            this.lblPhanQuyen.Name = "lblPhanQuyen";
-            this.lblPhanQuyen.Size = new System.Drawing.Size(123, 23);
-            this.lblPhanQuyen.TabIndex = 7;
-            this.lblPhanQuyen.Text = "Phân Quyền";
-            // 
-            // txtTenDangNhap
-            // 
-            this.txtTenDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtTenDangNhap.Location = new System.Drawing.Point(487, 16);
-            this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(156, 27);
-            this.txtTenDangNhap.TabIndex = 8;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(btnDoiMatKhau, 0, 1);
+            tableLayoutPanel1.Controls.Add(grpTTTaiKhoan, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(10, 10);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 85F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+            tableLayoutPanel1.Size = new Size(980, 730);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // btnDoiMatKhau
             // 
-            this.btnDoiMatKhau.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDoiMatKhau.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnDoiMatKhau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoiMatKhau.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnDoiMatKhau.ForeColor = System.Drawing.Color.White;
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(424, 655);
-            this.btnDoiMatKhau.Name = "btnDoiMatKhau";
-            this.btnDoiMatKhau.Size = new System.Drawing.Size(132, 39);
-            this.btnDoiMatKhau.TabIndex = 2;
-            this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
-            this.btnDoiMatKhau.UseVisualStyleBackColor = false;
+            btnDoiMatKhau.Anchor = AnchorStyles.None;
+            btnDoiMatKhau.BackColor = Color.SteelBlue;
+            btnDoiMatKhau.FlatStyle = FlatStyle.Flat;
+            btnDoiMatKhau.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDoiMatKhau.ForeColor = Color.White;
+            btnDoiMatKhau.Location = new Point(413, 651);
+            btnDoiMatKhau.Name = "btnDoiMatKhau";
+            btnDoiMatKhau.Size = new Size(153, 47);
+            btnDoiMatKhau.TabIndex = 4;
+            btnDoiMatKhau.Text = "Đổi Mật Khẩu";
+            btnDoiMatKhau.UseVisualStyleBackColor = false;
+            // 
+            // grpTTTaiKhoan
+            // 
+            grpTTTaiKhoan.Controls.Add(tbTTaiKhoan);
+            grpTTTaiKhoan.Dock = DockStyle.Fill;
+            grpTTTaiKhoan.Location = new Point(3, 3);
+            grpTTTaiKhoan.Name = "grpTTTaiKhoan";
+            grpTTTaiKhoan.Size = new Size(974, 614);
+            grpTTTaiKhoan.TabIndex = 3;
+            grpTTTaiKhoan.TabStop = false;
+            grpTTTaiKhoan.Text = "Thông Tin Tài Khoản";
+            // 
+            // tbTTaiKhoan
+            // 
+            tbTTaiKhoan.ColumnCount = 2;
+            tbTTaiKhoan.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tbTTaiKhoan.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tbTTaiKhoan.Controls.Add(txtPhanQuyen, 1, 7);
+            tbTTaiKhoan.Controls.Add(txtEmail, 1, 6);
+            tbTTaiKhoan.Controls.Add(txtSoDienThoai, 1, 5);
+            tbTTaiKhoan.Controls.Add(txtNgaySinh, 1, 4);
+            tbTTaiKhoan.Controls.Add(txtGioiTinh, 1, 3);
+            tbTTaiKhoan.Controls.Add(txtHoVaTen, 1, 2);
+            tbTTaiKhoan.Controls.Add(txtMatKhau, 1, 1);
+            tbTTaiKhoan.Controls.Add(lblMatKhau, 0, 1);
+            tbTTaiKhoan.Controls.Add(lblTenDangNhap, 0, 0);
+            tbTTaiKhoan.Controls.Add(lblHoVaTen, 0, 2);
+            tbTTaiKhoan.Controls.Add(lblGioiTinh, 0, 3);
+            tbTTaiKhoan.Controls.Add(lblNgaySinh, 0, 4);
+            tbTTaiKhoan.Controls.Add(lblSoDienThoai, 0, 5);
+            tbTTaiKhoan.Controls.Add(lblEmail, 0, 6);
+            tbTTaiKhoan.Controls.Add(lblPhanQuyen, 0, 7);
+            tbTTaiKhoan.Controls.Add(txtTenDangNhap, 1, 0);
+            tbTTaiKhoan.Dock = DockStyle.Fill;
+            tbTTaiKhoan.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            tbTTaiKhoan.ForeColor = Color.DimGray;
+            tbTTaiKhoan.Location = new Point(3, 23);
+            tbTTaiKhoan.Name = "tbTTaiKhoan";
+            tbTTaiKhoan.RowCount = 8;
+            tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tbTTaiKhoan.Size = new Size(968, 588);
+            tbTTaiKhoan.TabIndex = 0;
+            // 
+            // txtPhanQuyen
+            // 
+            txtPhanQuyen.Anchor = AnchorStyles.Left;
+            txtPhanQuyen.Location = new Point(487, 533);
+            txtPhanQuyen.Name = "txtPhanQuyen";
+            txtPhanQuyen.Size = new Size(156, 32);
+            txtPhanQuyen.TabIndex = 15;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Anchor = AnchorStyles.Left;
+            txtEmail.Location = new Point(487, 458);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(156, 32);
+            txtEmail.TabIndex = 14;
+            // 
+            // txtSoDienThoai
+            // 
+            txtSoDienThoai.Anchor = AnchorStyles.Left;
+            txtSoDienThoai.Location = new Point(487, 385);
+            txtSoDienThoai.Name = "txtSoDienThoai";
+            txtSoDienThoai.Size = new Size(156, 32);
+            txtSoDienThoai.TabIndex = 13;
+            // 
+            // txtNgaySinh
+            // 
+            txtNgaySinh.Anchor = AnchorStyles.Left;
+            txtNgaySinh.Location = new Point(487, 312);
+            txtNgaySinh.Name = "txtNgaySinh";
+            txtNgaySinh.Size = new Size(156, 32);
+            txtNgaySinh.TabIndex = 12;
+            // 
+            // txtGioiTinh
+            // 
+            txtGioiTinh.Anchor = AnchorStyles.Left;
+            txtGioiTinh.Location = new Point(487, 239);
+            txtGioiTinh.Name = "txtGioiTinh";
+            txtGioiTinh.Size = new Size(156, 32);
+            txtGioiTinh.TabIndex = 11;
+            // 
+            // txtHoVaTen
+            // 
+            txtHoVaTen.Anchor = AnchorStyles.Left;
+            txtHoVaTen.Location = new Point(487, 166);
+            txtHoVaTen.Name = "txtHoVaTen";
+            txtHoVaTen.Size = new Size(156, 32);
+            txtHoVaTen.TabIndex = 10;
+            // 
+            // txtMatKhau
+            // 
+            txtMatKhau.Anchor = AnchorStyles.Left;
+            txtMatKhau.Location = new Point(487, 93);
+            txtMatKhau.Name = "txtMatKhau";
+            txtMatKhau.Size = new Size(156, 32);
+            txtMatKhau.TabIndex = 9;
+            // 
+            // lblMatKhau
+            // 
+            lblMatKhau.Anchor = AnchorStyles.Right;
+            lblMatKhau.Location = new Point(322, 94);
+            lblMatKhau.Name = "lblMatKhau";
+            lblMatKhau.Size = new Size(159, 30);
+            lblMatKhau.TabIndex = 1;
+            lblMatKhau.Text = "Mật Khẩu";
+            // 
+            // lblTenDangNhap
+            // 
+            lblTenDangNhap.Anchor = AnchorStyles.Right;
+            lblTenDangNhap.Location = new Point(319, 20);
+            lblTenDangNhap.Name = "lblTenDangNhap";
+            lblTenDangNhap.Size = new Size(162, 33);
+            lblTenDangNhap.TabIndex = 0;
+            lblTenDangNhap.Text = "Tên Đăng Nhập";
+            // 
+            // lblHoVaTen
+            // 
+            lblHoVaTen.Anchor = AnchorStyles.Right;
+            lblHoVaTen.Location = new Point(322, 167);
+            lblHoVaTen.Name = "lblHoVaTen";
+            lblHoVaTen.Size = new Size(159, 31);
+            lblHoVaTen.TabIndex = 2;
+            lblHoVaTen.Text = "Họ Và Tên";
+            // 
+            // lblGioiTinh
+            // 
+            lblGioiTinh.Anchor = AnchorStyles.Right;
+            lblGioiTinh.Location = new Point(322, 240);
+            lblGioiTinh.Name = "lblGioiTinh";
+            lblGioiTinh.Size = new Size(159, 31);
+            lblGioiTinh.TabIndex = 3;
+            lblGioiTinh.Text = "Giới Tính";
+            // 
+            // lblNgaySinh
+            // 
+            lblNgaySinh.Anchor = AnchorStyles.Right;
+            lblNgaySinh.Location = new Point(322, 314);
+            lblNgaySinh.Name = "lblNgaySinh";
+            lblNgaySinh.Size = new Size(159, 29);
+            lblNgaySinh.TabIndex = 4;
+            lblNgaySinh.Text = "Ngày Sinh";
+            // 
+            // lblSoDienThoai
+            // 
+            lblSoDienThoai.Anchor = AnchorStyles.Right;
+            lblSoDienThoai.Location = new Point(322, 388);
+            lblSoDienThoai.Name = "lblSoDienThoai";
+            lblSoDienThoai.Size = new Size(159, 27);
+            lblSoDienThoai.TabIndex = 5;
+            lblSoDienThoai.Text = "Số Điện Thoại";
+            // 
+            // lblEmail
+            // 
+            lblEmail.Anchor = AnchorStyles.Right;
+            lblEmail.Location = new Point(322, 458);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(159, 32);
+            lblEmail.TabIndex = 6;
+            lblEmail.Text = "Email";
+            // 
+            // lblPhanQuyen
+            // 
+            lblPhanQuyen.Anchor = AnchorStyles.Right;
+            lblPhanQuyen.Location = new Point(325, 535);
+            lblPhanQuyen.Name = "lblPhanQuyen";
+            lblPhanQuyen.Size = new Size(156, 29);
+            lblPhanQuyen.TabIndex = 7;
+            lblPhanQuyen.Text = "Phân Quyền";
+            // 
+            // txtTenDangNhap
+            // 
+            txtTenDangNhap.Anchor = AnchorStyles.Left;
+            txtTenDangNhap.Location = new Point(487, 20);
+            txtTenDangNhap.Name = "txtTenDangNhap";
+            txtTenDangNhap.Size = new Size(156, 32);
+            txtTenDangNhap.TabIndex = 8;
             // 
             // usTaiKhoan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "usTaiKhoan";
-            this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(1000, 750);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.grpTTTaiKhoan.ResumeLayout(false);
-            this.tbTTaiKhoan.ResumeLayout(false);
-            this.tbTTaiKhoan.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.WhiteSmoke;
+            Controls.Add(tableLayoutPanel1);
+            Name = "usTaiKhoan";
+            Padding = new Padding(10);
+            Size = new Size(1000, 750);
+            tableLayoutPanel1.ResumeLayout(false);
+            grpTTTaiKhoan.ResumeLayout(false);
+            tbTTaiKhoan.ResumeLayout(false);
+            tbTTaiKhoan.PerformLayout();
+            ResumeLayout(false);
 
         }
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label lblTieuDe;
-        private System.Windows.Forms.GroupBox grpTTTaiKhoan;
-        private System.Windows.Forms.TableLayoutPanel tbTTaiKhoan;
-        private System.Windows.Forms.TextBox txtPhanQuyen;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtSoDienThoai;
-        private System.Windows.Forms.TextBox txtNgaySinh;
-        private System.Windows.Forms.TextBox txtGioiTinh;
-        private System.Windows.Forms.TextBox txtHoVaTen;
-        private System.Windows.Forms.TextBox txtMatKhau;
-        private System.Windows.Forms.Label lblMatKhau;
-        private System.Windows.Forms.Label lblTenDangNhap;
-        private System.Windows.Forms.Label lblHoVaTen;
-        private System.Windows.Forms.Label lblGioiTinh;
-        private System.Windows.Forms.Label lblNgaySinh;
-        private System.Windows.Forms.Label lblSoDienThoai;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblPhanQuyen;
-        private System.Windows.Forms.TextBox txtTenDangNhap;
-        private System.Windows.Forms.Button btnDoiMatKhau;
+        private Button btnDoiMatKhau;
+        private GroupBox grpTTTaiKhoan;
+        private TableLayoutPanel tbTTaiKhoan;
+        private TextBox txtPhanQuyen;
+        private TextBox txtEmail;
+        private TextBox txtSoDienThoai;
+        private TextBox txtNgaySinh;
+        private TextBox txtGioiTinh;
+        private TextBox txtHoVaTen;
+        private TextBox txtMatKhau;
+        private Label lblMatKhau;
+        private Label lblTenDangNhap;
+        private Label lblHoVaTen;
+        private Label lblGioiTinh;
+        private Label lblNgaySinh;
+        private Label lblSoDienThoai;
+        private Label lblEmail;
+        private Label lblPhanQuyen;
+        private TextBox txtTenDangNhap;
     }
 }

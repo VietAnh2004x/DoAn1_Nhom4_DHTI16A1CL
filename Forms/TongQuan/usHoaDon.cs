@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
+namespace DoAn1.Forms.QLHoaDon
 {
     public partial class usHoaDon : UserControl
     {
@@ -25,8 +25,8 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             {
                 var data = from hd in context.HoaDon
                            join kh in context.KhachHang on hd.maKhachHang equals kh.maKhachHang
-                           join tk in context.TaiKhoan on hd.tenTaiKhoan equals tk.tenTaiKhoan
-                           join nv in context.NhanVien on tk.tenTaiKhoan equals nv.tenTaiKhoan
+                           join tk in context.TaiKhoan on hd.tenTK equals tk.tenTK
+                           join nv in context.NhanVien on tk.tenTK equals nv.tenTK
                            select new
                            {
                                MaHD = hd.maHoaDon,
@@ -85,8 +85,8 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
             {
                 var ketQua = from hd in context.HoaDon
                              join kh in context.KhachHang on hd.maKhachHang equals kh.maKhachHang
-                             join tk in context.TaiKhoan on hd.tenTaiKhoan equals tk.tenTaiKhoan
-                             join nv in context.NhanVien on tk.tenTaiKhoan equals nv.tenTaiKhoan
+                             join tk in context.TaiKhoan on hd.tenTK equals tk.tenTK
+                             join nv in context.NhanVien on tk.tenTK equals nv.tenTK
                              where hd.maHoaDon.ToLower().Contains(tuKhoa)
                                 || kh.hoTen.ToLower().Contains(tuKhoa)
                              select new
@@ -133,7 +133,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
 
                 // Tìm tài khoản dựa vào tên nhân viên (nếu đang nhập họ tên)
                 var nhanVien = (from tk in context.TaiKhoan
-                                join nv in context.NhanVien on tk.tenTaiKhoan equals nv.tenTaiKhoan
+                                join nv in context.NhanVien on tk.tenTK equals nv.tenTK
                                 where nv.hoTen == txtTenNhanVien.Text.Trim()
                                 select tk).FirstOrDefault();
 
@@ -145,7 +145,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
 
                 // Gán lại các giá trị
                 hoaDon.maKhachHang = khach.maKhachHang;
-                hoaDon.tenTaiKhoan = nhanVien.tenTaiKhoan;
+                hoaDon.tenTK = nhanVien.tenTK;
 
                 if (DateTime.TryParse(txtNgayLap.Text, out DateTime ngayLap))
                     hoaDon.ngayLap = ngayLap;

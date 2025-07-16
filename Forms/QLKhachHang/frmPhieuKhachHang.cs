@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
+namespace DoAn1.Forms.QLKhachHang
 {
     public partial class frmPhieuKhachHang : Form
     {
