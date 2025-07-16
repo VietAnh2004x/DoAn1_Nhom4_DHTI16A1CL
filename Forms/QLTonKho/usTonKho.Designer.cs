@@ -221,6 +221,7 @@ namespace DoAn1.Forms.QLTonKho
             btnTimKiem.TabIndex = 10;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // grDSXe
             // 

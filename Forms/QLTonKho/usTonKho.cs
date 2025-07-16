@@ -55,5 +55,10 @@ namespace DoAn1.Forms.QLTonKho
                 txtSoLuong.Text = row.Cells["soLuong"].Value?.ToString();
             }
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

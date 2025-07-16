@@ -239,6 +239,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnLamMoi.TabIndex = 15;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
@@ -253,6 +254,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnThem.TabIndex = 12;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // btnXoa
             // 
@@ -267,6 +269,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnXoa.TabIndex = 14;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -281,6 +284,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnSua.TabIndex = 13;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // tbPhai
             // 
@@ -356,6 +360,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnTimKiem.TabIndex = 12;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // grpDSBaoHanh
             // 
@@ -379,6 +384,7 @@ namespace DoAn1.Forms.QLBaoHanh
             dgvDSBaoHanh.RowHeadersWidth = 51;
             dgvDSBaoHanh.Size = new Size(582, 561);
             dgvDSBaoHanh.TabIndex = 0;
+            dgvDSBaoHanh.CellContentClick += dgvDSBaoHanh_CellContentClick;
             // 
             // usBaoHanh
             // 

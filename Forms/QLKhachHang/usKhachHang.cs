@@ -67,10 +67,6 @@ namespace DoAn1.Forms.QLKhachHang
             }
         }
 
-
-
-
-
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string tenKH = txtTimKiemKhachHang.Text.Trim();
@@ -182,6 +178,11 @@ namespace DoAn1.Forms.QLKhachHang
                     MessageBox.Show("Lỗi khi xóa khách hàng: " + (ex.InnerException?.Message ?? ex.Message), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

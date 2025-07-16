@@ -242,6 +242,7 @@ namespace DoAn1.Forms.QLKhachHang
             btnLamMoi.TabIndex = 14;
             btnLamMoi.Text = "Làm mới";
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
@@ -258,6 +259,7 @@ namespace DoAn1.Forms.QLKhachHang
             btnThem.TabIndex = 11;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // btnXoa
             // 
@@ -274,6 +276,7 @@ namespace DoAn1.Forms.QLKhachHang
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -290,6 +293,7 @@ namespace DoAn1.Forms.QLKhachHang
             btnSua.TabIndex = 12;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // tbPhai
             // 
@@ -367,6 +371,7 @@ namespace DoAn1.Forms.QLKhachHang
             btnTimKiem.TabIndex = 13;
             btnTimKiem.Text = "Tìm kiếm";
             btnTimKiem.UseVisualStyleBackColor = true;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // grpDSKhachHang
             // 

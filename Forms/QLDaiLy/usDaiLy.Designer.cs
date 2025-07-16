@@ -240,6 +240,7 @@ namespace DoAn1.Forms.QLDaiLy
             btnLamMoi.TabIndex = 13;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
@@ -254,6 +255,7 @@ namespace DoAn1.Forms.QLDaiLy
             btnThem.TabIndex = 10;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // btnXoa
             // 
@@ -268,6 +270,7 @@ namespace DoAn1.Forms.QLDaiLy
             btnXoa.TabIndex = 12;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -282,6 +285,7 @@ namespace DoAn1.Forms.QLDaiLy
             btnSua.TabIndex = 11;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // tbPhai
             // 
