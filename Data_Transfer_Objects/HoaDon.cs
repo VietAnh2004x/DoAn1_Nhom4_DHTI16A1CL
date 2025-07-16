@@ -1,4 +1,4 @@
-﻿using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
+using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -24,7 +24,7 @@ namespace DoAn.Data_Transfer_Objects
         [Column("TenTaiKhoan")]
         [DisplayName("Tên Tài Khoản")]
         [StringLength(50)]
-        public string tenTaiKhoan { get; set; }
+        public string tenTK { get; set; }
 
         [Required]
         [Column("NgayLap")]
@@ -48,7 +48,7 @@ namespace DoAn.Data_Transfer_Objects
         {
             maHoaDon = string.Empty;
             maKhachHang = string.Empty;
-            tenTaiKhoan = string.Empty;
+            tenTK = string.Empty;
             ngayLap = DateTime.Now;
             tongTien = 0;
         }

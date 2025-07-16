@@ -12,7 +12,7 @@ namespace DoAn.Data_Transfer_Objects
         [Column("TenTaiKhoan")]
         [DisplayName("Tên Tài Khoản")]
         [StringLength(50)]
-        public string tenTaiKhoan { get; set; }
+        public string tenTK { get; set; }
 
         [Required]
         [Column("MatKhau")]
@@ -34,7 +34,7 @@ namespace DoAn.Data_Transfer_Objects
 
         public TaiKhoan()
         {
-            tenTaiKhoan = string.Empty;
+            tenTK = string.Empty;
             matKhau = string.Empty;
             maQuyen = string.Empty;
             HoaDons = new HashSet<HoaDon>();
