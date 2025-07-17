@@ -120,9 +120,10 @@ namespace DoAn1.Forms.QLBaoHanh
             // 
             // dtpNgayBatDau
             // 
-            dtpNgayBatDau.Location = new Point(138, 292);
+            dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
+            dtpNgayBatDau.Location = new Point(138, 294);
             dtpNgayBatDau.Name = "dtpNgayBatDau";
-            dtpNgayBatDau.Size = new Size(221, 30);
+            dtpNgayBatDau.Size = new Size(173, 30);
             dtpNgayBatDau.TabIndex = 8;
             // 
             // txtMaBaoHanh
@@ -175,7 +176,7 @@ namespace DoAn1.Forms.QLBaoHanh
             // 
             // lblNgayBatDau
             // 
-            lblNgayBatDau.Location = new Point(6, 298);
+            lblNgayBatDau.Location = new Point(6, 300);
             lblNgayBatDau.Name = "lblNgayBatDau";
             lblNgayBatDau.Size = new Size(136, 32);
             lblNgayBatDau.TabIndex = 3;
@@ -354,9 +355,9 @@ namespace DoAn1.Forms.QLBaoHanh
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(444, 39);
+            btnTimKiem.Location = new Point(439, 38);
             btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(100, 35);
+            btnTimKiem.Size = new Size(109, 36);
             btnTimKiem.TabIndex = 12;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
@@ -384,7 +385,7 @@ namespace DoAn1.Forms.QLBaoHanh
             dgvDSBaoHanh.RowHeadersWidth = 51;
             dgvDSBaoHanh.Size = new Size(582, 561);
             dgvDSBaoHanh.TabIndex = 0;
-            dgvDSBaoHanh.CellContentClick += dgvDSBaoHanh_CellContentClick;
+            dgvDSBaoHanh.CellClick += dgvDSBaoHanh_CellClick;
             // 
             // usBaoHanh
             // 

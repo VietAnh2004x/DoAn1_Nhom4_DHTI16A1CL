@@ -40,22 +40,29 @@ namespace DoAn1.Forms.QLTonKho
                 dgvDSTonKho.DataSource = danhSachTonXe;
             }
 
-            // Cấu hình hiển thị DataGridView
-            dgvDSTonKho.Columns["maNhap"].HeaderText = "Mã Nhập";
-            dgvDSTonKho.Columns["maXe"].HeaderText = "Mã Xe";
-            dgvDSTonKho.Columns["tenXe"].HeaderText = "Tên Xe";
-            dgvDSTonKho.Columns["ngayNhap"].HeaderText = "Ngày Nhập";
-            dgvDSTonKho.Columns["soLuong"].HeaderText = "Số Lượng";
-            dgvDSTonKho.Columns["donGiaNhap"].HeaderText = "Đơn Giá Nhập";
-            dgvDSTonKho.Columns["tongTien"].HeaderText = "Tổng Tiền";
+            // Đặt tiêu đề cột
+            dgvDSTonKho.Columns["maNhap"]!.HeaderText = "Mã Nhập";
+            dgvDSTonKho.Columns["maXe"]!.HeaderText = "Mã Xe";
+            dgvDSTonKho.Columns["tenXe"]!.HeaderText = "Tên Xe";
+            dgvDSTonKho.Columns["ngayNhap"]!.HeaderText = "Ngày Nhập";
+            dgvDSTonKho.Columns["soLuong"]!.HeaderText = "Số Lượng";
+            dgvDSTonKho.Columns["donGiaNhap"]!.HeaderText = "Đơn Giá Nhập";
+            dgvDSTonKho.Columns["tongTien"]!.HeaderText = "Tổng Tiền";
 
+            // Format tiền tệ
+            dgvDSTonKho.Columns["donGiaNhap"]!.DefaultCellStyle.Format = "N0";
+            dgvDSTonKho.Columns["tongTien"]!.DefaultCellStyle.Format = "N0";
+
+            // Căn chỉnh chung
             dgvDSTonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDSTonKho.Columns["donGiaNhap"].DefaultCellStyle.Format = "N0";
-            dgvDSTonKho.Columns["tongTien"].DefaultCellStyle.Format = "N0";
+
+            // Căn giữa tiêu đề & tắt xuống dòng
+            dgvDSTonKho.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvDSTonKho.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+
         }
 
-     
-        private void dgvDSTonKho_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvDSTonKho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvDSTonKho.Rows[e.RowIndex].Cells["tenXe"].Value != null)
             {

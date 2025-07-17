@@ -114,7 +114,7 @@ namespace DoAn1.Forms.QLXe
             dgvDSXeDapDien.RowHeadersWidth = 51;
             dgvDSXeDapDien.Size = new Size(582, 560);
             dgvDSXeDapDien.TabIndex = 0;
-            dgvDSXeDapDien.CellContentClick += dgvDSXeDapDien_CellContentClick_1;
+            dgvDSXeDapDien.CellClick += dgvDSXeDapDien_CellClick;
             // 
             // grpTacVu
             // 

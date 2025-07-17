@@ -23,250 +23,229 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuBaoHanh));
-            this.grpThongTinKhachHang = new System.Windows.Forms.GroupBox();
-            this.dtpNgayHetHan = new System.Windows.Forms.DateTimePicker();
-            this.lblNgayHetHan = new System.Windows.Forms.Label();
-            this.dtpNgayLap = new System.Windows.Forms.DateTimePicker();
-            this.lblNgayNhap = new System.Windows.Forms.Label();
-            this.txtMaXe = new System.Windows.Forms.TextBox();
-            this.lblMaXe = new System.Windows.Forms.Label();
-            this.txtMaHoaDon = new System.Windows.Forms.TextBox();
-            this.lblMaHoaDon = new System.Windows.Forms.Label();
-            this.txtMaBaoHanh = new System.Windows.Forms.TextBox();
-            this.lblMaBaoHanh = new System.Windows.Forms.Label();
-            this.lblTieuDe = new System.Windows.Forms.Label();
-            this.lblDiaChi = new System.Windows.Forms.Label();
-            this.lblTenCuaHang = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.btnLamMoi = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.grpThongTinKhachHang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            this.SuspendLayout();
+            grpThongTinKhachHang = new GroupBox();
+            nudThoiHan = new NumericUpDown();
+            lblNgayHetHan = new Label();
+            dtpNgayLap = new DateTimePicker();
+            lblNgayNhap = new Label();
+            txtMaXe = new TextBox();
+            lblMaXe = new Label();
+            txtMaHoaDon = new TextBox();
+            lblMaHoaDon = new Label();
+            lblTieuDe = new Label();
+            lblDiaChi = new Label();
+            lblTenCuaHang = new Label();
+            picLogo = new PictureBox();
+            btnThoat = new Button();
+            btnLamMoi = new Button();
+            btnThem = new Button();
+            grpThongTinKhachHang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudThoiHan).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            SuspendLayout();
             // 
             // grpThongTinKhachHang
             // 
-            this.grpThongTinKhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpThongTinKhachHang.Controls.Add(this.dtpNgayHetHan);
-            this.grpThongTinKhachHang.Controls.Add(this.lblNgayHetHan);
-            this.grpThongTinKhachHang.Controls.Add(this.dtpNgayLap);
-            this.grpThongTinKhachHang.Controls.Add(this.lblNgayNhap);
-            this.grpThongTinKhachHang.Controls.Add(this.txtMaXe);
-            this.grpThongTinKhachHang.Controls.Add(this.lblMaXe);
-            this.grpThongTinKhachHang.Controls.Add(this.txtMaHoaDon);
-            this.grpThongTinKhachHang.Controls.Add(this.lblMaHoaDon);
-            this.grpThongTinKhachHang.Controls.Add(this.txtMaBaoHanh);
-            this.grpThongTinKhachHang.Controls.Add(this.lblMaBaoHanh);
-            this.grpThongTinKhachHang.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpThongTinKhachHang.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.grpThongTinKhachHang.Location = new System.Drawing.Point(53, 230);
-            this.grpThongTinKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpThongTinKhachHang.Name = "grpThongTinKhachHang";
-            this.grpThongTinKhachHang.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpThongTinKhachHang.Size = new System.Drawing.Size(953, 264);
-            this.grpThongTinKhachHang.TabIndex = 9;
-            this.grpThongTinKhachHang.TabStop = false;
-            this.grpThongTinKhachHang.Text = "Thông tin bảo hành";
+            grpThongTinKhachHang.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            grpThongTinKhachHang.Controls.Add(nudThoiHan);
+            grpThongTinKhachHang.Controls.Add(lblNgayHetHan);
+            grpThongTinKhachHang.Controls.Add(dtpNgayLap);
+            grpThongTinKhachHang.Controls.Add(lblNgayNhap);
+            grpThongTinKhachHang.Controls.Add(txtMaXe);
+            grpThongTinKhachHang.Controls.Add(lblMaXe);
+            grpThongTinKhachHang.Controls.Add(txtMaHoaDon);
+            grpThongTinKhachHang.Controls.Add(lblMaHoaDon);
+            grpThongTinKhachHang.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            grpThongTinKhachHang.ForeColor = SystemColors.ActiveCaptionText;
+            grpThongTinKhachHang.Location = new Point(44, 262);
+            grpThongTinKhachHang.Margin = new Padding(3, 2, 3, 2);
+            grpThongTinKhachHang.Name = "grpThongTinKhachHang";
+            grpThongTinKhachHang.Padding = new Padding(3, 2, 3, 2);
+            grpThongTinKhachHang.Size = new Size(953, 274);
+            grpThongTinKhachHang.TabIndex = 9;
+            grpThongTinKhachHang.TabStop = false;
+            grpThongTinKhachHang.Text = "Thông tin bảo hành";
             // 
-            // dtpNgayHetHan
+            // nudThoiHan
             // 
-            this.dtpNgayHetHan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayHetHan.Location = new System.Drawing.Point(706, 141);
-            this.dtpNgayHetHan.Name = "dtpNgayHetHan";
-            this.dtpNgayHetHan.Size = new System.Drawing.Size(161, 27);
-            this.dtpNgayHetHan.TabIndex = 26;
-            this.dtpNgayHetHan.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            nudThoiHan.Location = new Point(706, 182);
+            nudThoiHan.Name = "nudThoiHan";
+            nudThoiHan.Size = new Size(125, 27);
+            nudThoiHan.TabIndex = 26;
             // 
             // lblNgayHetHan
             // 
-            this.lblNgayHetHan.AutoSize = true;
-            this.lblNgayHetHan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayHetHan.Location = new System.Drawing.Point(582, 146);
-            this.lblNgayHetHan.Name = "lblNgayHetHan";
-            this.lblNgayHetHan.Size = new System.Drawing.Size(100, 20);
-            this.lblNgayHetHan.TabIndex = 25;
-            this.lblNgayHetHan.Text = "Ngày hết hạn:";
+            lblNgayHetHan.AutoSize = true;
+            lblNgayHetHan.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNgayHetHan.Location = new Point(582, 184);
+            lblNgayHetHan.Name = "lblNgayHetHan";
+            lblNgayHetHan.Size = new Size(69, 20);
+            lblNgayHetHan.TabIndex = 25;
+            lblNgayHetHan.Text = "Thời hạn:";
             // 
             // dtpNgayLap
             // 
-            this.dtpNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayLap.Location = new System.Drawing.Point(706, 81);
-            this.dtpNgayLap.Name = "dtpNgayLap";
-            this.dtpNgayLap.Size = new System.Drawing.Size(161, 27);
-            this.dtpNgayLap.TabIndex = 24;
-            this.dtpNgayLap.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            dtpNgayLap.Format = DateTimePickerFormat.Custom;
+            dtpNgayLap.Location = new Point(706, 101);
+            dtpNgayLap.Margin = new Padding(3, 4, 3, 4);
+            dtpNgayLap.Name = "dtpNgayLap";
+            dtpNgayLap.Size = new Size(125, 27);
+            dtpNgayLap.TabIndex = 24;
+            dtpNgayLap.Value = new DateTime(2025, 7, 17, 8, 26, 22, 0);
             // 
             // lblNgayNhap
             // 
-            this.lblNgayNhap.AutoSize = true;
-            this.lblNgayNhap.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayNhap.Location = new System.Drawing.Point(582, 86);
-            this.lblNgayNhap.Name = "lblNgayNhap";
-            this.lblNgayNhap.Size = new System.Drawing.Size(102, 20);
-            this.lblNgayNhap.TabIndex = 23;
-            this.lblNgayNhap.Text = "Ngày bắt đầu:";
+            lblNgayNhap.AutoSize = true;
+            lblNgayNhap.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNgayNhap.Location = new Point(582, 108);
+            lblNgayNhap.Name = "lblNgayNhap";
+            lblNgayNhap.Size = new Size(102, 20);
+            lblNgayNhap.TabIndex = 23;
+            lblNgayNhap.Text = "Ngày bắt đầu:";
             // 
             // txtMaXe
             // 
-            this.txtMaXe.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaXe.Location = new System.Drawing.Point(178, 115);
-            this.txtMaXe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMaXe.Name = "txtMaXe";
-            this.txtMaXe.Size = new System.Drawing.Size(300, 27);
-            this.txtMaXe.TabIndex = 20;
+            txtMaXe.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMaXe.Location = new Point(181, 100);
+            txtMaXe.Margin = new Padding(3, 2, 3, 2);
+            txtMaXe.Name = "txtMaXe";
+            txtMaXe.Size = new Size(300, 27);
+            txtMaXe.TabIndex = 20;
             // 
             // lblMaXe
             // 
-            this.lblMaXe.AutoSize = true;
-            this.lblMaXe.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaXe.Location = new System.Drawing.Point(60, 118);
-            this.lblMaXe.Name = "lblMaXe";
-            this.lblMaXe.Size = new System.Drawing.Size(52, 20);
-            this.lblMaXe.TabIndex = 19;
-            this.lblMaXe.Text = "Mã xe:";
+            lblMaXe.AutoSize = true;
+            lblMaXe.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMaXe.Location = new Point(63, 103);
+            lblMaXe.Name = "lblMaXe";
+            lblMaXe.Size = new Size(52, 20);
+            lblMaXe.TabIndex = 19;
+            lblMaXe.Text = "Mã xe:";
             // 
             // txtMaHoaDon
             // 
-            this.txtMaHoaDon.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaHoaDon.Location = new System.Drawing.Point(178, 52);
-            this.txtMaHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMaHoaDon.Name = "txtMaHoaDon";
-            this.txtMaHoaDon.Size = new System.Drawing.Size(300, 27);
-            this.txtMaHoaDon.TabIndex = 18;
+            txtMaHoaDon.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMaHoaDon.Location = new Point(181, 184);
+            txtMaHoaDon.Margin = new Padding(3, 2, 3, 2);
+            txtMaHoaDon.Name = "txtMaHoaDon";
+            txtMaHoaDon.Size = new Size(300, 27);
+            txtMaHoaDon.TabIndex = 18;
             // 
             // lblMaHoaDon
             // 
-            this.lblMaHoaDon.AutoSize = true;
-            this.lblMaHoaDon.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaHoaDon.Location = new System.Drawing.Point(60, 55);
-            this.lblMaHoaDon.Name = "lblMaHoaDon";
-            this.lblMaHoaDon.Size = new System.Drawing.Size(92, 20);
-            this.lblMaHoaDon.TabIndex = 17;
-            this.lblMaHoaDon.Text = "Mã hóa đơn:";
-            // 
-            // txtMaBaoHanh
-            // 
-            this.txtMaBaoHanh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaBaoHanh.Location = new System.Drawing.Point(178, 178);
-            this.txtMaBaoHanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMaBaoHanh.Name = "txtMaBaoHanh";
-            this.txtMaBaoHanh.Size = new System.Drawing.Size(300, 27);
-            this.txtMaBaoHanh.TabIndex = 16;
-            // 
-            // lblMaBaoHanh
-            // 
-            this.lblMaBaoHanh.AutoSize = true;
-            this.lblMaBaoHanh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaBaoHanh.Location = new System.Drawing.Point(60, 181);
-            this.lblMaBaoHanh.Name = "lblMaBaoHanh";
-            this.lblMaBaoHanh.Size = new System.Drawing.Size(99, 20);
-            this.lblMaBaoHanh.TabIndex = 15;
-            this.lblMaBaoHanh.Text = "Mã bảo hành:";
+            lblMaHoaDon.AutoSize = true;
+            lblMaHoaDon.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMaHoaDon.Location = new Point(63, 187);
+            lblMaHoaDon.Name = "lblMaHoaDon";
+            lblMaHoaDon.Size = new Size(92, 20);
+            lblMaHoaDon.TabIndex = 17;
+            lblMaHoaDon.Text = "Mã hóa đơn:";
             // 
             // lblTieuDe
             // 
-            this.lblTieuDe.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTieuDe.ForeColor = System.Drawing.Color.Blue;
-            this.lblTieuDe.Location = new System.Drawing.Point(2, 155);
-            this.lblTieuDe.Name = "lblTieuDe";
-            this.lblTieuDe.Size = new System.Drawing.Size(1048, 44);
-            this.lblTieuDe.TabIndex = 8;
-            this.lblTieuDe.Text = "PHIẾU BẢO HÀNH";
-            this.lblTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTieuDe.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTieuDe.ForeColor = Color.Blue;
+            lblTieuDe.Location = new Point(2, 194);
+            lblTieuDe.Name = "lblTieuDe";
+            lblTieuDe.Size = new Size(1048, 55);
+            lblTieuDe.TabIndex = 8;
+            lblTieuDe.Text = "PHIẾU BẢO HÀNH";
+            lblTieuDe.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblDiaChi
             // 
-            this.lblDiaChi.AutoSize = true;
-            this.lblDiaChi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiaChi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDiaChi.Location = new System.Drawing.Point(221, 78);
-            this.lblDiaChi.Name = "lblDiaChi";
-            this.lblDiaChi.Size = new System.Drawing.Size(348, 20);
-            this.lblDiaChi.TabIndex = 7;
-            this.lblDiaChi.Text = "Địa chỉ: 218 Lĩnh Nam, Hà Nội | www.hctvelectric.vn";
+            lblDiaChi.AutoSize = true;
+            lblDiaChi.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDiaChi.ForeColor = SystemColors.ActiveCaptionText;
+            lblDiaChi.Location = new Point(221, 98);
+            lblDiaChi.Name = "lblDiaChi";
+            lblDiaChi.Size = new Size(348, 20);
+            lblDiaChi.TabIndex = 7;
+            lblDiaChi.Text = "Địa chỉ: 218 Lĩnh Nam, Hà Nội | www.hctvelectric.vn";
             // 
             // lblTenCuaHang
             // 
-            this.lblTenCuaHang.AutoSize = true;
-            this.lblTenCuaHang.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTenCuaHang.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTenCuaHang.Location = new System.Drawing.Point(217, 30);
-            this.lblTenCuaHang.Name = "lblTenCuaHang";
-            this.lblTenCuaHang.Size = new System.Drawing.Size(477, 37);
-            this.lblTenCuaHang.TabIndex = 6;
-            this.lblTenCuaHang.Text = "CỬA HÀNG XE ĐIỆN HCTV ELECTRIC";
+            lblTenCuaHang.AutoSize = true;
+            lblTenCuaHang.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblTenCuaHang.ForeColor = SystemColors.ActiveCaptionText;
+            lblTenCuaHang.Location = new Point(217, 38);
+            lblTenCuaHang.Name = "lblTenCuaHang";
+            lblTenCuaHang.Size = new Size(477, 37);
+            lblTenCuaHang.TabIndex = 6;
+            lblTenCuaHang.Text = "CỬA HÀNG XE ĐIỆN HCTV ELECTRIC";
             // 
             // picLogo
             // 
-            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
-            this.picLogo.Location = new System.Drawing.Point(53, 30);
-            this.picLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(145, 123);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 5;
-            this.picLogo.TabStop = false;
+            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+            picLogo.Location = new Point(53, 38);
+            picLogo.Margin = new Padding(3, 2, 3, 2);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(145, 154);
+            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            picLogo.TabIndex = 5;
+            picLogo.TabStop = false;
             // 
             // btnThoat
             // 
-            this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnThoat.Location = new System.Drawing.Point(721, 541);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(132, 37);
-            this.btnThoat.TabIndex = 18;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            btnThoat.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThoat.ForeColor = SystemColors.ActiveCaptionText;
+            btnThoat.Location = new Point(717, 573);
+            btnThoat.Margin = new Padding(3, 2, 3, 2);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(132, 46);
+            btnThoat.TabIndex = 18;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLamMoi.Location = new System.Drawing.Point(470, 540);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(132, 39);
-            this.btnLamMoi.TabIndex = 16;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLamMoi.ForeColor = SystemColors.ActiveCaptionText;
+            btnLamMoi.Location = new Point(466, 572);
+            btnLamMoi.Margin = new Padding(3, 2, 3, 2);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(132, 49);
+            btnLamMoi.TabIndex = 16;
+            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnThem.Location = new System.Drawing.Point(219, 540);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(132, 37);
-            this.btnThem.TabIndex = 15;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            btnThem.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThem.ForeColor = SystemColors.ActiveCaptionText;
+            btnThem.Location = new Point(215, 572);
+            btnThem.Margin = new Padding(3, 2, 3, 2);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(132, 46);
+            btnThem.TabIndex = 15;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
-            // PhieuBaoHanhForm
+            // frmPhieuBaoHanh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 653);
-            this.Controls.Add(this.btnThoat);
-            this.Controls.Add(this.btnLamMoi);
-            this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.grpThongTinKhachHang);
-            this.Controls.Add(this.lblTieuDe);
-            this.Controls.Add(this.lblDiaChi);
-            this.Controls.Add(this.lblTenCuaHang);
-            this.Controls.Add(this.picLogo);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "PhieuBaoHanhForm";
-            this.Text = "PhieuBaoHanh";
-            this.grpThongTinKhachHang.ResumeLayout(false);
-            this.grpThongTinKhachHang.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1062, 653);
+            Controls.Add(btnThoat);
+            Controls.Add(btnLamMoi);
+            Controls.Add(btnThem);
+            Controls.Add(grpThongTinKhachHang);
+            Controls.Add(lblTieuDe);
+            Controls.Add(lblDiaChi);
+            Controls.Add(lblTenCuaHang);
+            Controls.Add(picLogo);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "frmPhieuBaoHanh";
+            Text = "PhieuBaoHanh";
+            grpThongTinKhachHang.ResumeLayout(false);
+            grpThongTinKhachHang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudThoiHan).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -280,13 +259,11 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TextBox txtMaHoaDon;
         private System.Windows.Forms.Label lblMaHoaDon;
-        private System.Windows.Forms.TextBox txtMaBaoHanh;
-        private System.Windows.Forms.Label lblMaBaoHanh;
         private System.Windows.Forms.TextBox txtMaXe;
         private System.Windows.Forms.Label lblMaXe;
         private System.Windows.Forms.DateTimePicker dtpNgayLap;
         private System.Windows.Forms.Label lblNgayNhap;
-        private System.Windows.Forms.DateTimePicker dtpNgayHetHan;
         private System.Windows.Forms.Label lblNgayHetHan;
+        private NumericUpDown nudThoiHan;
     }
 }

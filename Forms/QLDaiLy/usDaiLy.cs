@@ -45,21 +45,25 @@ namespace DoAn1.Forms.QLDaiLy
                     dgvDSDaiLy.Columns["email"]!.HeaderText = "Email";
                 }
 
-                dgvDSDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                // ✅ Căn chỉnh tự động để tránh xuống dòng
+                dgvDSDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+                // ✅ Không cho phép header xuống dòng
+                dgvDSDaiLy.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+
+                // ✅ Căn giữa nội dung trong header cho đẹp
+                dgvDSDaiLy.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
-
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmPhieuDaiLy phieuDaiLyForm = new frmPhieuDaiLy();
-            if (phieuDaiLyForm.ShowDialog() == DialogResult.OK)
-                MessageBox.Show("Thêm đại lý thành công!");
-            else
-                MessageBox.Show("Thêm đại lý thất bại!");
+            phieuDaiLyForm.ShowDialog();
+            LoadDaiLy();
         }
 
-        private void dgvDSDaiLy_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDSDaiLy_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvDSDaiLy.Rows[e.RowIndex].Cells["maDaiLy"].Value != null)
             {

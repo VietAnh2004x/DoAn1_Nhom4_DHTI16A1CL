@@ -34,7 +34,6 @@ namespace DoAn1.Forms.QLHoaDon
             txtTenNhanVien = new TextBox();
             lblTenNhanVien = new Label();
             txtTongTien = new TextBox();
-            txtNgayLap = new TextBox();
             lblTongTien = new Label();
             lblNgayLap = new Label();
             grpTacVu = new GroupBox();
@@ -51,6 +50,7 @@ namespace DoAn1.Forms.QLHoaDon
             btnTimKiem = new Button();
             grDSHoaDon = new GroupBox();
             dgvDSHoaDon = new DataGridView();
+            dtpNgayLap = new DateTimePicker();
             panel1.SuspendLayout();
             grpTTHoaDon.SuspendLayout();
             tbTrai.SuspendLayout();
@@ -106,6 +106,7 @@ namespace DoAn1.Forms.QLHoaDon
             // 
             // grTTDaiLy
             // 
+            grTTDaiLy.Controls.Add(dtpNgayLap);
             grTTDaiLy.Controls.Add(txtGiaBan);
             grTTDaiLy.Controls.Add(lblGiaBan);
             grTTDaiLy.Controls.Add(txtKhuyenMai);
@@ -117,7 +118,6 @@ namespace DoAn1.Forms.QLHoaDon
             grTTDaiLy.Controls.Add(txtTenNhanVien);
             grTTDaiLy.Controls.Add(lblTenNhanVien);
             grTTDaiLy.Controls.Add(txtTongTien);
-            grTTDaiLy.Controls.Add(txtNgayLap);
             grTTDaiLy.Controls.Add(lblTongTien);
             grTTDaiLy.Controls.Add(lblNgayLap);
             grTTDaiLy.Dock = DockStyle.Fill;
@@ -215,14 +215,6 @@ namespace DoAn1.Forms.QLHoaDon
             txtTongTien.Name = "txtTongTien";
             txtTongTien.Size = new Size(162, 30);
             txtTongTien.TabIndex = 9;
-            // 
-            // txtNgayLap
-            // 
-            txtNgayLap.BorderStyle = BorderStyle.FixedSingle;
-            txtNgayLap.Location = new Point(176, 255);
-            txtNgayLap.Name = "txtNgayLap";
-            txtNgayLap.Size = new Size(162, 30);
-            txtNgayLap.TabIndex = 8;
             // 
             // lblTongTien
             // 
@@ -397,9 +389,9 @@ namespace DoAn1.Forms.QLHoaDon
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(442, 39);
+            btnTimKiem.Location = new Point(440, 37);
             btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(103, 35);
+            btnTimKiem.Size = new Size(107, 39);
             btnTimKiem.TabIndex = 16;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
@@ -427,7 +419,16 @@ namespace DoAn1.Forms.QLHoaDon
             dgvDSHoaDon.RowHeadersWidth = 51;
             dgvDSHoaDon.Size = new Size(582, 561);
             dgvDSHoaDon.TabIndex = 16;
-            dgvDSHoaDon.CellContentClick += dgvDSHoaDon_CellContentClick_1;
+            dgvDSHoaDon.CellClick += dgvDSHoaDon_CellClick;
+            // 
+            // dtpNgayLap
+            // 
+            dtpNgayLap.Format = DateTimePickerFormat.Custom;
+            dtpNgayLap.Location = new Point(176, 251);
+            dtpNgayLap.Name = "dtpNgayLap";
+            dtpNgayLap.Size = new Size(162, 30);
+            dtpNgayLap.TabIndex = 24;
+            dtpNgayLap.Value = new DateTime(2025, 7, 17, 9, 4, 43, 0);
             // 
             // usHoaDon
             // 
@@ -462,7 +463,6 @@ namespace DoAn1.Forms.QLHoaDon
         private TextBox txtTenNhanVien;
         private Label lblTenNhanVien;
         private TextBox txtTongTien;
-        private TextBox txtNgayLap;
         private Label lblTongTien;
         private Label lblNgayLap;
         private GroupBox grpTacVu;
@@ -481,8 +481,8 @@ namespace DoAn1.Forms.QLHoaDon
         private DataGridView dgvDSHoaDon;
         private TextBox txtKhuyenMai;
         private Label lblKhuyenMai;
-        private Label label2;
         private TextBox txtGiaBan;
         private Label lblGiaBan;
+        private DateTimePicker dtpNgayLap;
     }
 }

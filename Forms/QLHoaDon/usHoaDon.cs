@@ -11,6 +11,13 @@ namespace DoAn1.Forms.QLHoaDon
         {
             InitializeComponent();
             LoadHoaDon();
+            SetupDateTimePicker();
+        }
+
+        private void SetupDateTimePicker()
+        {
+            dtpNgayLap.Format = DateTimePickerFormat.Custom;
+            dtpNgayLap.CustomFormat = " "; // Hiển thị trống ban đầu
         }
 
         private void LoadHoaDon()
@@ -38,34 +45,37 @@ namespace DoAn1.Forms.QLHoaDon
 
                 dgvDSHoaDon.DataSource = data.ToList();
 
+                // Định nghĩa tiêu đề cột
+                dgvDSHoaDon.Columns["MaHD"]!.HeaderText = "Mã Hóa Đơn";
+                dgvDSHoaDon.Columns["TenKhachHang"]!.HeaderText = "Khách Hàng";
+                dgvDSHoaDon.Columns["TenNhanVien"]!.HeaderText = "Nhân Viên";
+                dgvDSHoaDon.Columns["NgayLap"]!.HeaderText = "Ngày Lập";
+                dgvDSHoaDon.Columns["TongTien"]!.HeaderText = "Tổng Tiền";
+                dgvDSHoaDon.Columns["GhiChuKhuyenMai"]!.HeaderText = "Ghi Chú Khuyến Mãi";
+                dgvDSHoaDon.Columns["GiaBan"]!.HeaderText = "Giá Bán";
+
                 // Định dạng cột tiền
-                if (dgvDSHoaDon.Columns["TongTien"] != null)
-                {
-                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
-                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                }
+                dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-                if (dgvDSHoaDon.Columns["GiaBan"] != null)
-                {
-                    dgvDSHoaDon.Columns["GiaBan"].HeaderText = "Giá Bán";
-                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
-                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                }
+                dgvDSHoaDon.Columns["GiaBan"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                dgvDSHoaDon.Columns["GiaBan"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-                if (dgvDSHoaDon.Columns["GhiChuKhuyenMai"] != null)
-                {
-                    dgvDSHoaDon.Columns["GhiChuKhuyenMai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                }
+                dgvDSHoaDon.Columns["GhiChuKhuyenMai"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+                // Căn giữa tiêu đề & không xuống dòng
+                dgvDSHoaDon.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDSHoaDon.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+
+                // Tự động co giãn cột vừa nội dung
+                dgvDSHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmPhieuHoaDon frmPhieuHoaDon = new frmPhieuHoaDon();
-            if (frmPhieuHoaDon.ShowDialog() == DialogResult.OK)
-                MessageBox.Show("Thêm hóa đơn thành công!");
-            else
-                MessageBox.Show("Thêm hóa đơn thất bại!");
+            frmPhieuHoaDon.ShowDialog();
             LoadHoaDon();
         }
 
@@ -101,20 +111,20 @@ namespace DoAn1.Forms.QLHoaDon
 
                 if (dgvDSHoaDon.Columns["TongTien"] != null)
                 {
-                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
-                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 }
 
                 if (dgvDSHoaDon.Columns["GiaBan"] != null)
                 {
-                    dgvDSHoaDon.Columns["GiaBan"].HeaderText = "Giá Bán";
-                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
-                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvDSHoaDon.Columns["GiaBan"]!.HeaderText = "Giá Bán";
+                    dgvDSHoaDon.Columns["GiaBan"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSHoaDon.Columns["GiaBan"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 }
 
                 if (dgvDSHoaDon.Columns["GhiChuKhuyenMai"] != null)
                 {
-                    dgvDSHoaDon.Columns["GhiChuKhuyenMai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                    dgvDSHoaDon.Columns["GhiChuKhuyenMai"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 }
             }
         }
@@ -160,7 +170,7 @@ namespace DoAn1.Forms.QLHoaDon
                 hoaDon.maKhachHang = khach.maKhachHang;
                 hoaDon.tenTaiKhoan = nhanVien.tenTaiKhoan;
 
-                if (DateTime.TryParse(txtNgayLap.Text, out DateTime ngayLap))
+                if (DateTime.TryParse(dtpNgayLap.Text, out DateTime ngayLap))
                     hoaDon.ngayLap = ngayLap;
                 else
                     hoaDon.ngayLap = DateTime.Now;
@@ -188,7 +198,7 @@ namespace DoAn1.Forms.QLHoaDon
             txtMaHoaDon.Clear();
             txtTenKhachHang.Clear();
             txtTenNhanVien.Clear();
-            txtNgayLap.Clear();
+            dtpNgayLap.CustomFormat = " ";
             txtTongTien.Clear();
             txtTimKiemHoaDon.Clear();
             txtKhuyenMai.Clear();
@@ -246,7 +256,7 @@ namespace DoAn1.Forms.QLHoaDon
             }
         }
 
-        private void dgvDSHoaDon_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvDSHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Kiểm tra chỉ số dòng hợp lệ
             {
@@ -257,9 +267,17 @@ namespace DoAn1.Forms.QLHoaDon
                 txtTenNhanVien.Text = row.Cells["TenNhanVien"].Value?.ToString();
 
                 if (DateTime.TryParse(row.Cells["NgayLap"].Value?.ToString(), out DateTime ngayLap))
-                    txtNgayLap.Text = ngayLap.ToString("dd/MM/yyyy");
+                {
+                    dtpNgayLap.Format = DateTimePickerFormat.Custom;
+                    dtpNgayLap.CustomFormat = "dd/MM/yyyy";
+                    dtpNgayLap.Value = ngayLap;
+                }
                 else
-                    txtNgayLap.Text = "";
+                {
+                    // Thiết lập để DateTimePicker hiển thị trống
+                    dtpNgayLap.Format = DateTimePickerFormat.Custom;
+                    dtpNgayLap.CustomFormat = " ";
+                }
 
                 if (decimal.TryParse(row.Cells["TongTien"].Value?.ToString(), out decimal tongTien))
                     txtTongTien.Text = tongTien.ToString("#,##0 'VNĐ'");

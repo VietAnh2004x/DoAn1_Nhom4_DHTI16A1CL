@@ -287,7 +287,7 @@ namespace DoAn1.Forms.QLTonKho
             dgvDSTonKho.RowHeadersWidth = 51;
             dgvDSTonKho.Size = new Size(582, 561);
             dgvDSTonKho.TabIndex = 0;
-            dgvDSTonKho.CellContentClick += dgvDSTonKho_CellContentClick_1;
+            dgvDSTonKho.CellClick += dgvDSTonKho_CellClick;
             // 
             // usTonKho
             // 

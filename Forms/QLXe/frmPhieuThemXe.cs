@@ -19,13 +19,26 @@ namespace DoAn1.Forms.QLXe
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtTenXe.Clear();
+            txtMauSac.Clear();
+            cboLoaiXe.SelectedIndex = -1;
+            txtDonGia.Clear();
+            txtSoLuong.Clear();
+            dtpNgayNhap.Value = DateTime.Now;
+            txtDungLuongAcQuy.Clear();  
+            txtNhaCungCap.Clear();
+            txtSoBinhAcQuy.Clear();
+            picAnhXe.Image = null;
         }
     }
 }

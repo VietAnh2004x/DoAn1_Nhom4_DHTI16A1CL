@@ -23,10 +23,8 @@ namespace DoAn1.Forms.QLXe
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmPhieuThemXe phieuThemXeForm = new frmPhieuThemXe();
-            if (phieuThemXeForm.ShowDialog() == DialogResult.OK)
-                MessageBox.Show("Thêm xe đạp điện thành công!");
-            else
-                MessageBox.Show("Thêm xe đạp điện thất bại!");
+            phieuThemXeForm.ShowDialog();
+            loadDanhSachXe();
         }
 
         public void loadDanhSachXe()
@@ -55,20 +53,20 @@ namespace DoAn1.Forms.QLXe
 
                 // Định dạng giá
                 if (dgvDSXeDapDien.Columns.Contains("gia"))
-                    dgvDSXeDapDien.Columns["gia"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSXeDapDien.Columns["gia"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
 
-                // ✅ Cập nhật HeaderText sang tiếng Việt
-                dgvDSXeDapDien.Columns["maXe"].HeaderText = "Mã Xe";
-                dgvDSXeDapDien.Columns["tenXe"].HeaderText = "Tên Xe";
-                dgvDSXeDapDien.Columns["mauSac"].HeaderText = "Màu Sắc";
-                dgvDSXeDapDien.Columns["dungLuongAcQuy"].HeaderText = "Dung Lượng Ắc Quy";
-                dgvDSXeDapDien.Columns["soBinhAcQuy"].HeaderText = "Số Bình Ắc Quy";
-                dgvDSXeDapDien.Columns["gia"].HeaderText = "Giá Bán";
-                dgvDSXeDapDien.Columns["hinhAnh"].HeaderText = "Hình Ảnh";
+                // Cập nhật HeaderText sang tiếng Việt
+                dgvDSXeDapDien.Columns["maXe"]!.HeaderText = "Mã Xe";
+                dgvDSXeDapDien.Columns["tenXe"]!.HeaderText = "Tên Xe";
+                dgvDSXeDapDien.Columns["mauSac"]!.HeaderText = "Màu Sắc";
+                dgvDSXeDapDien.Columns["dungLuongAcQuy"]!.HeaderText = "Dung Lượng Ắc Quy";
+                dgvDSXeDapDien.Columns["soBinhAcQuy"]!.HeaderText = "Số Bình Ắc Quy";
+                dgvDSXeDapDien.Columns["gia"]!.HeaderText = "Giá Bán";
+                dgvDSXeDapDien.Columns["hinhAnh"]!.HeaderText = "Hình Ảnh";
 
-                // ✅ Đặt font hỗ trợ tiếng Việt (tuỳ chọn)
-                dgvDSXeDapDien.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-                dgvDSXeDapDien.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                // ✅ Căn giữa tiêu đề và không xuống dòng
+                dgvDSXeDapDien.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDSXeDapDien.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             }
         }
 
@@ -80,7 +78,7 @@ namespace DoAn1.Forms.QLXe
                 return;
             }
 
-            string maXe = dgvDSXeDapDien.CurrentRow.Cells["maXe"]?.Value?.ToString();
+            string maXe = dgvDSXeDapDien.CurrentRow.Cells["maXe"]!.Value!.ToString()!;
             if (string.IsNullOrEmpty(maXe))
             {
                 MessageBox.Show("Không tìm thấy mã xe!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -125,7 +123,7 @@ namespace DoAn1.Forms.QLXe
                 return;
             }
 
-            string maXe = dgvDSXeDapDien.CurrentRow.Cells["maXe"]?.Value?.ToString();
+            string maXe = dgvDSXeDapDien.CurrentRow.Cells["maXe"]!.Value!.ToString()!;
             if (string.IsNullOrEmpty(maXe))
             {
                 MessageBox.Show("Không tìm thấy mã xe!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -184,7 +182,7 @@ namespace DoAn1.Forms.QLXe
             dgvDSXeDapDien.ClearSelection();
         }
 
-        private void dgvDSXeDapDien_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvDSXeDapDien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgvDSXeDapDien.Rows.Count)
             {
@@ -196,7 +194,7 @@ namespace DoAn1.Forms.QLXe
                 txtDungLuongAcQuy.Text = row.Cells["dungLuongAcQuy"]?.Value?.ToString() ?? "";
                 txtSoBinhAcQuy.Text = row.Cells["soBinhAcQuy"]?.Value?.ToString() ?? "";
 
-                string imageName = row.Cells["HinhAnh"]?.Value?.ToString();
+                string imageName = row.Cells["HinhAnh"]!.Value!.ToString()!;
                 string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
                 if (!string.IsNullOrEmpty(imageName))

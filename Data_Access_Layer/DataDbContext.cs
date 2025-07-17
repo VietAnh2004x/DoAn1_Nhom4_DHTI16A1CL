@@ -1,7 +1,6 @@
 ﻿using DoAn.Data_Transfer_Objects;
 using DoAn1.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
-using DoAn.Data_Transfer_Objects;
 
 namespace DoAn.Data_Access_Layer
 {

@@ -16,224 +16,225 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuKhachHang));
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.btnLamMoi = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.grbThongTinKhachHang = new System.Windows.Forms.GroupBox();
-            this.txtSoDienThoai = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtDiaChiKhachHang = new System.Windows.Forms.TextBox();
-            this.txtTenKhachHang = new System.Windows.Forms.TextBox();
-            this.lblSoDienThoai = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblDiaChiDaiLy = new System.Windows.Forms.Label();
-            this.lblTenKhachHang = new System.Windows.Forms.Label();
-            this.lblTieuDe = new System.Windows.Forms.Label();
-            this.lblDiaChi = new System.Windows.Forms.Label();
-            this.lblTenCuaHang = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.grbThongTinKhachHang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            this.SuspendLayout();
+            btnThoat = new Button();
+            btnLamMoi = new Button();
+            btnThem = new Button();
+            grbThongTinKhachHang = new GroupBox();
+            txtSoDienThoai = new TextBox();
+            txtEmail = new TextBox();
+            txtDiaChi = new TextBox();
+            txtTenKhachHang = new TextBox();
+            lblSoDienThoai = new Label();
+            lblEmail = new Label();
+            lblDiaChiDaiLy = new Label();
+            lblTenKhachHang = new Label();
+            lblTieuDe = new Label();
+            lblDiaChi = new Label();
+            lblTenCuaHang = new Label();
+            picLogo = new PictureBox();
+            grbThongTinKhachHang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            SuspendLayout();
             // 
             // btnThoat
             // 
-            this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnThoat.Location = new System.Drawing.Point(612, 396);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(84, 34);
-            this.btnThoat.TabIndex = 31;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            btnThoat.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThoat.ForeColor = SystemColors.ActiveCaptionText;
+            btnThoat.Location = new Point(714, 457);
+            btnThoat.Margin = new Padding(2);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(98, 39);
+            btnThoat.TabIndex = 31;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLamMoi.Location = new System.Drawing.Point(444, 396);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(84, 34);
-            this.btnLamMoi.TabIndex = 29;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLamMoi.ForeColor = SystemColors.ActiveCaptionText;
+            btnLamMoi.Location = new Point(518, 457);
+            btnLamMoi.Margin = new Padding(2);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(98, 39);
+            btnLamMoi.TabIndex = 29;
+            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThem
             // 
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnThem.Location = new System.Drawing.Point(280, 396);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(2);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(84, 34);
-            this.btnThem.TabIndex = 28;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            btnThem.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThem.ForeColor = SystemColors.ActiveCaptionText;
+            btnThem.Location = new Point(327, 457);
+            btnThem.Margin = new Padding(2);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(98, 39);
+            btnThem.TabIndex = 28;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // grbThongTinKhachHang
             // 
-            this.grbThongTinKhachHang.Controls.Add(this.txtSoDienThoai);
-            this.grbThongTinKhachHang.Controls.Add(this.txtEmail);
-            this.grbThongTinKhachHang.Controls.Add(this.txtDiaChiKhachHang);
-            this.grbThongTinKhachHang.Controls.Add(this.txtTenKhachHang);
-            this.grbThongTinKhachHang.Controls.Add(this.lblSoDienThoai);
-            this.grbThongTinKhachHang.Controls.Add(this.lblEmail);
-            this.grbThongTinKhachHang.Controls.Add(this.lblDiaChiDaiLy);
-            this.grbThongTinKhachHang.Controls.Add(this.lblTenKhachHang);
-            this.grbThongTinKhachHang.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbThongTinKhachHang.Location = new System.Drawing.Point(66, 205);
-            this.grbThongTinKhachHang.Margin = new System.Windows.Forms.Padding(2);
-            this.grbThongTinKhachHang.Name = "grbThongTinKhachHang";
-            this.grbThongTinKhachHang.Padding = new System.Windows.Forms.Padding(2);
-            this.grbThongTinKhachHang.Size = new System.Drawing.Size(851, 170);
-            this.grbThongTinKhachHang.TabIndex = 27;
-            this.grbThongTinKhachHang.TabStop = false;
-            this.grbThongTinKhachHang.Text = "Thông tin khách hàng";
+            grbThongTinKhachHang.Controls.Add(txtSoDienThoai);
+            grbThongTinKhachHang.Controls.Add(txtEmail);
+            grbThongTinKhachHang.Controls.Add(txtDiaChi);
+            grbThongTinKhachHang.Controls.Add(txtTenKhachHang);
+            grbThongTinKhachHang.Controls.Add(lblSoDienThoai);
+            grbThongTinKhachHang.Controls.Add(lblEmail);
+            grbThongTinKhachHang.Controls.Add(lblDiaChiDaiLy);
+            grbThongTinKhachHang.Controls.Add(lblTenKhachHang);
+            grbThongTinKhachHang.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            grbThongTinKhachHang.Location = new Point(77, 237);
+            grbThongTinKhachHang.Margin = new Padding(2);
+            grbThongTinKhachHang.Name = "grbThongTinKhachHang";
+            grbThongTinKhachHang.Padding = new Padding(2);
+            grbThongTinKhachHang.Size = new Size(993, 196);
+            grbThongTinKhachHang.TabIndex = 27;
+            grbThongTinKhachHang.TabStop = false;
+            grbThongTinKhachHang.Text = "Thông tin khách hàng";
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(606, 112);
-            this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSoDienThoai.Name = "txtSoDienThoai";
-            this.txtSoDienThoai.Size = new System.Drawing.Size(184, 23);
-            this.txtSoDienThoai.TabIndex = 9;
+            txtSoDienThoai.Location = new Point(707, 129);
+            txtSoDienThoai.Margin = new Padding(2);
+            txtSoDienThoai.Name = "txtSoDienThoai";
+            txtSoDienThoai.Size = new Size(214, 23);
+            txtSoDienThoai.TabIndex = 9;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(144, 112);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(184, 23);
-            this.txtEmail.TabIndex = 8;
+            txtEmail.Location = new Point(168, 129);
+            txtEmail.Margin = new Padding(2);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(214, 23);
+            txtEmail.TabIndex = 8;
             // 
-            // txtDiaChiKhachHang
+            // txtDiaChi
             // 
-            this.txtDiaChiKhachHang.Location = new System.Drawing.Point(606, 37);
-            this.txtDiaChiKhachHang.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDiaChiKhachHang.Name = "txtDiaChiKhachHang";
-            this.txtDiaChiKhachHang.Size = new System.Drawing.Size(184, 23);
-            this.txtDiaChiKhachHang.TabIndex = 7;
+            txtDiaChi.Location = new Point(707, 43);
+            txtDiaChi.Margin = new Padding(2);
+            txtDiaChi.Name = "txtDiaChi";
+            txtDiaChi.Size = new Size(214, 23);
+            txtDiaChi.TabIndex = 7;
             // 
             // txtTenKhachHang
             // 
-            this.txtTenKhachHang.Location = new System.Drawing.Point(144, 37);
-            this.txtTenKhachHang.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTenKhachHang.Name = "txtTenKhachHang";
-            this.txtTenKhachHang.Size = new System.Drawing.Size(184, 23);
-            this.txtTenKhachHang.TabIndex = 6;
+            txtTenKhachHang.Location = new Point(168, 43);
+            txtTenKhachHang.Margin = new Padding(2);
+            txtTenKhachHang.Name = "txtTenKhachHang";
+            txtTenKhachHang.Size = new Size(214, 23);
+            txtTenKhachHang.TabIndex = 6;
             // 
             // lblSoDienThoai
             // 
-            this.lblSoDienThoai.AutoSize = true;
-            this.lblSoDienThoai.Location = new System.Drawing.Point(506, 115);
-            this.lblSoDienThoai.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSoDienThoai.Name = "lblSoDienThoai";
-            this.lblSoDienThoai.Size = new System.Drawing.Size(79, 15);
-            this.lblSoDienThoai.TabIndex = 4;
-            this.lblSoDienThoai.Text = "Số điện thoại:";
+            lblSoDienThoai.AutoSize = true;
+            lblSoDienThoai.Location = new Point(590, 133);
+            lblSoDienThoai.Margin = new Padding(2, 0, 2, 0);
+            lblSoDienThoai.Name = "lblSoDienThoai";
+            lblSoDienThoai.Size = new Size(79, 15);
+            lblSoDienThoai.TabIndex = 4;
+            lblSoDienThoai.Text = "Số điện thoại:";
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(46, 115);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(39, 15);
-            this.lblEmail.TabIndex = 3;
-            this.lblEmail.Text = "Email:";
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(54, 133);
+            lblEmail.Margin = new Padding(2, 0, 2, 0);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(39, 15);
+            lblEmail.TabIndex = 3;
+            lblEmail.Text = "Email:";
             // 
             // lblDiaChiDaiLy
             // 
-            this.lblDiaChiDaiLy.AutoSize = true;
-            this.lblDiaChiDaiLy.Location = new System.Drawing.Point(506, 40);
-            this.lblDiaChiDaiLy.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDiaChiDaiLy.Name = "lblDiaChiDaiLy";
-            this.lblDiaChiDaiLy.Size = new System.Drawing.Size(46, 15);
-            this.lblDiaChiDaiLy.TabIndex = 2;
-            this.lblDiaChiDaiLy.Text = "Địa chỉ:";
+            lblDiaChiDaiLy.AutoSize = true;
+            lblDiaChiDaiLy.Location = new Point(590, 46);
+            lblDiaChiDaiLy.Margin = new Padding(2, 0, 2, 0);
+            lblDiaChiDaiLy.Name = "lblDiaChiDaiLy";
+            lblDiaChiDaiLy.Size = new Size(46, 15);
+            lblDiaChiDaiLy.TabIndex = 2;
+            lblDiaChiDaiLy.Text = "Địa chỉ:";
             // 
             // lblTenKhachHang
             // 
-            this.lblTenKhachHang.AutoSize = true;
-            this.lblTenKhachHang.Location = new System.Drawing.Point(46, 40);
-            this.lblTenKhachHang.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTenKhachHang.Name = "lblTenKhachHang";
-            this.lblTenKhachHang.Size = new System.Drawing.Size(94, 15);
-            this.lblTenKhachHang.TabIndex = 1;
-            this.lblTenKhachHang.Text = "Tên khách hàng:";
+            lblTenKhachHang.AutoSize = true;
+            lblTenKhachHang.Location = new Point(54, 46);
+            lblTenKhachHang.Margin = new Padding(2, 0, 2, 0);
+            lblTenKhachHang.Name = "lblTenKhachHang";
+            lblTenKhachHang.Size = new Size(94, 15);
+            lblTenKhachHang.TabIndex = 1;
+            lblTenKhachHang.Text = "Tên khách hàng:";
             // 
             // lblTieuDe
             // 
-            this.lblTieuDe.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTieuDe.ForeColor = System.Drawing.Color.Blue;
-            this.lblTieuDe.Location = new System.Drawing.Point(-1, 150);
-            this.lblTieuDe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTieuDe.Name = "lblTieuDe";
-            this.lblTieuDe.Size = new System.Drawing.Size(983, 47);
-            this.lblTieuDe.TabIndex = 26;
-            this.lblTieuDe.Text = "PHIẾU THÔNG TIN KHÁCH HÀNG";
-            this.lblTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTieuDe.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTieuDe.ForeColor = Color.Blue;
+            lblTieuDe.Location = new Point(-1, 173);
+            lblTieuDe.Margin = new Padding(2, 0, 2, 0);
+            lblTieuDe.Name = "lblTieuDe";
+            lblTieuDe.Size = new Size(1147, 54);
+            lblTieuDe.TabIndex = 26;
+            lblTieuDe.Text = "PHIẾU THÔNG TIN KHÁCH HÀNG";
+            lblTieuDe.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblDiaChi
             // 
-            this.lblDiaChi.AutoSize = true;
-            this.lblDiaChi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiaChi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDiaChi.Location = new System.Drawing.Point(171, 86);
-            this.lblDiaChi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDiaChi.Name = "lblDiaChi";
-            this.lblDiaChi.Size = new System.Drawing.Size(281, 15);
-            this.lblDiaChi.TabIndex = 25;
-            this.lblDiaChi.Text = "Địa chỉ: 218 Lĩnh Nam, Hà Nội | www.hctvelectric.vn";
+            lblDiaChi.AutoSize = true;
+            lblDiaChi.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDiaChi.ForeColor = SystemColors.ActiveCaptionText;
+            lblDiaChi.Location = new Point(200, 99);
+            lblDiaChi.Margin = new Padding(2, 0, 2, 0);
+            lblDiaChi.Name = "lblDiaChi";
+            lblDiaChi.Size = new Size(281, 15);
+            lblDiaChi.TabIndex = 25;
+            lblDiaChi.Text = "Địa chỉ: 218 Lĩnh Nam, Hà Nội | www.hctvelectric.vn";
             // 
             // lblTenCuaHang
             // 
-            this.lblTenCuaHang.AutoSize = true;
-            this.lblTenCuaHang.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenCuaHang.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTenCuaHang.Location = new System.Drawing.Point(169, 48);
-            this.lblTenCuaHang.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTenCuaHang.Name = "lblTenCuaHang";
-            this.lblTenCuaHang.Size = new System.Drawing.Size(389, 30);
-            this.lblTenCuaHang.TabIndex = 24;
-            this.lblTenCuaHang.Text = "CỬA HÀNG XE ĐIỆN HCTV ELECTRIC";
+            lblTenCuaHang.AutoSize = true;
+            lblTenCuaHang.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTenCuaHang.ForeColor = SystemColors.ActiveCaptionText;
+            lblTenCuaHang.Location = new Point(197, 55);
+            lblTenCuaHang.Margin = new Padding(2, 0, 2, 0);
+            lblTenCuaHang.Name = "lblTenCuaHang";
+            lblTenCuaHang.Size = new Size(389, 30);
+            lblTenCuaHang.TabIndex = 24;
+            lblTenCuaHang.Text = "CỬA HÀNG XE ĐIỆN HCTV ELECTRIC";
             // 
             // picLogo
             // 
-            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
-            this.picLogo.Location = new System.Drawing.Point(46, 48);
-            this.picLogo.Margin = new System.Windows.Forms.Padding(2);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(109, 100);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 23;
-            this.picLogo.TabStop = false;
+            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+            picLogo.Location = new Point(54, 55);
+            picLogo.Margin = new Padding(2);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(127, 115);
+            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            picLogo.TabIndex = 23;
+            picLogo.TabStop = false;
             // 
-            // PhieuKhachHangForm
+            // frmPhieuKhachHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.btnThoat);
-            this.Controls.Add(this.btnLamMoi);
-            this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.grbThongTinKhachHang);
-            this.Controls.Add(this.lblTieuDe);
-            this.Controls.Add(this.lblDiaChi);
-            this.Controls.Add(this.lblTenCuaHang);
-            this.Controls.Add(this.picLogo);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "PhieuKhachHangForm";
-            this.Text = "FormKhachHang";
-            this.grbThongTinKhachHang.ResumeLayout(false);
-            this.grbThongTinKhachHang.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1148, 532);
+            Controls.Add(btnThoat);
+            Controls.Add(btnLamMoi);
+            Controls.Add(btnThem);
+            Controls.Add(grbThongTinKhachHang);
+            Controls.Add(lblTieuDe);
+            Controls.Add(lblDiaChi);
+            Controls.Add(lblTenCuaHang);
+            Controls.Add(picLogo);
+            Margin = new Padding(2);
+            Name = "frmPhieuKhachHang";
+            Text = "FormKhachHang";
+            grbThongTinKhachHang.ResumeLayout(false);
+            grbThongTinKhachHang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -243,7 +244,7 @@
         private System.Windows.Forms.GroupBox grbThongTinKhachHang;
         private System.Windows.Forms.TextBox txtSoDienThoai;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtDiaChiKhachHang;
+        private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtTenKhachHang;
         private System.Windows.Forms.Label lblSoDienThoai;
         private System.Windows.Forms.Label lblEmail;

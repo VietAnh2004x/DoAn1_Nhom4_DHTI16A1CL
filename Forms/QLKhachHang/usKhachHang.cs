@@ -21,27 +21,27 @@ namespace DoAn1.Forms.QLKhachHang
                 var danhSach = context.KhachHang.ToList();
 
                 dgvDSKhachHang.DataSource = danhSach;
+
+                // Tự động co giãn cột theo nội dung
                 dgvDSKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
+                // Ẩn cột navigation không cần hiển thị
                 if (dgvDSKhachHang.Columns.Contains("HoaDons"))
                 {
-                    dgvDSKhachHang.Columns["HoaDons"].Visible = false;
+                    dgvDSKhachHang.Columns["HoaDons"]!.Visible = false;
                 }
+
+                // Căn giữa header và không cho header xuống dòng
+                dgvDSKhachHang.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDSKhachHang.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmPhieuKhachHang phieuKhachHangForm = new frmPhieuKhachHang();
-            if (phieuKhachHangForm.ShowDialog() == DialogResult.OK)
-            {
-                MessageBox.Show("Thêm khách hàng thành công!");
-                loadDanhSachKhachHang(); // Load lại danh sách
-            }
-            else
-            {
-                MessageBox.Show("Thêm khách hàng thất bại!");
-            }
+            phieuKhachHangForm.ShowDialog();
+            loadDanhSachKhachHang();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace DoAn1.Forms.QLKhachHang
                 return;
             }
 
-            string maKH = dgvDSKhachHang.CurrentRow.Cells["maKhachHang"]?.Value?.ToString();
+            string maKH = dgvDSKhachHang.CurrentRow.Cells["maKhachHang"]!.Value!.ToString();
             if (string.IsNullOrEmpty(maKH))
             {
                 MessageBox.Show("Không tìm thấy mã khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -150,7 +150,7 @@ namespace DoAn1.Forms.QLKhachHang
 
                     if (dgvDSKhachHang.Columns.Contains("HoaDons"))
                     {
-                        dgvDSKhachHang.Columns["HoaDons"].Visible = false;
+                        dgvDSKhachHang.Columns["HoaDons"]!.Visible = false;
                     }
                 }
                 else
@@ -174,7 +174,7 @@ namespace DoAn1.Forms.QLKhachHang
             dgvDSKhachHang.ClearSelection();
         }
 
-        private void dgvDSKhachHang_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvDSKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgvDSKhachHang.Rows.Count)
             {
