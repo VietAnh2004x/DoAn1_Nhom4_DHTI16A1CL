@@ -1,9 +1,10 @@
-using DoAn1.Data_Transfer_Objects;
+using DoAn.Data_Transfer_Objects;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DoAn.Data_Transfer_Objects
+namespace DoAn1.Data_Transfer_Objects
 {
     public class NhanVien
     {
@@ -17,7 +18,7 @@ namespace DoAn.Data_Transfer_Objects
         [Column("TenTaiKhoan")]
         [DisplayName("Tên Tài Khoản")]
         [StringLength(50)]
-        public string tenTK { get; set; }
+        public string tenTaiKhoan { get; set; }
 
         [Required]
         [Column("HoTen")]
@@ -49,16 +50,24 @@ namespace DoAn.Data_Transfer_Objects
         [StringLength(100)]
         public string email { get; set; }
 
-        [ForeignKey("tenTK")]
-        public virtual TaiKhoan? TaiKhoan { get; set; }        
+        [Required]
+        [Column("NgayVaoLam")]
+        [DisplayName("Ngày Vào Làm")]
+        [DataType(DataType.Date)]
+        public DateTime ngayVaoLam { get; set; }
+
+        // Liên kết đến bảng TaiKhoan
+        [ForeignKey("tenTaiKhoan")]
+        public virtual TaiKhoan? TaiKhoan { get; set; }
 
         public NhanVien()
         {
             maNV = string.Empty;
-            tenTK = string.Empty;
+            tenTaiKhoan = string.Empty;
             hoTen = string.Empty;
             gioiTinh = string.Empty;
             ngaySinh = DateTime.MinValue;
+            ngayVaoLam = DateTime.MinValue;
             soDienThoai = string.Empty;
             email = string.Empty;
         }

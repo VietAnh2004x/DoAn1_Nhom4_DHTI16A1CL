@@ -88,13 +88,13 @@ namespace DoAn.Data_Access_Layer
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(tk => tk.HoaDons)
                 .WithOne(hd => hd.TaiKhoan)
-                .HasForeignKey(hd => hd.tenTK);
+                .HasForeignKey(hd => hd.tenTaiKhoan);
 
             // Quan hệ 1-1: NhanVien - TaiKhoan
             modelBuilder.Entity<NhanVien>()
                 .HasOne(nv => nv.TaiKhoan)
                 .WithOne(tk => tk.NhanVien)
-                .HasForeignKey<NhanVien>(nv => nv.tenTK);
+                .HasForeignKey<NhanVien>(nv => nv.tenTaiKhoan);
         }
     }
 }

@@ -7,15 +7,16 @@ namespace DoAn1.Data_Transfer_Objects
 {
     public class ChiTietHoaDon
     {
-        [Column("MaHD", Order = 0)]
+        [Key, Column("MaHD", Order = 0)]
         [DisplayName("Mã Hóa Đơn")]
-        [StringLength(20)]
+        [StringLength(10)]
         public string maHoaDon { get; set; } = string.Empty;
 
-        [Column("MaXe", Order = 1)]
+        [Key, Column("MaXe", Order = 1)]
         [DisplayName("Mã Xe")]
-        [StringLength(20)]
+        [StringLength(10)]
         public string maXe { get; set; } = string.Empty;
+        
 
         [Required]
         [Column("SoLuong")]
@@ -28,6 +29,12 @@ namespace DoAn1.Data_Transfer_Objects
         [DataType(DataType.Currency)]
         public decimal donGia { get; set; }
 
+        [Column("GhiChuKhuyenMai")]
+        [DisplayName("Ghi Chú Khuyến Mãi")]
+        [StringLength(255)]
+        public string? ghiChuKhuyenMai { get; set; }
+
+        // Navigation properties
         [ForeignKey("maHoaDon")]
         public virtual HoaDon HoaDon { get; set; } = null!;
 
@@ -40,6 +47,7 @@ namespace DoAn1.Data_Transfer_Objects
             maXe = string.Empty;
             soLuong = 0;
             donGia = 0m;
+            ghiChuKhuyenMai = string.Empty;
         }
     }
 }

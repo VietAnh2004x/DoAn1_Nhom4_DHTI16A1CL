@@ -20,20 +20,40 @@ namespace DoAn1.Forms.QLXe
         }
         public void loadDanhSachXe()
         {
+
             using (var context = new DataDbContext())
             {
-                BindingSource xeMayDienBindingSource = new BindingSource();
-                xeMayDienBindingSource.DataSource = context.ThongTinXe.Where(d => d.maDongXe == "1").ToList();
-                dgvDSXeMayDien.DataSource = xeMayDienBindingSource;
+                BindingSource xeDapDienBindingSource = new BindingSource();
+                var danhSach = context.ThongTinXe.Where(d => d.maDongXe == "1")
+                    .Select(x => new
+                    {
+                        x.maXe,
+                        x.tenXe,
+                        x.mauSac,
+                        x.dungLuongAcQuy,
+                        x.soBinhAcQuy,
+                        gia = x.giaBan,
+                        x.hinhAnh
+                    })
+                    .ToList();
+
+                xeDapDienBindingSource.DataSource = danhSach;
+                dgvDSXeMayDien.DataSource = xeDapDienBindingSource;
+
                 dgvDSXeMayDien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dgvDSXeMayDien.Columns["gia"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
-                dgvDSXeMayDien.Columns["MaDongXe"]!.Visible = false;
-                dgvDSXeMayDien.Columns["DaiLy"]!.Visible = false;
-                dgvDSXeMayDien.Columns["DongXe"]!.Visible = false;
-                dgvDSXeMayDien.Columns["ChiTietHoaDons"]!.Visible = false;
-                dgvDSXeMayDien.Columns["BaoHanhs"]!.Visible = false;
-                dgvDSXeMayDien.Columns["HinhAnh"]!.Visible = false;
-                dgvDSXeMayDien.Columns["TonXes"]!.Visible = false;
+
+                // Định dạng số tiền
+                if (dgvDSXeMayDien.Columns.Contains("gia"))
+                    dgvDSXeMayDien.Columns["gia"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+
+                // ⚡ Cập nhật tiêu đề tiếng Việt
+                dgvDSXeMayDien.Columns["maXe"].HeaderText = "Mã Xe";
+                dgvDSXeMayDien.Columns["tenXe"].HeaderText = "Tên Xe";
+                dgvDSXeMayDien.Columns["mauSac"].HeaderText = "Màu Sắc";
+                dgvDSXeMayDien.Columns["dungLuongAcQuy"].HeaderText = "Dung Lượng Ắc Quy";
+                dgvDSXeMayDien.Columns["soBinhAcQuy"].HeaderText = "Số Bình Ắc Quy";
+                dgvDSXeMayDien.Columns["gia"].HeaderText = "Giá Bán";
+                dgvDSXeMayDien.Columns["hinhAnh"].HeaderText = "Hình Ảnh";
             }
         }
 
@@ -64,14 +84,12 @@ namespace DoAn1.Forms.QLXe
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            // Kiểm tra đã chọn xe trong DataGridView hay chưa
             if (dgvDSXeMayDien.CurrentRow == null)
             {
                 MessageBox.Show("Vui lòng chọn một xe cần sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Lấy mã xe từ dòng được chọn
             string maXe = dgvDSXeMayDien.CurrentRow.Cells["maXe"]?.Value?.ToString();
             if (string.IsNullOrEmpty(maXe))
             {
@@ -81,7 +99,7 @@ namespace DoAn1.Forms.QLXe
 
             using (var context = new DataDbContext())
             {
-                // Tìm xe trong database theo mã xe
+                // Tìm xe trong cơ sở dữ liệu
                 var xeCanSua = context.ThongTinXe.FirstOrDefault(x => x.maXe == maXe);
                 if (xeCanSua == null)
                 {
@@ -91,33 +109,29 @@ namespace DoAn1.Forms.QLXe
 
                 try
                 {
-                    // Cập nhật thông tin từ TextBox vào xe
+                    // Cập nhật thông tin
                     xeCanSua.tenXe = txtTenXe.Text.Trim();
                     xeCanSua.mauSac = txtMauSac.Text.Trim();
                     xeCanSua.dungLuongAcQuy = txtDungLuongAcQuy.Text.Trim();
                     xeCanSua.soBinhAcQuy = txtSoBinhAcQuy.Text.Trim();
-
-                    // Xử lý giá (loại bỏ chữ VNĐ và dấu phẩy)
                     string giaText = txtGia.Text.Replace("VNĐ", "").Replace(",", "").Trim();
                     if (decimal.TryParse(giaText, out decimal giaMoi))
                     {
-                        xeCanSua.gia = giaMoi;
+                        xeCanSua.giaBan = giaMoi;
                     }
                     else
                     {
-                        xeCanSua.gia = 0;  // Hoặc bạn có thể báo lỗi nếu cần
+                        MessageBox.Show("Giá không hợp lệ! Vui lòng nhập đúng định dạng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
+                    xeCanSua.hinhAnh = picAnhXe.Text.Trim(); // bạn phải thêm txtHinhAnh vào form nếu muốn sửa ảnh
 
-                    // Nếu bạn có TextBox cho link hình ảnh (nếu không có thì bỏ đoạn này)
-                    // Giả sử bạn thêm txtHinhAnh
-                    // xeCanSua.HinhAnh = txtHinhAnh.Text.Trim();
-
-                    // Lưu thay đổi vào database
+                    // Lưu thay đổi
                     context.SaveChanges();
 
                     MessageBox.Show("Sửa thông tin xe thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Load lại danh sách xe
+                    // Refresh lại danh sách
                     loadDanhSachXe();
                 }
                 catch (Exception ex)
@@ -183,49 +197,47 @@ namespace DoAn1.Forms.QLXe
 
         }
 
-        private void dgvDSXeMayDien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+
+        private void dgvDSXeMayDien_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgvDSXeMayDien.Rows.Count)
             {
                 DataGridViewRow row = dgvDSXeMayDien.Rows[e.RowIndex];
 
-                // Gán thông tin lên textbox
+               
                 txtTenXe.Text = row.Cells["tenXe"]?.Value?.ToString() ?? "";
                 txtGia.Text = Convert.ToDecimal(row.Cells["gia"]?.Value ?? 0).ToString("#,##0 'VNĐ'");
                 txtMauSac.Text = row.Cells["mauSac"]?.Value?.ToString() ?? "";
                 txtDungLuongAcQuy.Text = row.Cells["dungLuongAcQuy"]?.Value?.ToString() ?? "";
                 txtSoBinhAcQuy.Text = row.Cells["soBinhAcQuy"]?.Value?.ToString() ?? "";
 
-                // Tên file ảnh (ví dụ A105A.jpg)
+                // Lấy tên file ảnh từ cột "HinhAnh" (ví dụ: A105A.jpg)
                 string imageName = row.Cells["HinhAnh"]?.Value?.ToString();
 
-                // Đường dẫn đầy đủ đến thư mục chứa ảnh
-                string imageFolder = @"C:\Users\admin\OneDrive\Máy tính\DoAn\HinhAnh";
-                string imagePath = Path.Combine(imageFolder, imageName);
+                // Lấy đường dẫn thư mục hiện tại của chương trình (thường là bin\Debug\netX...)
+                string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-                // Xử lý hiển thị ảnh
+                // Tạo đường dẫn đầy đủ đến ảnh trong folder Resources/hinhAnh
+                string imagePath = Path.Combine(projectDirectory, "Resources", "hinhAnh", imageName);
+
                 if (!string.IsNullOrEmpty(imageName) && File.Exists(imagePath))
                 {
                     try
                     {
-                        // Giải phóng ảnh cũ
+                        // Giải phóng ảnh cũ tránh rò rỉ bộ nhớ
                         picAnhXe.Image?.Dispose();
 
-                        // Load ảnh mới từ stream để tránh lỗi "file bị khóa" hoặc định dạng sai
+                        // Mở file ảnh bằng stream để tránh lỗi khóa file
                         using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
                         {
                             picAnhXe.Image = Image.FromStream(fs);
                         }
                     }
-                    catch (OutOfMemoryException)
-                    {
-                        picAnhXe.Image = null;
-                        MessageBox.Show("Ảnh bị lỗi hoặc không đúng định dạng: " + imagePath, "Lỗi ảnh", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                     catch (Exception ex)
                     {
                         picAnhXe.Image = null;
-                        MessageBox.Show("Lỗi khi mở ảnh: " + ex.Message, "Lỗi ảnh", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Lỗi khi load ảnh: " + ex.Message, "Lỗi ảnh", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -236,5 +248,5 @@ namespace DoAn1.Forms.QLXe
             }
         }
     }
-
 }
+

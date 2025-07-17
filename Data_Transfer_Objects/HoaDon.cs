@@ -1,5 +1,6 @@
 using DoAn1.Data_Transfer_Objects;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,7 +25,7 @@ namespace DoAn.Data_Transfer_Objects
         [Column("TenTaiKhoan")]
         [DisplayName("Tên Tài Khoản")]
         [StringLength(50)]
-        public string tenTK { get; set; }
+        public string tenTaiKhoan { get; set; }
 
         [Required]
         [Column("NgayLap")]
@@ -36,19 +37,35 @@ namespace DoAn.Data_Transfer_Objects
         [Column("TongTien")]
         [DisplayName("Tổng Tiền")]
         public decimal tongTien { get; set; }
+
+        [Required]
+        [Column("TrangThaiThanhToan")]
+        [DisplayName("Trạng Thái Thanh Toán")]
+        [StringLength(50)]
+        public string trangThaiThanhToan { get; set; }
+
+        [Required]
+        [Column("PTThanhToan")]
+        [DisplayName("Phương Thức Thanh Toán")]
+        [StringLength(50)]
+        public string phuongThucThanhToan { get; set; }
+
+        // Liên kết khóa ngoại
         [ForeignKey("maKhachHang")]
-        public virtual KhachHang KhachHang { get; set; } = null!;
+        public virtual KhachHang? KhachHang { get; set; }
 
         [ForeignKey("tenTaiKhoan")]
         public virtual TaiKhoan? TaiKhoan { get; set; }
-        public virtual ICollection<BaoHanh> BaoHanhs { get; set; } = new HashSet<BaoHanh>();
-        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; } = new HashSet<ChiTietHoaDon>();
 
+        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; } = new HashSet<ChiTietHoaDon>();
+        public virtual ICollection<BaoHanh> BaoHanhs { get; set; } = new HashSet<BaoHanh>();
         public HoaDon()
         {
             maHoaDon = string.Empty;
             maKhachHang = string.Empty;
-            tenTK = string.Empty;
+            tenTaiKhoan = string.Empty;
+            trangThaiThanhToan = string.Empty;
+            phuongThucThanhToan = string.Empty;
             ngayLap = DateTime.Now;
             tongTien = 0;
         }
