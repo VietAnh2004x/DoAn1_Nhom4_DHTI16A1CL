@@ -23,10 +23,10 @@ namespace DoAn1.Forms.QLHoaDon
             grpTTHoaDon = new TableLayoutPanel();
             tbTrai = new TableLayoutPanel();
             grTTDaiLy = new GroupBox();
+            txtGiaBan = new TextBox();
+            lblGiaBan = new Label();
             txtKhuyenMai = new TextBox();
-            label1 = new Label();
-            textBox2 = new TextBox();
-            label2 = new Label();
+            lblKhuyenMai = new Label();
             txtTenKhachHang = new TextBox();
             lblMaKhachHang = new Label();
             txtMaHoaDon = new TextBox();
@@ -51,8 +51,6 @@ namespace DoAn1.Forms.QLHoaDon
             btnTimKiem = new Button();
             grDSHoaDon = new GroupBox();
             dgvDSHoaDon = new DataGridView();
-            txtGiaBan = new TextBox();
-            label3 = new Label();
             panel1.SuspendLayout();
             grpTTHoaDon.SuspendLayout();
             tbTrai.SuspendLayout();
@@ -109,11 +107,9 @@ namespace DoAn1.Forms.QLHoaDon
             // grTTDaiLy
             // 
             grTTDaiLy.Controls.Add(txtGiaBan);
-            grTTDaiLy.Controls.Add(label3);
+            grTTDaiLy.Controls.Add(lblGiaBan);
             grTTDaiLy.Controls.Add(txtKhuyenMai);
-            grTTDaiLy.Controls.Add(label1);
-            grTTDaiLy.Controls.Add(textBox2);
-            grTTDaiLy.Controls.Add(label2);
+            grTTDaiLy.Controls.Add(lblKhuyenMai);
             grTTDaiLy.Controls.Add(txtTenKhachHang);
             grTTDaiLy.Controls.Add(lblMaKhachHang);
             grTTDaiLy.Controls.Add(txtMaHoaDon);
@@ -132,49 +128,49 @@ namespace DoAn1.Forms.QLHoaDon
             grTTDaiLy.TabStop = false;
             grTTDaiLy.Text = "Thông Tin Hóa Đơn";
             // 
+            // txtGiaBan
+            // 
+            txtGiaBan.BorderStyle = BorderStyle.FixedSingle;
+            txtGiaBan.Location = new Point(176, 324);
+            txtGiaBan.Name = "txtGiaBan";
+            txtGiaBan.Size = new Size(162, 30);
+            txtGiaBan.TabIndex = 23;
+            // 
+            // lblGiaBan
+            // 
+            lblGiaBan.Location = new Point(10, 324);
+            lblGiaBan.Name = "lblGiaBan";
+            lblGiaBan.Size = new Size(152, 37);
+            lblGiaBan.TabIndex = 22;
+            lblGiaBan.Text = "Giá Bán ";
+            // 
             // txtKhuyenMai
             // 
             txtKhuyenMai.BorderStyle = BorderStyle.FixedSingle;
-            txtKhuyenMai.Location = new Point(188, 404);
+            txtKhuyenMai.Location = new Point(176, 398);
             txtKhuyenMai.Name = "txtKhuyenMai";
-            txtKhuyenMai.Size = new Size(162, 34);
+            txtKhuyenMai.Size = new Size(162, 30);
             txtKhuyenMai.TabIndex = 21;
             // 
-            // label1
+            // lblKhuyenMai
             // 
-            label1.Location = new Point(3, 404);
-            label1.Name = "label1";
-            label1.Size = new Size(152, 37);
-            label1.TabIndex = 20;
-            label1.Text = "Khuyến Mãi";
-            // 
-            // textBox2
-            // 
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Location = new Point(176, 571);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(162, 34);
-            textBox2.TabIndex = 19;
-            // 
-            // label2
-            // 
-            label2.Location = new Point(-2, 573);
-            label2.Name = "label2";
-            label2.Size = new Size(152, 32);
-            label2.TabIndex = 17;
-            label2.Text = "Tổng Tiền(VND)";
+            lblKhuyenMai.Location = new Point(10, 400);
+            lblKhuyenMai.Name = "lblKhuyenMai";
+            lblKhuyenMai.Size = new Size(152, 37);
+            lblKhuyenMai.TabIndex = 20;
+            lblKhuyenMai.Text = "Khuyến Mãi";
             // 
             // txtTenKhachHang
             // 
             txtTenKhachHang.BorderStyle = BorderStyle.FixedSingle;
-            txtTenKhachHang.Location = new Point(188, 108);
+            txtTenKhachHang.Location = new Point(176, 112);
             txtTenKhachHang.Name = "txtTenKhachHang";
-            txtTenKhachHang.Size = new Size(162, 34);
+            txtTenKhachHang.Size = new Size(162, 30);
             txtTenKhachHang.TabIndex = 15;
             // 
             // lblMaKhachHang
             // 
-            lblMaKhachHang.Location = new Point(10, 110);
+            lblMaKhachHang.Location = new Point(10, 114);
             lblMaKhachHang.Name = "lblMaKhachHang";
             lblMaKhachHang.Size = new Size(152, 32);
             lblMaKhachHang.TabIndex = 14;
@@ -183,14 +179,14 @@ namespace DoAn1.Forms.QLHoaDon
             // txtMaHoaDon
             // 
             txtMaHoaDon.BorderStyle = BorderStyle.FixedSingle;
-            txtMaHoaDon.Location = new Point(188, 35);
+            txtMaHoaDon.Location = new Point(176, 45);
             txtMaHoaDon.Name = "txtMaHoaDon";
-            txtMaHoaDon.Size = new Size(162, 34);
+            txtMaHoaDon.Size = new Size(162, 30);
             txtMaHoaDon.TabIndex = 13;
             // 
             // lblMaHoaDon
             // 
-            lblMaHoaDon.Location = new Point(10, 37);
+            lblMaHoaDon.Location = new Point(10, 47);
             lblMaHoaDon.Name = "lblMaHoaDon";
             lblMaHoaDon.Size = new Size(152, 30);
             lblMaHoaDon.TabIndex = 12;
@@ -199,14 +195,14 @@ namespace DoAn1.Forms.QLHoaDon
             // txtTenNhanVien
             // 
             txtTenNhanVien.BorderStyle = BorderStyle.FixedSingle;
-            txtTenNhanVien.Location = new Point(188, 183);
+            txtTenNhanVien.Location = new Point(176, 181);
             txtTenNhanVien.Name = "txtTenNhanVien";
-            txtTenNhanVien.Size = new Size(162, 34);
+            txtTenNhanVien.Size = new Size(162, 30);
             txtTenNhanVien.TabIndex = 11;
             // 
             // lblTenNhanVien
             // 
-            lblTenNhanVien.Location = new Point(10, 185);
+            lblTenNhanVien.Location = new Point(10, 183);
             lblTenNhanVien.Name = "lblTenNhanVien";
             lblTenNhanVien.Size = new Size(152, 37);
             lblTenNhanVien.TabIndex = 10;
@@ -215,22 +211,22 @@ namespace DoAn1.Forms.QLHoaDon
             // txtTongTien
             // 
             txtTongTien.BorderStyle = BorderStyle.FixedSingle;
-            txtTongTien.Location = new Point(188, 477);
+            txtTongTien.Location = new Point(176, 472);
             txtTongTien.Name = "txtTongTien";
-            txtTongTien.Size = new Size(162, 34);
+            txtTongTien.Size = new Size(162, 30);
             txtTongTien.TabIndex = 9;
             // 
             // txtNgayLap
             // 
             txtNgayLap.BorderStyle = BorderStyle.FixedSingle;
-            txtNgayLap.Location = new Point(188, 263);
+            txtNgayLap.Location = new Point(176, 255);
             txtNgayLap.Name = "txtNgayLap";
-            txtNgayLap.Size = new Size(162, 34);
+            txtNgayLap.Size = new Size(162, 30);
             txtNgayLap.TabIndex = 8;
             // 
             // lblTongTien
             // 
-            lblTongTien.Location = new Point(-6, 479);
+            lblTongTien.Location = new Point(10, 474);
             lblTongTien.Name = "lblTongTien";
             lblTongTien.Size = new Size(152, 32);
             lblTongTien.TabIndex = 4;
@@ -238,7 +234,7 @@ namespace DoAn1.Forms.QLHoaDon
             // 
             // lblNgayLap
             // 
-            lblNgayLap.Location = new Point(10, 265);
+            lblNgayLap.Location = new Point(10, 257);
             lblNgayLap.Name = "lblNgayLap";
             lblNgayLap.Size = new Size(152, 32);
             lblNgayLap.TabIndex = 3;
@@ -265,12 +261,12 @@ namespace DoAn1.Forms.QLHoaDon
             tbTacVu.Controls.Add(btnXoa, 0, 1);
             tbTacVu.Controls.Add(btnSua, 1, 0);
             tbTacVu.Dock = DockStyle.Fill;
-            tbTacVu.Location = new Point(3, 30);
+            tbTacVu.Location = new Point(3, 26);
             tbTacVu.Name = "tbTacVu";
             tbTacVu.RowCount = 2;
             tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tbTacVu.Size = new Size(382, 147);
+            tbTacVu.Size = new Size(382, 151);
             tbTacVu.TabIndex = 0;
             // 
             // btnLamMoi
@@ -280,9 +276,9 @@ namespace DoAn1.Forms.QLHoaDon
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLamMoi.ForeColor = Color.White;
-            btnLamMoi.Location = new Point(238, 93);
+            btnLamMoi.Location = new Point(231, 94);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(97, 33);
+            btnLamMoi.Size = new Size(110, 38);
             btnLamMoi.TabIndex = 19;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = false;
@@ -295,9 +291,9 @@ namespace DoAn1.Forms.QLHoaDon
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(47, 20);
+            btnThem.Location = new Point(40, 18);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(97, 33);
+            btnThem.Size = new Size(110, 38);
             btnThem.TabIndex = 16;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
@@ -310,9 +306,9 @@ namespace DoAn1.Forms.QLHoaDon
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnXoa.ForeColor = Color.White;
-            btnXoa.Location = new Point(47, 93);
+            btnXoa.Location = new Point(40, 94);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(97, 33);
+            btnXoa.Size = new Size(110, 38);
             btnXoa.TabIndex = 18;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
@@ -325,9 +321,9 @@ namespace DoAn1.Forms.QLHoaDon
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSua.ForeColor = Color.White;
-            btnSua.Location = new Point(238, 20);
+            btnSua.Location = new Point(231, 18);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(97, 33);
+            btnSua.Size = new Size(110, 38);
             btnSua.TabIndex = 17;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
@@ -369,17 +365,17 @@ namespace DoAn1.Forms.QLHoaDon
             tableLayoutPanel2.Controls.Add(txtTimKiemHoaDon, 1, 0);
             tableLayoutPanel2.Controls.Add(btnTimKiem, 2, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 30);
+            tableLayoutPanel2.Location = new Point(3, 26);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(582, 109);
+            tableLayoutPanel2.Size = new Size(582, 113);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // lblTimKiemHoaDon
             // 
             lblTimKiemHoaDon.Anchor = AnchorStyles.None;
-            lblTimKiemHoaDon.Location = new Point(7, 43);
+            lblTimKiemHoaDon.Location = new Point(7, 45);
             lblTimKiemHoaDon.Name = "lblTimKiemHoaDon";
             lblTimKiemHoaDon.Size = new Size(160, 23);
             lblTimKiemHoaDon.TabIndex = 17;
@@ -389,9 +385,9 @@ namespace DoAn1.Forms.QLHoaDon
             // 
             txtTimKiemHoaDon.Anchor = AnchorStyles.None;
             txtTimKiemHoaDon.BorderStyle = BorderStyle.FixedSingle;
-            txtTimKiemHoaDon.Location = new Point(192, 37);
+            txtTimKiemHoaDon.Location = new Point(192, 41);
             txtTimKiemHoaDon.Name = "txtTimKiemHoaDon";
-            txtTimKiemHoaDon.Size = new Size(196, 34);
+            txtTimKiemHoaDon.Size = new Size(196, 30);
             txtTimKiemHoaDon.TabIndex = 18;
             // 
             // btnTimKiem
@@ -401,7 +397,7 @@ namespace DoAn1.Forms.QLHoaDon
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(442, 37);
+            btnTimKiem.Location = new Point(442, 39);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(103, 35);
             btnTimKiem.TabIndex = 16;
@@ -426,28 +422,12 @@ namespace DoAn1.Forms.QLHoaDon
             dgvDSHoaDon.BackgroundColor = Color.White;
             dgvDSHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDSHoaDon.Dock = DockStyle.Fill;
-            dgvDSHoaDon.Location = new Point(3, 30);
+            dgvDSHoaDon.Location = new Point(3, 26);
             dgvDSHoaDon.Name = "dgvDSHoaDon";
             dgvDSHoaDon.RowHeadersWidth = 51;
-            dgvDSHoaDon.Size = new Size(582, 557);
+            dgvDSHoaDon.Size = new Size(582, 561);
             dgvDSHoaDon.TabIndex = 16;
             dgvDSHoaDon.CellContentClick += dgvDSHoaDon_CellContentClick_1;
-            // 
-            // txtGiaBan
-            // 
-            txtGiaBan.BorderStyle = BorderStyle.FixedSingle;
-            txtGiaBan.Location = new Point(191, 335);
-            txtGiaBan.Name = "txtGiaBan";
-            txtGiaBan.Size = new Size(162, 34);
-            txtGiaBan.TabIndex = 23;
-            // 
-            // label3
-            // 
-            label3.Location = new Point(6, 335);
-            label3.Name = "label3";
-            label3.Size = new Size(152, 37);
-            label3.TabIndex = 22;
-            label3.Text = "Gía Bán ";
             // 
             // usHoaDon
             // 
@@ -500,10 +480,9 @@ namespace DoAn1.Forms.QLHoaDon
         private GroupBox grDSHoaDon;
         private DataGridView dgvDSHoaDon;
         private TextBox txtKhuyenMai;
-        private Label label1;
-        private TextBox textBox2;
+        private Label lblKhuyenMai;
         private Label label2;
         private TextBox txtGiaBan;
-        private Label label3;
+        private Label lblGiaBan;
     }
 }

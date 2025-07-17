@@ -23,8 +23,8 @@ namespace DoAn1.Forms.QLTonKho
             grTTXe = new GroupBox();
             txtTongTienNhap = new TextBox();
             txtDongianhap = new TextBox();
-            label2 = new Label();
-            label1 = new Label();
+            lblTongTien = new Label();
+            lblDonGiaNhap = new Label();
             txtSoLuong = new TextBox();
             txtNgayNhap = new TextBox();
             txtTenXe = new TextBox();
@@ -91,8 +91,8 @@ namespace DoAn1.Forms.QLTonKho
             // 
             grTTXe.Controls.Add(txtTongTienNhap);
             grTTXe.Controls.Add(txtDongianhap);
-            grTTXe.Controls.Add(label2);
-            grTTXe.Controls.Add(label1);
+            grTTXe.Controls.Add(lblTongTien);
+            grTTXe.Controls.Add(lblDonGiaNhap);
             grTTXe.Controls.Add(txtSoLuong);
             grTTXe.Controls.Add(txtNgayNhap);
             grTTXe.Controls.Add(txtTenXe);
@@ -109,50 +109,52 @@ namespace DoAn1.Forms.QLTonKho
             // 
             // txtTongTienNhap
             // 
-            txtTongTienNhap.Location = new Point(179, 466);
+            txtTongTienNhap.BorderStyle = BorderStyle.FixedSingle;
+            txtTongTienNhap.Location = new Point(176, 490);
             txtTongTienNhap.Name = "txtTongTienNhap";
-            txtTongTienNhap.Size = new Size(150, 34);
+            txtTongTienNhap.Size = new Size(168, 30);
             txtTongTienNhap.TabIndex = 13;
             // 
             // txtDongianhap
             // 
-            txtDongianhap.Location = new Point(179, 391);
+            txtDongianhap.BorderStyle = BorderStyle.FixedSingle;
+            txtDongianhap.Location = new Point(176, 398);
             txtDongianhap.Name = "txtDongianhap";
-            txtDongianhap.Size = new Size(150, 34);
+            txtDongianhap.Size = new Size(168, 30);
             txtDongianhap.TabIndex = 12;
             // 
-            // label2
+            // lblTongTien
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(31, 472);
-            label2.Name = "label2";
-            label2.Size = new Size(98, 28);
-            label2.TabIndex = 11;
-            label2.Text = "Tổng Tiền";
+            lblTongTien.AutoSize = true;
+            lblTongTien.Location = new Point(18, 492);
+            lblTongTien.Name = "lblTongTien";
+            lblTongTien.Size = new Size(86, 23);
+            lblTongTien.TabIndex = 11;
+            lblTongTien.Text = "Tổng Tiền";
             // 
-            // label1
+            // lblDonGiaNhap
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(28, 389);
-            label1.Name = "label1";
-            label1.Size = new Size(130, 28);
-            label1.TabIndex = 10;
-            label1.Text = "Đơn giá nhập";
+            lblDonGiaNhap.AutoSize = true;
+            lblDonGiaNhap.Location = new Point(18, 400);
+            lblDonGiaNhap.Name = "lblDonGiaNhap";
+            lblDonGiaNhap.Size = new Size(114, 23);
+            lblDonGiaNhap.TabIndex = 10;
+            lblDonGiaNhap.Text = "Đơn giá nhập";
             // 
             // txtSoLuong
             // 
             txtSoLuong.BorderStyle = BorderStyle.FixedSingle;
-            txtSoLuong.Location = new Point(176, 295);
+            txtSoLuong.Location = new Point(176, 297);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(139, 34);
+            txtSoLuong.Size = new Size(168, 30);
             txtSoLuong.TabIndex = 9;
             // 
             // txtNgayNhap
             // 
             txtNgayNhap.BorderStyle = BorderStyle.FixedSingle;
-            txtNgayNhap.Location = new Point(176, 195);
+            txtNgayNhap.Location = new Point(176, 196);
             txtNgayNhap.Name = "txtNgayNhap";
-            txtNgayNhap.Size = new Size(139, 34);
+            txtNgayNhap.Size = new Size(168, 30);
             txtNgayNhap.TabIndex = 8;
             // 
             // txtTenXe
@@ -160,12 +162,12 @@ namespace DoAn1.Forms.QLTonKho
             txtTenXe.BorderStyle = BorderStyle.FixedSingle;
             txtTenXe.Location = new Point(176, 95);
             txtTenXe.Name = "txtTenXe";
-            txtTenXe.Size = new Size(139, 34);
+            txtTenXe.Size = new Size(168, 30);
             txtTenXe.TabIndex = 6;
             // 
             // lblSoLuong
             // 
-            lblSoLuong.Location = new Point(18, 297);
+            lblSoLuong.Location = new Point(18, 299);
             lblSoLuong.Name = "lblSoLuong";
             lblSoLuong.Size = new Size(127, 32);
             lblSoLuong.TabIndex = 4;
@@ -173,7 +175,7 @@ namespace DoAn1.Forms.QLTonKho
             // 
             // lblNgayNhap
             // 
-            lblNgayNhap.Location = new Point(18, 197);
+            lblNgayNhap.Location = new Point(18, 198);
             lblNgayNhap.Name = "lblNgayNhap";
             lblNgayNhap.Size = new Size(127, 32);
             lblNgayNhap.TabIndex = 3;
@@ -223,17 +225,17 @@ namespace DoAn1.Forms.QLTonKho
             tbTimKiem.Controls.Add(txtTimKiem, 1, 0);
             tbTimKiem.Controls.Add(btnTimKiem, 2, 0);
             tbTimKiem.Dock = DockStyle.Fill;
-            tbTimKiem.Location = new Point(3, 30);
+            tbTimKiem.Location = new Point(3, 26);
             tbTimKiem.Name = "tbTimKiem";
             tbTimKiem.RowCount = 1;
             tbTimKiem.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tbTimKiem.Size = new Size(582, 109);
+            tbTimKiem.Size = new Size(582, 113);
             tbTimKiem.TabIndex = 0;
             // 
             // lblTimKiemMaXe
             // 
             lblTimKiemMaXe.Anchor = AnchorStyles.None;
-            lblTimKiemMaXe.Location = new Point(7, 43);
+            lblTimKiemMaXe.Location = new Point(7, 45);
             lblTimKiemMaXe.Name = "lblTimKiemMaXe";
             lblTimKiemMaXe.Size = new Size(160, 23);
             lblTimKiemMaXe.TabIndex = 11;
@@ -243,9 +245,9 @@ namespace DoAn1.Forms.QLTonKho
             // 
             txtTimKiem.Anchor = AnchorStyles.None;
             txtTimKiem.BorderStyle = BorderStyle.FixedSingle;
-            txtTimKiem.Location = new Point(192, 37);
+            txtTimKiem.Location = new Point(192, 41);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(196, 34);
+            txtTimKiem.Size = new Size(196, 30);
             txtTimKiem.TabIndex = 12;
             // 
             // btnTimKiem
@@ -255,7 +257,7 @@ namespace DoAn1.Forms.QLTonKho
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(443, 37);
+            btnTimKiem.Location = new Point(443, 39);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(101, 35);
             btnTimKiem.TabIndex = 10;
@@ -280,10 +282,10 @@ namespace DoAn1.Forms.QLTonKho
             dgvDSTonKho.BackgroundColor = Color.White;
             dgvDSTonKho.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDSTonKho.Dock = DockStyle.Fill;
-            dgvDSTonKho.Location = new Point(3, 30);
+            dgvDSTonKho.Location = new Point(3, 26);
             dgvDSTonKho.Name = "dgvDSTonKho";
             dgvDSTonKho.RowHeadersWidth = 51;
-            dgvDSTonKho.Size = new Size(582, 557);
+            dgvDSTonKho.Size = new Size(582, 561);
             dgvDSTonKho.TabIndex = 0;
             dgvDSTonKho.CellContentClick += dgvDSTonKho_CellContentClick_1;
             // 
@@ -328,9 +330,9 @@ namespace DoAn1.Forms.QLTonKho
         private Button btnTimKiem;
         private GroupBox grDSXe;
         private DataGridView dgvDSTonKho;
-        private Label label1;
+        private Label lblDonGiaNhap;
         private TextBox txtTongTienNhap;
         private TextBox txtDongianhap;
-        private Label label2;
+        private Label lblTongTien;
     }
 }

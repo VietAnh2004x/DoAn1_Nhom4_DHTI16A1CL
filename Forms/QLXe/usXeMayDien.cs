@@ -1,13 +1,5 @@
 ﻿using DoAn.Data_Access_Layer;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DoAn1.Forms.QLXe
 {
@@ -44,16 +36,16 @@ namespace DoAn1.Forms.QLXe
 
                 // Định dạng số tiền
                 if (dgvDSXeMayDien.Columns.Contains("gia"))
-                    dgvDSXeMayDien.Columns["gia"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSXeMayDien.Columns["gia"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
 
                 // ⚡ Cập nhật tiêu đề tiếng Việt
-                dgvDSXeMayDien.Columns["maXe"].HeaderText = "Mã Xe";
-                dgvDSXeMayDien.Columns["tenXe"].HeaderText = "Tên Xe";
-                dgvDSXeMayDien.Columns["mauSac"].HeaderText = "Màu Sắc";
-                dgvDSXeMayDien.Columns["dungLuongAcQuy"].HeaderText = "Dung Lượng Ắc Quy";
-                dgvDSXeMayDien.Columns["soBinhAcQuy"].HeaderText = "Số Bình Ắc Quy";
-                dgvDSXeMayDien.Columns["gia"].HeaderText = "Giá Bán";
-                dgvDSXeMayDien.Columns["hinhAnh"].HeaderText = "Hình Ảnh";
+                dgvDSXeMayDien.Columns["maXe"]!.HeaderText = "Mã Xe";
+                dgvDSXeMayDien.Columns["tenXe"]!.HeaderText = "Tên Xe";
+                dgvDSXeMayDien.Columns["mauSac"]!.HeaderText = "Màu Sắc";
+                dgvDSXeMayDien.Columns["dungLuongAcQuy"]!.HeaderText = "Dung Lượng Ắc Quy";
+                dgvDSXeMayDien.Columns["soBinhAcQuy"]!.HeaderText = "Số Bình Ắc Quy";
+                dgvDSXeMayDien.Columns["gia"]!.HeaderText = "Giá Bán";
+                dgvDSXeMayDien.Columns["hinhAnh"]!.HeaderText = "Hình Ảnh";
             }
         }
 
@@ -90,7 +82,7 @@ namespace DoAn1.Forms.QLXe
                 return;
             }
 
-            string maXe = dgvDSXeMayDien.CurrentRow.Cells["maXe"]?.Value?.ToString();
+            string maXe = dgvDSXeMayDien.CurrentRow.Cells["maXe"]!.Value?.ToString();
             if (string.IsNullOrEmpty(maXe))
             {
                 MessageBox.Show("Không tìm thấy mã xe!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

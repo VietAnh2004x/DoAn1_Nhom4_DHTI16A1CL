@@ -120,17 +120,17 @@ namespace DoAn1.Forms.QLBaoHanh
             // 
             // dtpNgayBatDau
             // 
-            dtpNgayBatDau.Location = new Point(165, 298);
+            dtpNgayBatDau.Location = new Point(138, 292);
             dtpNgayBatDau.Name = "dtpNgayBatDau";
-            dtpNgayBatDau.Size = new Size(214, 30);
+            dtpNgayBatDau.Size = new Size(221, 30);
             dtpNgayBatDau.TabIndex = 8;
             // 
             // txtMaBaoHanh
             // 
             txtMaBaoHanh.BorderStyle = BorderStyle.FixedSingle;
-            txtMaBaoHanh.Location = new Point(165, 67);
+            txtMaBaoHanh.Location = new Point(139, 67);
             txtMaBaoHanh.Name = "txtMaBaoHanh";
-            txtMaBaoHanh.Size = new Size(140, 30);
+            txtMaBaoHanh.Size = new Size(172, 30);
             txtMaBaoHanh.TabIndex = 11;
             // 
             // lblMaBaoHanh
@@ -144,25 +144,25 @@ namespace DoAn1.Forms.QLBaoHanh
             // txtThoiHan
             // 
             txtThoiHan.BorderStyle = BorderStyle.FixedSingle;
-            txtThoiHan.Location = new Point(165, 376);
+            txtThoiHan.Location = new Point(138, 376);
             txtThoiHan.Name = "txtThoiHan";
-            txtThoiHan.Size = new Size(140, 30);
+            txtThoiHan.Size = new Size(173, 30);
             txtThoiHan.TabIndex = 9;
             // 
             // txtMaHoaDon
             // 
             txtMaHoaDon.BorderStyle = BorderStyle.FixedSingle;
-            txtMaHoaDon.Location = new Point(165, 145);
+            txtMaHoaDon.Location = new Point(139, 145);
             txtMaHoaDon.Name = "txtMaHoaDon";
-            txtMaHoaDon.Size = new Size(140, 30);
+            txtMaHoaDon.Size = new Size(172, 30);
             txtMaHoaDon.TabIndex = 7;
             // 
             // txtMaXe
             // 
             txtMaXe.BorderStyle = BorderStyle.FixedSingle;
-            txtMaXe.Location = new Point(165, 223);
+            txtMaXe.Location = new Point(139, 223);
             txtMaXe.Name = "txtMaXe";
-            txtMaXe.Size = new Size(140, 30);
+            txtMaXe.Size = new Size(172, 30);
             txtMaXe.TabIndex = 6;
             // 
             // lblThoiHan
@@ -171,11 +171,11 @@ namespace DoAn1.Forms.QLBaoHanh
             lblThoiHan.Name = "lblThoiHan";
             lblThoiHan.Size = new Size(103, 34);
             lblThoiHan.TabIndex = 4;
-            lblThoiHan.Text = "Thời Hạn:";
+            lblThoiHan.Text = "Thời Hạn (Tháng):";
             // 
             // lblNgayBatDau
             // 
-            lblNgayBatDau.Location = new Point(-3, 302);
+            lblNgayBatDau.Location = new Point(6, 298);
             lblNgayBatDau.Name = "lblNgayBatDau";
             lblNgayBatDau.Size = new Size(136, 32);
             lblNgayBatDau.TabIndex = 3;
@@ -233,9 +233,9 @@ namespace DoAn1.Forms.QLBaoHanh
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLamMoi.ForeColor = Color.White;
-            btnLamMoi.Location = new Point(235, 96);
+            btnLamMoi.Location = new Point(231, 94);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(102, 34);
+            btnLamMoi.Size = new Size(110, 37);
             btnLamMoi.TabIndex = 15;
             btnLamMoi.Text = "Làm Mới";
             btnLamMoi.UseVisualStyleBackColor = false;
@@ -248,9 +248,9 @@ namespace DoAn1.Forms.QLBaoHanh
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(44, 20);
+            btnThem.Location = new Point(40, 19);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(102, 34);
+            btnThem.Size = new Size(110, 37);
             btnThem.TabIndex = 12;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = false;
@@ -263,9 +263,9 @@ namespace DoAn1.Forms.QLBaoHanh
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnXoa.ForeColor = Color.White;
-            btnXoa.Location = new Point(44, 96);
+            btnXoa.Location = new Point(40, 94);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(102, 34);
+            btnXoa.Size = new Size(110, 37);
             btnXoa.TabIndex = 14;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
@@ -278,9 +278,9 @@ namespace DoAn1.Forms.QLBaoHanh
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSua.ForeColor = Color.White;
-            btnSua.Location = new Point(235, 20);
+            btnSua.Location = new Point(231, 19);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(102, 34);
+            btnSua.Size = new Size(110, 37);
             btnSua.TabIndex = 13;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;

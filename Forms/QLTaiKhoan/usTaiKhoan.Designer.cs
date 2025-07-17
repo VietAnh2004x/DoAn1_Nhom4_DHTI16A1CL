@@ -17,8 +17,6 @@ namespace DoAn1.Forms.QLTaiKhoan
 
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
-            btnDoiMatKhau = new Button();
             grpTTTaiKhoan = new GroupBox();
             tbTTaiKhoan = new TableLayoutPanel();
             txtPhanQuyen = new TextBox();
@@ -37,48 +35,18 @@ namespace DoAn1.Forms.QLTaiKhoan
             lblEmail = new Label();
             lblPhanQuyen = new Label();
             txtTenDangNhap = new TextBox();
-            tableLayoutPanel1.SuspendLayout();
             grpTTTaiKhoan.SuspendLayout();
             tbTTaiKhoan.SuspendLayout();
             SuspendLayout();
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Controls.Add(btnDoiMatKhau, 0, 1);
-            tableLayoutPanel1.Controls.Add(grpTTTaiKhoan, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(10, 10);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 85F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.Size = new Size(980, 730);
-            tableLayoutPanel1.TabIndex = 0;
-            // 
-            // btnDoiMatKhau
-            // 
-            btnDoiMatKhau.Anchor = AnchorStyles.None;
-            btnDoiMatKhau.BackColor = Color.SteelBlue;
-            btnDoiMatKhau.FlatStyle = FlatStyle.Flat;
-            btnDoiMatKhau.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnDoiMatKhau.ForeColor = Color.White;
-            btnDoiMatKhau.Location = new Point(413, 651);
-            btnDoiMatKhau.Name = "btnDoiMatKhau";
-            btnDoiMatKhau.Size = new Size(153, 47);
-            btnDoiMatKhau.TabIndex = 4;
-            btnDoiMatKhau.Text = "Đổi Mật Khẩu";
-            btnDoiMatKhau.UseVisualStyleBackColor = false;
             // 
             // grpTTTaiKhoan
             // 
             grpTTTaiKhoan.Controls.Add(tbTTaiKhoan);
             grpTTTaiKhoan.Dock = DockStyle.Fill;
-            grpTTTaiKhoan.Location = new Point(3, 3);
+            grpTTTaiKhoan.Location = new Point(10, 10);
             grpTTTaiKhoan.Name = "grpTTTaiKhoan";
-            grpTTTaiKhoan.Size = new Size(974, 614);
-            grpTTTaiKhoan.TabIndex = 3;
+            grpTTTaiKhoan.Size = new Size(980, 730);
+            grpTTTaiKhoan.TabIndex = 4;
             grpTTTaiKhoan.TabStop = false;
             grpTTTaiKhoan.Text = "Thông Tin Tài Khoản";
             // 
@@ -117,69 +85,69 @@ namespace DoAn1.Forms.QLTaiKhoan
             tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
-            tbTTaiKhoan.Size = new Size(968, 588);
+            tbTTaiKhoan.Size = new Size(974, 704);
             tbTTaiKhoan.TabIndex = 0;
             // 
             // txtPhanQuyen
             // 
             txtPhanQuyen.Anchor = AnchorStyles.Left;
-            txtPhanQuyen.Location = new Point(487, 533);
+            txtPhanQuyen.Location = new Point(490, 644);
             txtPhanQuyen.Name = "txtPhanQuyen";
-            txtPhanQuyen.Size = new Size(156, 32);
+            txtPhanQuyen.Size = new Size(203, 32);
             txtPhanQuyen.TabIndex = 15;
             // 
             // txtEmail
             // 
             txtEmail.Anchor = AnchorStyles.Left;
-            txtEmail.Location = new Point(487, 458);
+            txtEmail.Location = new Point(490, 556);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(156, 32);
+            txtEmail.Size = new Size(203, 32);
             txtEmail.TabIndex = 14;
             // 
             // txtSoDienThoai
             // 
             txtSoDienThoai.Anchor = AnchorStyles.Left;
-            txtSoDienThoai.Location = new Point(487, 385);
+            txtSoDienThoai.Location = new Point(490, 468);
             txtSoDienThoai.Name = "txtSoDienThoai";
-            txtSoDienThoai.Size = new Size(156, 32);
+            txtSoDienThoai.Size = new Size(203, 32);
             txtSoDienThoai.TabIndex = 13;
             // 
             // txtNgaySinh
             // 
             txtNgaySinh.Anchor = AnchorStyles.Left;
-            txtNgaySinh.Location = new Point(487, 312);
+            txtNgaySinh.Location = new Point(490, 380);
             txtNgaySinh.Name = "txtNgaySinh";
-            txtNgaySinh.Size = new Size(156, 32);
+            txtNgaySinh.Size = new Size(203, 32);
             txtNgaySinh.TabIndex = 12;
             // 
             // txtGioiTinh
             // 
             txtGioiTinh.Anchor = AnchorStyles.Left;
-            txtGioiTinh.Location = new Point(487, 239);
+            txtGioiTinh.Location = new Point(490, 292);
             txtGioiTinh.Name = "txtGioiTinh";
-            txtGioiTinh.Size = new Size(156, 32);
+            txtGioiTinh.Size = new Size(203, 32);
             txtGioiTinh.TabIndex = 11;
             // 
             // txtHoVaTen
             // 
             txtHoVaTen.Anchor = AnchorStyles.Left;
-            txtHoVaTen.Location = new Point(487, 166);
+            txtHoVaTen.Location = new Point(490, 204);
             txtHoVaTen.Name = "txtHoVaTen";
-            txtHoVaTen.Size = new Size(156, 32);
+            txtHoVaTen.Size = new Size(203, 32);
             txtHoVaTen.TabIndex = 10;
             // 
             // txtMatKhau
             // 
             txtMatKhau.Anchor = AnchorStyles.Left;
-            txtMatKhau.Location = new Point(487, 93);
+            txtMatKhau.Location = new Point(490, 116);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new Size(156, 32);
+            txtMatKhau.Size = new Size(203, 32);
             txtMatKhau.TabIndex = 9;
             // 
             // lblMatKhau
             // 
             lblMatKhau.Anchor = AnchorStyles.Right;
-            lblMatKhau.Location = new Point(322, 94);
+            lblMatKhau.Location = new Point(325, 117);
             lblMatKhau.Name = "lblMatKhau";
             lblMatKhau.Size = new Size(159, 30);
             lblMatKhau.TabIndex = 1;
@@ -188,7 +156,7 @@ namespace DoAn1.Forms.QLTaiKhoan
             // lblTenDangNhap
             // 
             lblTenDangNhap.Anchor = AnchorStyles.Right;
-            lblTenDangNhap.Location = new Point(319, 20);
+            lblTenDangNhap.Location = new Point(322, 27);
             lblTenDangNhap.Name = "lblTenDangNhap";
             lblTenDangNhap.Size = new Size(162, 33);
             lblTenDangNhap.TabIndex = 0;
@@ -197,7 +165,7 @@ namespace DoAn1.Forms.QLTaiKhoan
             // lblHoVaTen
             // 
             lblHoVaTen.Anchor = AnchorStyles.Right;
-            lblHoVaTen.Location = new Point(322, 167);
+            lblHoVaTen.Location = new Point(325, 204);
             lblHoVaTen.Name = "lblHoVaTen";
             lblHoVaTen.Size = new Size(159, 31);
             lblHoVaTen.TabIndex = 2;
@@ -206,7 +174,7 @@ namespace DoAn1.Forms.QLTaiKhoan
             // lblGioiTinh
             // 
             lblGioiTinh.Anchor = AnchorStyles.Right;
-            lblGioiTinh.Location = new Point(322, 240);
+            lblGioiTinh.Location = new Point(325, 292);
             lblGioiTinh.Name = "lblGioiTinh";
             lblGioiTinh.Size = new Size(159, 31);
             lblGioiTinh.TabIndex = 3;
@@ -215,7 +183,7 @@ namespace DoAn1.Forms.QLTaiKhoan
             // lblNgaySinh
             // 
             lblNgaySinh.Anchor = AnchorStyles.Right;
-            lblNgaySinh.Location = new Point(322, 314);
+            lblNgaySinh.Location = new Point(325, 381);
             lblNgaySinh.Name = "lblNgaySinh";
             lblNgaySinh.Size = new Size(159, 29);
             lblNgaySinh.TabIndex = 4;
@@ -224,7 +192,7 @@ namespace DoAn1.Forms.QLTaiKhoan
             // lblSoDienThoai
             // 
             lblSoDienThoai.Anchor = AnchorStyles.Right;
-            lblSoDienThoai.Location = new Point(322, 388);
+            lblSoDienThoai.Location = new Point(325, 470);
             lblSoDienThoai.Name = "lblSoDienThoai";
             lblSoDienThoai.Size = new Size(159, 27);
             lblSoDienThoai.TabIndex = 5;
@@ -233,7 +201,7 @@ namespace DoAn1.Forms.QLTaiKhoan
             // lblEmail
             // 
             lblEmail.Anchor = AnchorStyles.Right;
-            lblEmail.Location = new Point(322, 458);
+            lblEmail.Location = new Point(325, 556);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(159, 32);
             lblEmail.TabIndex = 6;
@@ -242,7 +210,7 @@ namespace DoAn1.Forms.QLTaiKhoan
             // lblPhanQuyen
             // 
             lblPhanQuyen.Anchor = AnchorStyles.Right;
-            lblPhanQuyen.Location = new Point(325, 535);
+            lblPhanQuyen.Location = new Point(328, 645);
             lblPhanQuyen.Name = "lblPhanQuyen";
             lblPhanQuyen.Size = new Size(156, 29);
             lblPhanQuyen.TabIndex = 7;
@@ -251,29 +219,25 @@ namespace DoAn1.Forms.QLTaiKhoan
             // txtTenDangNhap
             // 
             txtTenDangNhap.Anchor = AnchorStyles.Left;
-            txtTenDangNhap.Location = new Point(487, 20);
+            txtTenDangNhap.Location = new Point(490, 28);
             txtTenDangNhap.Name = "txtTenDangNhap";
-            txtTenDangNhap.Size = new Size(156, 32);
+            txtTenDangNhap.Size = new Size(203, 32);
             txtTenDangNhap.TabIndex = 8;
             // 
             // usTaiKhoan
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.WhiteSmoke;
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(grpTTTaiKhoan);
             Name = "usTaiKhoan";
             Padding = new Padding(10);
             Size = new Size(1000, 750);
-            tableLayoutPanel1.ResumeLayout(false);
             grpTTTaiKhoan.ResumeLayout(false);
             tbTTaiKhoan.ResumeLayout(false);
             tbTTaiKhoan.PerformLayout();
             ResumeLayout(false);
 
         }
-
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Button btnDoiMatKhau;
         private GroupBox grpTTTaiKhoan;
         private TableLayoutPanel tbTTaiKhoan;
         private TextBox txtPhanQuyen;
