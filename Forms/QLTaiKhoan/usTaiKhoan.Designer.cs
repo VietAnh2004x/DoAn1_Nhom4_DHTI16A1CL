@@ -1,8 +1,10 @@
-﻿using System.Windows.Forms;
-
+﻿using DoAn1.Data_Transfer_Objects;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Windows.Forms;
 namespace DoAn1.Forms.QLTaiKhoan
 {
-    partial class usTaiKhoan
+   public partial class usTaiKhoan : UserControl
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -13,6 +15,38 @@ namespace DoAn1.Forms.QLTaiKhoan
                 components.Dispose();
             }
             base.Dispose(disposing);
+        }
+        
+        private void usTaiKhoan_Load(object sender, EventArgs e)
+        {
+            if (Session.NhanVienDangNhap != null)
+            {
+                var nv = Session.NhanVienDangNhap;
+                txtTenDangNhap.Text = Session.TenDangNhap;
+                txtMatKhau.Text = Session.MatKhau;
+                txtHoVaTen.Text = nv.hoTen;
+                txtGioiTinh.Text = nv.gioiTinh;
+                txtNgaySinh.Text = nv.ngaySinh.ToShortDateString();
+                txtSoDienThoai.Text = nv.soDienThoai;
+                txtEmail.Text = nv.email;
+                txtPhanQuyen.Text = GetTenQuyen(Session.TenDangNhap); // Xử lý bên dưới
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy thông tin nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GetTenQuyen(string tenQuyen)
+        {
+            using (var db = new Data_Access_Layer.DataDbContext())
+            {
+                var tk = db.TaiKhoan
+                           .Include(t => t.PhanQuyen)
+                           .FirstOrDefault(t => t.tenTaiKhoan == tenQuyen);
+
+                return tk?.PhanQuyen?.tenQuyen ?? "Chưa phân quyền";
+            }
         }
 
         private void InitializeComponent()
@@ -87,6 +121,7 @@ namespace DoAn1.Forms.QLTaiKhoan
             tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tbTTaiKhoan.Size = new Size(974, 704);
             tbTTaiKhoan.TabIndex = 0;
+            tbTTaiKhoan.Paint += tbTTaiKhoan_Paint;
             // 
             // txtPhanQuyen
             // 

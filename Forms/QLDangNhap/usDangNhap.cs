@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLTaiKhoan
+namespace DoAn1.Forms.QLDangNhap
 {
-    public partial class usTaiKhoan : UserControl
+    public partial class usDangNhap : Form
     {
-        public usTaiKhoan()
+        public usDangNhap()
         {
             InitializeComponent();
-            this.Load += usTaiKhoan_Load;
-        }
-
-        private void tbTTaiKhoan_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
