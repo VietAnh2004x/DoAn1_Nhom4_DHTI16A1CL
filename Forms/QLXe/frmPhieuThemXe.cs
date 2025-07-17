@@ -26,19 +26,5 @@ namespace DoAn1.Forms.QLXe
         {
             this.Close();
         }
-
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            txtTenXe.Clear();
-            txtMauSac.Clear();
-            cboLoaiXe.SelectedIndex = -1;
-            txtDonGia.Clear();
-            txtSoLuong.Clear();
-            dtpNgayNhap.Value = DateTime.Now;
-            txtDungLuongAcQuy.Clear();  
-            txtNhaCungCap.Clear();
-            txtSoBinhAcQuy.Clear();
-            picAnhXe.Image = null;
-        }
     }
 }

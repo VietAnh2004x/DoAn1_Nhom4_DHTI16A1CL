@@ -24,26 +24,33 @@ namespace DoAn1.Forms.QLHoaDon
         {
             using (var context = new DataDbContext())
             {
-                var data = from hd in context.HoaDon
-                           join kh in context.KhachHang on hd.maKhachHang equals kh.maKhachHang
-                           join tk in context.TaiKhoan on hd.tenTaiKhoan equals tk.tenTaiKhoan
-                           join nv in context.NhanVien on tk.tenTaiKhoan equals nv.tenTaiKhoan
-                           join cthd in context.ChiTietHoaDon on hd.maHoaDon equals cthd.maHoaDon into cthdGroup
-                           from cthd in cthdGroup.DefaultIfEmpty()
-                           join xe in context.ThongTinXe on cthd.maXe equals xe.maXe into xeGroup
-                           from xe in xeGroup.DefaultIfEmpty()
-                           select new
-                           {
-                               MaHD = hd.maHoaDon,
-                               TenKhachHang = kh.hoTen,
-                               TenNhanVien = nv.hoTen,
-                               NgayLap = hd.ngayLap,
-                               TongTien = hd.tongTien,
-                               GhiChuKhuyenMai = cthd == null ? "" : cthd.ghiChuKhuyenMai,
-                               GiaBan = xe == null ? 0 : xe.giaBan
-                           };
+                var data = context.HoaDon
+                    .Select(hd => new
+                    {
+                        MaHD = hd.maHoaDon,
+                        TenKhachHang = hd.KhachHang.hoTen,
+                        TenNhanVien = hd.TaiKhoan.NhanVien.hoTen,
+                        NgayLap = hd.ngayLap,
+                        ChiTietHoaDons = hd.ChiTietHoaDons.ToList() // Load chi tiết để tính toán bên ngoài SQL
+                    })
+                    .ToList()  // <-- Chuyển sang in-memory, từ đây có thể gọi các hàm C#
+                    .Select(h => new
+                    {
+                        h.MaHD,
+                        h.TenKhachHang,
+                        h.TenNhanVien,
+                        h.NgayLap,
 
-                dgvDSHoaDon.DataSource = data.ToList();
+                        TongTien = h.ChiTietHoaDons.Sum(ct =>
+                            ct.soLuong * ct.donGia * (1 - ParseKhuyenMai(ct.ghiChuKhuyenMai))
+                        ),
+
+                        GhiChuKhuyenMai = h.ChiTietHoaDons.FirstOrDefault()?.ghiChuKhuyenMai ?? "",
+                        GiaBan = h.ChiTietHoaDons.FirstOrDefault()?.donGia ?? 0
+                    })
+                    .ToList();
+
+                dgvDSHoaDon.DataSource = data;
 
                 // Định nghĩa tiêu đề cột
                 dgvDSHoaDon.Columns["MaHD"]!.HeaderText = "Mã Hóa Đơn";
@@ -71,6 +78,20 @@ namespace DoAn1.Forms.QLHoaDon
                 dgvDSHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
+
+        private decimal ParseKhuyenMai(string? chuoi)
+        {
+            if (string.IsNullOrWhiteSpace(chuoi))
+                return 0m;
+
+            chuoi = chuoi.Replace("%", "").Trim();
+
+            if (decimal.TryParse(chuoi, out decimal value))
+                return value / 100m;
+
+            return 0m;
+        }
+
 
         private void btnThem_Click(object sender, EventArgs e)
         {
