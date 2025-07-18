@@ -26,6 +26,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Forms\QLBaoHanh\usLichSuBaoHanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\QLXe\usXeCu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Resources\hinhAnh\A101A.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

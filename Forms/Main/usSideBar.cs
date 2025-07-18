@@ -76,11 +76,21 @@ namespace DoAn1.Forms.Main
             RaiseMenuEvent("Quản Lý Đại Lý", IconChar.Store, new usDaiLy());
         }
 
+        private void btnQLXeCu_Click(object sender, EventArgs e)
+        {
+            RaiseMenuEvent("Quản Lý Xe Cũ", IconChar.CarBattery, new usXeCu());
+        }
+
+        private void btnQLLichSuBaoHanh_Click(object sender, EventArgs e)
+        {
+            RaiseMenuEvent("Quản Lý Lịch Sử Bảo Hành", IconChar.ClipboardList, new usLichSuBaoHanh());
+        }
+
         private void btnQLDanhMuc_Click(object sender, EventArgs e)
         {
             subMenuVisible = !subMenuVisible;
             subMenuPanel.Visible = subMenuVisible;
-            subMenuPanel.Height = subMenuVisible ? 350 : 0;
+            subMenuPanel.Height = subMenuVisible ? 450 : 0;
             RaiseMenuEvent("Quản Lý Danh Mục", IconChar.FolderOpen, new usRong());
         }
 

@@ -26,5 +26,13 @@ namespace DoAn1.Forms.QLXe
         {
             this.Close();
         }
+        private void btnThemAnh_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
