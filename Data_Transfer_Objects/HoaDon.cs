@@ -36,11 +36,7 @@ namespace DoAn.Data_Transfer_Objects
         [DisplayName("Tổng Tiền")]
         public decimal tongTien { get; set; }
 
-        [Required]
-        [Column("TrangThaiThanhToan")]
-        [DisplayName("Trạng Thái Thanh Toán")]
-        [StringLength(50)]
-        public string trangThaiThanhToan { get; set; }
+        
 
         [Required]
         [Column("PTThanhToan")]
@@ -62,7 +58,6 @@ namespace DoAn.Data_Transfer_Objects
             maHoaDon = string.Empty;
             maKhachHang = string.Empty;
             tenTaiKhoan = string.Empty;
-            trangThaiThanhToan = string.Empty;
             phuongThucThanhToan = string.Empty;
             ngayLap = DateTime.Now;
             tongTien = 0;

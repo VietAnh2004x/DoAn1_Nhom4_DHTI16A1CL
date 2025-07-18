@@ -19,7 +19,7 @@ namespace DoAn1.Forms.QLTonKho
             InitializeComponent();
             LoadTonXe();
         }
-        private void LoadTonXe()
+        public void LoadTonXe()
         {
             using (var context = new DataDbContext())
             {
@@ -33,9 +33,8 @@ namespace DoAn1.Forms.QLTonKho
                                          xe.tenXe,
                                          ton.ngayNhap,
                                          ton.soLuong,
-                                         ton.donGiaNhap,
-                                         tongTien = ton.soLuong * ton.donGiaNhap
-                                     }).ToList();
+                                         ton.donGiaNhap                                     
+                                    }).ToList();
 
                 dgvDSTonKho.DataSource = danhSachTonXe;
             }
@@ -47,11 +46,11 @@ namespace DoAn1.Forms.QLTonKho
             dgvDSTonKho.Columns["ngayNhap"]!.HeaderText = "Ngày Nhập";
             dgvDSTonKho.Columns["soLuong"]!.HeaderText = "Số Lượng";
             dgvDSTonKho.Columns["donGiaNhap"]!.HeaderText = "Đơn Giá Nhập";
-            dgvDSTonKho.Columns["tongTien"]!.HeaderText = "Tổng Tiền";
+            
 
             // Format tiền tệ
             dgvDSTonKho.Columns["donGiaNhap"]!.DefaultCellStyle.Format = "N0";
-            dgvDSTonKho.Columns["tongTien"]!.DefaultCellStyle.Format = "N0";
+           
 
             // Căn chỉnh chung
             dgvDSTonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -72,9 +71,10 @@ namespace DoAn1.Forms.QLTonKho
                 txtNgayNhap.Text = Convert.ToDateTime(row.Cells["ngayNhap"].Value).ToString("dd/MM/yyyy");
                 txtSoLuong.Text = row.Cells["soLuong"].Value?.ToString();
                 txtDongianhap.Text = Convert.ToDecimal(row.Cells["donGiaNhap"].Value).ToString("N0") + " VNĐ";
-                txtTongTienNhap.Text = Convert.ToDecimal(row.Cells["tongTien"].Value).ToString("N0") + " VNĐ";
+                
             }
         }
+       
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
@@ -91,8 +91,8 @@ namespace DoAn1.Forms.QLTonKho
                                     xe.tenXe,
                                     ton.ngayNhap,
                                     ton.soLuong,
-                                    ton.donGiaNhap,
-                                    tongTien = ton.soLuong * ton.donGiaNhap
+                                    ton.donGiaNhap
+                                    
                                 }).ToList();  // Thực thi truy vấn ở đây
 
                 // Bước 2: Lọc trong bộ nhớ (LINQ to Objects)

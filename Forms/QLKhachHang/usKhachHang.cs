@@ -187,5 +187,7 @@ namespace DoAn1.Forms.QLKhachHang
                 txtEmail.Text = row.Cells["email"]?.Value?.ToString() ?? "";
             }
         }
+
+        
     }
 }
