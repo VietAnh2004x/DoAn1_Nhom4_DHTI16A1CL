@@ -1,4 +1,6 @@
-﻿namespace DoAn1.Forms.Main
+﻿using FontAwesome.Sharp;
+
+namespace DoAn1.Forms.Main
 {
     partial class usSideBar
     {
@@ -27,6 +29,7 @@
             btnQLHoaDon = new FontAwesome.Sharp.IconButton();
             btnQLPhieuBaoHanh = new FontAwesome.Sharp.IconButton();
             btnQLDaiLy = new FontAwesome.Sharp.IconButton();
+            btnPhanQuyen = new FontAwesome.Sharp.IconButton();
             subMenuPanel = new Panel();
             subMenuPanel.SuspendLayout();
             SuspendLayout();
@@ -122,6 +125,34 @@
             btnQLTaiKhoan.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnQLTaiKhoan.UseVisualStyleBackColor = true;
             btnQLTaiKhoan.Click += btnQLTaiKhoan_Click;
+
+            // 
+            // btnPhanQuyen
+            // 
+            btnPhanQuyen.Cursor = Cursors.Hand;
+            btnPhanQuyen.Dock = DockStyle.Top;
+            btnPhanQuyen.FlatAppearance.BorderSize = 0;
+            btnPhanQuyen.FlatStyle = FlatStyle.Flat;
+            btnPhanQuyen.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
+            btnPhanQuyen.IconColor = Color.White;
+            btnPhanQuyen.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnPhanQuyen.IconSize = 24;
+            btnPhanQuyen.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPhanQuyen.Location = new Point(0, 200); // vị trí sau QL tài khoản
+            btnPhanQuyen.Margin = new Padding(0);
+            btnPhanQuyen.Name = "btnPhanQuyen";
+            btnPhanQuyen.Padding = new Padding(10, 0, 0, 0);
+            btnPhanQuyen.Size = new Size(248, 50);
+            btnPhanQuyen.TabIndex = 4;
+            btnPhanQuyen.Text = " Phân Quyền";
+            btnPhanQuyen.TextAlign = ContentAlignment.MiddleLeft;
+            btnPhanQuyen.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPhanQuyen.UseVisualStyleBackColor = true;
+            btnPhanQuyen.Visible = false; // Mặc định ẩn, sẽ bật trong file .cs
+            btnPhanQuyen.Click += btnPhanQuyen_Click;
+
+
+
             // 
             // btnDangXuat
             // 
@@ -330,6 +361,7 @@
             BackColor = Color.FromArgb(30, 90, 160);
             Controls.Add(btnDangXuat);
             Controls.Add(btnQLTaiKhoan);
+            Controls.Add(btnPhanQuyen); // thêm nút phân quyền
             Controls.Add(btnBaoCao);
             Controls.Add(subMenuPanel);
             Controls.Add(btnQLDanhMuc);
@@ -355,7 +387,7 @@
         private FontAwesome.Sharp.IconButton btnQLHoaDon;
         private FontAwesome.Sharp.IconButton btnQLPhieuBaoHanh;
         private FontAwesome.Sharp.IconButton btnQLDaiLy;
-
+        private FontAwesome.Sharp.IconButton btnPhanQuyen;
         private Panel subMenuPanel;
     }
 }

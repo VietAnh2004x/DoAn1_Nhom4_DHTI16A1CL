@@ -21,7 +21,7 @@ namespace DoAn1.Forms.QLDangNhap
         public usDangNhap()
         {
             InitializeComponent();
-            KhoiTaoGiaoDienDong(); // Gọi hàm tạo hiệu ứng động
+            KhoiTaoGiaoDienDong(); // Gọi hàm tạo hiệu ứng động         
         }
 
         private void KhoiTaoGiaoDienDong()
@@ -89,6 +89,13 @@ namespace DoAn1.Forms.QLDangNhap
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@user", user);
                     cmd.Parameters.AddWithValue("@pass", pass);
+
+                    // Lấy mã quyền từ TaiKhoan
+                    string queryQuyen = "SELECT MaQuyen FROM TaiKhoan WHERE TenTaiKhoan = @user";
+                    SqlCommand cmdQuyen = new SqlCommand(queryQuyen, conn);
+                    cmdQuyen.Parameters.AddWithValue("@user", user);
+                    string maQuyen = (string)cmdQuyen.ExecuteScalar();
+                    Session.MaQuyen = maQuyen;
 
                     int count = (int)cmd.ExecuteScalar();
 

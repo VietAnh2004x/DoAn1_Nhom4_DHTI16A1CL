@@ -51,4 +51,5 @@ public static class Session
     public static NhanVien? NhanVienDangNhap { get; set; }
     public static string TenDangNhap { get; set; } = string.Empty;
     public static string MatKhau { get; set; } = string.Empty;
+    public static string MaQuyen { get; set; } = string.Empty;
 }

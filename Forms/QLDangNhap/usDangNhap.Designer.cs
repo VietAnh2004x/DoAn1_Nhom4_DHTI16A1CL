@@ -116,6 +116,7 @@ namespace DoAn1.Forms.QLDangNhap
             btnLogin.TabIndex = 7;
             btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = false;
+            this.AcceptButton = btnLogin;
             // 
             // linkForgot
             // 
@@ -150,7 +151,7 @@ namespace DoAn1.Forms.QLDangNhap
             Text = "Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
-            PerformLayout();
+            PerformLayout();           
         }
 
     }

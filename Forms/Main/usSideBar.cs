@@ -1,4 +1,5 @@
-﻿using DoAn1.Forms.QLBaoCao;
+﻿using DoAn.Forms.Main;
+using DoAn1.Forms.QLBaoCao;
 using DoAn1.Forms.QLBaoHanh;
 using DoAn1.Forms.QLDaiLy;
 using DoAn1.Forms.QLHoaDon;
@@ -19,11 +20,38 @@ namespace DoAn1.Forms.Main
         {
             InitializeComponent();
             OnMenuButtonClickedWithControl += onMenuClick;
+
+            ApplyPhanQuyen(); // ẩn/hiện theo quyền
         }
 
         private void RaiseMenuEvent(string title, IconChar icon, UserControl control)
         {
             OnMenuButtonClickedWithControl?.Invoke(title, icon, control);
+        }
+
+        private void ApplyPhanQuyen()
+        {
+            string maQuyen = Session.MaQuyen;
+
+            switch (maQuyen)
+            {
+                case "1":
+                    btnPhanQuyen.Visible = true;
+                    break;
+
+                case "2":
+                    btnPhanQuyen.Visible = false;
+                    btnBaoCao.Visible = true;
+                    break;               
+                default:
+                    // Không có quyền xem báo cáo => gán lại sự kiện click để chặn
+                    btnBaoCao.Click -= btnBaoCao_Click; // Xóa sự kiện gốc nếu có
+                    btnBaoCao.Click += (s, e) =>
+                    {
+                        MessageBox.Show("Nhân viên không có quyền xem báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    };
+                    break;
+            }
         }
 
         private void btnTongQuan_Click(object sender, EventArgs e)
@@ -39,6 +67,11 @@ namespace DoAn1.Forms.Main
         private void btnQLTaiKhoan_Click(object sender, EventArgs e)
         {
             RaiseMenuEvent("Quản Lý Tài Khoản", IconChar.UserCog, new usTaiKhoan());
+        }
+
+        private void btnPhanQuyen_Click(object sender, EventArgs e)
+        {
+            RaiseMenuEvent("Phân Quyền", IconChar.UserShield, new usPhanQuyen());
         }
 
         private void btnQLXeDapDien_Click(object sender, EventArgs e)
@@ -86,6 +119,27 @@ namespace DoAn1.Forms.Main
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
+            // Xác nhận đăng xuất
+            var result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                // Reset session
+                Session.TenDangNhap = "";
+                Session.MatKhau = "";
+                Session.MaQuyen = "";
+                Session.NhanVienDangNhap = null;
+
+                // Mở lại form đăng nhập
+                Forms.QLDangNhap.usDangNhap loginForm = new Forms.QLDangNhap.usDangNhap();
+                loginForm.Show();
+
+                // Đóng form chính hiện tại
+                Form mainForm = this.FindForm(); // lấy ra Form chứa UserControl này
+                if (mainForm != null)
+                {
+                    mainForm.Hide(); // hoặc mainForm.Close(); nếu bạn không cần giữ lại
+                }
+            }
         }
     }
 }
