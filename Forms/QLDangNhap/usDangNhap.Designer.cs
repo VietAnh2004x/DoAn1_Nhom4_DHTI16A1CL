@@ -18,104 +18,140 @@ namespace DoAn1.Forms.QLDangNhap
         private Button btnLogin;
         private LinkLabel linkRegister;
         private LinkLabel linkForgot;
-        private CheckBox chkShowPass;       
+        private CheckBox chkShowPass;
 
         private void InitializeComponent()
         {
-            // === Cài đặt Form ===
-            this.Text = "Đăng nhập";
-            this.Size = new Size(500, 600);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.BackColor = Color.FromArgb(240, 248, 255); // Nền xanh nhạt dịu mắt
-
-            // === Logo ===
-            picLogo = new PictureBox();       
-            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            picLogo.Size = new Size(150, 150);
-            picLogo.Location = new Point((this.ClientSize.Width - picLogo.Width) / 2, 30);
-            this.Controls.Add(picLogo);
-
-            // === Tiêu đề ===
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usDangNhap));
+            picLogo = new PictureBox();
             lblTitle = new Label();
-          
-            lblTitle.Text = "ĐĂNG NHẬP";
-            lblTitle.Font = new Font("Segoe UI", 20, FontStyle.Bold);
-         
-            lblTitle.AutoSize = true;
-            lblTitle.Location = new Point((this.ClientSize.Width - lblTitle.PreferredWidth) / 2, 190);
-            this.Controls.Add(lblTitle);
-
-            int leftMargin = 60;
-            int textboxWidth = 380;
-
-            // === Label Tên đăng nhập ===
             lblUsername = new Label();
-            lblUsername.Text = "Tên đăng nhập:";
-            lblUsername.Font = new Font("Segoe UI", 12);
-            lblUsername.Location = new Point(leftMargin, 240);
-            lblUsername.AutoSize = true;
-            this.Controls.Add(lblUsername);
-
-            // === TextBox Tên đăng nhập ===
             txtUsername = new TextBox();
-            txtUsername.Font = new Font("Segoe UI", 12);
-            txtUsername.Size = new Size(textboxWidth, 30);
-            txtUsername.Location = new Point(leftMargin, 270);
-            this.Controls.Add(txtUsername);
-
-            // === Label Mật khẩu ===
             lblPassword = new Label();
-            lblPassword.Text = "Mật khẩu:";
-            lblPassword.Font = new Font("Segoe UI", 12);
-            lblPassword.Location = new Point(leftMargin, 320);
-            lblPassword.AutoSize = true;
-            this.Controls.Add(lblPassword);
-
-            // === TextBox Mật khẩu ===
             txtPassword = new TextBox();
-            txtPassword.Font = new Font("Segoe UI", 12);
-            txtPassword.Size = new Size(textboxWidth, 30);
-            txtPassword.Location = new Point(leftMargin, 350);
-            txtPassword.UseSystemPasswordChar = true;
-            this.Controls.Add(txtPassword);
-
-            // === Checkbox hiện mật khẩu ===
             chkShowPass = new CheckBox();
-            chkShowPass.Text = "Hiện mật khẩu";
-            chkShowPass.Font = new Font("Segoe UI", 10);
-            chkShowPass.AutoSize = true;
-            chkShowPass.Location = new Point(leftMargin + 5, 385);
-            //chkShowPass.CheckedChanged += (s, e) =>
-            //{
-            //    txtPassword.UseSystemPasswordChar = !chkShowPass.Checked;
-            //};
-            this.Controls.Add(chkShowPass);
-
-            // === Nút Đăng nhập ===
             btnLogin = new Button();
-            btnLogin.Text = "Đăng nhập";
-            btnLogin.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-            btnLogin.Size = new Size(textboxWidth, 45);
-            btnLogin.Location = new Point(leftMargin, 420);
-            btnLogin.BackColor = Color.FromArgb(0, 123, 255);
-            btnLogin.ForeColor = Color.White;
-            btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.FlatAppearance.BorderSize = 0;
-            btnLogin.Cursor = Cursors.Hand;           
-            this.Controls.Add(btnLogin);
-
-            // === Link Quên mật khẩu ===
             linkForgot = new LinkLabel();
-            linkForgot.Text = "Quên mật khẩu?";
-            linkForgot.Font = new Font("Segoe UI", 10, FontStyle.Italic);
-            linkForgot.LinkColor = Color.FromArgb(0, 102, 204);
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            SuspendLayout();
+            // 
+            // picLogo
+            // 
+            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+            picLogo.Location = new Point(165, 23);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(150, 150);
+            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            picLogo.TabIndex = 0;
+            picLogo.TabStop = false;
+            // 
+            // lblTitle
+            // 
+            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTitle.Location = new Point(2, 187);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(482, 41);
+            lblTitle.TabIndex = 1;
+            lblTitle.Text = "ĐĂNG NHẬP";
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Segoe UI", 12F);
+            lblUsername.Location = new Point(48, 240);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(114, 21);
+            lblUsername.TabIndex = 2;
+            lblUsername.Text = "Tên đăng nhập:";
+            // 
+            // txtUsername
+            // 
+            txtUsername.Font = new Font("Segoe UI", 12F);
+            txtUsername.Location = new Point(48, 270);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(380, 29);
+            txtUsername.TabIndex = 3;
+            // 
+            // lblPassword
+            // 
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Segoe UI", 12F);
+            lblPassword.Location = new Point(48, 320);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(78, 21);
+            lblPassword.TabIndex = 4;
+            lblPassword.Text = "Mật khẩu:";
+            // 
+            // txtPassword
+            // 
+            txtPassword.Font = new Font("Segoe UI", 12F);
+            txtPassword.Location = new Point(48, 350);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(380, 29);
+            txtPassword.TabIndex = 5;
+            txtPassword.UseSystemPasswordChar = true;
+            // 
+            // chkShowPass
+            // 
+            chkShowPass.AutoSize = true;
+            chkShowPass.Font = new Font("Segoe UI", 10F);
+            chkShowPass.Location = new Point(48, 385);
+            chkShowPass.Name = "chkShowPass";
+            chkShowPass.Size = new Size(118, 23);
+            chkShowPass.TabIndex = 6;
+            chkShowPass.Text = "Hiện mật khẩu";
+            // 
+            // btnLogin
+            // 
+            btnLogin.BackColor = Color.FromArgb(0, 123, 255);
+            btnLogin.Cursor = Cursors.Hand;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(48, 420);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(380, 45);
+            btnLogin.TabIndex = 7;
+            btnLogin.Text = "Đăng nhập";
+            btnLogin.UseVisualStyleBackColor = false;
+            // 
+            // linkForgot
+            // 
             linkForgot.ActiveLinkColor = Color.Red;
             linkForgot.AutoSize = true;
-            linkForgot.Location = new Point(leftMargin + textboxWidth - linkForgot.PreferredWidth, 480);          
-            this.Controls.Add(linkForgot);
+            linkForgot.Font = new Font("Segoe UI", 10F, FontStyle.Italic);
+            linkForgot.LinkColor = Color.FromArgb(0, 102, 204);
+            linkForgot.Location = new Point(48, 480);
+            linkForgot.Name = "linkForgot";
+            linkForgot.Size = new Size(113, 19);
+            linkForgot.TabIndex = 8;
+            linkForgot.TabStop = true;
+            linkForgot.Text = "Quên mật khẩu?";
+            // 
+            // usDangNhap
+            // 
+            BackColor = Color.FromArgb(240, 248, 255);
+            ClientSize = new Size(484, 561);
+            Controls.Add(picLogo);
+            Controls.Add(lblTitle);
+            Controls.Add(lblUsername);
+            Controls.Add(txtUsername);
+            Controls.Add(lblPassword);
+            Controls.Add(txtPassword);
+            Controls.Add(chkShowPass);
+            Controls.Add(btnLogin);
+            Controls.Add(linkForgot);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "usDangNhap";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Đăng nhập";
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
-     
+
     }
 }
