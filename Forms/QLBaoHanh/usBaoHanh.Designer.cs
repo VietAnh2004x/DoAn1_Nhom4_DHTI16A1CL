@@ -21,15 +21,15 @@ namespace DoAn1.Forms.QLBaoHanh
             tbHienThi = new TableLayoutPanel();
             tbTrai = new TableLayoutPanel();
             grpTTBaoHanh = new GroupBox();
+            txtTenXe = new TextBox();
+            lbTenXe = new Label();
             dtpNgayBatDau = new DateTimePicker();
             txtMaBaoHanh = new TextBox();
             lblMaBaoHanh = new Label();
             txtThoiHan = new TextBox();
             txtTenKhach = new TextBox();
-            txtMauXe = new TextBox();
             lblThoiHan = new Label();
             lblNgayBatDau = new Label();
-            lblMauXe = new Label();
             lblMaHoaDon = new Label();
             grpTacVu = new GroupBox();
             tbTacVu = new TableLayoutPanel();
@@ -45,8 +45,6 @@ namespace DoAn1.Forms.QLBaoHanh
             btnTimKiem = new Button();
             grpDSBaoHanh = new GroupBox();
             dgvDSBaoHanh = new DataGridView();
-            txtTenXe = new TextBox();
-            lbTenXe = new Label();
             panel1.SuspendLayout();
             tbHienThi.SuspendLayout();
             tbTrai.SuspendLayout();
@@ -109,10 +107,8 @@ namespace DoAn1.Forms.QLBaoHanh
             grpTTBaoHanh.Controls.Add(lblMaBaoHanh);
             grpTTBaoHanh.Controls.Add(txtThoiHan);
             grpTTBaoHanh.Controls.Add(txtTenKhach);
-            grpTTBaoHanh.Controls.Add(txtMauXe);
             grpTTBaoHanh.Controls.Add(lblThoiHan);
             grpTTBaoHanh.Controls.Add(lblNgayBatDau);
-            grpTTBaoHanh.Controls.Add(lblMauXe);
             grpTTBaoHanh.Controls.Add(lblMaHoaDon);
             grpTTBaoHanh.Dock = DockStyle.Fill;
             grpTTBaoHanh.Location = new Point(3, 3);
@@ -122,10 +118,26 @@ namespace DoAn1.Forms.QLBaoHanh
             grpTTBaoHanh.TabStop = false;
             grpTTBaoHanh.Text = "Thông Tin Bảo Hành";
             // 
+            // txtTenXe
+            // 
+            txtTenXe.BorderStyle = BorderStyle.FixedSingle;
+            txtTenXe.Location = new Point(158, 221);
+            txtTenXe.Name = "txtTenXe";
+            txtTenXe.Size = new Size(172, 34);
+            txtTenXe.TabIndex = 13;
+            // 
+            // lbTenXe
+            // 
+            lbTenXe.Location = new Point(7, 223);
+            lbTenXe.Name = "lbTenXe";
+            lbTenXe.Size = new Size(127, 32);
+            lbTenXe.TabIndex = 12;
+            lbTenXe.Text = "Tên Xe";
+            // 
             // dtpNgayBatDau
             // 
             dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
-            dtpNgayBatDau.Location = new Point(157, 368);
+            dtpNgayBatDau.Location = new Point(157, 295);
             dtpNgayBatDau.Name = "dtpNgayBatDau";
             dtpNgayBatDau.Size = new Size(173, 34);
             dtpNgayBatDau.TabIndex = 8;
@@ -149,7 +161,7 @@ namespace DoAn1.Forms.QLBaoHanh
             // txtThoiHan
             // 
             txtThoiHan.BorderStyle = BorderStyle.FixedSingle;
-            txtThoiHan.Location = new Point(157, 449);
+            txtThoiHan.Location = new Point(157, 376);
             txtThoiHan.Name = "txtThoiHan";
             txtThoiHan.Size = new Size(173, 34);
             txtThoiHan.TabIndex = 9;
@@ -162,17 +174,9 @@ namespace DoAn1.Forms.QLBaoHanh
             txtTenKhach.Size = new Size(172, 34);
             txtTenKhach.TabIndex = 7;
             // 
-            // txtMauXe
-            // 
-            txtMauXe.BorderStyle = BorderStyle.FixedSingle;
-            txtMauXe.Location = new Point(158, 296);
-            txtMauXe.Name = "txtMauXe";
-            txtMauXe.Size = new Size(172, 34);
-            txtMauXe.TabIndex = 6;
-            // 
             // lblThoiHan
             // 
-            lblThoiHan.Location = new Point(7, 451);
+            lblThoiHan.Location = new Point(7, 378);
             lblThoiHan.Name = "lblThoiHan";
             lblThoiHan.Size = new Size(103, 34);
             lblThoiHan.TabIndex = 4;
@@ -180,19 +184,11 @@ namespace DoAn1.Forms.QLBaoHanh
             // 
             // lblNgayBatDau
             // 
-            lblNgayBatDau.Location = new Point(7, 373);
+            lblNgayBatDau.Location = new Point(7, 300);
             lblNgayBatDau.Name = "lblNgayBatDau";
             lblNgayBatDau.Size = new Size(136, 32);
             lblNgayBatDau.TabIndex = 3;
             lblNgayBatDau.Text = "Ngày Bắt Đầu:";
-            // 
-            // lblMauXe
-            // 
-            lblMauXe.Location = new Point(7, 298);
-            lblMauXe.Name = "lblMauXe";
-            lblMauXe.Size = new Size(127, 29);
-            lblMauXe.TabIndex = 2;
-            lblMauXe.Text = "Màu Xe";
             // 
             // lblMaHoaDon
             // 
@@ -230,6 +226,7 @@ namespace DoAn1.Forms.QLBaoHanh
             tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tbTacVu.Size = new Size(382, 147);
             tbTacVu.TabIndex = 0;
+            
             // 
             // btnLamMoi
             // 
@@ -391,22 +388,6 @@ namespace DoAn1.Forms.QLBaoHanh
             dgvDSBaoHanh.TabIndex = 0;
             dgvDSBaoHanh.CellClick += dgvDSBaoHanh_CellClick;
             // 
-            // txtTenXe
-            // 
-            txtTenXe.BorderStyle = BorderStyle.FixedSingle;
-            txtTenXe.Location = new Point(158, 221);
-            txtTenXe.Name = "txtTenXe";
-            txtTenXe.Size = new Size(172, 34);
-            txtTenXe.TabIndex = 13;
-            // 
-            // lbTenXe
-            // 
-            lbTenXe.Location = new Point(7, 223);
-            lbTenXe.Name = "lbTenXe";
-            lbTenXe.Size = new Size(127, 32);
-            lbTenXe.TabIndex = 12;
-            lbTenXe.Text = "Tên Xe";
-            // 
             // usBaoHanh
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -440,10 +421,8 @@ namespace DoAn1.Forms.QLBaoHanh
         private Label lblMaBaoHanh;
         private TextBox txtThoiHan;
         private TextBox txtTenKhach;
-        private TextBox txtMauXe;
         private Label lblThoiHan;
         private Label lblNgayBatDau;
-        private Label lblMauXe;
         private Label lblMaHoaDon;
         private GroupBox grpTacVu;
         private TableLayoutPanel tbTacVu;

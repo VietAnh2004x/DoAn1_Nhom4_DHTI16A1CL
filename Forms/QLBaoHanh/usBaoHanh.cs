@@ -33,20 +33,16 @@ namespace DoAn1.Forms.QLBaoHanh
                                            bh.maBaoHanh,
                                            tenKhachHang = hd.KhachHang.hoTen,
                                            tenXe = xe.tenXe,
-                                           mauSac = xe.mauSac,
                                            bh.ngayBatDau,
                                            bh.thoiHanThang
                                        }).ToList();
 
                 dgvDSBaoHanh.DataSource = danhSachBaoHanh;
-
                 dgvDSBaoHanh.Columns["maBaoHanh"]!.HeaderText = "Mã Bảo Hành";
                 dgvDSBaoHanh.Columns["tenKhachHang"]!.HeaderText = "Khách Hàng";
                 dgvDSBaoHanh.Columns["tenXe"]!.HeaderText = "Tên Xe";
-                dgvDSBaoHanh.Columns["mauSac"]!.HeaderText = "Màu Sắc";
                 dgvDSBaoHanh.Columns["ngayBatDau"]!.HeaderText = "Ngày Bắt Đầu";
                 dgvDSBaoHanh.Columns["thoiHanThang"]!.HeaderText = "Thời Hạn (Tháng)";
-
                 dgvDSBaoHanh.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
                 dgvDSBaoHanh.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvDSBaoHanh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -88,7 +84,7 @@ namespace DoAn1.Forms.QLBaoHanh
                 // 👉 Gán thêm các thông tin mới:
                 txtTenKhach.Text = row.Cells["tenKhachHang"].Value?.ToString();
                 txtTenXe.Text = row.Cells["tenXe"].Value?.ToString();
-                txtMauXe.Text = row.Cells["mauSac"].Value?.ToString();
+
             }
         }
 
@@ -181,7 +177,6 @@ namespace DoAn1.Forms.QLBaoHanh
                                   bh.maBaoHanh,
                                   tenKhachHang = hd.KhachHang.hoTen,
                                   tenXe = xe.tenXe,
-                                  mauSac = xe.mauSac,
                                   bh.ngayBatDau,
                                   bh.thoiHanThang
                               }).ToList();
@@ -195,6 +190,6 @@ namespace DoAn1.Forms.QLBaoHanh
             }
         }
 
-       
+     
     }
 }

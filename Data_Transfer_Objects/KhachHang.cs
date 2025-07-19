@@ -40,7 +40,7 @@ namespace DoAn1.Data_Transfer_Objects
         public string email { get; set; }
 
         public virtual ICollection<HoaDon> HoaDons { get; set; } = new HashSet<HoaDon>();
-
+        public virtual ICollection<GiaoDichXeCu> GiaoDichXeCus { get; set; } = new List<GiaoDichXeCu>();
         public KhachHang()
         {
             maKhachHang = string.Empty;

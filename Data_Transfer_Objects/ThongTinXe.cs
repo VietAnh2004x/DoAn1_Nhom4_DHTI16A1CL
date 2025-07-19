@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAn.Data_Transfer_Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -70,7 +71,7 @@ namespace DoAn1.Data_Transfer_Objects
         public virtual ICollection<BaoHanh> BaoHanhs { get; set; }
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual ICollection<TonXe> TonXes { get; set; }
-
+        public virtual ICollection<GiaoDichXeCu> GiaoDichXeCus { get; set; } = new List<GiaoDichXeCu>();
         public ThongTinXe()
         {
             maXe = string.Empty;

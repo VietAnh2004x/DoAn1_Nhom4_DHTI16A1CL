@@ -59,7 +59,8 @@ namespace DoAn1.Data_Transfer_Objects
         // Liên kết đến bảng TaiKhoan
         [ForeignKey("tenTaiKhoan")]
         public virtual TaiKhoan? TaiKhoan { get; set; }
-
+        public virtual ICollection<GiaoDichXeCu> GiaoDichXeCus { get; set; } 
+        public virtual ICollection<LichSuBaoHanh> LichSuBaoHanhs { get; set; }
         public NhanVien()
         {
             maNV = string.Empty;

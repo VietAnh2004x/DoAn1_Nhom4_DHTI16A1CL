@@ -27,6 +27,29 @@
             btnXoa = new Button();
             btnLamMoi = new Button();
             grpTTXeCu = new GroupBox();
+            txtMaGD = new TextBox();
+            label1 = new Label();
+            btnTimKiem = new Button();
+            txtTimKiem = new TextBox();
+            label11 = new Label();
+            label10 = new Label();
+            txtXeMuonDoi = new TextBox();
+            label9 = new Label();
+            txtSoTienPhaiTra = new TextBox();
+            label8 = new Label();
+            txtDinhGia = new TextBox();
+            label7 = new Label();
+            txtSoKm = new TextBox();
+            label6 = new Label();
+            txtTinhTrang = new TextBox();
+            label5 = new Label();
+            txtNSX = new TextBox();
+            label4 = new Label();
+            txtTenXeCu = new TextBox();
+            label3 = new Label();
+            txtTenKH = new TextBox();
+            label2 = new Label();
+            dtpNgayDoi = new DateTimePicker();
             panel1.SuspendLayout();
             tbHienThiXe.SuspendLayout();
             tbHienThiBang.SuspendLayout();
@@ -34,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvDSXeCu).BeginInit();
             grpTacVu.SuspendLayout();
             tbTacVu.SuspendLayout();
+            grpTTXeCu.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -93,12 +117,12 @@
             dgvDSXeCu.BackgroundColor = Color.White;
             dgvDSXeCu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDSXeCu.Dock = DockStyle.Fill;
-            dgvDSXeCu.Location = new Point(3, 21);
+            dgvDSXeCu.Location = new Point(3, 30);
             dgvDSXeCu.Name = "dgvDSXeCu";
             dgvDSXeCu.RowHeadersWidth = 51;
-            dgvDSXeCu.Size = new Size(582, 565);
+            dgvDSXeCu.Size = new Size(582, 556);
             dgvDSXeCu.TabIndex = 0;
-            dgvDSXeCu.CellClick += dgvDSXeMayDien_CellClick;
+            dgvDSXeCu.CellClick += dgvDSXeCu_CellClick;
             // 
             // grpTacVu
             // 
@@ -123,11 +147,11 @@
             tbTacVu.Controls.Add(btnXoa, 2, 0);
             tbTacVu.Controls.Add(btnLamMoi, 3, 0);
             tbTacVu.Dock = DockStyle.Fill;
-            tbTacVu.Location = new Point(3, 21);
+            tbTacVu.Location = new Point(3, 30);
             tbTacVu.Name = "tbTacVu";
             tbTacVu.RowCount = 1;
             tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tbTacVu.Size = new Size(582, 119);
+            tbTacVu.Size = new Size(582, 110);
             tbTacVu.TabIndex = 0;
             // 
             // btnThem
@@ -138,7 +162,7 @@
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(22, 39);
+            btnThem.Location = new Point(22, 35);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(100, 40);
             btnThem.TabIndex = 16;
@@ -154,7 +178,7 @@
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSua.ForeColor = Color.White;
-            btnSua.Location = new Point(167, 39);
+            btnSua.Location = new Point(167, 35);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(100, 40);
             btnSua.TabIndex = 17;
@@ -170,7 +194,7 @@
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnXoa.ForeColor = Color.White;
-            btnXoa.Location = new Point(312, 39);
+            btnXoa.Location = new Point(312, 35);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(100, 40);
             btnXoa.TabIndex = 18;
@@ -186,7 +210,7 @@
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLamMoi.ForeColor = Color.White;
-            btnLamMoi.Location = new Point(457, 39);
+            btnLamMoi.Location = new Point(457, 35);
             btnLamMoi.Name = "btnLamMoi";
             btnLamMoi.Size = new Size(103, 40);
             btnLamMoi.TabIndex = 19;
@@ -196,6 +220,29 @@
             // 
             // grpTTXeCu
             // 
+            grpTTXeCu.Controls.Add(txtMaGD);
+            grpTTXeCu.Controls.Add(label1);
+            grpTTXeCu.Controls.Add(btnTimKiem);
+            grpTTXeCu.Controls.Add(txtTimKiem);
+            grpTTXeCu.Controls.Add(label11);
+            grpTTXeCu.Controls.Add(label10);
+            grpTTXeCu.Controls.Add(txtXeMuonDoi);
+            grpTTXeCu.Controls.Add(label9);
+            grpTTXeCu.Controls.Add(txtSoTienPhaiTra);
+            grpTTXeCu.Controls.Add(label8);
+            grpTTXeCu.Controls.Add(txtDinhGia);
+            grpTTXeCu.Controls.Add(label7);
+            grpTTXeCu.Controls.Add(txtSoKm);
+            grpTTXeCu.Controls.Add(label6);
+            grpTTXeCu.Controls.Add(txtTinhTrang);
+            grpTTXeCu.Controls.Add(label5);
+            grpTTXeCu.Controls.Add(txtNSX);
+            grpTTXeCu.Controls.Add(label4);
+            grpTTXeCu.Controls.Add(txtTenXeCu);
+            grpTTXeCu.Controls.Add(label3);
+            grpTTXeCu.Controls.Add(txtTenKH);
+            grpTTXeCu.Controls.Add(label2);
+            grpTTXeCu.Controls.Add(dtpNgayDoi);
             grpTTXeCu.Dock = DockStyle.Fill;
             grpTTXeCu.Location = new Point(3, 3);
             grpTTXeCu.Name = "grpTTXeCu";
@@ -203,6 +250,192 @@
             grpTTXeCu.TabIndex = 1;
             grpTTXeCu.TabStop = false;
             grpTTXeCu.Text = "Thông tin xe cũ";
+            // 
+            // txtMaGD
+            // 
+            txtMaGD.Location = new Point(163, 33);
+            txtMaGD.Name = "txtMaGD";
+            txtMaGD.Size = new Size(177, 34);
+            txtMaGD.TabIndex = 24;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 33);
+            label1.Name = "label1";
+            label1.Size = new Size(130, 28);
+            label1.TabIndex = 23;
+            label1.Text = "Mã Giao Dịch";
+            // 
+            // btnTimKiem
+            // 
+            btnTimKiem.Location = new Point(267, 693);
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(108, 34);
+            btnTimKiem.TabIndex = 22;
+            btnTimKiem.Text = "Tìm Kiếm";
+            btnTimKiem.UseVisualStyleBackColor = true;
+            btnTimKiem.Click += btnTimKiem_Click;
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Location = new Point(105, 693);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(139, 34);
+            txtTimKiem.TabIndex = 21;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(6, 693);
+            label11.Name = "label11";
+            label11.Size = new Size(93, 28);
+            label11.TabIndex = 20;
+            label11.Text = "Tìm Kiếm";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(6, 226);
+            label10.Name = "label10";
+            label10.Size = new Size(136, 28);
+            label10.TabIndex = 19;
+            label10.Text = "Năm Sản Xuất";
+            // 
+            // txtXeMuonDoi
+            // 
+            txtXeMuonDoi.Location = new Point(163, 471);
+            txtXeMuonDoi.Name = "txtXeMuonDoi";
+            txtXeMuonDoi.Size = new Size(177, 34);
+            txtXeMuonDoi.TabIndex = 18;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(6, 477);
+            label9.Name = "label9";
+            label9.Size = new Size(127, 28);
+            label9.TabIndex = 17;
+            label9.Text = "Xe Muốn Đổi";
+            // 
+            // txtSoTienPhaiTra
+            // 
+            txtSoTienPhaiTra.Location = new Point(163, 537);
+            txtSoTienPhaiTra.Name = "txtSoTienPhaiTra";
+            txtSoTienPhaiTra.Size = new Size(177, 34);
+            txtSoTienPhaiTra.TabIndex = 16;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(6, 540);
+            label8.Name = "label8";
+            label8.Size = new Size(145, 28);
+            label8.TabIndex = 15;
+            label8.Text = "Số tiền phải trả";
+            // 
+            // txtDinhGia
+            // 
+            txtDinhGia.Location = new Point(163, 406);
+            txtDinhGia.Name = "txtDinhGia";
+            txtDinhGia.Size = new Size(177, 34);
+            txtDinhGia.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(0, 412);
+            label7.Name = "label7";
+            label7.Size = new Size(85, 28);
+            label7.TabIndex = 13;
+            label7.Text = "Định giá";
+            // 
+            // txtSoKm
+            // 
+            txtSoKm.Location = new Point(163, 347);
+            txtSoKm.Name = "txtSoKm";
+            txtSoKm.Size = new Size(177, 34);
+            txtSoKm.TabIndex = 12;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(6, 353);
+            label6.Name = "label6";
+            label6.Size = new Size(69, 28);
+            label6.TabIndex = 11;
+            label6.Text = "Số Km";
+            // 
+            // txtTinhTrang
+            // 
+            txtTinhTrang.Location = new Point(163, 284);
+            txtTinhTrang.Name = "txtTinhTrang";
+            txtTinhTrang.Size = new Size(177, 34);
+            txtTinhTrang.TabIndex = 10;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(6, 284);
+            label5.Name = "label5";
+            label5.Size = new Size(102, 28);
+            label5.TabIndex = 9;
+            label5.Text = "Tình Trạng";
+            // 
+            // txtNSX
+            // 
+            txtNSX.Location = new Point(163, 223);
+            txtNSX.Name = "txtNSX";
+            txtNSX.Size = new Size(177, 34);
+            txtNSX.TabIndex = 8;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(6, 607);
+            label4.Name = "label4";
+            label4.Size = new Size(95, 28);
+            label4.TabIndex = 7;
+            label4.Text = "Ngày Đổi";
+            // 
+            // txtTenXeCu
+            // 
+            txtTenXeCu.Location = new Point(163, 157);
+            txtTenXeCu.Name = "txtTenXeCu";
+            txtTenXeCu.Size = new Size(177, 34);
+            txtTenXeCu.TabIndex = 6;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 157);
+            label3.Name = "label3";
+            label3.Size = new Size(68, 28);
+            label3.TabIndex = 5;
+            label3.Text = "Tên Xe";
+            // 
+            // txtTenKH
+            // 
+            txtTenKH.Location = new Point(163, 91);
+            txtTenKH.Name = "txtTenKH";
+            txtTenKH.Size = new Size(177, 34);
+            txtTenKH.TabIndex = 4;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(6, 91);
+            label2.Name = "label2";
+            label2.Size = new Size(151, 28);
+            label2.TabIndex = 3;
+            label2.Text = "Tên Khách Hàng";
+            // 
+            // dtpNgayDoi
+            // 
+            dtpNgayDoi.Location = new Point(126, 607);
+            dtpNgayDoi.Name = "dtpNgayDoi";
+            dtpNgayDoi.Size = new Size(262, 34);
+            dtpNgayDoi.TabIndex = 2;
             // 
             // usXeCu
             // 
@@ -219,6 +452,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvDSXeCu).EndInit();
             grpTacVu.ResumeLayout(false);
             tbTacVu.ResumeLayout(false);
+            grpTTXeCu.ResumeLayout(false);
+            grpTTXeCu.PerformLayout();
             ResumeLayout(false);
 
         }
@@ -235,5 +470,28 @@
         private Button btnXoa;
         private Button btnLamMoi;
         private GroupBox grpTTXeCu;
+        private Label label10;
+        private TextBox txtXeMuonDoi;
+        private Label label9;
+        private TextBox txtSoTienPhaiTra;
+        private Label label8;
+        private TextBox txtDinhGia;
+        private Label label7;
+        private TextBox txtSoKm;
+        private Label label6;
+        private TextBox txtTinhTrang;
+        private Label label5;
+        private TextBox txtNSX;
+        private Label label4;
+        private TextBox txtTenXeCu;
+        private Label label3;
+        private TextBox txtTenKH;
+        private Label label2;
+        private DateTimePicker dtpNgayDoi;
+        private Button btnTimKiem;
+        private TextBox txtTimKiem;
+        private Label label11;
+        private TextBox txtMaGD;
+        private Label label1;
     }
 }

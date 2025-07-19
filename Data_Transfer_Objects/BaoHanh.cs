@@ -42,7 +42,7 @@ namespace DoAn1.Data_Transfer_Objects
 
         [ForeignKey("maXe")]
         public virtual ThongTinXe? Xe { get; set; }
-
+        public virtual ICollection<LichSuBaoHanh> LichSuBaoHanhs { get; set; } 
         public BaoHanh()
         {
             maBaoHanh = string.Empty;

@@ -23,58 +23,81 @@ namespace DoAn1.Forms.QLBaoHanh
         {
             using (var context = new DataDbContext())
             {
-                // Lấy mã bảo hành lớn nhất hiện có bắt đầu bằng "BH"
-                var maxMaBH = context.BaoHanh
-                    .Where(bh => bh.maBaoHanh.StartsWith("BH"))
-                    .Select(bh => bh.maBaoHanh.Substring(2)) // bỏ "BH" để lấy số
-                    .ToList() // chuyển sang xử lý client-side
-                    .Select(s => int.TryParse(s, out var num) ? num : 0)
-                    .DefaultIfEmpty(0)
-                    .Max();
+                // B1: Lấy danh sách mã bảo hành hợp lệ từ DB trước
+                var danhSachMaBH = context.BaoHanh
+                    .Select(bh => bh.maBaoHanh)
+                    .Where(m => m.StartsWith("BH") && m.Length == 5)
+                    .ToList();
 
-                // Tạo mã bảo hành mới: BH001, BH002, ...
-                string maBaoHanh = "BH" + (maxMaBH + 1).ToString("D3");
+                // B2: Chuyển sang số, tìm số lớn nhất
+                var dsSo = danhSachMaBH
+                    .Select(m =>
+                    {
+                        string soStr = m.Substring(2);
+                        return int.TryParse(soStr, out int so) ? so : 0;
+                    })
+                    .ToList();
 
-                // Lấy dữ liệu từ các điều khiển
+                int soLonNhat = dsSo.Any() ? dsSo.Max() : 0;
+                string maBaoHanh = "BH" + (soLonNhat + 1).ToString("D3");
+
+                // B3: Lấy dữ liệu từ giao diện
                 string maXe = txtMaXe.Text.Trim();
+                string maKhachHang = txtMaKH.Text.Trim();
                 string maHoaDon = txtMaHoaDon.Text.Trim();
                 int thoiHanThang = (int)nudThoiHan.Value;
+                DateTime ngayBatDau = dtpNgayLap.Value;
 
-                // Kiểm tra mã xe
-                bool xeTonTai = context.ThongTinXe.Any(x => x.maXe == maXe);
-                if (!xeTonTai)
+                // B4: Kiểm tra dữ liệu đầu vào
+                if (string.IsNullOrWhiteSpace(maXe) || string.IsNullOrWhiteSpace(maKhachHang) || string.IsNullOrWhiteSpace(maHoaDon))
                 {
-                    MessageBox.Show("Mã xe không tồn tại! Vui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng nhập đầy đủ các trường bắt buộc!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Kiểm tra mã hóa đơn
-                bool hoaDonTonTai = context.HoaDon.Any(hd => hd.maHoaDon == maHoaDon);
-                if (!hoaDonTonTai)
-                {
-                    MessageBox.Show("Mã hóa đơn không tồn tại! Vui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Kiểm tra thời gian bảo hành
                 if (thoiHanThang <= 0)
                 {
                     MessageBox.Show("Thời hạn bảo hành phải lớn hơn 0 tháng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Thêm mới phiếu bảo hành
+                // B5: Kiểm tra tính hợp lệ của mã hóa đơn, mã xe, mã KH bằng JOIN với ChiTietHoaDon
+                var thongTin = (from ct in context.ChiTietHoaDon
+                                join hd in context.HoaDon on ct.maHoaDon equals hd.maHoaDon
+                                join kh in context.KhachHang on hd.maKhachHang equals kh.maKhachHang
+                                join xe in context.ThongTinXe on ct.maXe equals xe.maXe
+                                where ct.maHoaDon == maHoaDon &&
+                                      ct.maXe == maXe &&
+                                      kh.maKhachHang == maKhachHang
+                                select new
+                                {
+                                    TenKhachHang = kh.hoTen,  // Đảm bảo tên thuộc tính đúng với entity của bạn
+                                    TenXe = xe.tenXe
+                                }).FirstOrDefault();
+
+                if (thongTin == null)
+                {
+                    MessageBox.Show("Thông tin không hợp lệ! Mã hóa đơn, mã khách hàng và mã xe không khớp.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // B6: Hiển thị lại tên khách và tên xe lên form
+                txtTenKH.Text = thongTin.TenKhachHang;
+                txtTenXe.Text = thongTin.TenXe;
+
+                // B7: Tạo và thêm phiếu bảo hành mới
                 var phieuBaoHanh = new BaoHanh
                 {
                     maBaoHanh = maBaoHanh,
                     maHoaDon = maHoaDon,
                     maXe = maXe,
-                    ngayBatDau = dtpNgayLap.Value,
+                    ngayBatDau = ngayBatDau,
                     thoiHanThang = thoiHanThang
                 };
 
                 context.BaoHanh.Add(phieuBaoHanh);
 
+                // B8: Lưu vào DB
                 try
                 {
                     context.SaveChanges();
@@ -97,8 +120,42 @@ namespace DoAn1.Forms.QLBaoHanh
         {
             txtMaXe.Clear();
             txtMaHoaDon.Clear();
-            nudThoiHan.Value = 0; 
+            nudThoiHan.Value = 0;
             dtpNgayLap.Value = DateTime.Now;
+        }
+
+        private void txtTenKH_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenXe_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaKH_TextChanged(object sender, EventArgs e)
+        {
+            string maKH = txtMaKH.Text.Trim();
+            if (string.IsNullOrWhiteSpace(maKH)) return;
+
+            using (var context = new DataDbContext())
+            {
+                var kh = context.KhachHang.FirstOrDefault(k => k.maKhachHang == maKH);
+                txtTenKH.Text = kh != null ? kh.hoTen : "";
+            }
+        }
+
+        private void txtMaXe_TextChanged(object sender, EventArgs e)
+        {
+            string maXe = txtMaXe.Text.Trim();
+            if (string.IsNullOrWhiteSpace(maXe)) return;
+
+            using (var context = new DataDbContext())
+            {
+                var xe = context.ThongTinXe.FirstOrDefault(x => x.maXe == maXe);
+                txtTenXe.Text = xe != null ? xe.tenXe : "";
+            }
         }
     }
 }
