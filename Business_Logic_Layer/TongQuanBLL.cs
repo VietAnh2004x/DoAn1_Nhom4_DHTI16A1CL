@@ -35,17 +35,17 @@ public class TongQuanBLL
             .Select(g => new
             {
                 MaXe = g.Key,
-                SoLuong = g.Sum(x => x.SoLuong ?? 0)
+                SoLuong = g.Sum(x => x.soLuong)
             })
             .OrderByDescending(x => x.SoLuong)
             .Take(topN)
             .Join(context.ThongTinXe, g => g.MaXe, tt => tt.maXe, (g, tt) => new
             {
-                tt.TenXe,
+                tt.tenXe,
                 g.SoLuong
             })
             .ToList()
-            .Select(x => (x.TenXe, x.SoLuong))
+            .Select(x => (x.tenXe, x.SoLuong))
             .ToList();
 
         return topSP;
@@ -54,12 +54,12 @@ public class TongQuanBLL
     public List<(int Thang, decimal TongTien)> LayDoanhThuTheoThang()
     {
         var ds = context.HoaDon
-            .Where(h => h.NgayLap.HasValue)
-            .GroupBy(h => h.NgayLap.Value.Month)
+            .Where(h => h.ngayLap != DateTime.MinValue)
+            .GroupBy(h => h.ngayLap.Month)
             .Select(g => new
             {
                 Thang = g.Key,
-                TongTien = g.Sum(h => h.TongTien ?? 0)
+                TongTien = g.Sum(h => h.tongTien)
             })
             .OrderBy(x => x.Thang)
             .ToList()
