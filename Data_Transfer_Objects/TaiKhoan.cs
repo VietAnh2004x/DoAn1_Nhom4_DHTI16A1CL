@@ -30,7 +30,7 @@ namespace DoAn1.Data_Transfer_Objects
         public virtual PhanQuyen PhanQuyen { get; set; } = null!;
 
         public virtual NhanVien? NhanVien { get; set; }
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; }    
 
         public TaiKhoan()
         {
