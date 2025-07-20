@@ -103,7 +103,6 @@ namespace DoAn1.Forms.QLTaiKhoan
             tbTTaiKhoan.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tbTTaiKhoan.Size = new Size(974, 704);
             tbTTaiKhoan.TabIndex = 0;
-            tbTTaiKhoan.Paint += tbTTaiKhoan_Paint;
             // 
             // txtPhanQuyen
             // 

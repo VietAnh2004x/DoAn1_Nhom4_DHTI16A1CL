@@ -1,14 +1,5 @@
 ﻿using DoAn1.Data_Transfer_Objects;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DoAn1.Forms.QLDangNhap
 {
@@ -64,8 +55,8 @@ namespace DoAn1.Forms.QLDangNhap
             btnLogin.MouseLeave += (s, e) => btnLogin.BackColor = Color.FromArgb(0, 123, 255);
 
             // Click
-            btnLogin.Click += BtnLogin_Click;
-            linkForgot.Click += LinkForgot_Click;
+            btnLogin.Click += BtnLogin_Click!;
+            linkForgot.Click += LinkForgot_Click!;
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)

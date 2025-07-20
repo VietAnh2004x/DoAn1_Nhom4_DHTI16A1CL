@@ -37,15 +37,15 @@ namespace DoAn.Forms.Main
                     {
                         TenTaiKhoan = t.tenTaiKhoan,
                         MatKhau = t.matKhau,
-                        HoTen = t.NhanVien.hoTen,
+                        HoTen = t.NhanVien!.hoTen,
                         Quyen = t.PhanQuyen.tenQuyen
                     }).ToList();
 
                 dgvTaiKhoan.DataSource = taiKhoans;
-                dgvTaiKhoan.Columns["HoTen"].HeaderText = "Họ tên";
-                dgvTaiKhoan.Columns["TenTaiKhoan"].HeaderText = "Tên tài khoản";
-                dgvTaiKhoan.Columns["MatKhau"].HeaderText = "Mật khẩu";
-                dgvTaiKhoan.Columns["Quyen"].HeaderText = "Quyền";
+                dgvTaiKhoan.Columns["HoTen"]!.HeaderText = "Họ tên";
+                dgvTaiKhoan.Columns["TenTaiKhoan"]!.HeaderText = "Tên tài khoản";
+                dgvTaiKhoan.Columns["MatKhau"]!.HeaderText = "Mật khẩu";
+                dgvTaiKhoan.Columns["Quyen"]!.HeaderText = "Quyền";
             }
         }
 
@@ -64,8 +64,8 @@ namespace DoAn.Forms.Main
         {
             if (dgvTaiKhoan.SelectedRows.Count > 0)
             {
-                string tenTK = dgvTaiKhoan.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString();
-                string maQuyenMoi = cboQuyen.SelectedValue.ToString();
+                string tenTK = dgvTaiKhoan.SelectedRows[0]!.Cells["TenTaiKhoan"]!.Value!.ToString()!;
+                string maQuyenMoi = cboQuyen.SelectedValue!.ToString()!;
 
                 using (var context = new DataDbContext())
                 {
@@ -114,7 +114,7 @@ namespace DoAn.Forms.Main
                 {
                     tenTaiKhoan = tenTK,
                     matKhau = txtMatKhau.Text,
-                    maQuyen = cboQuyen.SelectedValue.ToString()
+                    maQuyen = cboQuyen.SelectedValue!.ToString()!
                 };
 
                 var nhanVien = new NhanVien
@@ -157,7 +157,7 @@ namespace DoAn.Forms.Main
                 if (taiKhoan != null && nhanVien != null)
                 {
                     taiKhoan.matKhau = txtMatKhau.Text;
-                    taiKhoan.maQuyen = cboQuyen.SelectedValue.ToString();
+                    taiKhoan.maQuyen = cboQuyen!.SelectedValue!.ToString()!;
 
                     nhanVien.maNV = txtMaNV.Text;
                     nhanVien.hoTen = txtHoTen.Text;
@@ -184,7 +184,7 @@ namespace DoAn.Forms.Main
                 return;
             }
 
-            string tenTK = dgvTaiKhoan.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString();
+            string tenTK = dgvTaiKhoan.SelectedRows[0]!.Cells["TenTaiKhoan"]!.Value!.ToString()!;
 
             DialogResult result = MessageBox.Show("Bạn có chắc muốn xoá tài khoản này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -217,7 +217,7 @@ namespace DoAn.Forms.Main
         {
             if (dgvTaiKhoan.SelectedRows.Count > 0)
             {
-                string tenTK = dgvTaiKhoan.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString();
+                string tenTK = dgvTaiKhoan!.SelectedRows[0]!.Cells["TenTaiKhoan"]!.Value!.ToString()!;
 
                 using (var context = new DataDbContext())
                 {

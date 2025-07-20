@@ -1,22 +1,15 @@
-﻿using DoAn1.Data_Transfer_Objects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using DoAn1.Data_Access_Layer;
+using DoAn1.Data_Transfer_Objects;
 
 namespace DoAn1.Forms.QLTaiKhoan
 {
     public partial class usTaiKhoan : UserControl
     {
+        DataDbContext context = new DataDbContext();
         public usTaiKhoan()
         {
             InitializeComponent();
-            this.Load += usTaiKhoan_Load;
+            this.Load += usTaiKhoan_Load!;
         }
 
         private void usTaiKhoan_Load(object sender, EventArgs e)
@@ -37,11 +30,6 @@ namespace DoAn1.Forms.QLTaiKhoan
             {
                 MessageBox.Show("Không tìm thấy thông tin nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void tbTTaiKhoan_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
