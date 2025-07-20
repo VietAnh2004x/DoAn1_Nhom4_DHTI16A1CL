@@ -50,34 +50,29 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.TongQuan
 
             // --- Biểu đồ Top 3 Sản phẩm bán chạy ---
             chartTopSanPham.Series.Clear();
-            chartTopSanPham.Legends.Clear(); // Xóa các chú thích cũ
-            chartTopSanPham.ChartAreas.Clear(); // Xóa các ChartArea cũ để thiết lập lại
+            chartTopSanPham.Legends.Clear(); // Bỏ chú thích đi
+            chartTopSanPham.ChartAreas.Clear(); // Xóa các ChartArea cũ
             chartTopSanPham.ChartAreas.Add(new ChartArea("ChartArea1")); // Thêm ChartArea mặc định
 
-            // Thêm Legend
-            Legend legendTopSP = new Legend("LegendTopSanPham");
-            chartTopSanPham.Legends.Add(legendTopSP);
-            // Vị trí legend (tùy chỉnh nếu cần)
-            legendTopSP.Docking = Docking.Top;
-            legendTopSP.Alignment = StringAlignment.Center;
-            legendTopSP.IsTextAutoFit = true;
-
-            // Thiết lập ChartArea
-            chartTopSanPham.ChartAreas[0].AxisX.LabelStyle.Enabled = true;
-            chartTopSanPham.ChartAreas[0].AxisX.LabelStyle.Angle = -45; // Xoay nhãn để dễ đọc
-            chartTopSanPham.ChartAreas[0].AxisX.Interval = 1; // Khoảng cách giữa các nhãn
+            // Thiết lập ChartArea cho trục X
+            chartTopSanPham.ChartAreas[0].AxisX.LabelStyle.Enabled = true; // Bật nhãn trục X
+            chartTopSanPham.ChartAreas[0].AxisX.LabelStyle.Angle = -45; // Xoay nhãn để dễ đọc nếu tên dài
+            chartTopSanPham.ChartAreas[0].AxisX.Interval = 1; // Đảm bảo khoảng cách giữa các nhãn là 1
             chartTopSanPham.ChartAreas[0].AxisX.MajorGrid.Enabled = false; // Ẩn lưới dọc
-            chartTopSanPham.ChartAreas[0].AxisX.Title = ""; // Có thể đặt tiêu đề trục X nếu cần
+            chartTopSanPham.ChartAreas[0].AxisX.MajorTickMark.Enabled = false; // Ẩn dấu tích chính trên trục X
+            chartTopSanPham.ChartAreas[0].AxisX.Title = ""; // Bỏ tiêu đề trục X nếu không cần
+
+            // Thiết lập ChartArea cho trục Y
             chartTopSanPham.ChartAreas[0].AxisY.MajorGrid.Enabled = true; // Hiện lưới ngang
             chartTopSanPham.ChartAreas[0].AxisY.Title = "Số lượng bán"; // Tiêu đề trục Y
 
 
-            Series barSeries = new Series("Sản phẩm bán chạy") // Tên Series này sẽ không xuất hiện trong Legend nếu bạn thêm LegendItem thủ công
+            Series barSeries = new Series("Top sản phẩm bán chạy") // Tên Series này sẽ không hiển thị trong legend nữa
             {
                 ChartType = SeriesChartType.Column,
                 IsValueShownAsLabel = true, // Hiển thị giá trị số trên đỉnh cột
-                Color = Color.LightGray, // Màu mặc định cho series, sẽ bị ghi đè bởi DataPoint.Color
-                // IsVisibleInLegend = true // Đặt thành false hoặc không đặt nếu muốn tự tạo legend item
+                // IsVisibleInLegend = false, // Không hiển thị series này trong legend mặc định
+                CustomProperties = "PointWidth=0.8" // Thiết lập PointWidth cho tất cả các điểm trong series
             };
 
             int colorIndex = 0;
@@ -87,14 +82,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.TongQuan
                 dp.SetValueXY(item.TenXe, item.SoLuong);
                 dp.Color = colors[colorIndex % colors.Length]; // Gán màu cho từng cột
                 barSeries.Points.Add(dp);
-
-                // Thêm LegendItem thủ công cho từng cột
-                LegendItem li = new LegendItem();
-                li.Name = item.TenXe;
-                li.Color = colors[colorIndex % colors.Length];
-                li.MarkerStyle = MarkerStyle.Square; // Kiểu đánh dấu trong legend
-                legendTopSP.CustomItems.Add(li);
-
                 colorIndex++;
             }
             chartTopSanPham.Series.Add(barSeries);
@@ -106,32 +93,29 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.TongQuan
 
             // --- Biểu đồ Doanh Thu Theo 3 Tháng Gần Nhất ---
             chartDoanhThu.Series.Clear();
-            chartDoanhThu.Legends.Clear(); // Xóa các chú thích cũ
+            chartDoanhThu.Legends.Clear(); // Bỏ chú thích đi
             chartDoanhThu.ChartAreas.Clear();
             chartDoanhThu.ChartAreas.Add(new ChartArea("ChartArea1"));
 
-            // Thêm Legend
-            Legend legendDoanhThu = new Legend("LegendDoanhThu");
-            chartDoanhThu.Legends.Add(legendDoanhThu);
-            legendDoanhThu.Docking = Docking.Top;
-            legendDoanhThu.Alignment = StringAlignment.Center;
-            legendDoanhThu.IsTextAutoFit = true;
-
-            // Thiết lập ChartArea
+            // Thiết lập ChartArea cho trục X
             chartDoanhThu.ChartAreas[0].AxisX.LabelStyle.Enabled = true;
             chartDoanhThu.ChartAreas[0].AxisX.LabelStyle.Angle = -45; // Xoay nhãn
             chartDoanhThu.ChartAreas[0].AxisX.Interval = 1;
-            chartDoanhThu.ChartAreas[0].AxisX.MajorGrid.Enabled = false; // Ẩn lưới dọc
-            chartDoanhThu.ChartAreas[0].AxisY.MajorGrid.Enabled = true; // Hiện lưới ngang
-            chartDoanhThu.ChartAreas[0].AxisY.Title = "Doanh thu (VNĐ)"; // Tiêu đề trục Y
+            chartDoanhThu.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chartDoanhThu.ChartAreas[0].AxisX.MajorTickMark.Enabled = false;
+            chartDoanhThu.ChartAreas[0].AxisX.Title = ""; // Bỏ tiêu đề trục X
+
+            // Thiết lập ChartArea cho trục Y
+            chartDoanhThu.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
+            chartDoanhThu.ChartAreas[0].AxisY.Title = "Doanh thu (VNĐ)";
 
 
             Series columnSeries = new Series("Doanh thu theo tháng") // Tên Series
             {
                 ChartType = SeriesChartType.Column,
                 IsValueShownAsLabel = true, // Hiển thị giá trị số trên đỉnh cột
-                Color = Color.LightGray, // Màu mặc định
-                // IsVisibleInLegend = true
+                // IsVisibleInLegend = false,
+                CustomProperties = "PointWidth=0.8" // Thiết lập PointWidth
             };
 
             colorIndex = 0;
@@ -142,14 +126,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.TongQuan
                 dp.SetValueXY(thangLabel, item.TongTien);
                 dp.Color = colors[colorIndex % colors.Length]; // Gán màu cho từng cột
                 columnSeries.Points.Add(dp);
-
-                // Thêm LegendItem thủ công cho từng cột
-                LegendItem li = new LegendItem();
-                li.Name = thangLabel;
-                li.Color = colors[colorIndex % colors.Length];
-                li.MarkerStyle = MarkerStyle.Square;
-                legendDoanhThu.CustomItems.Add(li);
-
                 colorIndex++;
             }
             chartDoanhThu.Series.Add(columnSeries);
