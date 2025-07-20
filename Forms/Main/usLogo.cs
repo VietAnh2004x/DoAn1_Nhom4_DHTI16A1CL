@@ -12,6 +12,12 @@ namespace DoAn1.Forms.Main
 {
     public partial class usLogo : UserControl
     {
+        private System.Windows.Forms.Timer scrollTimer;
+        private int textX = 0;
+        private int scrollSpeed = 2;
+        private string marqueeText = "  Xin chào  ";
+        private Font marqueeFont = new Font("Arial", 16, FontStyle.Bold);
+        private Brush marqueeBrush = Brushes.RoyalBlue;
         public usLogo()
         {
             InitializeComponent();
@@ -24,6 +30,13 @@ namespace DoAn1.Forms.Main
             scrollTimer.Interval = 30; // càng thấp càng mượt
             scrollTimer.Tick += ScrollTimer_Tick;
             scrollTimer.Start();
+        }
+
+        // Phương thức để gán lời chào từ MainForm
+        public void SetLoiChao(string loiChao)
+        {
+            marqueeText = "  " + loiChao + "  ";
+            textX = -TextRenderer.MeasureText(marqueeText, marqueeFont).Width; // reset vị trí chữ
         }
         private void ScrollTimer_Tick(object sender, EventArgs e)
         {

@@ -14,8 +14,25 @@ namespace DoAn1.Forms.Main
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // Tạo lời chào theo quyền
+            string loiChao = "Xin chào ";
+
+            switch (Session.MaQuyen)
+            {
+                case "1":
+                    loiChao += "chủ cửa hàng";
+                    break;
+                case "2":
+                    loiChao += "quản lý";
+                    break;
+                default:
+                    loiChao += "nhân viên";
+                    break;
+            }
+
             // Logo
             usLogo logo = new usLogo();
+            logo.SetLoiChao(loiChao); // Gửi lời chào tới chữ chạy
             logo.Dock = DockStyle.Fill;
             panelLogo.Controls.Add(logo);
 

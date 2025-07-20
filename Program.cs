@@ -1,7 +1,8 @@
 using DoAn1.Forms.Main;
-using OfficeOpenXml;
+using DoAn1.Forms.QLDangNhap;
+//using OfficeOpenXml;
 
-namespace DoAn
+namespace DoAn1
 {
     internal static class Program
     {
@@ -11,7 +12,8 @@ namespace DoAn
             
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+          //  Application.Run(new MainForm());
+            Application.Run(new usDangNhap());
         }
     }
 }

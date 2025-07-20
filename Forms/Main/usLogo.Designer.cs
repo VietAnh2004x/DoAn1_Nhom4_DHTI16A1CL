@@ -3,8 +3,8 @@
     partial class usLogo
     {
         private System.ComponentModel.IContainer components = null;
+        private PictureBox picLogo;
 
-       
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -42,16 +42,6 @@
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
 
-        }
-
-        private PictureBox picLogo;
-
-        private System.Windows.Forms.Timer scrollTimer;
-        private int textX = 0;
-        private int scrollSpeed = 2;
-        private string marqueeText = "  Xin chào Quản Lý  ";
-        private Font marqueeFont = new Font("Arial", 16, FontStyle.Bold);
-        private Brush marqueeBrush = Brushes.RoyalBlue;
-
+        }           
     }
 }

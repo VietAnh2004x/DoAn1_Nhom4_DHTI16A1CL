@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DoAn.Data_Transfer_Objects
+namespace DoAn1.Data_Transfer_Objects
 {
     public class TaiKhoan
     {
@@ -30,7 +30,7 @@ namespace DoAn.Data_Transfer_Objects
         public virtual PhanQuyen PhanQuyen { get; set; } = null!;
 
         public virtual NhanVien? NhanVien { get; set; }
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<HoaDon> HoaDons { get; set; }    
 
         public TaiKhoan()
         {
