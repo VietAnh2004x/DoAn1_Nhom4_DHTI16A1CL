@@ -45,18 +45,22 @@ namespace DoAn1.Forms.QLDaiLy
                     dgvDSDaiLy.Columns["email"]!.HeaderText = "Email";
                 }
 
-                dgvDSDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                // ✅ Căn chỉnh tự động để tránh xuống dòng
+                dgvDSDaiLy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+                // ✅ Không cho phép header xuống dòng
+                dgvDSDaiLy.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+
+                // ✅ Căn giữa nội dung trong header cho đẹp
+                dgvDSDaiLy.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
-
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmPhieuDaiLy phieuDaiLyForm = new frmPhieuDaiLy();
-            if (phieuDaiLyForm.ShowDialog() == DialogResult.OK)
-                MessageBox.Show("Thêm đại lý thành công!");
-            else
-                MessageBox.Show("Thêm đại lý thất bại!");
+            phieuDaiLyForm.ShowDialog();
+            LoadDaiLy();
         }
 
         private void dgvDSDaiLy_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -201,6 +205,20 @@ namespace DoAn1.Forms.QLDaiLy
                 {
                     MessageBox.Show("Không tìm thấy kết quả phù hợp.", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+
+        private void dgvDSDaiLy_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvDSDaiLy.Rows[e.RowIndex].Cells["maDaiLy"].Value != null)
+            {
+                DataGridViewRow row = dgvDSDaiLy.Rows[e.RowIndex];
+
+                txtMaDaiLy.Text = row.Cells["maDaiLy"].Value?.ToString();
+                txtTenDaiLy.Text = row.Cells["tenDaiLy"].Value?.ToString();
+                txtDiaChi.Text = row.Cells["diaChi"].Value?.ToString();
+                txtSoDienThoai.Text = row.Cells["soDienThoai"].Value?.ToString();
+                txtEmail.Text = row.Cells["email"].Value?.ToString();
             }
         }
     }

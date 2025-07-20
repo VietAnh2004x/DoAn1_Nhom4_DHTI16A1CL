@@ -11,15 +11,14 @@ namespace DoAn1.Forms.QLBaoHanh
         public usBaoHanh()
         {
             InitializeComponent();
-            LoadBaoHanh();
             SetupDateTimePicker();
+            LoadBaoHanh();
         }
 
         private void SetupDateTimePicker()
         {
             dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
             dtpNgayBatDau.CustomFormat = " "; // Hiển thị trống ban đầu
-            dtpNgayBatDau.ValueChanged += dtpNgayBatDau_ValueChanged;
         }
 
         private void LoadBaoHanh()
@@ -44,33 +43,32 @@ namespace DoAn1.Forms.QLBaoHanh
                 dgvDSBaoHanh.DataSource = danhSachBaoHanh;
 
                 // Đặt tên cột hiển thị
-                dgvDSBaoHanh.Columns["maBaoHanh"].HeaderText = "Mã Bảo Hành";
-                dgvDSBaoHanh.Columns["maHoaDon"].HeaderText = "Mã Hóa Đơn";
-                dgvDSBaoHanh.Columns["maXe"].HeaderText = "Mã Xe";
-                dgvDSBaoHanh.Columns["tenXe"].HeaderText = "Tên Xe";
-                dgvDSBaoHanh.Columns["ngayBatDau"].HeaderText = "Ngày Bắt Đầu";
-                dgvDSBaoHanh.Columns["thoiHanThang"].HeaderText = "Thời Hạn (Tháng)";
+                dgvDSBaoHanh.Columns["maBaoHanh"]!.HeaderText = "Mã Bảo Hành";
+                dgvDSBaoHanh.Columns["maHoaDon"]!.HeaderText = "Mã Hóa Đơn";
+                dgvDSBaoHanh.Columns["maXe"]!.HeaderText = "Mã Xe";
+                dgvDSBaoHanh.Columns["tenXe"]!.HeaderText = "Tên Xe";
+                dgvDSBaoHanh.Columns["ngayBatDau"]!.HeaderText = "Ngày Bắt Đầu";
+                dgvDSBaoHanh.Columns["thoiHanThang"]!.HeaderText = "Thời Hạn (Tháng)";
 
-                dgvDSBaoHanh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                // Chống xuống dòng ở header
+                dgvDSBaoHanh.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+
+                // Căn giữa tiêu đề
+                dgvDSBaoHanh.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                // Tự động giãn cột theo nội dung lớn nhất (bao gồm cả header)
+                dgvDSBaoHanh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
-        }
-
-        private void dtpNgayBatDau_ValueChanged(object sender, EventArgs e)
-        {
-            dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
-            dtpNgayBatDau.CustomFormat = "dd/MM/yyyy";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmPhieuBaoHanh phieuBaoHanhForm = new frmPhieuBaoHanh();
-            if (phieuBaoHanhForm.ShowDialog() == DialogResult.OK)
-                MessageBox.Show("Thêm phiếu bảo hành thành công!");
-            else
-                MessageBox.Show("Thêm phiếu bảo hành thất bại!");
+            phieuBaoHanhForm.ShowDialog();
+            LoadBaoHanh(); // Tải lại danh sách sau khi thêm mới
         }
 
-        private void dgvDSBaoHanh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDSBaoHanh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -81,7 +79,7 @@ namespace DoAn1.Forms.QLBaoHanh
                 txtMaXe.Text = row.Cells["maXe"].Value?.ToString();
 
                 if (row.Cells["ngayBatDau"].Value != null &&
-                    DateTime.TryParse(row.Cells["ngayBatDau"].Value.ToString(), out DateTime ngayBD))
+                    DateTime.TryParse(row.Cells["ngayBatDau"]!.Value!.ToString(), out DateTime ngayBD))
                 {
                     if (ngayBD == DateTime.MinValue)
                     {

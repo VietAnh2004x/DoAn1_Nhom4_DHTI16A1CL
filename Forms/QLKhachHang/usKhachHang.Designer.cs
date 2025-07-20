@@ -395,7 +395,7 @@ namespace DoAn1.Forms.QLKhachHang
             dgvDSKhachHang.RowHeadersWidth = 51;
             dgvDSKhachHang.Size = new Size(582, 561);
             dgvDSKhachHang.TabIndex = 0;
-            dgvDSKhachHang.CellContentClick += dgvDSKhachHang_CellContentClick_1;
+            dgvDSKhachHang.CellClick += dgvDSKhachHang_CellClick;
             // 
             // usKhachHang
             // 

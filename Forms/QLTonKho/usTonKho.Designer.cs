@@ -39,6 +39,12 @@ namespace DoAn1.Forms.QLTonKho
             btnTimKiem = new Button();
             grDSXe = new GroupBox();
             dgvDSTonKho = new DataGridView();
+            gtpTacVu = new GroupBox();
+            tbTacVu = new TableLayoutPanel();
+            btnLamMoi = new Button();
+            btnThem = new Button();
+            btnXoa = new Button();
+            btnSua = new Button();
             panel1.SuspendLayout();
             grpTTHoaDon.SuspendLayout();
             tbTrai.SuspendLayout();
@@ -48,6 +54,8 @@ namespace DoAn1.Forms.QLTonKho
             tbTimKiem.SuspendLayout();
             grDSXe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDSTonKho).BeginInit();
+            gtpTacVu.SuspendLayout();
+            tbTacVu.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -79,11 +87,13 @@ namespace DoAn1.Forms.QLTonKho
             tbTrai.ColumnCount = 1;
             tbTrai.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 391F));
             tbTrai.Controls.Add(grTTXe, 0, 0);
+            tbTrai.Controls.Add(gtpTacVu, 0, 1);
             tbTrai.Dock = DockStyle.Fill;
             tbTrai.Location = new Point(3, 3);
             tbTrai.Name = "tbTrai";
-            tbTrai.RowCount = 1;
-            tbTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tbTrai.RowCount = 2;
+            tbTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
+            tbTrai.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tbTrai.Size = new Size(394, 744);
             tbTrai.TabIndex = 0;
             // 
@@ -102,7 +112,7 @@ namespace DoAn1.Forms.QLTonKho
             grTTXe.Dock = DockStyle.Fill;
             grTTXe.Location = new Point(3, 3);
             grTTXe.Name = "grTTXe";
-            grTTXe.Size = new Size(388, 738);
+            grTTXe.Size = new Size(388, 552);
             grTTXe.TabIndex = 0;
             grTTXe.TabStop = false;
             grTTXe.Text = "Thông Tin Xe";
@@ -110,64 +120,64 @@ namespace DoAn1.Forms.QLTonKho
             // txtTongTienNhap
             // 
             txtTongTienNhap.BorderStyle = BorderStyle.FixedSingle;
-            txtTongTienNhap.Location = new Point(176, 490);
+            txtTongTienNhap.Location = new Point(179, 467);
             txtTongTienNhap.Name = "txtTongTienNhap";
-            txtTongTienNhap.Size = new Size(168, 30);
+            txtTongTienNhap.Size = new Size(168, 25);
             txtTongTienNhap.TabIndex = 13;
             // 
             // txtDongianhap
             // 
             txtDongianhap.BorderStyle = BorderStyle.FixedSingle;
-            txtDongianhap.Location = new Point(176, 398);
+            txtDongianhap.Location = new Point(179, 375);
             txtDongianhap.Name = "txtDongianhap";
-            txtDongianhap.Size = new Size(168, 30);
+            txtDongianhap.Size = new Size(168, 25);
             txtDongianhap.TabIndex = 12;
             // 
             // lblTongTien
             // 
             lblTongTien.AutoSize = true;
-            lblTongTien.Location = new Point(18, 492);
+            lblTongTien.Location = new Point(21, 469);
             lblTongTien.Name = "lblTongTien";
-            lblTongTien.Size = new Size(86, 23);
+            lblTongTien.Size = new Size(69, 19);
             lblTongTien.TabIndex = 11;
             lblTongTien.Text = "Tổng Tiền";
             // 
             // lblDonGiaNhap
             // 
             lblDonGiaNhap.AutoSize = true;
-            lblDonGiaNhap.Location = new Point(18, 400);
+            lblDonGiaNhap.Location = new Point(21, 377);
             lblDonGiaNhap.Name = "lblDonGiaNhap";
-            lblDonGiaNhap.Size = new Size(114, 23);
+            lblDonGiaNhap.Size = new Size(92, 19);
             lblDonGiaNhap.TabIndex = 10;
             lblDonGiaNhap.Text = "Đơn giá nhập";
             // 
             // txtSoLuong
             // 
             txtSoLuong.BorderStyle = BorderStyle.FixedSingle;
-            txtSoLuong.Location = new Point(176, 297);
+            txtSoLuong.Location = new Point(179, 274);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(168, 30);
+            txtSoLuong.Size = new Size(168, 25);
             txtSoLuong.TabIndex = 9;
             // 
             // txtNgayNhap
             // 
             txtNgayNhap.BorderStyle = BorderStyle.FixedSingle;
-            txtNgayNhap.Location = new Point(176, 196);
+            txtNgayNhap.Location = new Point(179, 173);
             txtNgayNhap.Name = "txtNgayNhap";
-            txtNgayNhap.Size = new Size(168, 30);
+            txtNgayNhap.Size = new Size(168, 25);
             txtNgayNhap.TabIndex = 8;
             // 
             // txtTenXe
             // 
             txtTenXe.BorderStyle = BorderStyle.FixedSingle;
-            txtTenXe.Location = new Point(176, 95);
+            txtTenXe.Location = new Point(179, 72);
             txtTenXe.Name = "txtTenXe";
-            txtTenXe.Size = new Size(168, 30);
+            txtTenXe.Size = new Size(168, 25);
             txtTenXe.TabIndex = 6;
             // 
             // lblSoLuong
             // 
-            lblSoLuong.Location = new Point(18, 299);
+            lblSoLuong.Location = new Point(21, 276);
             lblSoLuong.Name = "lblSoLuong";
             lblSoLuong.Size = new Size(127, 32);
             lblSoLuong.TabIndex = 4;
@@ -175,7 +185,7 @@ namespace DoAn1.Forms.QLTonKho
             // 
             // lblNgayNhap
             // 
-            lblNgayNhap.Location = new Point(18, 198);
+            lblNgayNhap.Location = new Point(21, 175);
             lblNgayNhap.Name = "lblNgayNhap";
             lblNgayNhap.Size = new Size(127, 32);
             lblNgayNhap.TabIndex = 3;
@@ -183,7 +193,7 @@ namespace DoAn1.Forms.QLTonKho
             // 
             // lblTenXe
             // 
-            lblTenXe.Location = new Point(18, 97);
+            lblTenXe.Location = new Point(21, 74);
             lblTenXe.Name = "lblTenXe";
             lblTenXe.Size = new Size(127, 32);
             lblTenXe.TabIndex = 2;
@@ -225,17 +235,17 @@ namespace DoAn1.Forms.QLTonKho
             tbTimKiem.Controls.Add(txtTimKiem, 1, 0);
             tbTimKiem.Controls.Add(btnTimKiem, 2, 0);
             tbTimKiem.Dock = DockStyle.Fill;
-            tbTimKiem.Location = new Point(3, 26);
+            tbTimKiem.Location = new Point(3, 21);
             tbTimKiem.Name = "tbTimKiem";
             tbTimKiem.RowCount = 1;
             tbTimKiem.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tbTimKiem.Size = new Size(582, 113);
+            tbTimKiem.Size = new Size(582, 118);
             tbTimKiem.TabIndex = 0;
             // 
             // lblTimKiemMaXe
             // 
             lblTimKiemMaXe.Anchor = AnchorStyles.None;
-            lblTimKiemMaXe.Location = new Point(7, 45);
+            lblTimKiemMaXe.Location = new Point(7, 47);
             lblTimKiemMaXe.Name = "lblTimKiemMaXe";
             lblTimKiemMaXe.Size = new Size(160, 23);
             lblTimKiemMaXe.TabIndex = 11;
@@ -245,9 +255,9 @@ namespace DoAn1.Forms.QLTonKho
             // 
             txtTimKiem.Anchor = AnchorStyles.None;
             txtTimKiem.BorderStyle = BorderStyle.FixedSingle;
-            txtTimKiem.Location = new Point(192, 41);
+            txtTimKiem.Location = new Point(192, 46);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(196, 30);
+            txtTimKiem.Size = new Size(196, 25);
             txtTimKiem.TabIndex = 12;
             // 
             // btnTimKiem
@@ -257,7 +267,7 @@ namespace DoAn1.Forms.QLTonKho
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(443, 39);
+            btnTimKiem.Location = new Point(443, 41);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(101, 35);
             btnTimKiem.TabIndex = 10;
@@ -282,12 +292,101 @@ namespace DoAn1.Forms.QLTonKho
             dgvDSTonKho.BackgroundColor = Color.White;
             dgvDSTonKho.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDSTonKho.Dock = DockStyle.Fill;
-            dgvDSTonKho.Location = new Point(3, 26);
+            dgvDSTonKho.Location = new Point(3, 21);
             dgvDSTonKho.Name = "dgvDSTonKho";
             dgvDSTonKho.RowHeadersWidth = 51;
-            dgvDSTonKho.Size = new Size(582, 561);
+            dgvDSTonKho.Size = new Size(582, 566);
             dgvDSTonKho.TabIndex = 0;
-            dgvDSTonKho.CellContentClick += dgvDSTonKho_CellContentClick_1;
+            dgvDSTonKho.CellClick += dgvDSTonKho_CellClick;
+            // 
+            // gtpTacVu
+            // 
+            gtpTacVu.Controls.Add(tbTacVu);
+            gtpTacVu.Dock = DockStyle.Fill;
+            gtpTacVu.Location = new Point(3, 561);
+            gtpTacVu.Name = "gtpTacVu";
+            gtpTacVu.Size = new Size(388, 180);
+            gtpTacVu.TabIndex = 1;
+            gtpTacVu.TabStop = false;
+            gtpTacVu.Text = "Tác Vụ";
+            // 
+            // tbTacVu
+            // 
+            tbTacVu.ColumnCount = 2;
+            tbTacVu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tbTacVu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tbTacVu.Controls.Add(btnLamMoi, 1, 1);
+            tbTacVu.Controls.Add(btnThem, 0, 0);
+            tbTacVu.Controls.Add(btnXoa, 0, 1);
+            tbTacVu.Controls.Add(btnSua, 1, 0);
+            tbTacVu.Dock = DockStyle.Fill;
+            tbTacVu.Location = new Point(3, 21);
+            tbTacVu.Name = "tbTacVu";
+            tbTacVu.RowCount = 2;
+            tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tbTacVu.Size = new Size(382, 156);
+            tbTacVu.TabIndex = 1;
+            // 
+            // btnLamMoi
+            // 
+            btnLamMoi.Anchor = AnchorStyles.None;
+            btnLamMoi.BackColor = Color.FromArgb(255, 193, 7);
+            btnLamMoi.FlatStyle = FlatStyle.Flat;
+            btnLamMoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLamMoi.ForeColor = Color.White;
+            btnLamMoi.Location = new Point(231, 98);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(110, 38);
+            btnLamMoi.TabIndex = 19;
+            btnLamMoi.Text = "Làm Mới";
+            btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
+            // 
+            // btnThem
+            // 
+            btnThem.Anchor = AnchorStyles.None;
+            btnThem.BackColor = Color.FromArgb(40, 167, 69);
+            btnThem.FlatStyle = FlatStyle.Flat;
+            btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnThem.ForeColor = Color.White;
+            btnThem.Location = new Point(40, 20);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(110, 38);
+            btnThem.TabIndex = 16;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
+            // 
+            // btnXoa
+            // 
+            btnXoa.Anchor = AnchorStyles.None;
+            btnXoa.BackColor = Color.FromArgb(220, 53, 69);
+            btnXoa.FlatStyle = FlatStyle.Flat;
+            btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnXoa.ForeColor = Color.White;
+            btnXoa.Location = new Point(40, 98);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(110, 38);
+            btnXoa.TabIndex = 18;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
+            // 
+            // btnSua
+            // 
+            btnSua.Anchor = AnchorStyles.None;
+            btnSua.BackColor = Color.FromArgb(0, 123, 255);
+            btnSua.FlatStyle = FlatStyle.Flat;
+            btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnSua.ForeColor = Color.White;
+            btnSua.Location = new Point(231, 20);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(110, 38);
+            btnSua.TabIndex = 17;
+            btnSua.Text = "Sửa";
+            btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // usTonKho
             // 
@@ -308,6 +407,8 @@ namespace DoAn1.Forms.QLTonKho
             tbTimKiem.PerformLayout();
             grDSXe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvDSTonKho).EndInit();
+            gtpTacVu.ResumeLayout(false);
+            tbTacVu.ResumeLayout(false);
             ResumeLayout(false);
 
         }
@@ -334,5 +435,11 @@ namespace DoAn1.Forms.QLTonKho
         private TextBox txtTongTienNhap;
         private TextBox txtDongianhap;
         private Label lblTongTien;
+        private GroupBox gtpTacVu;
+        private TableLayoutPanel tbTacVu;
+        private Button btnLamMoi;
+        private Button btnThem;
+        private Button btnXoa;
+        private Button btnSua;
     }
 }

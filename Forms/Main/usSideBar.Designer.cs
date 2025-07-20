@@ -24,10 +24,12 @@ namespace DoAn1.Forms.Main
             btnDangXuat = new FontAwesome.Sharp.IconButton();
             btnQLXeMayDien = new FontAwesome.Sharp.IconButton();
             btnQLXeDapDien = new FontAwesome.Sharp.IconButton();
+            btnQLXeCu = new FontAwesome.Sharp.IconButton();
             btnQLTonKho = new FontAwesome.Sharp.IconButton();
             btnQLKhachHang = new FontAwesome.Sharp.IconButton();
             btnQLHoaDon = new FontAwesome.Sharp.IconButton();
             btnQLPhieuBaoHanh = new FontAwesome.Sharp.IconButton();
+            btnQLLichSuBaoHanh = new FontAwesome.Sharp.IconButton();
             btnQLDaiLy = new FontAwesome.Sharp.IconButton();
             btnPhanQuyen = new FontAwesome.Sharp.IconButton();
             subMenuPanel = new Panel();
@@ -223,6 +225,29 @@ namespace DoAn1.Forms.Main
             btnQLXeDapDien.UseVisualStyleBackColor = true;
             btnQLXeDapDien.Click += btnQLXeDapDien_Click;
             // 
+            // btnQLXeCu
+            // 
+            btnQLXeCu.Cursor = Cursors.Hand;
+            btnQLXeCu.Dock = DockStyle.Top;
+            btnQLXeCu.FlatAppearance.BorderSize = 0;
+            btnQLXeCu.FlatStyle = FlatStyle.Flat;
+            btnQLXeCu.IconChar = FontAwesome.Sharp.IconChar.CarBattery;
+            btnQLXeCu.IconColor = Color.White;
+            btnQLXeCu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnQLXeCu.IconSize = 24;
+            btnQLXeCu.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLXeCu.Location = new Point(0, 0);
+            btnQLXeCu.Margin = new Padding(0);
+            btnQLXeCu.Name = "btnQLXeCu";
+            btnQLXeCu.Padding = new Padding(30, 0, 0, 0);
+            btnQLXeCu.Size = new Size(248, 50);
+            btnQLXeCu.TabIndex = 1;
+            btnQLXeCu.Text = " Quản Lý Xe Cũ";
+            btnQLXeCu.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLXeCu.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnQLXeCu.UseVisualStyleBackColor = true;
+            btnQLXeCu.Click += btnQLXeCu_Click;
+            // 
             // btnQLTonKho
             // 
             btnQLTonKho.Cursor = Cursors.Hand;
@@ -315,6 +340,29 @@ namespace DoAn1.Forms.Main
             btnQLPhieuBaoHanh.UseVisualStyleBackColor = true;
             btnQLPhieuBaoHanh.Click += btnQLPhieuBaoHanh_Click;
             // 
+            // btnQLLichSuBaoHanh
+            // 
+            btnQLLichSuBaoHanh.Cursor = Cursors.Hand;
+            btnQLLichSuBaoHanh.Dock = DockStyle.Top;
+            btnQLLichSuBaoHanh.FlatAppearance.BorderSize = 0;
+            btnQLLichSuBaoHanh.FlatStyle = FlatStyle.Flat;
+            btnQLLichSuBaoHanh.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            btnQLLichSuBaoHanh.IconColor = Color.White;
+            btnQLLichSuBaoHanh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnQLLichSuBaoHanh.IconSize = 24;
+            btnQLLichSuBaoHanh.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLLichSuBaoHanh.Location = new Point(0, 250);
+            btnQLLichSuBaoHanh.Margin = new Padding(0);
+            btnQLLichSuBaoHanh.Name = "btnQLLichSuBaoHanh";
+            btnQLLichSuBaoHanh.Padding = new Padding(30, 0, 0, 0);
+            btnQLLichSuBaoHanh.Size = new Size(248, 50);
+            btnQLLichSuBaoHanh.TabIndex = 5;
+            btnQLLichSuBaoHanh.Text = " Quản Lý Lịch Sử Bảo Hành";
+            btnQLLichSuBaoHanh.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLLichSuBaoHanh.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnQLLichSuBaoHanh.UseVisualStyleBackColor = true;
+            btnQLLichSuBaoHanh.Click += btnQLLichSuBaoHanh_Click;
+            // 
             // btnQLDaiLy
             // 
             btnQLDaiLy.Cursor = Cursors.Hand;
@@ -341,10 +389,12 @@ namespace DoAn1.Forms.Main
             // subMenuPanel
             // 
             subMenuPanel.Controls.Add(btnQLDaiLy);
+            subMenuPanel.Controls.Add(btnQLLichSuBaoHanh);
             subMenuPanel.Controls.Add(btnQLPhieuBaoHanh);
             subMenuPanel.Controls.Add(btnQLHoaDon);
             subMenuPanel.Controls.Add(btnQLKhachHang);
             subMenuPanel.Controls.Add(btnQLTonKho);
+            subMenuPanel.Controls.Add(btnQLXeCu);
             subMenuPanel.Controls.Add(btnQLXeMayDien);
             subMenuPanel.Controls.Add(btnQLXeDapDien);
             subMenuPanel.Dock = DockStyle.Top;
@@ -382,10 +432,12 @@ namespace DoAn1.Forms.Main
 
         private FontAwesome.Sharp.IconButton btnQLXeMayDien;
         private FontAwesome.Sharp.IconButton btnQLXeDapDien;
+        private FontAwesome.Sharp.IconButton btnQLXeCu;
         private FontAwesome.Sharp.IconButton btnQLTonKho;
         private FontAwesome.Sharp.IconButton btnQLKhachHang;
         private FontAwesome.Sharp.IconButton btnQLHoaDon;
         private FontAwesome.Sharp.IconButton btnQLPhieuBaoHanh;
+        private FontAwesome.Sharp.IconButton btnQLLichSuBaoHanh;
         private FontAwesome.Sharp.IconButton btnQLDaiLy;
         private FontAwesome.Sharp.IconButton btnPhanQuyen;
         private Panel subMenuPanel;

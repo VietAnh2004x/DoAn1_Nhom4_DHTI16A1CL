@@ -19,13 +19,20 @@ namespace DoAn1.Forms.QLXe
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
+        }
+        private void btnThemAnh_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

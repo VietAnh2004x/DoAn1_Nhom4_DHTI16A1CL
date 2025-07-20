@@ -184,6 +184,7 @@
             btnThemAnh.TabIndex = 16;
             btnThemAnh.Text = "Thêm ảnh";
             btnThemAnh.UseVisualStyleBackColor = true;
+            btnThemAnh.Click += btnThemAnh_Click;
             // 
             // picAnhXe
             // 
@@ -307,6 +308,7 @@
             btnLamMoi.TabIndex = 6;
             btnLamMoi.Text = "Làm mới";
             btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnThoat
             // 
