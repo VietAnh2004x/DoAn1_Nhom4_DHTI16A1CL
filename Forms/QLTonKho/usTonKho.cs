@@ -1,5 +1,8 @@
 ﻿using DoAn.Data_Access_Layer;
+using DoAn.Forms.QLTonKho;
+using DoAn.Forms.QLXe;
 using DoAn1.Data_Transfer_Objects;
+using DoAn1.Forms.QLXe;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -194,75 +197,9 @@ namespace DoAn1.Forms.QLTonKho
 
         private void btnThem_Click_1(object sender, EventArgs e)
         {
-            // Bỏ kiểm tra txtTenXe vì giờ tự lấy
-            if (string.IsNullOrWhiteSpace(txtMaXe.Text) ||
-                string.IsNullOrWhiteSpace(txtSoLuong.Text) ||
-                string.IsNullOrWhiteSpace(txtDongianhap.Text))
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            using (var context = new DataDbContext())
-            {
-                var maXe = txtMaXe.Text.Trim();
-                var xe = context.ThongTinXe.FirstOrDefault(x => x.maXe == maXe);
-
-                if (xe == null)
-                {
-                    MessageBox.Show("Không tìm thấy xe có mã tương ứng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Cập nhật tên xe lên textbox để hiển thị luôn
-                txtTenXe.Text = xe.tenXe;
-
-                // Sinh mã nhập tự động: N001, N002,...
-                string maMoi;
-
-                var danhSachMaNhap = context.TonXe
-                    .Where(x => x.maNhap.StartsWith("N"))
-                    .Select(x => x.maNhap)
-                    .ToList();
-
-                int maxSo = 0;
-
-                foreach (var ma in danhSachMaNhap)
-                {
-                    if (int.TryParse(ma.Substring(1), out int so))
-                    {
-                        if (so > maxSo)
-                            maxSo = so;
-                    }
-                }
-
-                maMoi = "N" + (maxSo + 1).ToString("D3"); // Tăng số và format 3 chữ số
-
-                try
-                {
-                    var tonXe = new TonXe
-                    {
-                        maNhap = maMoi,
-                        maXe = xe.maXe,
-                        ngayNhap = dtpNgayNhap.Value, // Dùng DateTimePicker
-                        soLuong = int.Parse(txtSoLuong.Text),
-                        donGiaNhap = decimal.Parse(txtDongianhap.Text.Replace("VNĐ", "").Replace(",", "").Trim())
-                    };
-
-                    context.TonXe.Add(tonXe);
-                    context.SaveChanges();
-                    LoadTonXe();
-                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Dữ liệu số không hợp lệ! Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi thêm dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            frmNhapXeVaoKho NhapXeVaoKhoForm = new frmNhapXeVaoKho();
+            NhapXeVaoKhoForm.ShowDialog();
+            LoadTonXe();
         }
 
         private void btnTimKiem_Click_1(object sender, EventArgs e)

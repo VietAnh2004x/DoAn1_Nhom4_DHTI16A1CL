@@ -1,4 +1,6 @@
 ﻿using DoAn.Data_Access_Layer;
+using DoAn.Data_Transfer_Objects;
+using DoAn.Forms.QLBaoHanh;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
@@ -69,7 +71,9 @@ namespace DoAn1.Forms.QLBaoHanh
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            frmLichSuBaoHanh LichSuBaoHanhForm = new frmLichSuBaoHanh();
+            LichSuBaoHanhForm.ShowDialog();
+            LoadBaoHanh(); // Tải lại danh sách sau khi thêm mới
         }
 
         private void dgvDSLSBaoHanh_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -198,18 +202,36 @@ namespace DoAn1.Forms.QLBaoHanh
             {
                 using (var context = new DataDbContext())
                 {
-                    string keyword = txtTimKiem.Text.Trim().ToLower();
+                    string keyword = txtTimKiem.Text.Trim();
 
                     if (string.IsNullOrEmpty(keyword))
                     {
-                        MessageBox.Show("Vui lòng nhập mã Lịch Sử Bảo Hành để tìm kiếm.");
+                        MessageBox.Show("Vui lòng nhập mã Lịch Sử Bảo Hành hoặc Mã Bảo Hành để tìm kiếm.");
                         return;
                     }
 
-                    var results = (from ls in context.LichSuBaoHanh
+                    var query = context.LichSuBaoHanh.AsQueryable();
+
+                    // Kiểm tra mã nhập vào để lọc dữ liệu phù hợp
+                    if (keyword.StartsWith("LSBH", StringComparison.OrdinalIgnoreCase))
+                    {
+                        string keyLower = keyword.ToLower();
+                        query = query.Where(ls => ls.MaLSBH.ToLower() == keyLower);
+                    }
+                    else if (keyword.StartsWith("BH", StringComparison.OrdinalIgnoreCase))
+                    {
+                        string keyLower = keyword.ToLower();
+                        query = query.Where(ls => ls.maBaoHanh.ToLower() == keyLower);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã nhập không hợp lệ. Vui lòng nhập mã LSBH hoặc BH đúng định dạng.");
+                        return;
+                    }
+
+                    var results = (from ls in query
                                    join nv in context.NhanVien on ls.maNV equals nv.maNV into nvGroup
                                    from nv in nvGroup.DefaultIfEmpty()
-                                   where ls.MaLSBH.Contains(keyword)
                                    select new
                                    {
                                        ls.MaLSBH,
@@ -233,8 +255,6 @@ namespace DoAn1.Forms.QLBaoHanh
                 MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
             }
         }
-
-
 
 
     }

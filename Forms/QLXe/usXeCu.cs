@@ -1,7 +1,9 @@
 ﻿using DoAn.Data_Access_Layer;
 using DoAn.Data_Transfer_Objects;
-using System.Globalization;
+using DoAn.Forms.QLTonKho;
+using DoAn.Forms.QLXe;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace DoAn1.Forms.QLXe
@@ -123,7 +125,9 @@ namespace DoAn1.Forms.QLXe
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            
+            frmNhapXeCu NhapXeCuForm = new frmNhapXeCu();
+            NhapXeCuForm.ShowDialog();
+            LoadDanhSachXe();
         }
 
 
