@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
@@ -14,20 +9,20 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [Key]
         [Column("MaHD")]
         [DisplayName("Mã Hóa Đơn")]
-        [StringLength(20)]
+        [StringLength(10)]
         public string maHoaDon { get; set; }
 
         [Required]
         [Column("MaKH")]
         [DisplayName("Mã Khách Hàng")]
-        [StringLength(20)]
+        [StringLength(10)]
         public string maKhachHang { get; set; }
 
         [Required]
         [Column("TenTaiKhoan")]
         [DisplayName("Tên Tài Khoản")]
         [StringLength(50)]
-        public string tenTK { get; set; }
+        public string tenTaiKhoan { get; set; }
 
         [Required]
         [Column("NgayLap")]
@@ -38,26 +33,31 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [Required]
         [Column("TongTien")]
         [DisplayName("Tổng Tiền")]
-        [DataType(DataType.Currency)]
         public decimal tongTien { get; set; }
 
+        [Required]
+        [Column("PTThanhToan")]
+        [DisplayName("Phương Thức Thanh Toán")]
+        [StringLength(50)]
+        public string phuongThucThanhToan { get; set; }
+
+        // Liên kết khóa ngoại
         [ForeignKey("maKhachHang")]
         public virtual KhachHang? KhachHang { get; set; }
-        [ForeignKey("tenTK")]
+
+        [ForeignKey("tenTaiKhoan")]
         public virtual TaiKhoan? TaiKhoan { get; set; }
 
-        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        public virtual ICollection<BaoHanh> BaoHanhs { get; set; }
-
+        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; } = new HashSet<ChiTietHoaDon>();
+        public virtual ICollection<BaoHanh> BaoHanhs { get; set; } = new HashSet<BaoHanh>();
         public HoaDon()
         {
             maHoaDon = string.Empty;
             maKhachHang = string.Empty;
-            tenTK = string.Empty;
+            tenTaiKhoan = string.Empty;
+            phuongThucThanhToan = string.Empty;
             ngayLap = DateTime.Now;
             tongTien = 0;
-            ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-            BaoHanhs = new HashSet<BaoHanh>();
         }
     }
 }

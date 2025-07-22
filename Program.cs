@@ -1,6 +1,6 @@
 using DoAn1_Nhom4_DHTI16A1CL.Forms.MainForm;
 
-namespace DoAn
+namespace DoAn1_Nhom4_DHTI16A1CL
 {
     internal static class Program
     {

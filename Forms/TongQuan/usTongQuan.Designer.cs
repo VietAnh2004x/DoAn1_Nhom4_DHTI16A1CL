@@ -229,7 +229,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.TongQuan
             this.chartTopSanPham.ChartAreas.Add(chartArea1);
 
             //
-            // chartDoanhThu
+            // chartDoAn1_Nhom4_DHTI16A1CLhThu
             //
             this.chartDoanhThu.Dock = DockStyle.Fill;
             this.chartDoanhThu.Location = new Point(532, 3); // Position within TableLayoutPanel

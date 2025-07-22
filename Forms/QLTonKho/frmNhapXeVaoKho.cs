@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn.Forms.QLTonKho
+namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
 {
     public partial class frmNhapXeVaoKho : Form
     {

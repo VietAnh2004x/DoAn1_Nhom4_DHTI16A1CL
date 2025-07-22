@@ -1,5 +1,4 @@
 ﻿using DoAn1_Nhom4_DHTI16A1CL.Forms.TongQuan;
-using System.Windows.Forms;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Forms.MainForm
 {

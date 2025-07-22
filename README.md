@@ -1,7 +1,7 @@
-# Đồ án: Xây dựng phần mềm quản lý kinh doanh của một cửa hàng bán xe máy điện, xe đạp điện
+# Đồ án: Xây dựng phần mềm quản lý kinh DoAn1_Nhom4_DHTI16A1CLh của một cửa hàng bán xe máy điện, xe đạp điện
 
 ## 📌 Giới thiệu
-Đây là đồ án môn học nhằm xây dựng một phần mềm quản lý kinh doanh cho cửa hàng chuyên bán **xe máy điện** và **xe đạp điện**, hỗ trợ các hoạt động như quản lý khách hàng, bán hàng, kiểm soát tồn kho, thống kê – báo cáo doanh số và phân quyền người dùng. Phần mềm được phát triển và triển khai trên nền tảng PC
+Đây là đồ án môn học nhằm xây dựng một phần mềm quản lý kinh DoAn1_Nhom4_DHTI16A1CLh cho cửa hàng chuyên bán **xe máy điện** và **xe đạp điện**, hỗ trợ các hoạt động như quản lý khách hàng, bán hàng, kiểm soát tồn kho, thống kê – báo cáo DoAn1_Nhom4_DHTI16A1CLh số và phân quyền người dùng. Phần mềm được phát triển và triển khai trên nền tảng PC
 
 ---
 
@@ -26,7 +26,7 @@
 - Quản lý bảo hành
 
 ### 3. Báo cáo
-- Báo cáo doanh thu tuần, tháng, quý, năm
+- Báo cáo DoAn1_Nhom4_DHTI16A1CLh thu tuần, tháng, quý, năm
 - Xuất báo cáo Excel
 
 ### 4. Phân quyền người dùng

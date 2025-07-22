@@ -1,14 +1,4 @@
-﻿using DoAn.Data_Access_Layer;
-using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using DoAn1_Nhom4_DHTI16A1CL.Data_Access_Layer;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLDaiLy
 {

@@ -45,7 +45,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.MainForm
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(4);
             Name = "MainForm";
-            Text = "Quản lí kinh doanh cửa hàng";
+            Text = "Quản lí kinh Doanh cửa hàng";
             ResumeLayout(false);
 
         }

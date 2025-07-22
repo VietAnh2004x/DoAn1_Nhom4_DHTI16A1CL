@@ -15,7 +15,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLHoaDon
         public usHoaDon()
         {
             InitializeComponent();
-            using (var context = new DoAn.Data_Access_Layer.DataDbContext())
+            using (var context = new DoAn1_Nhom4_DHTI16A1CL.Data_Access_Layer.DataDbContext())
             {
                 BindingSource hoaDonBindingSource = new BindingSource();
                 hoaDonBindingSource.DataSource = context.HoaDon.ToList();

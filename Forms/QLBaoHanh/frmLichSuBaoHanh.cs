@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn.Forms.QLBaoHanh
+namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
 {
     public partial class frmLichSuBaoHanh : Form
     {

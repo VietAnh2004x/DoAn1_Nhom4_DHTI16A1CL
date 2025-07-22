@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 {
@@ -19,9 +14,9 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 
         [Required]
         [Column("MaHD")]
-        [DisplayName("Mã Hợp Đồng")]
+        [DisplayName("Mã Hóa Đơn")]
         [StringLength(20)]
-        public string maHopDong { get; set; }
+        public string maHoaDon { get; set; }
 
         [Required]
         [Column("MaXe")]
@@ -39,18 +34,20 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [DisplayName("Thời Hạn (Tháng)")]
         public int thoiHanThang { get; set; }
 
-        [ForeignKey("maHopDong")]
-        public virtual HoaDon? HoaDon { get; set; }
+        [ForeignKey("maHoaDon")]
+        public virtual HoaDon HoaDon { get; set; } = null!;
+
         [ForeignKey("maXe")]
         public virtual ThongTinXe? Xe { get; set; }
-
-        public BaoHanh() {
+        public virtual ICollection<LichSuBaoHanh> LichSuBaoHanhs { get; set; } 
+        public BaoHanh()
+        {
             maBaoHanh = string.Empty;
-            maHopDong = string.Empty;
+            maHoaDon = string.Empty;
             maXe = string.Empty;
             ngayBatDau = DateTime.MinValue;
             thoiHanThang = 0;
+            LichSuBaoHanhs = new HashSet<LichSuBaoHanh>();
         }
-
     }
 }

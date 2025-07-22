@@ -38,8 +38,8 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         [StringLength(100)]
         public string email { get; set; }
 
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
-
+        public virtual ICollection<HoaDon> HoaDons { get; set; } = new HashSet<HoaDon>();
+        public virtual ICollection<GiaoDichXeCu> GiaoDichXeCus { get; set; } = new List<GiaoDichXeCu>();
         public KhachHang()
         {
             maKhachHang = string.Empty;

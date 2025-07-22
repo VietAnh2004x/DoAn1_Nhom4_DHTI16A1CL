@@ -15,7 +15,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLKhachHang
         public usKhachHang()
         {
             InitializeComponent();
-            using (var context = new DoAn.Data_Access_Layer.DataDbContext())
+            using (var context = new DoAn1_Nhom4_DHTI16A1CL.Data_Access_Layer.DataDbContext())
             {
                 BindingSource khachHangBindingSource = new BindingSource();
                 khachHangBindingSource.DataSource = context.KhachHang.ToList();

@@ -1,4 +1,4 @@
-﻿namespace DoAn.Forms.QLBaoHanh
+﻿namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLBaoHanh
 {
     partial class frmLichSuBaoHanh
     {
