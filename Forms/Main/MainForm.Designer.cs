@@ -29,8 +29,8 @@
             // tbTong
             // 
             tbTong.ColumnCount = 2;
-            tbTong.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tbTong.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            tbTong.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23F));
+            tbTong.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 77F));
             tbTong.Controls.Add(tbTrai, 0, 0);
             tbTong.Controls.Add(tbPhai, 1, 0);
             tbTong.Dock = DockStyle.Fill;

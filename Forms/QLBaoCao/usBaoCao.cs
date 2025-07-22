@@ -23,16 +23,16 @@ namespace DoAn.Forms.QLBaoCao
 
         private void usBaoCao_Load(object sender, EventArgs e)
         {
-            cboLuaChon.Items.Clear();
-            cboLuaChon.Items.AddRange(new[] { "Xe Điện", "Xe Máy Điện", "Xe Đạp Điện" });
-            cboLuaChon.SelectedIndex = 0;
+            cboLoaiThongKe.Items.Clear();
+            cboLoaiThongKe.Items.AddRange(new[] { "Xe Điện", "Xe Máy Điện", "Xe Đạp Điện" });
+            cboLoaiThongKe.SelectedIndex = 0;
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             DateTime bd = dtpNgayBatDau.Value.Date;
             DateTime kt = dtpNgayKetThuc.Value.Date;
-            string loai = cboLuaChon.SelectedItem?.ToString() ?? "Xe Điện";
+            string loai = cboLoaiThongKe.SelectedItem?.ToString() ?? "Xe Điện";
 
             var data = (from hd in context.HoaDon
                         join ct in context.ChiTietHoaDon on hd.maHoaDon equals ct.maHoaDon
@@ -56,9 +56,9 @@ namespace DoAn.Forms.QLBaoCao
             dgvThongKe.Columns["TongTien"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
 
             txtSoKhachHang.Text = baoCaoBLL.ThongKeKhachHang(bd, kt, loai).ToString();
-            txtTongSoXeBanRa.Text = baoCaoBLL.ThongKeSoXeBanRa(bd, kt, loai).ToString();
-            txtTongDoanhThu.Text = baoCaoBLL.ThongKeTongDoanhThu(bd, kt, loai);
-            txtTongSoXeTheoLoai.Text = baoCaoBLL.ThongKeTongSoXeTheoLoai(bd, kt, loai).ToString();
+            txt2.Text = baoCaoBLL.ThongKeSoXeBanRa(bd, kt, loai).ToString();
+            txt1.Text = baoCaoBLL.ThongKeTongDoanhThu(bd, kt, loai);
+            txt3.Text = baoCaoBLL.ThongKeTongSoXeTheoLoai(bd, kt, loai).ToString();
         }
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
