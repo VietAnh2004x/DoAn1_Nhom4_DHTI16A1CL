@@ -16,7 +16,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Forms.QLTonKho
         {
             InitializeComponent();
             BindingSource tonKhoBindingSource = new BindingSource();
-            using (var context = new DoAn.Data_Access_Layer.DataDbContext())
+            using (var context = new DoAn1_Nhom4_DHTI16A1CL.Data_Access_Layer.DataDbContext())
             {
                 tonKhoBindingSource.DataSource = context.TonXe.ToList();
                 dgvDSTonKho.DataSource = tonKhoBindingSource;
