@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLXe
+namespace DoAn.Forms.QLXe
 {
     partial class usXeDapDien
     {

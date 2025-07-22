@@ -1,9 +1,9 @@
-﻿using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Transfer_Objects;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DoAn1.Data_Transfer_Objects
+namespace DoAn.Data_Transfer_Objects
 {
     public class ChiTietHoaDon
     {

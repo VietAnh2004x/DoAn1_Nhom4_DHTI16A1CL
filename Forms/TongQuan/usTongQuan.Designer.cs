@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms.DataVisualization.Charting;
 
-namespace DoAn1.Forms.TongQuan
+namespace DoAn.Forms.TongQuan
 {
     partial class usTongQuan
     {
@@ -229,7 +229,7 @@ namespace DoAn1.Forms.TongQuan
             this.chartTopSanPham.ChartAreas.Add(chartArea1);
 
             //
-            // chartDoanhThu
+            // chartDoAn1_Nhom4_DHTI16A1CLhThu
             //
             this.chartDoanhThu.Dock = DockStyle.Fill;
             this.chartDoanhThu.Location = new Point(532, 3); // Position within TableLayoutPanel

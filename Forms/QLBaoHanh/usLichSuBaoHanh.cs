@@ -1,24 +1,14 @@
-
-﻿using DoAn.Data_Access_Layer;
-using DoAn.Data_Transfer_Objects;
-using DoAn.Forms.QLBaoHanh;
-using Microsoft.EntityFrameworkCore;
-﻿using DoAn1.Data_Access_Layer;
+using DoAn.Data_Access_Layer;
 using System.Data;
 
-namespace DoAn1.Forms.QLBaoHanh
+namespace DoAn.Forms.QLBaoHanh
 {
     public partial class usLichSuBaoHanh : UserControl
     {
         public usLichSuBaoHanh()
         {
             InitializeComponent();
-            SetupDateTimePicker();
             LoadBaoHanh();
-        }
-
-        private void SetupDateTimePicker()
-        {
         }
 
         private void LoadBaoHanh()
@@ -69,8 +59,6 @@ namespace DoAn1.Forms.QLBaoHanh
             }
         }
 
-
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmLichSuBaoHanh LichSuBaoHanhForm = new frmLichSuBaoHanh();
@@ -104,7 +92,6 @@ namespace DoAn1.Forms.QLBaoHanh
             }
         }
 
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             try
@@ -115,7 +102,7 @@ namespace DoAn1.Forms.QLBaoHanh
                     return;
                 }
 
-                string maLSBH = dgvDSLSBaoHanh.CurrentRow.Cells["MaLSBH"].Value.ToString();
+                string maLSBH = dgvDSLSBaoHanh.CurrentRow.Cells["MaLSBH"].Value.ToString()!;
 
                 using (var context = new DataDbContext())
                 {
@@ -146,7 +133,6 @@ namespace DoAn1.Forms.QLBaoHanh
             }
         }
 
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             try
@@ -157,7 +143,7 @@ namespace DoAn1.Forms.QLBaoHanh
                     return;
                 }
 
-                string maLSBH = dgvDSLSBaoHanh.CurrentRow.Cells["MaLSBH"].Value.ToString();
+                string maLSBH = dgvDSLSBaoHanh.CurrentRow.Cells["MaLSBH"].Value.ToString()!;
 
                 using (var context = new DataDbContext())
                 {
@@ -174,7 +160,7 @@ namespace DoAn1.Forms.QLBaoHanh
                         context.SaveChanges();
                         MessageBox.Show("Xóa bản ghi thành công.");
                         LoadBaoHanh();
-                        btnLamMoi_Click(null, null);
+                        btnLamMoi_Click(null!, null!);
                     }
                 }
             }
@@ -183,7 +169,6 @@ namespace DoAn1.Forms.QLBaoHanh
                 MessageBox.Show("Lỗi khi xóa: " + ex.Message);
             }
         }
-
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
@@ -196,7 +181,6 @@ namespace DoAn1.Forms.QLBaoHanh
             dtpNgayBaoHanh.Value = DateTime.Now;
            LoadBaoHanh();
         }
-
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {

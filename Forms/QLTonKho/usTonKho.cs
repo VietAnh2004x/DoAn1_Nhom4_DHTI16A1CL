@@ -1,22 +1,7 @@
-
-﻿using DoAn.Data_Access_Layer;
-using DoAn.Forms.QLTonKho;
-using DoAn.Forms.QLXe;
-using DoAn1.Data_Transfer_Objects;
-using DoAn1.Forms.QLXe;
-﻿using DoAn1.Data_Access_Layer;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using DoAn.Data_Access_Layer;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLTonKho
+namespace DoAn.Forms.QLTonKho
 {
     public partial class usTonKho : UserControl
     {
@@ -103,7 +88,7 @@ namespace DoAn1.Forms.QLTonKho
                 return;
             }
 
-            string maNhap = selectedRow.Cells["maNhap"].Value.ToString();
+            string maNhap = selectedRow.Cells["maNhap"].Value.ToString()!;
 
             using (var context = new DataDbContext())
             {
@@ -144,7 +129,7 @@ namespace DoAn1.Forms.QLTonKho
             }
         }
 
-        private void btnXoa_Click_1(object sender, EventArgs e)
+        private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dgvDSTonKho.CurrentRow == null || dgvDSTonKho.CurrentRow.Index < 0)
             {
@@ -166,7 +151,7 @@ namespace DoAn1.Forms.QLTonKho
                 return;
             }
 
-            string maNhap = selectedRow.Cells["maNhap"].Value.ToString();
+            string maNhap = selectedRow.Cells["maNhap"].Value.ToString()!;
 
             using (var context = new DataDbContext())
             {
@@ -186,7 +171,7 @@ namespace DoAn1.Forms.QLTonKho
             }
         }
 
-        private void btnLamMoi_Click_1(object sender, EventArgs e)
+        private void btnLamMoi_Click(object sender, EventArgs e)
         {
             txtMaXe.Clear();
             txtTenXe.Clear();
@@ -197,14 +182,14 @@ namespace DoAn1.Forms.QLTonKho
             LoadTonXe();
         }
 
-        private void btnThem_Click_1(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
             frmNhapXeVaoKho NhapXeVaoKhoForm = new frmNhapXeVaoKho();
             NhapXeVaoKhoForm.ShowDialog();
             LoadTonXe();
         }
 
-        private void btnTimKiem_Click_1(object sender, EventArgs e)
+        private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string tuKhoa = txtTimKiem.Text.Trim().ToLower();
 

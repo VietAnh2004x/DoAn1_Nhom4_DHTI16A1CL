@@ -1,7 +1,7 @@
-﻿using DoAn1.Data_Access_Layer;
-using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Access_Layer;
+using DoAn.Data_Transfer_Objects;
 
-namespace DoAn1.Forms.QLTaiKhoan
+namespace DoAn.Forms.QLTaiKhoan
 {
     public partial class usTaiKhoan : UserControl
     {

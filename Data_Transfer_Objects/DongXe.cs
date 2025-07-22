@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoAn1.Data_Transfer_Objects
+namespace DoAn.Data_Transfer_Objects
 {
     public class DongXe
     {

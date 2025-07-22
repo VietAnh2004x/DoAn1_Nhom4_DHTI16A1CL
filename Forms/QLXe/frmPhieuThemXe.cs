@@ -1,28 +1,20 @@
 ﻿using DoAn.Data_Access_Layer;
-using DoAn1.Data_Transfer_Objects;
-using DoAn1.Forms.QLTonKho;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
+using DoAn.Data_Transfer_Objects;
 
-namespace DoAn1.Forms.QLXe
+namespace DoAn.Forms.QLXe
 {
-
     public partial class frmPhieuThemXe : Form
     {
         // Đường dẫn tương đối folder ảnh trong thư mục chạy
         private readonly string imageFolder = Path.Combine("Resources", "hinhAnh");
 
         // Biến lưu đường dẫn tương đối của ảnh để lưu vào DB
-        private string imagePath = null;
-
+        private string imagePath = null!;
 
         public frmPhieuThemXe()
         {
             InitializeComponent();
-            this.Load += frmPhieuThemXe_Load;
+            this.Load += frmPhieuThemXe_Load!;
         }
 
         private void frmPhieuThemXe_Load(object sender, EventArgs e)
@@ -83,8 +75,6 @@ namespace DoAn1.Forms.QLXe
             }
         }
 
-        
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
             try
@@ -120,7 +110,6 @@ namespace DoAn1.Forms.QLXe
                 MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         // Hàm load ảnh từ đường dẫn tương đối đã lưu trong DB
         private void LoadImageFromRelativePath(string relativePath)
@@ -172,7 +161,7 @@ namespace DoAn1.Forms.QLXe
                 picAnhXe.Image.Dispose();
                 picAnhXe.Image = null;
             }
-            imagePath = null;
+            imagePath = null!;
         }
     }
 }

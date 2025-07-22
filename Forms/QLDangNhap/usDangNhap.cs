@@ -1,7 +1,7 @@
-﻿using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Transfer_Objects;
 using Microsoft.Data.SqlClient;
 
-namespace DoAn1.Forms.QLDangNhap
+namespace DoAn.Forms.QLDangNhap
 {
     public partial class usDangNhap : Form
     {
@@ -120,7 +120,7 @@ namespace DoAn1.Forms.QLDangNhap
                         MessageBox.Show("Đăng nhập thành công!", "Thông báo");
 
                         this.Hide();
-                        DoAn1.Forms.Main.MainForm form = new DoAn1.Forms.Main.MainForm();
+                        DoAn.Forms.Main.MainForm form = new DoAn.Forms.Main.MainForm();
                         form.FormClosed += (s, args) => this.Close();
                         form.Show();
                     }

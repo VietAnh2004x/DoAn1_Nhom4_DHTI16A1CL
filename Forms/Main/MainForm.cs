@@ -3,7 +3,7 @@ using Microsoft.VisualBasic.Logging;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace DoAn1.Forms.Main
+namespace DoAn.Forms.Main
 {
     public partial class MainForm : Form
     {

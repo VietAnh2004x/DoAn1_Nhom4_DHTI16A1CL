@@ -1,4 +1,4 @@
-﻿using DoAn1.Data_Access_Layer;
+﻿using DoAn.Data_Access_Layer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,63 +9,89 @@ public class TongQuanBLL
 
     public int LaySoLuongXeTheoLoai(string loaiXe)
     {
-        var soLuong = context.TonXe
+        return context.TonXe
             .Join(context.ThongTinXe, tx => tx.maXe, tt => tt.maXe, (tx, tt) => new { tx, tt })
             .Join(context.DongXe, temp => temp.tt.maDongXe, dx => dx.maDongXe, (temp, dx) => new { temp.tx, dx })
             .Where(x => x.dx.loaiXe == loaiXe)
-            .Sum(x => (int?)x.tx.soLuong) ?? 0;
-
-        return soLuong;
+            .Sum(x => x.tx.soLuong);
     }
 
     public decimal LayTongDoanhThu()
     {
-        return context.HoaDon.Sum(h => (decimal?)h.tongTien) ?? 0;
+        return context.HoaDon
+            .Where(h => h.ngayLap.Date == DateTime.Today.Date)
+            .Sum(h => h.tongTien);
     }
 
     public int LaySoLuongDonHang()
     {
-        return context.HoaDon.Count();
+        return context.HoaDon
+            .Where(h => h.ngayLap.Date == DateTime.Today.Date)
+            .Count();
     }
 
-    public List<(string TenXe, int SoLuong)> LayTopSanPhamBanChay(int topN = 5)
+    // Thay thế các dùng tuple trong LINQ bằng anonymous type
+    public List<(string TenXe, int SoLuong)> LayTopSanPhamBanChay(int topN = 3)
     {
-        var topSP = context.ChiTietHoaDon
-            .GroupBy(c => c.maXe)
+        var result = context.ChiTietHoaDon
+            .Join(context.HoaDon,
+                cthd => cthd.maHoaDon,
+                hd => hd.maHoaDon,
+                (cthd, hd) => new { cthd, hd })
+            .Where(x => x.hd.ngayLap.Date.Month == DateTime.Today.Month && x.hd.ngayLap.Date.Year == DateTime.Today.Year)
+            .GroupBy(x => x.cthd.maXe)
             .Select(g => new
             {
                 MaXe = g.Key,
-                SoLuong = g.Sum(x => x.soLuong)
+                SoLuong = g.Count()
             })
             .OrderByDescending(x => x.SoLuong)
             .Take(topN)
-            .Join(context.ThongTinXe, g => g.MaXe, tt => tt.maXe, (g, tt) => new
-            {
-                tt.tenXe,
-                g.SoLuong
-            })
-            .ToList()
-            .Select(x => (x.tenXe, x.SoLuong))
+            .Join(context.ThongTinXe,
+                g => g.MaXe,
+                tt => tt.maXe,
+                (g, tt) => new { tt.tenXe, g.SoLuong })
             .ToList();
 
-        return topSP;
+        return result.Select(x => (x.tenXe, x.SoLuong)).ToList();
     }
 
     public List<(int Thang, decimal TongTien)> LayDoanhThuTheoThang()
     {
-        var ds = context.HoaDon
-            .Where(h => h.ngayLap != DateTime.MinValue)
-            .GroupBy(h => h.ngayLap.Month)
+        DateTime now = DateTime.Now;
+        // Thay đổi từ AddMonths(-2) thành AddMonths(-3) để lấy từ đầu tháng 4
+        DateTime startDate = new DateTime(now.Year, now.Month, 1).AddMonths(-3);
+        DateTime endDate = startDate.AddMonths(3).AddDays(-1); // Đến hết ngày cuối cùng của tháng 6
+
+        var result = context.HoaDon
+            .Where(h => h.ngayLap >= startDate && h.ngayLap <= endDate)
+            .GroupBy(h => new { h.ngayLap.Year, h.ngayLap.Month })
             .Select(g => new
             {
-                Thang = g.Key,
+                g.Key.Month,
                 TongTien = g.Sum(h => h.tongTien)
             })
-            .OrderBy(x => x.Thang)
-            .ToList()
-            .Select(x => (x.Thang, x.TongTien))
+            .OrderBy(x => x.Month)
             .ToList();
 
-        return ds;
+        return result.Select(x => (x.Month, x.TongTien)).ToList();
+    }
+
+    public int LaySoLuongKhachHangHomNay()
+    {
+        return context.HoaDon
+            .Where(h => h.ngayLap.Date == DateTime.Today.Date)
+            .Select(h => h.maKhachHang)
+            .Distinct()
+            .Count();
+    }
+
+    public int LaySoLuongNhanVienBanHangHomNay()
+    {
+        return context.HoaDon
+            .Where(h => h.ngayLap.Date == DateTime.Today.Date)
+            .Select(h => h.tenTaiKhoan)
+            .Distinct()
+            .Count();
     }
 }

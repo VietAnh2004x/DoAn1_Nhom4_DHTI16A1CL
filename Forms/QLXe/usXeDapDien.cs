@@ -1,4 +1,4 @@
-﻿using DoAn1.Data_Access_Layer;
+﻿using DoAn.Data_Access_Layer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLXe
+namespace DoAn.Forms.QLXe
 {
     public partial class usXeDapDien : UserControl
     {

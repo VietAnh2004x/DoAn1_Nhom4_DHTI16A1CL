@@ -1,5 +1,5 @@
 ﻿using DoAn.Data_Access_Layer;
-using DoAn1.Data_Transfer_Objects;
+using DoAn.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Windows.Forms;
@@ -11,7 +11,7 @@ namespace DoAn.Forms.QLTonKho
         public frmNhapXeVaoKho()
         {
             InitializeComponent();
-            this.Load += frmNhapXeVaoKho_Load;
+            this.Load += frmNhapXeVaoKho_Load!;
         }
 
         // Gọi khi form load
@@ -30,6 +30,7 @@ namespace DoAn.Forms.QLTonKho
             dtpNgayNhap.Value = DateTime.Now;
             txtMaXe.Focus();
         }
+
         private string SinhMaNhapTuDong()
         {
             using (var context = new DataDbContext())

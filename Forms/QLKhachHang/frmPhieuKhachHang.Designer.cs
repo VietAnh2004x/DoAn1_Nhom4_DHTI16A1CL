@@ -1,4 +1,4 @@
-﻿namespace DoAn1.Forms.QLKhachHang
+﻿namespace DoAn.Forms.QLKhachHang
 {
     partial class frmPhieuKhachHang
     {

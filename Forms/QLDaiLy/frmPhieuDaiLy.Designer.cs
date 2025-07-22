@@ -1,4 +1,4 @@
-﻿namespace DoAn1.Forms.QLDaiLy
+﻿namespace DoAn.Forms.QLDaiLy
 {
     partial class frmPhieuDaiLy
     {

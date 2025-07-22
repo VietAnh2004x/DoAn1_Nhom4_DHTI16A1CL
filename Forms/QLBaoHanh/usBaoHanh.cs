@@ -1,10 +1,10 @@
-﻿using DoAn1.Data_Access_Layer;
+﻿using DoAn.Data_Access_Layer;
 using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLBaoHanh
+namespace DoAn.Forms.QLBaoHanh
 {
     public partial class usBaoHanh : UserControl
     {
@@ -31,7 +31,7 @@ namespace DoAn1.Forms.QLBaoHanh
                                        select new
                                        {
                                            bh.maBaoHanh,
-                                           tenKhachHang = hd.KhachHang.hoTen,
+                                           tenKhachHang = hd.KhachHang!.hoTen,
                                            tenXe = xe.tenXe,
                                            bh.ngayBatDau,
                                            bh.thoiHanThang
@@ -171,11 +171,11 @@ namespace DoAn1.Forms.QLBaoHanh
                               join xe in context.ThongTinXe on bh.maXe equals xe.maXe
                               join hd in context.HoaDon on bh.maHoaDon equals hd.maHoaDon
                               where bh.maBaoHanh.Contains(tuKhoa) ||
-                                    hd.KhachHang.hoTen.Contains(tuKhoa)
+                                    hd.KhachHang!.hoTen.Contains(tuKhoa)
                               select new
                               {
                                   bh.maBaoHanh,
-                                  tenKhachHang = hd.KhachHang.hoTen,
+                                  tenKhachHang = hd.KhachHang!.hoTen,
                                   tenXe = xe.tenXe,
                                   bh.ngayBatDau,
                                   bh.thoiHanThang

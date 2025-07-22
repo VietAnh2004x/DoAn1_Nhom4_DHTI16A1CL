@@ -1,8 +1,8 @@
-﻿using DoAn1.Data_Access_Layer;
-using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Access_Layer;
+using DoAn.Data_Transfer_Objects;
 using System.Data;
 
-namespace DoAn1.Forms.QLKhachHang
+namespace DoAn.Forms.QLKhachHang
 {
     public partial class frmPhieuKhachHang : Form
     {

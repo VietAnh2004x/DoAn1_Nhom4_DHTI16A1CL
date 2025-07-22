@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLBaoHanh
+namespace DoAn.Forms.QLBaoHanh
 {
     partial class usLichSuBaoHanh
     {
@@ -121,25 +121,25 @@ namespace DoAn1.Forms.QLBaoHanh
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(9, 350);
+            label6.Location = new Point(9, 356);
             label6.Name = "label6";
-            label6.Size = new Size(148, 28);
+            label6.Size = new Size(105, 19);
             label6.TabIndex = 11;
             label6.Text = "Ngày Bảo Hành";
             // 
             // txtGhiChu
             // 
-            txtGhiChu.Location = new Point(127, 470);
+            txtGhiChu.Location = new Point(176, 443);
             txtGhiChu.Name = "txtGhiChu";
-            txtGhiChu.Size = new Size(235, 34);
+            txtGhiChu.Size = new Size(186, 25);
             txtGhiChu.TabIndex = 10;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(9, 476);
+            label5.Location = new Point(15, 446);
             label5.Name = "label5";
-            label5.Size = new Size(81, 28);
+            label5.Size = new Size(59, 19);
             label5.TabIndex = 9;
             label5.Text = "Ghi Chú";
             // 
@@ -147,7 +147,7 @@ namespace DoAn1.Forms.QLBaoHanh
             // 
             txtNoiDung.Location = new Point(15, 286);
             txtNoiDung.Name = "txtNoiDung";
-            txtNoiDung.Size = new Size(329, 34);
+            txtNoiDung.Size = new Size(329, 25);
             txtNoiDung.TabIndex = 8;
             // 
             // label4
@@ -155,15 +155,15 @@ namespace DoAn1.Forms.QLBaoHanh
             label4.AutoSize = true;
             label4.Location = new Point(6, 226);
             label4.Name = "label4";
-            label4.Size = new Size(182, 28);
+            label4.Size = new Size(128, 19);
             label4.TabIndex = 7;
             label4.Text = "Nội dung bảo hành";
             // 
             // txtTenNV
             // 
-            txtTenNV.Location = new Point(176, 142);
+            txtTenNV.Location = new Point(176, 145);
             txtTenNV.Name = "txtTenNV";
-            txtTenNV.Size = new Size(186, 34);
+            txtTenNV.Size = new Size(186, 25);
             txtTenNV.TabIndex = 6;
             // 
             // label3
@@ -171,7 +171,7 @@ namespace DoAn1.Forms.QLBaoHanh
             label3.AutoSize = true;
             label3.Location = new Point(9, 148);
             label3.Name = "label3";
-            label3.Size = new Size(136, 28);
+            label3.Size = new Size(98, 19);
             label3.TabIndex = 5;
             label3.Text = "Tên Nhân Viên";
             // 
@@ -179,7 +179,7 @@ namespace DoAn1.Forms.QLBaoHanh
             // 
             txtMaBH.Location = new Point(176, 70);
             txtMaBH.Name = "txtMaBH";
-            txtMaBH.Size = new Size(186, 34);
+            txtMaBH.Size = new Size(186, 25);
             txtMaBH.TabIndex = 4;
             // 
             // label2
@@ -187,16 +187,18 @@ namespace DoAn1.Forms.QLBaoHanh
             label2.AutoSize = true;
             label2.Location = new Point(9, 73);
             label2.Name = "label2";
-            label2.Size = new Size(129, 28);
+            label2.Size = new Size(93, 19);
             label2.TabIndex = 3;
             label2.Text = "Mã Bảo Hành";
             // 
             // dtpNgayBaoHanh
             // 
-            dtpNgayBaoHanh.Location = new Point(15, 403);
+            dtpNgayBaoHanh.Format = DateTimePickerFormat.Custom;
+            dtpNgayBaoHanh.Location = new Point(176, 350);
             dtpNgayBaoHanh.Name = "dtpNgayBaoHanh";
-            dtpNgayBaoHanh.Size = new Size(329, 34);
+            dtpNgayBaoHanh.Size = new Size(186, 25);
             dtpNgayBaoHanh.TabIndex = 1;
+            dtpNgayBaoHanh.Value = new DateTime(2025, 7, 22, 0, 0, 0, 0);
             // 
             // grpTacVu
             // 
@@ -219,12 +221,12 @@ namespace DoAn1.Forms.QLBaoHanh
             tbTacVu.Controls.Add(btnXoa, 0, 1);
             tbTacVu.Controls.Add(btnSua, 1, 0);
             tbTacVu.Dock = DockStyle.Fill;
-            tbTacVu.Location = new Point(3, 30);
+            tbTacVu.Location = new Point(3, 21);
             tbTacVu.Name = "tbTacVu";
             tbTacVu.RowCount = 2;
             tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tbTacVu.Size = new Size(382, 147);
+            tbTacVu.Size = new Size(382, 156);
             tbTacVu.TabIndex = 0;
             // 
             // btnLamMoi
@@ -234,7 +236,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLamMoi.ForeColor = Color.White;
-            btnLamMoi.Location = new Point(231, 91);
+            btnLamMoi.Location = new Point(231, 98);
             btnLamMoi.Name = "btnLamMoi";
             btnLamMoi.Size = new Size(110, 37);
             btnLamMoi.TabIndex = 15;
@@ -249,7 +251,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(40, 18);
+            btnThem.Location = new Point(40, 20);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(110, 37);
             btnThem.TabIndex = 12;
@@ -264,7 +266,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnXoa.ForeColor = Color.White;
-            btnXoa.Location = new Point(40, 91);
+            btnXoa.Location = new Point(40, 98);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(110, 37);
             btnXoa.TabIndex = 14;
@@ -279,7 +281,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSua.ForeColor = Color.White;
-            btnSua.Location = new Point(231, 18);
+            btnSua.Location = new Point(231, 20);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(110, 37);
             btnSua.TabIndex = 13;
@@ -323,17 +325,17 @@ namespace DoAn1.Forms.QLBaoHanh
             tableLayoutPanel2.Controls.Add(txtTimKiem, 1, 0);
             tableLayoutPanel2.Controls.Add(btnTimKiem, 2, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 30);
+            tableLayoutPanel2.Location = new Point(3, 21);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(582, 109);
+            tableLayoutPanel2.Size = new Size(582, 118);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // lblTimKiemLSBaoHanh
             // 
             lblTimKiemLSBaoHanh.Anchor = AnchorStyles.None;
-            lblTimKiemLSBaoHanh.Location = new Point(3, 39);
+            lblTimKiemLSBaoHanh.Location = new Point(3, 43);
             lblTimKiemLSBaoHanh.Name = "lblTimKiemLSBaoHanh";
             lblTimKiemLSBaoHanh.Size = new Size(168, 31);
             lblTimKiemLSBaoHanh.TabIndex = 13;
@@ -343,9 +345,9 @@ namespace DoAn1.Forms.QLBaoHanh
             // 
             txtTimKiem.Anchor = AnchorStyles.None;
             txtTimKiem.BorderStyle = BorderStyle.FixedSingle;
-            txtTimKiem.Location = new Point(192, 37);
+            txtTimKiem.Location = new Point(192, 46);
             txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.Size = new Size(196, 34);
+            txtTimKiem.Size = new Size(196, 25);
             txtTimKiem.TabIndex = 14;
             // 
             // btnTimKiem
@@ -355,7 +357,7 @@ namespace DoAn1.Forms.QLBaoHanh
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(439, 36);
+            btnTimKiem.Location = new Point(439, 41);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(109, 36);
             btnTimKiem.TabIndex = 12;
@@ -380,10 +382,10 @@ namespace DoAn1.Forms.QLBaoHanh
             dgvDSLSBaoHanh.BackgroundColor = Color.White;
             dgvDSLSBaoHanh.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDSLSBaoHanh.Dock = DockStyle.Fill;
-            dgvDSLSBaoHanh.Location = new Point(3, 30);
+            dgvDSLSBaoHanh.Location = new Point(3, 21);
             dgvDSLSBaoHanh.Name = "dgvDSLSBaoHanh";
             dgvDSLSBaoHanh.RowHeadersWidth = 51;
-            dgvDSLSBaoHanh.Size = new Size(582, 557);
+            dgvDSLSBaoHanh.Size = new Size(582, 566);
             dgvDSLSBaoHanh.TabIndex = 0;
             dgvDSLSBaoHanh.CellClick += dgvDSLSBaoHanh_CellClick;
             // 

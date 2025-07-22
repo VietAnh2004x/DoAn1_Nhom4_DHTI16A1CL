@@ -1,16 +1,16 @@
 ﻿using DoAn.Forms.Main;
-using DoAn1.Forms.QLBaoCao;
-using DoAn1.Forms.QLBaoHanh;
-using DoAn1.Forms.QLDaiLy;
-using DoAn1.Forms.QLHoaDon;
-using DoAn1.Forms.QLKhachHang;
-using DoAn1.Forms.QLTaiKhoan;
-using DoAn1.Forms.QLTonKho;
-using DoAn1.Forms.QLXe;
-using DoAn1.Forms.TongQuan;
+using DoAn.Forms.QLBaoCao;
+using DoAn.Forms.QLBaoHanh;
+using DoAn.Forms.QLDaiLy;
+using DoAn.Forms.QLHoaDon;
+using DoAn.Forms.QLKhachHang;
+using DoAn.Forms.QLTaiKhoan;
+using DoAn.Forms.QLTonKho;
+using DoAn.Forms.QLXe;
+using DoAn.Forms.TongQuan;
 using FontAwesome.Sharp;
 
-namespace DoAn1.Forms.Main
+namespace DoAn.Forms.Main
 {
     public partial class usSideBar : UserControl
     {
@@ -45,7 +45,7 @@ namespace DoAn1.Forms.Main
                     break;               
                 default:
                     // Không có quyền xem báo cáo => gán lại sự kiện click để chặn
-                    btnBaoCao.Click -= btnBaoCao_Click; // Xóa sự kiện gốc nếu có
+                    btnBaoCao.Click -= btnBaoCao_Click!; // Xóa sự kiện gốc nếu có
                     btnBaoCao.Click += (s, e) =>
                     {
                         MessageBox.Show("Nhân viên không có quyền xem báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -144,7 +144,7 @@ namespace DoAn1.Forms.Main
                 loginForm.Show();
 
                 // Đóng form chính hiện tại
-                Form mainForm = this.FindForm(); // lấy ra Form chứa UserControl này
+                Form mainForm = this.FindForm()!; // lấy ra Form chứa UserControl này
                 if (mainForm != null)
                 {
                     mainForm.Hide(); // hoặc mainForm.Close(); nếu bạn không cần giữ lại

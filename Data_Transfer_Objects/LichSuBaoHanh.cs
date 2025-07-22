@@ -1,4 +1,4 @@
-﻿using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Transfer_Objects;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -53,6 +53,9 @@ namespace DoAn.Data_Transfer_Objects
             MaLSBH = string.Empty;
             maBaoHanh = string.Empty;
             NoiDungBaoHanh = string.Empty;
+            NgayBaoHanh = DateTime.MinValue;
+            maNV = null;
+            GhiChu = string.Empty;
         }
     }
 }

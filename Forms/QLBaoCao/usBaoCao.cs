@@ -1,12 +1,12 @@
-﻿using DoAn1.Business_Logic_Layer;
-using DoAn1.Data_Access_Layer;
+﻿using DoAn.Business_Logic_Layer;
+using DoAn.Data_Access_Layer;
 using OfficeOpenXml;
 using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLBaoCao
+namespace DoAn.Forms.QLBaoCao
 {
     public partial class usBaoCao : UserControl
     {

@@ -1,8 +1,8 @@
-using DoAn1.Forms.Main;
-using DoAn1.Forms.QLDangNhap;
+using DoAn.Forms.Main;
+using DoAn.Forms.QLDangNhap;
 //using OfficeOpenXml;
 
-namespace DoAn1
+namespace DoAn
 {
     internal static class Program
     {

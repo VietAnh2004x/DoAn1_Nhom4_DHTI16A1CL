@@ -1,11 +1,8 @@
-﻿using DoAn1.Data_Transfer_Objects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DoAn1.Data_Transfer_Objects
+namespace DoAn.Data_Transfer_Objects
 {
     public class BaoHanh
     {
@@ -13,19 +10,19 @@ namespace DoAn1.Data_Transfer_Objects
         [Column("MaBH")]
         [DisplayName("Mã Bảo Hành")]
         [StringLength(20)]
-        public string maBaoHanh { get; set; } = string.Empty;
+        public string maBaoHanh { get; set; }
 
         [Required]
         [Column("MaHD")]
         [DisplayName("Mã Hóa Đơn")]
         [StringLength(20)]
-        public string maHoaDon { get; set; } = string.Empty;
+        public string maHoaDon { get; set; }
 
         [Required]
         [Column("MaXe")]
         [DisplayName("Mã Xe")]
         [StringLength(20)]
-        public string maXe { get; set; } = string.Empty;
+        public string maXe { get; set; }
 
         [Required]
         [Column("NgayBatDau")]
@@ -50,6 +47,7 @@ namespace DoAn1.Data_Transfer_Objects
             maXe = string.Empty;
             ngayBatDau = DateTime.MinValue;
             thoiHanThang = 0;
+            LichSuBaoHanhs = new HashSet<LichSuBaoHanh>();
         }
     }
 }

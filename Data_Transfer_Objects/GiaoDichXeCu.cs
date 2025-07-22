@@ -1,4 +1,4 @@
-﻿using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Transfer_Objects;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -59,6 +59,7 @@ namespace DoAn.Data_Transfer_Objects
         [DisplayName("Giá Định Giá")]
         [DataType(DataType.Currency)]
         public decimal GiaDinhGia { get; set; }
+
         [Column("NgayDoi")]
         [DisplayName("Ngày Đổi Xe")]
         [DataType(DataType.Date)]

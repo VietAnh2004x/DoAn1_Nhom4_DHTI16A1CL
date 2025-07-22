@@ -1,7 +1,7 @@
-﻿using DoAn1.Data_Access_Layer;
+﻿using DoAn.Data_Access_Layer;
 using System.Data;
 
-namespace DoAn1.Forms.QLXe
+namespace DoAn.Forms.QLXe
 {
     public partial class usXeMayDien : UserControl
     {

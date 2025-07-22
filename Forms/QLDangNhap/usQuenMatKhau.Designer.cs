@@ -2,7 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-namespace DoAn1.Forms.QLDangNhap
+namespace DoAn.Forms.QLDangNhap
 {
     public partial class usQuenMatKhau : Form
     {

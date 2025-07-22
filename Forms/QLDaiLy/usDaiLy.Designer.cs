@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLDaiLy
+namespace DoAn.Forms.QLDaiLy
 {
     partial class usDaiLy
     {
@@ -121,14 +121,14 @@ namespace DoAn1.Forms.QLDaiLy
             // txtMaDaiLy
             // 
             txtMaDaiLy.BorderStyle = BorderStyle.FixedSingle;
-            txtMaDaiLy.Location = new Point(159, 61);
+            txtMaDaiLy.Location = new Point(164, 80);
             txtMaDaiLy.Name = "txtMaDaiLy";
-            txtMaDaiLy.Size = new Size(143, 30);
+            txtMaDaiLy.Size = new Size(143, 25);
             txtMaDaiLy.TabIndex = 11;
             // 
             // label1
             // 
-            label1.Location = new Point(14, 63);
+            label1.Location = new Point(19, 82);
             label1.Name = "label1";
             label1.Size = new Size(139, 37);
             label1.TabIndex = 10;
@@ -137,38 +137,38 @@ namespace DoAn1.Forms.QLDaiLy
             // txtSoDienThoai
             // 
             txtSoDienThoai.BorderStyle = BorderStyle.FixedSingle;
-            txtSoDienThoai.Location = new Point(158, 412);
+            txtSoDienThoai.Location = new Point(163, 431);
             txtSoDienThoai.Name = "txtSoDienThoai";
-            txtSoDienThoai.Size = new Size(143, 30);
+            txtSoDienThoai.Size = new Size(143, 25);
             txtSoDienThoai.TabIndex = 9;
             // 
             // txtEmail
             // 
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
-            txtEmail.Location = new Point(158, 323);
+            txtEmail.Location = new Point(163, 342);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(143, 30);
+            txtEmail.Size = new Size(143, 25);
             txtEmail.TabIndex = 8;
             // 
             // txtTenDaiLy
             // 
             txtTenDaiLy.BorderStyle = BorderStyle.FixedSingle;
-            txtTenDaiLy.Location = new Point(159, 145);
+            txtTenDaiLy.Location = new Point(164, 164);
             txtTenDaiLy.Name = "txtTenDaiLy";
-            txtTenDaiLy.Size = new Size(143, 30);
+            txtTenDaiLy.Size = new Size(143, 25);
             txtTenDaiLy.TabIndex = 7;
             // 
             // txtDiaChi
             // 
             txtDiaChi.BorderStyle = BorderStyle.FixedSingle;
-            txtDiaChi.Location = new Point(158, 234);
+            txtDiaChi.Location = new Point(163, 253);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(143, 30);
+            txtDiaChi.Size = new Size(143, 25);
             txtDiaChi.TabIndex = 6;
             // 
             // lblSoDienThoai
             // 
-            lblSoDienThoai.Location = new Point(14, 414);
+            lblSoDienThoai.Location = new Point(19, 433);
             lblSoDienThoai.Name = "lblSoDienThoai";
             lblSoDienThoai.Size = new Size(139, 37);
             lblSoDienThoai.TabIndex = 4;
@@ -176,7 +176,7 @@ namespace DoAn1.Forms.QLDaiLy
             // 
             // lblEmail
             // 
-            lblEmail.Location = new Point(14, 325);
+            lblEmail.Location = new Point(19, 344);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(139, 37);
             lblEmail.TabIndex = 3;
@@ -184,7 +184,7 @@ namespace DoAn1.Forms.QLDaiLy
             // 
             // lblDiaChi
             // 
-            lblDiaChi.Location = new Point(14, 236);
+            lblDiaChi.Location = new Point(19, 255);
             lblDiaChi.Name = "lblDiaChi";
             lblDiaChi.Size = new Size(139, 37);
             lblDiaChi.TabIndex = 2;
@@ -192,7 +192,7 @@ namespace DoAn1.Forms.QLDaiLy
             // 
             // lblTenDaiLy
             // 
-            lblTenDaiLy.Location = new Point(14, 147);
+            lblTenDaiLy.Location = new Point(19, 166);
             lblTenDaiLy.Name = "lblTenDaiLy";
             lblTenDaiLy.Size = new Size(139, 37);
             lblTenDaiLy.TabIndex = 1;
@@ -219,12 +219,12 @@ namespace DoAn1.Forms.QLDaiLy
             tbTacVu.Controls.Add(btnXoa, 0, 1);
             tbTacVu.Controls.Add(btnSua, 1, 0);
             tbTacVu.Dock = DockStyle.Fill;
-            tbTacVu.Location = new Point(3, 30);
+            tbTacVu.Location = new Point(3, 21);
             tbTacVu.Name = "tbTacVu";
             tbTacVu.RowCount = 2;
             tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tbTacVu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tbTacVu.Size = new Size(382, 147);
+            tbTacVu.Size = new Size(382, 156);
             tbTacVu.TabIndex = 0;
             // 
             // btnLamMoi
@@ -234,7 +234,7 @@ namespace DoAn1.Forms.QLDaiLy
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLamMoi.ForeColor = Color.White;
-            btnLamMoi.Location = new Point(236, 95);
+            btnLamMoi.Location = new Point(232, 97);
             btnLamMoi.Name = "btnLamMoi";
             btnLamMoi.Size = new Size(108, 39);
             btnLamMoi.TabIndex = 13;
@@ -249,7 +249,7 @@ namespace DoAn1.Forms.QLDaiLy
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(45, 20);
+            btnThem.Location = new Point(41, 19);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(108, 39);
             btnThem.TabIndex = 10;
@@ -264,7 +264,7 @@ namespace DoAn1.Forms.QLDaiLy
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnXoa.ForeColor = Color.White;
-            btnXoa.Location = new Point(45, 95);
+            btnXoa.Location = new Point(41, 97);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(108, 39);
             btnXoa.TabIndex = 12;
@@ -279,7 +279,7 @@ namespace DoAn1.Forms.QLDaiLy
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSua.ForeColor = Color.White;
-            btnSua.Location = new Point(236, 20);
+            btnSua.Location = new Point(232, 19);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(108, 39);
             btnSua.TabIndex = 11;
@@ -323,17 +323,17 @@ namespace DoAn1.Forms.QLDaiLy
             tableLayoutPanel2.Controls.Add(txtTimKiemDaiLy, 1, 0);
             tableLayoutPanel2.Controls.Add(btnTimKiem, 2, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 30);
+            tableLayoutPanel2.Location = new Point(3, 21);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(582, 109);
+            tableLayoutPanel2.Size = new Size(582, 118);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // lblTimKiemDaiLy
             // 
             lblTimKiemDaiLy.Anchor = AnchorStyles.None;
-            lblTimKiemDaiLy.Location = new Point(7, 43);
+            lblTimKiemDaiLy.Location = new Point(7, 47);
             lblTimKiemDaiLy.Name = "lblTimKiemDaiLy";
             lblTimKiemDaiLy.Size = new Size(160, 23);
             lblTimKiemDaiLy.TabIndex = 11;
@@ -343,9 +343,9 @@ namespace DoAn1.Forms.QLDaiLy
             // 
             txtTimKiemDaiLy.Anchor = AnchorStyles.None;
             txtTimKiemDaiLy.BorderStyle = BorderStyle.FixedSingle;
-            txtTimKiemDaiLy.Location = new Point(192, 37);
+            txtTimKiemDaiLy.Location = new Point(192, 46);
             txtTimKiemDaiLy.Name = "txtTimKiemDaiLy";
-            txtTimKiemDaiLy.Size = new Size(196, 34);
+            txtTimKiemDaiLy.Size = new Size(196, 25);
             txtTimKiemDaiLy.TabIndex = 12;
             // 
             // btnTimKiem
@@ -355,7 +355,7 @@ namespace DoAn1.Forms.QLDaiLy
             btnTimKiem.FlatStyle = FlatStyle.Flat;
             btnTimKiem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnTimKiem.ForeColor = Color.White;
-            btnTimKiem.Location = new Point(444, 39);
+            btnTimKiem.Location = new Point(440, 38);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(107, 41);
             btnTimKiem.TabIndex = 10;
@@ -380,10 +380,10 @@ namespace DoAn1.Forms.QLDaiLy
             dgvDSDaiLy.BackgroundColor = Color.White;
             dgvDSDaiLy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDSDaiLy.Dock = DockStyle.Fill;
-            dgvDSDaiLy.Location = new Point(3, 30);
+            dgvDSDaiLy.Location = new Point(3, 21);
             dgvDSDaiLy.Name = "dgvDSDaiLy";
             dgvDSDaiLy.RowHeadersWidth = 51;
-            dgvDSDaiLy.Size = new Size(582, 557);
+            dgvDSDaiLy.Size = new Size(582, 566);
             dgvDSDaiLy.TabIndex = 0;
             // 
             // usDaiLy

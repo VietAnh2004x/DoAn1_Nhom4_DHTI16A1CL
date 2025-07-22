@@ -1,10 +1,10 @@
-﻿using DoAn1.Data_Access_Layer;
+﻿using DoAn.Data_Access_Layer;
 using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLKhachHang
+namespace DoAn.Forms.QLKhachHang
 {
     public partial class usKhachHang : UserControl
     {
@@ -89,7 +89,7 @@ namespace DoAn1.Forms.QLKhachHang
                 return;
             }
 
-            string maKH = dgvDSKhachHang.CurrentRow.Cells["maKhachHang"]!.Value!.ToString();
+            string maKH = dgvDSKhachHang.CurrentRow.Cells["maKhachHang"]!.Value!.ToString()!;
             if (string.IsNullOrEmpty(maKH))
             {
                 MessageBox.Show("Không tìm thấy mã khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

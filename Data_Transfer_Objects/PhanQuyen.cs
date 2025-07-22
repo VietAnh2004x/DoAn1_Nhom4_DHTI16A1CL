@@ -1,14 +1,8 @@
-﻿using DoAn1.Data_Transfer_Objects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DoAn1.Data_Transfer_Objects
+namespace DoAn.Data_Transfer_Objects
 {
     public class PhanQuyen
     {

@@ -1,8 +1,8 @@
-﻿using DoAn1.Data_Access_Layer;
-using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Access_Layer;
+using DoAn.Data_Transfer_Objects;
 using System.Data;
 
-namespace DoAn1.Forms.QLBaoHanh
+namespace DoAn.Forms.QLBaoHanh
 {
     public partial class frmPhieuBaoHanh : Form
     {

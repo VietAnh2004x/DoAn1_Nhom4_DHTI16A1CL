@@ -1,10 +1,8 @@
-using DoAn1.Data_Transfer_Objects;
-using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DoAn1.Data_Transfer_Objects
+namespace DoAn.Data_Transfer_Objects
 {
     public class NhanVien
     {
@@ -71,6 +69,8 @@ namespace DoAn1.Data_Transfer_Objects
             ngayVaoLam = DateTime.MinValue;
             soDienThoai = string.Empty;
             email = string.Empty;
+            GiaoDichXeCus = new HashSet<GiaoDichXeCu>();
+            LichSuBaoHanhs = new HashSet<LichSuBaoHanh>();
         }
     }
 }

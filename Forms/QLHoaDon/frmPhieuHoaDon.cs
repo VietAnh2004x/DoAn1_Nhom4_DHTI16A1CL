@@ -1,14 +1,7 @@
-
 ﻿using DoAn.Data_Access_Layer;
 using DoAn.Data_Transfer_Objects;
-using DoAn1.Data_Transfer_Objects;
-using System;
-using System.Linq;
-using System.Windows.Forms;
-﻿using DoAn1.Data_Access_Layer;
-using DoAn1.Data_Transfer_Objects;
 
-namespace DoAn1.Forms.QLHoaDon
+namespace DoAn.Forms.QLHoaDon
 {
     public partial class frmPhieuHoaDon : Form
     {
@@ -16,8 +9,8 @@ namespace DoAn1.Forms.QLHoaDon
         {
             InitializeComponent();
 
-            txtGiaBan.TextChanged += TxtGiaBanOrKhuyenMai_TextChanged;
-            txtKhuyenMai.TextChanged += TxtGiaBanOrKhuyenMai_TextChanged;
+            txtGiaBan.TextChanged += TxtGiaBanOrKhuyenMai_TextChanged!;
+            txtKhuyenMai.TextChanged += TxtGiaBanOrKhuyenMai_TextChanged!;
 
             cbbPTTT.Items.AddRange(new string[] { "Tiền mặt", "Chuyển khoản", "Ví điện tử" });
             cbbPTTT.SelectedIndex = 0;

@@ -1,9 +1,9 @@
-﻿using DoAn1.Data_Access_Layer;
+﻿using DoAn.Data_Access_Layer;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLHoaDon
+namespace DoAn.Forms.QLHoaDon
 {
     public partial class usHoaDon : UserControl
     {
@@ -29,8 +29,8 @@ namespace DoAn1.Forms.QLHoaDon
                     .Select(hd => new
                     {
                         hd.maHoaDon,
-                        TenKhachHang = hd.KhachHang.hoTen,
-                        TenNhanVien = hd.TaiKhoan.NhanVien.hoTen,
+                        TenKhachHang = hd.KhachHang!.hoTen,
+                        TenNhanVien = hd.TaiKhoan!.NhanVien!.hoTen,
                         hd.ngayLap,
                         ChiTiet = hd.ChiTietHoaDons.Select(ct => new
                         {
@@ -54,7 +54,7 @@ namespace DoAn1.Forms.QLHoaDon
                         GiaBan = h.ChiTiet.FirstOrDefault()?.GiaBan ?? 0,
                         // CHỈNH SỬA Ở ĐÂY: Hiển thị trống nếu ghiChuKhuyenMai là "0%"
                         GhiChuKhuyenMai = (h.ChiTiet.FirstOrDefault()?.ghiChuKhuyenMai ?? "").Trim() == "0%" ? "" : (h.ChiTiet.FirstOrDefault()?.ghiChuKhuyenMai ?? ""),
-                        TongTien = h.ChiTiet.Sum(ct => ct.donGia * (1 - ParseKhuyenMai(ct.ghiChuKhuyenMai)))
+                        TongTien = h.ChiTiet.Sum(ct => ct.donGia * (1 - ParseKhuyenMai(ct.ghiChuKhuyenMai!)))
                     })
                     .ToList();
 
@@ -101,7 +101,6 @@ namespace DoAn1.Forms.QLHoaDon
             }
             return 0m;
         }
-
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -242,7 +241,7 @@ namespace DoAn1.Forms.QLHoaDon
                 hoaDon.tongTien = context.ChiTietHoaDon
                                      .Where(ct => ct.maHoaDon == maHD)
                                      .ToList()
-                                     .Sum(ct => ct.donGia  * (1 - ParseKhuyenMai(ct.ghiChuKhuyenMai)));
+                                     .Sum(ct => ct.donGia  * (1 - ParseKhuyenMai(ct.ghiChuKhuyenMai!)));
                 context.SaveChanges();
 
                 MessageBox.Show("Sửa hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

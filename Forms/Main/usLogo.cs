@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.Main
+namespace DoAn.Forms.Main
 {
     public partial class usLogo : UserControl
     {
@@ -28,7 +28,7 @@ namespace DoAn1.Forms.Main
 
             scrollTimer = new System.Windows.Forms.Timer();
             scrollTimer.Interval = 30; // càng thấp càng mượt
-            scrollTimer.Tick += ScrollTimer_Tick;
+            scrollTimer.Tick += ScrollTimer_Tick!;
             scrollTimer.Start();
         }
 

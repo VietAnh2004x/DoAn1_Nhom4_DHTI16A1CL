@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DoAn1.Data_Transfer_Objects
+namespace DoAn.Data_Transfer_Objects
 {
     public class ThongTinXe
     {
@@ -83,7 +83,6 @@ namespace DoAn1.Data_Transfer_Objects
             dungLuongAcQuy = string.Empty;
             giaBan = 0;
             hinhAnh = string.Empty;
-
             BaoHanhs = new HashSet<BaoHanh>();
             ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
             TonXes = new HashSet<TonXe>();

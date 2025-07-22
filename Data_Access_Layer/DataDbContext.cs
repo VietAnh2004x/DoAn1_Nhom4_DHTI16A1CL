@@ -1,9 +1,7 @@
-
-using DoAn1.Forms.QLBaoHanh;
-﻿using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
 
-namespace DoAn1.Data_Access_Layer
+namespace DoAn.Data_Access_Layer
 {
     internal class DataDbContext : DbContext
     {
@@ -23,7 +21,7 @@ namespace DoAn1.Data_Access_Layer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hyn;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=QLXe;Integrated Security=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -97,30 +95,33 @@ namespace DoAn1.Data_Access_Layer
                 .HasOne(nv => nv.TaiKhoan)
                 .WithOne(tk => tk.NhanVien)
                 .HasForeignKey<NhanVien>(nv => nv.tenTaiKhoan);
-            //QH 1-N:Khách hàng – GiaoDichXeCu
+
+            // Quan hệ 1-N: Khách hàng – GiaoDichXeCu
             modelBuilder.Entity<GiaoDichXeCu>()
                 .HasOne(gd => gd.KhachHang)
                 .WithMany(kh => kh.GiaoDichXeCus)
                 .HasForeignKey(gd => gd.maKhachHang);
-            //QH 1-N:NhanVien – GiaoDichXeCu
+
+            // Quan hệ 1-N: NhanVien – GiaoDichXeCu
             modelBuilder.Entity<GiaoDichXeCu>()
                 .HasOne(gd => gd.NhanVien)
                 .WithMany(nv => nv.GiaoDichXeCus)
                 .HasForeignKey(gd => gd.maNV);
-            //QH 1-N:ThongTinXe– GiaoDichXeCu
+
+            // Quan hệ 1-N: ThongTinXe– GiaoDichXeCu
             modelBuilder.Entity<GiaoDichXeCu>()
                 .HasOne(gd => gd.ThongTinXe)
                 .WithMany(tx => tx.GiaoDichXeCus)
                 .HasForeignKey(gd => gd.maXe);
 
-            // 1. Quan hệ: BaoHanh - LichSuBaoHanh (1-n)
+            // Quan hệ 1-N: BaoHanh - LichSuBaoHanh
             modelBuilder.Entity<LichSuBaoHanh>()
                 .HasOne(ls => ls.BaoHanh)
                 .WithMany(bh => bh.LichSuBaoHanhs)
                 .HasForeignKey(ls => ls.maBaoHanh)
                 .OnDelete(DeleteBehavior.Cascade); // Xoá bảo hành thì xoá lịch sử
 
-            // 2. Quan hệ: NhanVien - LichSuBaoHanh (1-n, optional)
+            // Quan hệ 1-N: NhanVien - LichSuBaoHanh
             modelBuilder.Entity<LichSuBaoHanh>()
                 .HasOne(ls => ls.NhanVien)
                 .WithMany(nv => nv.LichSuBaoHanhs)

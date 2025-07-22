@@ -1,5 +1,5 @@
-﻿using DoAn1.Data_Access_Layer;
-using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Access_Layer;
+using DoAn.Data_Transfer_Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.QLDaiLy
+namespace DoAn.Forms.QLDaiLy
 {
     public partial class usDaiLy : UserControl
     {

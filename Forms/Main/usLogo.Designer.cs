@@ -1,4 +1,4 @@
-﻿namespace DoAn1.Forms.Main
+﻿namespace DoAn.Forms.Main
 {
     partial class usLogo
     {

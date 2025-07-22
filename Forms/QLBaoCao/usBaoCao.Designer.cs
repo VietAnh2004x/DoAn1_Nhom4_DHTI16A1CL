@@ -1,4 +1,4 @@
-﻿namespace DoAn1.Forms.QLBaoCao
+﻿namespace DoAn.Forms.QLBaoCao
 {
     partial class usBaoCao
     {

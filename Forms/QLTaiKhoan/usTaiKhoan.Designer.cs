@@ -1,8 +1,8 @@
-﻿using DoAn1.Data_Transfer_Objects;
+﻿using DoAn.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Windows.Forms;
-namespace DoAn1.Forms.QLTaiKhoan
+namespace DoAn.Forms.QLTaiKhoan
 {
    public partial class usTaiKhoan : UserControl
     {

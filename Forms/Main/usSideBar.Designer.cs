@@ -1,6 +1,6 @@
 ﻿using FontAwesome.Sharp;
 
-namespace DoAn1.Forms.Main
+namespace DoAn.Forms.Main
 {
     partial class usSideBar
     {

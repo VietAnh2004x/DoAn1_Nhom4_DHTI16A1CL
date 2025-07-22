@@ -1,11 +1,11 @@
-﻿using DoAn1;
-using DoAn1.Data_Transfer_Objects;
+﻿using DoAn;
+using DoAn.Data_Transfer_Objects;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-namespace DoAn1.Forms.QLDangNhap
+namespace DoAn.Forms.QLDangNhap
 {
      public partial class usDangNhap : Form
     {
@@ -16,7 +16,6 @@ namespace DoAn1.Forms.QLDangNhap
         private TextBox txtUsername;
         private TextBox txtPassword;     
         private Button btnLogin;
-        private LinkLabel linkRegister;
         private LinkLabel linkForgot;
         private CheckBox chkShowPass;
 

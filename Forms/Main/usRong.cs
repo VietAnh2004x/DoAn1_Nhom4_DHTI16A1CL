@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn1.Forms.Main
+namespace DoAn.Forms.Main
 {
     public partial class usRong : UserControl
     {

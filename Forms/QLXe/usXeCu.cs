@@ -1,16 +1,8 @@
-
 ﻿using DoAn.Data_Access_Layer;
-using DoAn.Data_Transfer_Objects;
-using DoAn.Forms.QLTonKho;
-using DoAn.Forms.QLXe;
-using System;
 using System.Globalization;
-using System.Windows.Forms;
-﻿using DoAn1.Data_Access_Layer;
 using System.Data;
 
-
-namespace DoAn1.Forms.QLXe
+namespace DoAn.Forms.QLXe
 {
     public partial class usXeCu : UserControl
     {
@@ -126,14 +118,12 @@ namespace DoAn1.Forms.QLXe
             }
         }
 
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmNhapXeCu NhapXeCuForm = new frmNhapXeCu();
             NhapXeCuForm.ShowDialog();
             LoadDanhSachXe();
         }
-
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
@@ -187,7 +177,6 @@ namespace DoAn1.Forms.QLXe
                 LoadDanhSachXe();
             }
         }
-
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
