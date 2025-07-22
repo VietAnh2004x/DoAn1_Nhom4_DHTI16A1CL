@@ -24,71 +24,81 @@ namespace DoAn1.Forms.QLHoaDon
         {
             using (var context = new DataDbContext())
             {
+                // Lấy danh sách hóa đơn kèm chi tiết và thông tin xe
                 var data = context.HoaDon
                     .Select(hd => new
                     {
-                        MaHD = hd.maHoaDon,
+                        hd.maHoaDon,
                         TenKhachHang = hd.KhachHang.hoTen,
                         TenNhanVien = hd.TaiKhoan.NhanVien.hoTen,
-                        NgayLap = hd.ngayLap,
-                        ChiTietHoaDons = hd.ChiTietHoaDons.ToList() // Load chi tiết để tính toán bên ngoài SQL
+                        hd.ngayLap,
+                        ChiTiet = hd.ChiTietHoaDons.Select(ct => new
+                        {
+                            ct.donGia,
+                            ct.ghiChuKhuyenMai,
+                            ct.maXe,
+                            TenXe = ct.Xe.tenXe,    // Lấy tên xe từ navigation property
+                            GiaBan = ct.Xe.giaBan,
+                           
+                        }).ToList()
                     })
-                    .ToList()  // <-- Chuyển sang in-memory, từ đây có thể gọi các hàm C#
+                    .AsEnumerable() // chuyển sang xử lý phía client
                     .Select(h => new
                     {
-                        h.MaHD,
-                        h.TenKhachHang,
-                        h.TenNhanVien,
-                        h.NgayLap,
-
-                        TongTien = h.ChiTietHoaDons.Sum(ct =>
-                            ct.soLuong * ct.donGia * (1 - ParseKhuyenMai(ct.ghiChuKhuyenMai))
-                        ),
-
-                        GhiChuKhuyenMai = h.ChiTietHoaDons.FirstOrDefault()?.ghiChuKhuyenMai ?? "",
-                        GiaBan = h.ChiTietHoaDons.FirstOrDefault()?.donGia ?? 0
+                        MaHD = h.maHoaDon,
+                        TenKhachHang = h.TenKhachHang,
+                        TenNhanVien = h.TenNhanVien,
+                        NgayLap = h.ngayLap,
+                        // Lấy tên xe đầu tiên để hiển thị ví dụ
+                        TenXe = h.ChiTiet.FirstOrDefault()?.TenXe ?? "",
+                        GiaBan = h.ChiTiet.FirstOrDefault()?.GiaBan ?? 0,
+                        // CHỈNH SỬA Ở ĐÂY: Hiển thị trống nếu ghiChuKhuyenMai là "0%"
+                        GhiChuKhuyenMai = (h.ChiTiet.FirstOrDefault()?.ghiChuKhuyenMai ?? "").Trim() == "0%" ? "" : (h.ChiTiet.FirstOrDefault()?.ghiChuKhuyenMai ?? ""),
+                        TongTien = h.ChiTiet.Sum(ct => ct.donGia * (1 - ParseKhuyenMai(ct.ghiChuKhuyenMai)))
                     })
                     .ToList();
 
                 dgvDSHoaDon.DataSource = data;
 
-                // Định nghĩa tiêu đề cột
-                dgvDSHoaDon.Columns["MaHD"]!.HeaderText = "Mã Hóa Đơn";
-                dgvDSHoaDon.Columns["TenKhachHang"]!.HeaderText = "Khách Hàng";
-                dgvDSHoaDon.Columns["TenNhanVien"]!.HeaderText = "Nhân Viên";
-                dgvDSHoaDon.Columns["NgayLap"]!.HeaderText = "Ngày Lập";
-                dgvDSHoaDon.Columns["TongTien"]!.HeaderText = "Tổng Tiền";
-                dgvDSHoaDon.Columns["GhiChuKhuyenMai"]!.HeaderText = "Ghi Chú Khuyến Mãi";
-                dgvDSHoaDon.Columns["GiaBan"]!.HeaderText = "Giá Bán";
+                // Đặt lại header cho các cột
+                dgvDSHoaDon.Columns["MaHD"].HeaderText = "Mã Hóa Đơn";
+                dgvDSHoaDon.Columns["TenKhachHang"].HeaderText = "Khách Hàng";
+                dgvDSHoaDon.Columns["TenNhanVien"].HeaderText = "Nhân Viên";
+                dgvDSHoaDon.Columns["NgayLap"].HeaderText = "Ngày Lập";
+                dgvDSHoaDon.Columns["TenXe"].HeaderText = "Tên Xe";
+                dgvDSHoaDon.Columns["GiaBan"].HeaderText = "Giá Bán";
+                dgvDSHoaDon.Columns["GhiChuKhuyenMai"].HeaderText = "Ghi Chú Khuyến Mãi";
+                dgvDSHoaDon.Columns["TongTien"].HeaderText = "Tổng Tiền";
 
-                // Định dạng cột tiền
-                dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
-                dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                // Định dạng tiền tệ
+                dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-                dgvDSHoaDon.Columns["GiaBan"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
-                dgvDSHoaDon.Columns["GiaBan"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-                dgvDSHoaDon.Columns["GhiChuKhuyenMai"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dgvDSHoaDon.Columns["GhiChuKhuyenMai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
-                // Căn giữa tiêu đề & không xuống dòng
+                // Căn giữa tiêu đề cột
                 dgvDSHoaDon.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvDSHoaDon.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
 
-                // Tự động co giãn cột vừa nội dung
                 dgvDSHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
 
-        private decimal ParseKhuyenMai(string? chuoi)
+        private decimal ParseKhuyenMai(string ghiChu)
         {
-            if (string.IsNullOrWhiteSpace(chuoi))
+            if (string.IsNullOrWhiteSpace(ghiChu))
                 return 0m;
 
-            chuoi = chuoi.Replace("%", "").Trim();
-
-            if (decimal.TryParse(chuoi, out decimal value))
-                return value / 100m;
-
+            // Giả sử chuỗi ghi chú khuyến mãi có dạng: "10%", "5%", "15%"...
+            // Ta sẽ tìm số trong chuỗi rồi chia cho 100 để lấy tỉ lệ
+            var digits = new string(ghiChu.Where(char.IsDigit).ToArray());
+            if (decimal.TryParse(digits, out decimal percent))
+            {
+                return percent / 100m;
+            }
             return 0m;
         }
 
@@ -116,6 +126,8 @@ namespace DoAn1.Forms.QLHoaDon
                              from xe in xeGroup.DefaultIfEmpty()
                              where hd.maHoaDon.ToLower().Contains(tuKhoa)
                                 || kh.hoTen.ToLower().Contains(tuKhoa)
+                                || (nv.hoTen ?? "").ToLower().Contains(tuKhoa)
+                                || (xe.tenXe ?? "").ToLower().Contains(tuKhoa)
                                 || (cthd != null && (cthd.ghiChuKhuyenMai ?? "").ToLower().Contains(tuKhoa))
                              select new
                              {
@@ -123,30 +135,42 @@ namespace DoAn1.Forms.QLHoaDon
                                  TenKhachHang = kh.hoTen,
                                  TenNhanVien = nv.hoTen,
                                  NgayLap = hd.ngayLap,
-                                 TongTien = hd.tongTien,
-                                 GhiChuKhuyenMai = cthd == null ? "" : cthd.ghiChuKhuyenMai,
-                                 GiaBan = xe == null ? 0 : xe.giaBan
+                                 TenXe = xe == null ? "" : xe.tenXe,
+                                 GiaBan = xe == null ? 0 : xe.giaBan,
+                                 // CHỈNH SỬA Ở ĐÂY: Hiển thị trống nếu ghiChuKhuyenMai là "0%"
+                                 GhiChuKhuyenMai = (cthd == null || (cthd.ghiChuKhuyenMai ?? "").Trim() == "0%") ? "" : cthd.ghiChuKhuyenMai,
+                                 TongTien = hd.tongTien
                              };
 
                 dgvDSHoaDon.DataSource = ketQua.ToList();
 
-                if (dgvDSHoaDon.Columns["TongTien"] != null)
-                {
-                    dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
-                    dgvDSHoaDon.Columns["TongTien"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                }
-
+                // Đảm bảo các cột và định dạng vẫn được áp dụng sau khi tìm kiếm
+                if (dgvDSHoaDon.Columns["MaHD"] != null) dgvDSHoaDon.Columns["MaHD"].HeaderText = "Mã Hóa Đơn";
+                if (dgvDSHoaDon.Columns["TenKhachHang"] != null) dgvDSHoaDon.Columns["TenKhachHang"].HeaderText = "Khách Hàng";
+                if (dgvDSHoaDon.Columns["TenNhanVien"] != null) dgvDSHoaDon.Columns["TenNhanVien"].HeaderText = "Nhân Viên";
+                if (dgvDSHoaDon.Columns["NgayLap"] != null) dgvDSHoaDon.Columns["NgayLap"].HeaderText = "Ngày Lập";
+                if (dgvDSHoaDon.Columns["TenXe"] != null) dgvDSHoaDon.Columns["TenXe"].HeaderText = "Tên Xe";
                 if (dgvDSHoaDon.Columns["GiaBan"] != null)
                 {
-                    dgvDSHoaDon.Columns["GiaBan"]!.HeaderText = "Giá Bán";
-                    dgvDSHoaDon.Columns["GiaBan"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
-                    dgvDSHoaDon.Columns["GiaBan"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvDSHoaDon.Columns["GiaBan"].HeaderText = "Giá Bán";
+                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSHoaDon.Columns["GiaBan"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 }
-
                 if (dgvDSHoaDon.Columns["GhiChuKhuyenMai"] != null)
                 {
-                    dgvDSHoaDon.Columns["GhiChuKhuyenMai"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                    dgvDSHoaDon.Columns["GhiChuKhuyenMai"].HeaderText = "Ghi Chú Khuyến Mãi";
+                    dgvDSHoaDon.Columns["GhiChuKhuyenMai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 }
+                if (dgvDSHoaDon.Columns["TongTien"] != null)
+                {
+                    dgvDSHoaDon.Columns["TongTien"].HeaderText = "Tổng Tiền";
+                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                    dgvDSHoaDon.Columns["TongTien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                }
+
+                dgvDSHoaDon.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDSHoaDon.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+                dgvDSHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
 
@@ -196,18 +220,30 @@ namespace DoAn1.Forms.QLHoaDon
                 else
                     hoaDon.ngayLap = DateTime.Now;
 
-                if (decimal.TryParse(txtTongTien.Text.Replace("VNĐ", "").Replace(",", "").Trim(), out decimal tongTien))
-                    hoaDon.tongTien = tongTien;
-
-                context.SaveChanges();
-
-                // Cập nhật ghi chú khuyến mãi trong ChiTietHoaDon (bản ghi đầu tiên)
                 var chiTiet = context.ChiTietHoaDon.FirstOrDefault(ct => ct.maHoaDon == maHD);
                 if (chiTiet != null)
                 {
-                    chiTiet.ghiChuKhuyenMai = txtKhuyenMai.Text.Trim();
+                    // Lưu giá trị từ textbox vào ghiChuKhuyenMai
+                    // Nếu textbox trống, có thể lưu null hoặc chuỗi rỗng vào DB
+                    // hoặc nếu bạn muốn lưu "0%" khi textbox trống, bạn cần một logic khác
+                    string khuyenMaiInput = txtKhuyenMai.Text.Trim();
+                    if (string.IsNullOrEmpty(khuyenMaiInput))
+                    {
+                        chiTiet.ghiChuKhuyenMai = "0%"; // Nếu muốn lưu "0%" khi người dùng để trống
+                    }
+                    else
+                    {
+                        chiTiet.ghiChuKhuyenMai = khuyenMaiInput;
+                    }
                     context.SaveChanges();
                 }
+
+                // Tính toán lại tổng tiền sau khi có thể đã sửa khuyến mãi
+                hoaDon.tongTien = context.ChiTietHoaDon
+                                     .Where(ct => ct.maHoaDon == maHD)
+                                     .ToList()
+                                     .Sum(ct => ct.donGia  * (1 - ParseKhuyenMai(ct.ghiChuKhuyenMai)));
+                context.SaveChanges();
 
                 MessageBox.Show("Sửa hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -222,10 +258,11 @@ namespace DoAn1.Forms.QLHoaDon
             dtpNgayLap.CustomFormat = " ";
             txtTongTien.Clear();
             txtTimKiemHoaDon.Clear();
-            txtKhuyenMai.Clear();
+            txtKhuyenMai.Clear(); // Đảm bảo dòng này đã có
             txtGiaBan.Clear();
+            txtTenXe.Clear();
 
-            LoadHoaDon();
+            LoadHoaDon(); // Tải lại dữ liệu sau khi làm mới
             txtTimKiemHoaDon.Focus();
         }
 
@@ -256,12 +293,12 @@ namespace DoAn1.Forms.QLHoaDon
                         return;
                     }
 
-                    // Xóa chi tiết hóa đơn liên quan
+                    // Xóa chi tiết hóa đơn liên quan trước (do có khóa ngoại)
                     var chiTiet = context.ChiTietHoaDon.Where(ct => ct.maHoaDon == maHD).ToList();
                     if (chiTiet.Any())
                         context.ChiTietHoaDon.RemoveRange(chiTiet);
 
-                    // Xóa bảo hành liên quan
+                    // Xóa bảo hành liên quan (nếu có khóa ngoại tới HoaDon)
                     var baoHanhs = context.BaoHanh.Where(bh => bh.maHoaDon == maHD).ToList();
                     if (baoHanhs.Any())
                         context.BaoHanh.RemoveRange(baoHanhs);
@@ -273,7 +310,7 @@ namespace DoAn1.Forms.QLHoaDon
 
                 MessageBox.Show("Đã xóa hóa đơn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadHoaDon();
-                btnLamMoi_Click(sender, e);
+                btnLamMoi_Click(sender, e); // Làm mới các trường input
             }
         }
 
@@ -286,6 +323,7 @@ namespace DoAn1.Forms.QLHoaDon
                 txtMaHoaDon.Text = row.Cells["MaHD"].Value?.ToString();
                 txtTenKhachHang.Text = row.Cells["TenKhachHang"].Value?.ToString();
                 txtTenNhanVien.Text = row.Cells["TenNhanVien"].Value?.ToString();
+                txtTenXe.Text = row.Cells["TenXe"].Value?.ToString();
 
                 if (DateTime.TryParse(row.Cells["NgayLap"].Value?.ToString(), out DateTime ngayLap))
                 {
@@ -295,7 +333,6 @@ namespace DoAn1.Forms.QLHoaDon
                 }
                 else
                 {
-                    // Thiết lập để DateTimePicker hiển thị trống
                     dtpNgayLap.Format = DateTimePickerFormat.Custom;
                     dtpNgayLap.CustomFormat = " ";
                 }
@@ -305,7 +342,16 @@ namespace DoAn1.Forms.QLHoaDon
                 else
                     txtTongTien.Text = "";
 
-                txtKhuyenMai.Text = row.Cells["GhiChuKhuyenMai"].Value?.ToString() ?? "";
+                // CHỈNH SỬA Ở ĐÂY: Kiểm tra nếu giá trị là "0%" thì hiển thị trống
+                string ghiChuKM = row.Cells["GhiChuKhuyenMai"].Value?.ToString() ?? "";
+                if (ghiChuKM.Trim() == "0%") // Sử dụng Trim() để loại bỏ khoảng trắng thừa
+                {
+                    txtKhuyenMai.Text = ""; // Hiển thị trống nếu là "0%"
+                }
+                else
+                {
+                    txtKhuyenMai.Text = ghiChuKM; // Hiển thị giá trị khác
+                }
 
                 if (decimal.TryParse(row.Cells["GiaBan"].Value?.ToString(), out decimal giaBan))
                     txtGiaBan.Text = giaBan.ToString("#,##0 'VNĐ'");

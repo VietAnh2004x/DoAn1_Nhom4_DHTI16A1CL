@@ -1,3 +1,10 @@
+
+﻿using DoAn.Data_Access_Layer;
+using DoAn.Data_Transfer_Objects;
+using DoAn1.Data_Transfer_Objects;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 ﻿using DoAn1.Data_Access_Layer;
 using DoAn1.Data_Transfer_Objects;
 
@@ -8,6 +15,41 @@ namespace DoAn1.Forms.QLHoaDon
         public frmPhieuHoaDon()
         {
             InitializeComponent();
+
+            txtGiaBan.TextChanged += TxtGiaBanOrKhuyenMai_TextChanged;
+            txtKhuyenMai.TextChanged += TxtGiaBanOrKhuyenMai_TextChanged;
+
+            cbbPTTT.Items.AddRange(new string[] { "Tiền mặt", "Chuyển khoản", "Ví điện tử" });
+            cbbPTTT.SelectedIndex = 0;
+        }
+
+        private void frmPhieuHoaDon_Load(object sender, EventArgs e)
+        {
+            TinhTongTien();
+        }
+
+        private void TxtGiaBanOrKhuyenMai_TextChanged(object sender, EventArgs e)
+        {
+            TinhTongTien();
+        }
+
+        private void TinhTongTien()
+        {
+            if (decimal.TryParse(txtGiaBan.Text.Trim().Replace(",", ""), out decimal giaBan))
+            {
+                string kmText = txtKhuyenMai.Text.Trim().Replace("%", "");
+                if (decimal.TryParse(kmText, out decimal khuyenMai))
+                {
+                    if (khuyenMai >= 0 && khuyenMai <= 100)
+                    {
+                        decimal tongTien = giaBan * (1 - khuyenMai / 100);
+                        txtTongTien.Text = tongTien.ToString("N0");
+                        return;
+                    }
+                }
+            }
+
+            txtTongTien.Text = "";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -16,8 +58,42 @@ namespace DoAn1.Forms.QLHoaDon
             {
                 string tenKH = txtTenKhachHang.Text.Trim();
                 string tenNV = txtTenNhanVien.Text.Trim();
+                string maXe = txtMaXe.Text.Trim();
+                string phuongThuc = cbbPTTT.Text.Trim();
 
-                // Kiểm tra tên khách hàng
+                // Kiểm tra dữ liệu bắt buộc
+                if (string.IsNullOrEmpty(tenKH))
+                {
+                    MessageBox.Show("Vui lòng nhập tên khách hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(tenNV))
+                {
+                    MessageBox.Show("Vui lòng nhập tên nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(maXe))
+                {
+                    MessageBox.Show("Vui lòng nhập mã xe!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!decimal.TryParse(txtGiaBan.Text.Replace(",", "").Trim(), out decimal giaBan) || giaBan <= 0)
+                {
+                    MessageBox.Show("Giá bán không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string kmText = txtKhuyenMai.Text.Trim().Replace("%", "");
+                if (!decimal.TryParse(kmText, out decimal khuyenMai) || khuyenMai < 0 || khuyenMai > 100)
+                {
+                    MessageBox.Show("Khuyến mãi không hợp lệ! (0-100%)", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Kiểm tra khách hàng
                 var khachHang = context.KhachHang.FirstOrDefault(kh => kh.hoTen == tenKH);
                 if (khachHang == null)
                 {
@@ -25,7 +101,7 @@ namespace DoAn1.Forms.QLHoaDon
                     return;
                 }
 
-                // Kiểm tra tên nhân viên
+                // Kiểm tra nhân viên
                 var nhanVien = context.NhanVien.FirstOrDefault(nv => nv.hoTen == tenNV);
                 if (nhanVien == null)
                 {
@@ -33,56 +109,82 @@ namespace DoAn1.Forms.QLHoaDon
                     return;
                 }
 
-                // Lấy mã khách hàng và tài khoản nhân viên
-                string maKH = khachHang.maKhachHang;
-                string tenTaiKhoan = nhanVien.tenTaiKhoan;
+                // Kiểm tra mã xe trong DB
+                var xe = context.ThongTinXe.FirstOrDefault(x => x.maXe == maXe);
+                if (xe == null)
+                {
+                    MessageBox.Show("Mã xe không tồn tại trong hệ thống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                // Ngày lập
-                DateTime ngayLap = (dtpNgayLap.CustomFormat == " ") ? DateTime.Now : dtpNgayLap.Value;
+                DateTime ngayLap = dtpNgayLap.Value;
 
-                // Tổng tiền
-                if (!decimal.TryParse(txtTongTien.Text.Trim(), out decimal tongTien))
+                if (!decimal.TryParse(txtTongTien.Text.Replace(",", "").Trim(), out decimal tongTien))
                 {
                     MessageBox.Show("Tổng tiền không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Lấy mã hóa đơn mới: dạng HD001, HD002,...
-                string newMaHD = "HD001"; // mặc định nếu chưa có hóa đơn nào
-
-                var lastHoaDon = context.HoaDon
-                    .OrderByDescending(hd => hd.maHoaDon)
-                    .FirstOrDefault();
-
+                // Tạo mã hóa đơn mới
+                string newMaHD = "HD001";
+                var lastHoaDon = context.HoaDon.OrderByDescending(hd => hd.maHoaDon).FirstOrDefault();
                 if (lastHoaDon != null)
                 {
-                    string lastMaHD = lastHoaDon.maHoaDon; // ví dụ: HD009
-                    string so = lastMaHD.Substring(2);     // lấy "009"
-                    if (int.TryParse(so, out int num))
+                    string lastMaHD = lastHoaDon.maHoaDon.Substring(2);
+                    if (int.TryParse(lastMaHD, out int num))
                     {
-                        num++;
-                        newMaHD = "HD" + num.ToString("D3"); // D3 => 3 chữ số: "010"
+                        newMaHD = "HD" + (num + 1).ToString("D3");
                     }
                 }
 
-                // Tạo hóa đơn
+                // Tạo hóa đơn mới (không có maXe)
                 var hoaDon = new HoaDon
                 {
                     maHoaDon = newMaHD,
-                    maKhachHang = maKH,
-                    tenTaiKhoan = tenTaiKhoan,
+                    maKhachHang = khachHang.maKhachHang,
+                    tenTaiKhoan = nhanVien.tenTaiKhoan,
                     ngayLap = ngayLap,
-                    tongTien = tongTien
+                    tongTien = tongTien,
+                    phuongThucThanhToan = phuongThuc
                 };
 
-                // Thêm vào CSDL
                 context.HoaDon.Add(hoaDon);
+                context.SaveChanges();
+
+                // Tạo chi tiết hóa đơn chứa maXe
+                var chiTiet = new ChiTietHoaDon
+                {
+                    maHoaDon = newMaHD,
+                    maXe = maXe,
+                    
+                    donGia = giaBan,
+                    ghiChuKhuyenMai = khuyenMai.ToString() + "%"
+                };
+
+                context.ChiTietHoaDon.Add(chiTiet);
                 context.SaveChanges();
 
                 MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtTenKhachHang.Clear();
+            txtTenNhanVien.Clear();
+            txtMaXe.Clear();
+            txtGiaBan.Clear();
+            txtKhuyenMai.Clear();
+            txtTongTien.Clear();
+            cbbPTTT.SelectedIndex = 0;
+            dtpNgayLap.Value = DateTime.Now;
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

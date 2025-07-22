@@ -1,3 +1,9 @@
+
+﻿using DoAn.Data_Access_Layer;
+using DoAn.Forms.QLTonKho;
+using DoAn.Forms.QLXe;
+using DoAn1.Data_Transfer_Objects;
+using DoAn1.Forms.QLXe;
 ﻿using DoAn1.Data_Access_Layer;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,9 +23,11 @@ namespace DoAn1.Forms.QLTonKho
         public usTonKho()
         {
             InitializeComponent();
+            dtpNgayNhap.Format = DateTimePickerFormat.Custom;
+            dtpNgayNhap.CustomFormat = "dd/MM/yyyy";
             LoadTonXe();
         }
-        private void LoadTonXe()
+        public void LoadTonXe()
         {
             using (var context = new DataDbContext())
             {
@@ -33,10 +41,10 @@ namespace DoAn1.Forms.QLTonKho
                                          xe.tenXe,
                                          ton.ngayNhap,
                                          ton.soLuong,
-                                         ton.donGiaNhap,
-                                         tongTien = ton.soLuong * ton.donGiaNhap
+                                         ton.donGiaNhap
                                      }).ToList();
 
+                dgvDSTonKho.DataSource = null;  // Xóa datasource cũ
                 dgvDSTonKho.DataSource = danhSachTonXe;
             }
 
@@ -47,11 +55,11 @@ namespace DoAn1.Forms.QLTonKho
             dgvDSTonKho.Columns["ngayNhap"]!.HeaderText = "Ngày Nhập";
             dgvDSTonKho.Columns["soLuong"]!.HeaderText = "Số Lượng";
             dgvDSTonKho.Columns["donGiaNhap"]!.HeaderText = "Đơn Giá Nhập";
-            dgvDSTonKho.Columns["tongTien"]!.HeaderText = "Tổng Tiền";
+
 
             // Format tiền tệ
             dgvDSTonKho.Columns["donGiaNhap"]!.DefaultCellStyle.Format = "N0";
-            dgvDSTonKho.Columns["tongTien"]!.DefaultCellStyle.Format = "N0";
+
 
             // Căn chỉnh chung
             dgvDSTonKho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -67,16 +75,136 @@ namespace DoAn1.Forms.QLTonKho
             if (e.RowIndex >= 0 && dgvDSTonKho.Rows[e.RowIndex].Cells["tenXe"].Value != null)
             {
                 DataGridViewRow row = dgvDSTonKho.Rows[e.RowIndex];
-
+                txtMaXe.Text = row.Cells["maXe"].Value?.ToString();
                 txtTenXe.Text = row.Cells["tenXe"].Value?.ToString();
-                txtNgayNhap.Text = Convert.ToDateTime(row.Cells["ngayNhap"].Value).ToString("dd/MM/yyyy");
+
+                // Chuyển sang dùng DateTimePicker thay vì TextBox
+                dtpNgayNhap.Value = Convert.ToDateTime(row.Cells["ngayNhap"].Value);
+
                 txtSoLuong.Text = row.Cells["soLuong"].Value?.ToString();
                 txtDongianhap.Text = Convert.ToDecimal(row.Cells["donGiaNhap"].Value).ToString("N0") + " VNĐ";
-                txtTongTienNhap.Text = Convert.ToDecimal(row.Cells["tongTien"].Value).ToString("N0") + " VNĐ";
             }
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (dgvDSTonKho.CurrentRow == null || dgvDSTonKho.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn bản ghi để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Lấy dòng được chọn
+            DataGridViewRow selectedRow = dgvDSTonKho.CurrentRow;
+
+            if (selectedRow.Cells["maNhap"].Value == null)
+            {
+                MessageBox.Show("Dữ liệu không hợp lệ. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string maNhap = selectedRow.Cells["maNhap"].Value.ToString();
+
+            using (var context = new DataDbContext())
+            {
+                var tonXe = context.TonXe.FirstOrDefault(x => x.maNhap == maNhap);
+
+                if (tonXe == null)
+                {
+                    MessageBox.Show("Không tìm thấy bản ghi để sửa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                try
+                {
+                    // Kiểm tra dữ liệu nhập
+                    if (string.IsNullOrWhiteSpace(txtSoLuong.Text) || string.IsNullOrWhiteSpace(txtDongianhap.Text))
+                    {
+                        MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Cập nhật dữ liệu
+                    tonXe.soLuong = int.Parse(txtSoLuong.Text);
+                    tonXe.ngayNhap = dtpNgayNhap.Value; // Sử dụng DateTimePicker
+                    tonXe.donGiaNhap = decimal.Parse(txtDongianhap.Text.Replace("VNĐ", "").Replace(",", "").Trim());
+
+                    context.SaveChanges();
+                    LoadTonXe();
+                    MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Dữ liệu không đúng định dạng. Vui lòng kiểm tra lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi cập nhật dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnXoa_Click_1(object sender, EventArgs e)
+        {
+            if (dgvDSTonKho.CurrentRow == null || dgvDSTonKho.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn bản ghi để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa bản ghi này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes)
+                return;
+
+            // Lấy dòng đang được chọn
+            DataGridViewRow selectedRow = dgvDSTonKho.CurrentRow;
+
+            // Kiểm tra xem giá trị maNhap có tồn tại không
+            if (selectedRow.Cells["maNhap"].Value == null)
+            {
+                MessageBox.Show("Không thể lấy thông tin Mã Nhập để xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string maNhap = selectedRow.Cells["maNhap"].Value.ToString();
+
+            using (var context = new DataDbContext())
+            {
+                var tonXe = context.TonXe.FirstOrDefault(x => x.maNhap == maNhap);
+
+                if (tonXe != null)
+                {
+                    context.TonXe.Remove(tonXe);
+                    context.SaveChanges();
+                    LoadTonXe();
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy bản ghi để xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnLamMoi_Click_1(object sender, EventArgs e)
+        {
+            txtMaXe.Clear();
+            txtTenXe.Clear();
+            dtpNgayNhap.Value = DateTime.Now;
+            txtSoLuong.Clear();
+            txtDongianhap.Clear();
+            txtTimKiem.Clear();
+            LoadTonXe();
+        }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+            frmNhapXeVaoKho NhapXeVaoKhoForm = new frmNhapXeVaoKho();
+            NhapXeVaoKhoForm.ShowDialog();
+            LoadTonXe();
+        }
+
+        private void btnTimKiem_Click_1(object sender, EventArgs e)
         {
             string tuKhoa = txtTimKiem.Text.Trim().ToLower();
 
@@ -91,11 +219,11 @@ namespace DoAn1.Forms.QLTonKho
                                     xe.tenXe,
                                     ton.ngayNhap,
                                     ton.soLuong,
-                                    ton.donGiaNhap,
-                                    tongTien = ton.soLuong * ton.donGiaNhap
-                                }).ToList();  // Thực thi truy vấn ở đây
+                                    ton.donGiaNhap
 
-                // Bước 2: Lọc trong bộ nhớ (LINQ to Objects)
+                                }).ToList();
+
+
                 var ketQua = danhSach.Where(x =>
                     x.maNhap.ToLower().Contains(tuKhoa) ||
                     x.maXe.ToLower().Contains(tuKhoa) ||
@@ -113,31 +241,36 @@ namespace DoAn1.Forms.QLTonKho
                 }
             }
 
-            // Nếu không nhập gì → load lại toàn bộ
+
             if (string.IsNullOrWhiteSpace(tuKhoa))
             {
                 LoadTonXe();
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void txtMaXe_Leave(object sender, EventArgs e)
         {
+            string maXe = txtMaXe.Text.Trim();
+            if (string.IsNullOrEmpty(maXe))
+            {
+                txtTenXe.Text = "";
+                return;
+            }
 
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-
+            using (var context = new DataDbContext())
+            {
+                var xe = context.ThongTinXe.FirstOrDefault(x => x.maXe == maXe);
+                if (xe != null)
+                {
+                    txtTenXe.Text = xe.tenXe;
+                }
+                else
+                {
+                    txtTenXe.Text = "";
+                    // Bạn có thể hiện message hoặc không
+                    // MessageBox.Show("Mã xe không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

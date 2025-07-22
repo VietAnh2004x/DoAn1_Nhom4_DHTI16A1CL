@@ -17,12 +17,6 @@ namespace DoAn1.Data_Transfer_Objects
         [StringLength(10)]
         public string maXe { get; set; } = string.Empty;
         
-
-        [Required]
-        [Column("SoLuong")]
-        [DisplayName("Số Lượng")]
-        public int soLuong { get; set; }
-
         [Required]
         [Column("DonGia")]
         [DisplayName("Đơn Giá")]
@@ -45,7 +39,6 @@ namespace DoAn1.Data_Transfer_Objects
         {
             maHoaDon = string.Empty;
             maXe = string.Empty;
-            soLuong = 0;
             donGia = 0m;
             ghiChuKhuyenMai = string.Empty;
         }
