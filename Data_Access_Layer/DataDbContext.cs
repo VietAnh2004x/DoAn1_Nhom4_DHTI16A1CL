@@ -1,9 +1,9 @@
-﻿using DoAn.Data_Transfer_Objects;
-using DoAn1.Data_Transfer_Objects;
+
 using DoAn1.Forms.QLBaoHanh;
+﻿using DoAn1.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
 
-namespace DoAn.Data_Access_Layer
+namespace DoAn1.Data_Access_Layer
 {
     internal class DataDbContext : DbContext
     {

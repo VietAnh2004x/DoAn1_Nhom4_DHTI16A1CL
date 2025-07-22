@@ -1,8 +1,10 @@
-﻿using System.Windows.Forms;
-
+﻿using DoAn1.Data_Transfer_Objects;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Windows.Forms;
 namespace DoAn1.Forms.QLTaiKhoan
 {
-    partial class usTaiKhoan
+   public partial class usTaiKhoan : UserControl
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -13,6 +15,20 @@ namespace DoAn1.Forms.QLTaiKhoan
                 components.Dispose();
             }
             base.Dispose(disposing);
+        }
+        
+    
+
+        private string GetTenQuyen(string tenQuyen)
+        {
+            using (var db = new Data_Access_Layer.DataDbContext())
+            {
+                var tk = db.TaiKhoan
+                           .Include(t => t.PhanQuyen)
+                           .FirstOrDefault(t => t.tenTaiKhoan == tenQuyen);
+
+                return tk?.PhanQuyen?.tenQuyen ?? "Chưa phân quyền";
+            }
         }
 
         private void InitializeComponent()

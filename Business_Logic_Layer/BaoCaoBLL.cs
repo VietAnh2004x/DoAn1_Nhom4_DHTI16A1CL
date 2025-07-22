@@ -1,11 +1,11 @@
-﻿using DoAn.Data_Access_Layer;
+﻿using DoAn1.Data_Access_Layer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoAn.Business_Logic_Layer
+namespace DoAn1.Business_Logic_Layer
 {
     public class BaoCaoBLL
     {

@@ -1,14 +1,6 @@
-﻿using DoAn.Data_Access_Layer;
+﻿using DoAn1.Data_Access_Layer;
 using DoAn1.Data_Transfer_Objects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace DoAn1.Forms.QLBaoHanh
 {

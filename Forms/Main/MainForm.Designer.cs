@@ -109,9 +109,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
-            AutoScrollMinSize = new Size(1500, 900);
+            AutoScrollMinSize = new Size(1300, 900);
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(1500, 800);
+            ClientSize = new Size(1300, 800);
             Controls.Add(tbTong);
             Name = "MainForm";
             Text = "Quản Lí Xe Điện";

@@ -1,9 +1,12 @@
+
 ﻿using DoAn.Data_Access_Layer;
 using DoAn.Data_Transfer_Objects;
 using DoAn1.Data_Transfer_Objects;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+﻿using DoAn1.Data_Access_Layer;
+using DoAn1.Data_Transfer_Objects;
 
 namespace DoAn1.Forms.QLHoaDon
 {

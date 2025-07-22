@@ -1,3 +1,4 @@
+
 ﻿using DoAn.Data_Access_Layer;
 using DoAn.Data_Transfer_Objects;
 using DoAn.Forms.QLTonKho;
@@ -5,6 +6,9 @@ using DoAn.Forms.QLXe;
 using System;
 using System.Globalization;
 using System.Windows.Forms;
+﻿using DoAn1.Data_Access_Layer;
+using System.Data;
+
 
 namespace DoAn1.Forms.QLXe
 {
