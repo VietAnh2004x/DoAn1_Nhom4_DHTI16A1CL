@@ -1,9 +1,10 @@
-﻿using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
+﻿using DoAn.Data_Transfer_Objects;
+using DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoAn1_Nhom4_DHTI16A1CL.Data_Access_Layer
 {
-    internal class DataDbContext : DbContext
+    public class DataDbContext : DbContext
     {
         public DbSet<BaoHanh> BaoHanh { get; set; }
         public DbSet<ChiTietHoaDon> ChiTietHoaDon { get; set; }
@@ -16,47 +17,71 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Access_Layer
         public DbSet<TaiKhoan> TaiKhoan { get; set; }
         public DbSet<TonXe> TonXe { get; set; }
         public DbSet<ThongTinXe> ThongTinXe { get; set; }
-        public DbSet<LichSuBaoHanh> LichSuBaoHanh { get; set; }
-        public DbSet<GiaoDichXeCu> GiaoDichXeCu { get; set; }
+
+        public DataDbContext(DbContextOptions<DataDbContext> options) : base(options) { }
+
+        // DbSet của các entities của bạn
+        public DbSet<NhanVien> NhanVien { get; set; } = null!;
+        public DbSet<TaiKhoan> TaiKhoan { get; set; } = null!;
+        public DbSet<PhanQuyen> PhanQuyen { get; set; } = null!;
+        public DbSet<KhachHang> KhachHang { get; set; } = null!;
+        public DbSet<HoaDon> HoaDon { get; set; } = null!;
+        public DbSet<ChiTietHoaDon> ChiTietHoaDon { get; set; } = null!;
+        public DbSet<DaiLy> DaiLy { get; set; } = null!;
+        public DbSet<ThongTinXe> ThongTinXe { get; set; } = null!;
+        public DbSet<DongXe> DongXe { get; set; } = null!;
+        public DbSet<TonXe> TonXe { get; set; } = null!;
+        public DbSet<BaoHanh> BaoHanh { get; set; } = null!;
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=QLXe;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=QLXe;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Khóa chính tổng hợp ChiTietHoaDon
-            modelBuilder.Entity<ChiTietHoaDon>()
-                .HasKey(ct => new { ct.maHoaDon, ct.maXe });
+            // Quan hệ 1-1: NhanVien có một TaiKhoan và TaiKhoan có một NhanVien duy nhất
+            // Đảm bảo sử dụng tenTK trong NhanVien
+            modelBuilder.Entity<NhanVien>()
+                .HasOne(nv => nv.TaiKhoan)
+                .WithOne(tk => tk.NhanVien)
+                .HasForeignKey<NhanVien>(nv => nv.tenTK); // Sử dụng tenTK
 
-            // Quan hệ 1-n: HoaDon - ChiTietHoaDon
-            modelBuilder.Entity<ChiTietHoaDon>()
-                .HasOne(ct => ct.HoaDon)
-                .WithMany(hd => hd.ChiTietHoaDons)
+            // Quan hệ 1-n: TaiKhoan có nhiều HoaDon
+            // Đảm bảo sử dụng tenTK trong HoaDon
+            modelBuilder.Entity<TaiKhoan>()
+                .HasMany(tk => tk.HoaDons)
+                .WithOne(hd => hd.TaiKhoan)
+                .HasForeignKey(hd => hd.tenTK); // Sử dụng tenTK
+
+            // Quan hệ 1-n: KhachHang có nhiều HoaDon
+            modelBuilder.Entity<KhachHang>()
+                .HasMany(kh => kh.HoaDons)
+                .WithOne(hd => hd.KhachHang)
+                .HasForeignKey(hd => hd.maKhachHang);
+
+            // Quan hệ 1-n: HoaDon có nhiều ChiTietHoaDon
+            modelBuilder.Entity<HoaDon>()
+                .HasMany(hd => hd.ChiTietHoaDons)
+                .WithOne(ct => ct.HoaDon)
                 .HasForeignKey(ct => ct.maHoaDon);
 
-            // Quan hệ 1-n: Xe - ChiTietHoaDon
-            modelBuilder.Entity<ChiTietHoaDon>()
-                .HasOne(ct => ct.Xe)
-                .WithMany(x => x.ChiTietHoaDons)
+            // Quan hệ 1-n: ThongTinXe có nhiều ChiTietHoaDon
+            modelBuilder.Entity<ThongTinXe>()
+                .HasMany(xe => xe.ChiTietHoaDons)
+                .WithOne(ct => ct.ThongTinXe)
                 .HasForeignKey(ct => ct.maXe);
 
-            // Quan hệ 1-n: DaiLy - Xe
-            modelBuilder.Entity<ThongTinXe>()
-                .HasOne(x => x.DaiLy)
-                .WithMany(dl => dl.Xes)
-                .HasForeignKey(x => x.maDaiLy);
+            // Quan hệ 1-n: DongXe có nhiều ThongTinXe
+            modelBuilder.Entity<DongXe>()
+                .HasMany(dong => dong.Xes) // Giả định bạn có ICollection<ThongTinXe> trong DongXe.cs
+                .WithOne(xe => xe.DongXe)
+                .HasForeignKey(xe => xe.maDongXe);
 
-            // Quan hệ 1-n: DongXe - Xe
+            // Quan hệ 1-n: ThongTinXe có nhiều TonXe
             modelBuilder.Entity<ThongTinXe>()
-                .HasOne(x => x.DongXe)
-                .WithMany(dx => dx.Xes)
-                .HasForeignKey(x => x.maDongXe);
-
-            // Quan hệ 1-n: Xe - TonXe
-            modelBuilder.Entity<TonXe>()
-                .HasOne(tx => tx.Xe)
-                .WithMany(x => x.TonXes)
+                .HasMany(xe => xe.TonXes) // Giả định bạn có ICollection<TonXe> trong ThongTinXe.cs
+                .WithOne(tx => tx.ThongTinXe)
                 .HasForeignKey(tx => tx.maXe);
 
             // Quan hệ 1-n: Xe - BaoHanh
@@ -67,10 +92,9 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Access_Layer
 
             // Quan hệ 1-n: HoaDon - BaoHanh
             modelBuilder.Entity<BaoHanh>()
-                 .HasOne(bh => bh.HoaDon)
-                 .WithMany(hd => hd.BaoHanhs)
-                 .HasForeignKey(bh => bh.maHoaDon);
-
+                .HasOne(bh => bh.HoaDon)
+                .WithMany(hd => hd.BaoHanhs)
+                .HasForeignKey(bh => bh.maHopDong);
 
             // Quan hệ 1-n: PhanQuyen - TaiKhoan
             modelBuilder.Entity<TaiKhoan>()
@@ -80,53 +104,21 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Access_Layer
 
             // Quan hệ 1-n: KhachHang - HoaDon
             modelBuilder.Entity<HoaDon>()
-                .HasOne(hd => hd.KhachHang)
-                .WithMany(kh => kh.HoaDons)
+                .HasOne(hd => hd.KhachHang)            
+                .WithMany(kh => kh.HoaDons)            
                 .HasForeignKey(hd => hd.maKhachHang);
 
             // Quan hệ 1-n: TaiKhoan - HoaDon
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(tk => tk.HoaDons)
                 .WithOne(hd => hd.TaiKhoan)
-                .HasForeignKey(hd => hd.tenTaiKhoan);
+                .HasForeignKey(hd => hd.tenTK);
 
             // Quan hệ 1-1: NhanVien - TaiKhoan
             modelBuilder.Entity<NhanVien>()
                 .HasOne(nv => nv.TaiKhoan)
                 .WithOne(tk => tk.NhanVien)
-                .HasForeignKey<NhanVien>(nv => nv.tenTaiKhoan);
-
-            // Quan hệ 1-N: Khách hàng – GiaoDichXeCu
-            modelBuilder.Entity<GiaoDichXeCu>()
-                .HasOne(gd => gd.KhachHang)
-                .WithMany(kh => kh.GiaoDichXeCus)
-                .HasForeignKey(gd => gd.maKhachHang);
-
-            // Quan hệ 1-N: NhanVien – GiaoDichXeCu
-            modelBuilder.Entity<GiaoDichXeCu>()
-                .HasOne(gd => gd.NhanVien)
-                .WithMany(nv => nv.GiaoDichXeCus)
-                .HasForeignKey(gd => gd.maNV);
-
-            // Quan hệ 1-N: ThongTinXe– GiaoDichXeCu
-            modelBuilder.Entity<GiaoDichXeCu>()
-                .HasOne(gd => gd.ThongTinXe)
-                .WithMany(tx => tx.GiaoDichXeCus)
-                .HasForeignKey(gd => gd.maXe);
-
-            // Quan hệ 1-N: BaoHanh - LichSuBaoHanh
-            modelBuilder.Entity<LichSuBaoHanh>()
-                .HasOne(ls => ls.BaoHanh)
-                .WithMany(bh => bh.LichSuBaoHanhs)
-                .HasForeignKey(ls => ls.maBaoHanh)
-                .OnDelete(DeleteBehavior.Cascade); // Xoá bảo hành thì xoá lịch sử
-
-            // Quan hệ 1-N: NhanVien - LichSuBaoHanh
-            modelBuilder.Entity<LichSuBaoHanh>()
-                .HasOne(ls => ls.NhanVien)
-                .WithMany(nv => nv.LichSuBaoHanhs)
-                .HasForeignKey(ls => ls.maNV)
-                .OnDelete(DeleteBehavior.SetNull); // Xoá nhân viên thì để null
+                .HasForeignKey<NhanVien>(nv => nv.tenTK);
         }
     }
 }

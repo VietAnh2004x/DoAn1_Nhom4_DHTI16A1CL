@@ -37,7 +37,6 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
 
         [ForeignKey("maXe")]
         public virtual ThongTinXe? Xe { get; set; }
-
         public TonXe()
         {
             maNhap = string.Empty;

@@ -32,7 +32,7 @@ namespace DoAn1_Nhom4_DHTI16A1CL.Data_Transfer_Objects
         public virtual HoaDon HoaDon { get; set; } = null!;
 
         [ForeignKey("maXe")]
-        public virtual ThongTinXe Xe { get; set; } = null!;
+        public virtual ThongTinXe? Xe { get; set; }
 
         public ChiTietHoaDon()
         {
