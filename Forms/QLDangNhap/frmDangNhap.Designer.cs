@@ -37,7 +37,6 @@ namespace DoAn.Forms.QLDangNhap
             // picLogo
             // 
             picLogo.Image = (Image)resources.GetObject("picLogo.Image");
-            picLogo.BackColor = Color.FromArgb(240, 248, 255);
             picLogo.Location = new Point(165, 23);
             picLogo.Name = "picLogo";
             picLogo.Size = new Size(150, 150);
@@ -96,7 +95,7 @@ namespace DoAn.Forms.QLDangNhap
             // 
             chkShowPass.AutoSize = true;
             chkShowPass.Font = new Font("Segoe UI", 10F);
-            chkShowPass.Location = new Point(48, 385);
+            chkShowPass.Location = new Point(51, 394);
             chkShowPass.Name = "chkShowPass";
             chkShowPass.Size = new Size(118, 23);
             chkShowPass.TabIndex = 6;
@@ -110,7 +109,7 @@ namespace DoAn.Forms.QLDangNhap
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(48, 420);
+            btnLogin.Location = new Point(51, 431);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(380, 45);
             btnLogin.TabIndex = 7;
@@ -123,7 +122,7 @@ namespace DoAn.Forms.QLDangNhap
             linkForgot.AutoSize = true;
             linkForgot.Font = new Font("Segoe UI", 10F, FontStyle.Italic);
             linkForgot.LinkColor = Color.FromArgb(0, 102, 204);
-            linkForgot.Location = new Point(48, 480);
+            linkForgot.Location = new Point(51, 495);
             linkForgot.Name = "linkForgot";
             linkForgot.Size = new Size(113, 19);
             linkForgot.TabIndex = 8;
