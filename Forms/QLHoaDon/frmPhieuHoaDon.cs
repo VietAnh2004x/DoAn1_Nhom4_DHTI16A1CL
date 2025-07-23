@@ -170,6 +170,7 @@ namespace DoAn.Forms.QLHoaDon
             txtTenKhachHang.Clear();
             txtTenNhanVien.Clear();
             txtMaXe.Clear();
+            txtTenXe.Clear();
             txtGiaBan.Clear();
             txtKhuyenMai.Clear();
             txtTongTien.Clear();
@@ -241,5 +242,6 @@ namespace DoAn.Forms.QLHoaDon
             }
         }
 
+       
     }
 }

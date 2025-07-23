@@ -146,39 +146,60 @@ namespace DoAn.Forms.QLXe
         {
             using (var context = new DataDbContext())
             {
-                var giaoDich = context.GiaoDichXeCu.FirstOrDefault(g => g.MaDoi == txtMaGD.Text);
+                var maGiaoDich = txtMaGD.Text.Trim();
+                var giaoDich = context.GiaoDichXeCu.FirstOrDefault(g => g.MaDoi == maGiaoDich);
+
                 if (giaoDich == null)
                 {
-                    MessageBox.Show("Không tìm thấy giao dịch để cập nhật.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không tìm thấy giao dịch với mã: " + maGiaoDich, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                var maXe = context.ThongTinXe.FirstOrDefault(x => x.tenXe == txtTenXeCu.Text)?.maXe;
-                var maKH = context.KhachHang.FirstOrDefault(x => x.hoTen == txtTenKH.Text)?.maKhachHang;
+                // Tìm mã khách hàng từ tên
+                var maKH = context.KhachHang.FirstOrDefault(x => x.hoTen == txtTenKH.Text.Trim())?.maKhachHang;
 
-
-                if (maXe == null || maKH == null)
+                if (maKH == null)
                 {
-                    MessageBox.Show("Không tìm thấy mã xe, mã khách hàng hoặc mã nhân viên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không tìm thấy khách hàng với tên: " + txtTenKH.Text.Trim(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                giaoDich.maKhachHang = maKH;
+                // Xử lý giá định giá (loại bỏ dấu và chữ VND)
+                string giaText = txtDinhGia.Text.Trim()
+                                    .Replace(".", "")   // loại bỏ dấu chấm ngăn cách
+                                    .Replace(",", "")   // loại bỏ dấu phẩy nếu có
+                                    .Replace("VND", "", StringComparison.OrdinalIgnoreCase)
+                                    .Trim();
 
-                giaoDich.maXe = maXe;
-                giaoDich.TenXeCu = txtXeMuonDoi.Text;
-                giaoDich.NamSanXuat = int.Parse(txtNSX.Text);
-                giaoDich.SoKm = int.Parse(txtSoKm.Text);
-                giaoDich.TinhTrang = txtTinhTrang.Text;
-                giaoDich.GiaDinhGia = decimal.Parse(txtDinhGia.Text);
-                giaoDich.NgayDoi = dtpNgayDoi.Value;
+                if (!decimal.TryParse(giaText, out decimal giaDinhGia))
+                {
+                    MessageBox.Show("Giá định giá không hợp lệ. Vui lòng nhập đúng định dạng số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                context.SaveChanges();
-                MessageBox.Show("Cập nhật giao dịch thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDanhSachXe();
+                try
+                {
+                    giaoDich.maKhachHang = maKH;
+                    // Không thay đổi mã xe (giữ nguyên giaoDich.maXe)
+
+                    giaoDich.TenXeCu = txtXeMuonDoi.Text.Trim();
+                    giaoDich.NamSanXuat = int.Parse(txtNSX.Text.Trim());
+                    giaoDich.SoKm = int.Parse(txtSoKm.Text.Trim());
+                    giaoDich.TinhTrang = txtTinhTrang.Text.Trim();
+                    giaoDich.GiaDinhGia = giaDinhGia;
+                    giaoDich.NgayDoi = dtpNgayDoi.Value;
+
+                    context.SaveChanges();
+
+                    MessageBox.Show("Cập nhật giao dịch thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDanhSachXe();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi cập nhật: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc muốn xóa giao dịch này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
