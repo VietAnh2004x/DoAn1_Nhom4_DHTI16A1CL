@@ -91,6 +91,7 @@ namespace DoAn.Forms.QLDangNhap
             btnUpdate.Cursor = Cursors.Hand;           
             btnUpdate.Click += BtnUpdate_Click;
             this.Controls.Add(btnUpdate);
+            this.AcceptButton = btnUpdate;
         }   
     }
 }
