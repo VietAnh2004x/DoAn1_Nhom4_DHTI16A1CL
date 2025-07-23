@@ -156,6 +156,8 @@ namespace DoAn.Forms.QLBaoHanh
         {
             txtMaBaoHanh.Clear();
             txtThoiHan.Clear();
+            txtTenXe.Clear();
+            txtTenKhach.Clear();
             dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
             dtpNgayBatDau.CustomFormat = " ";
             txtMaBaoHanh.Focus();

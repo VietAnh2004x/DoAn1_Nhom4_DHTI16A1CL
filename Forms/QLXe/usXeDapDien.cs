@@ -32,7 +32,9 @@ namespace DoAn.Forms.QLXe
             using (var context = new DataDbContext())
             {
                 BindingSource xeDapDienBindingSource = new BindingSource();
-                var danhSach = context.ThongTinXe.Where(d => d.maDongXe == "2")
+
+                var danhSach = context.ThongTinXe
+                    .Where(d => d.maDongXe == "2")
                     .Select(x => new
                     {
                         x.maXe,
@@ -41,7 +43,17 @@ namespace DoAn.Forms.QLXe
                         x.dungLuongAcQuy,
                         x.soBinhAcQuy,
                         gia = x.giaBan,
-                        x.hinhAnh
+                        x.hinhAnh,
+
+                        // Tính tồn kho: tổng nhập - số hóa đơn bán ra
+                        soLuong =
+                            (context.TonXe
+                                .Where(t => t.maXe == x.maXe)
+                                .Sum(t => (int?)t.soLuong) ?? 0)
+                            -
+                            (context.ChiTietHoaDon
+                                .Where(h => h.maXe == x.maXe)
+                                .Count())
                     })
                     .ToList();
 
@@ -55,7 +67,12 @@ namespace DoAn.Forms.QLXe
                 if (dgvDSXeDapDien.Columns.Contains("gia"))
                     dgvDSXeDapDien.Columns["gia"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
 
-                // Cập nhật HeaderText sang tiếng Việt
+                if (dgvDSXeDapDien.Columns.Contains("soLuong"))
+                {
+                    dgvDSXeDapDien.Columns["soLuong"]!.HeaderText = "Số Lượng";
+                    dgvDSXeDapDien.Columns["soLuong"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+
                 dgvDSXeDapDien.Columns["maXe"]!.HeaderText = "Mã Xe";
                 dgvDSXeDapDien.Columns["tenXe"]!.HeaderText = "Tên Xe";
                 dgvDSXeDapDien.Columns["mauSac"]!.HeaderText = "Màu Sắc";
@@ -64,11 +81,10 @@ namespace DoAn.Forms.QLXe
                 dgvDSXeDapDien.Columns["gia"]!.HeaderText = "Giá Bán";
                 dgvDSXeDapDien.Columns["hinhAnh"]!.HeaderText = "Hình Ảnh";
 
-                // ✅ Căn giữa tiêu đề và không xuống dòng
                 dgvDSXeDapDien.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvDSXeDapDien.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             }
         }
+
 
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -180,6 +196,7 @@ namespace DoAn.Forms.QLXe
             }
             loadDanhSachXe();
             dgvDSXeDapDien.ClearSelection();
+            txtSoLuong.Clear();
         }
 
         private void dgvDSXeDapDien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -193,7 +210,7 @@ namespace DoAn.Forms.QLXe
                 txtMauSac.Text = row.Cells["mauSac"]?.Value?.ToString() ?? "";
                 txtDungLuongAcQuy.Text = row.Cells["dungLuongAcQuy"]?.Value?.ToString() ?? "";
                 txtSoBinhAcQuy.Text = row.Cells["soBinhAcQuy"]?.Value?.ToString() ?? "";
-
+                txtSoLuong.Text = row.Cells["soLuong"]?.Value?.ToString() ?? "0";
                 string imageName = row.Cells["HinhAnh"]!.Value!.ToString()!;
                 string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
 

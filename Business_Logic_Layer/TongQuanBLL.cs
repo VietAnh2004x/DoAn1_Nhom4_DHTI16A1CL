@@ -1,7 +1,4 @@
 ﻿using DoAn.Data_Access_Layer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 public class TongQuanBLL
 {
@@ -9,11 +6,21 @@ public class TongQuanBLL
 
     public int LaySoLuongXeTheoLoai(string loaiXe)
     {
-        return context.TonXe
+        // Tổng số lượng xe nhập vào theo loại
+        int soLuongNhap = context.TonXe
             .Join(context.ThongTinXe, tx => tx.maXe, tt => tt.maXe, (tx, tt) => new { tx, tt })
             .Join(context.DongXe, temp => temp.tt.maDongXe, dx => dx.maDongXe, (temp, dx) => new { temp.tx, dx })
             .Where(x => x.dx.loaiXe == loaiXe)
             .Sum(x => x.tx.soLuong);
+
+        // Số lượng hóa đơn đã bán ra theo loại xe (mỗi hóa đơn bán đúng 1 xe)
+        int soLuongBan = context.ChiTietHoaDon
+            .Join(context.ThongTinXe, cthd => cthd.maXe, tt => tt.maXe, (cthd, tt) => new { cthd, tt })
+            .Join(context.DongXe, temp => temp.tt.maDongXe, dx => dx.maDongXe, (temp, dx) => new { temp.cthd, dx })
+            .Where(x => x.dx.loaiXe == loaiXe)
+            .Count();
+
+        return soLuongNhap - soLuongBan;
     }
 
     public decimal LayTongDoanhThu()
