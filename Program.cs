@@ -10,7 +10,7 @@ namespace DoAn
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new usDangNhap());
+            Application.Run(new frmDangNhap());
         }
     }
 }

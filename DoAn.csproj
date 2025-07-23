@@ -6,12 +6,17 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Resources\image\logochinh.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Reports\**" />
     <EmbeddedResource Remove="Reports\**" />
     <None Remove="Reports\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\image\logochinh.ico" />
   </ItemGroup>
 
   <ItemGroup>

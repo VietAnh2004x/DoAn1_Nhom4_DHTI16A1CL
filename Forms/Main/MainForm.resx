@@ -117,4 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AADy8vL/8vLy//Ly8v/y8vL/8vLy//Ly8v/y8vL/8vLy//Ly8v/y8vL/8vLy//Ly8v/y8vL/8vLy//Ly
+        8v/w8PD/8/Pz//Pz8//y8vL/8/Pz//Ly8v/09PT/9fT1//X09f/19PX/8/L0//Tz9P/z8/P/8/Pz//Pz
+        8//z8/P/8PDw//Ly8v/z8/P/9PT0/9fY3P+Pkp//ubzB/9DY0P/N18v/vca9/36Iiv/AxMb/8/Pz//Pz
+        8//z8/P/8/Pz//Dw8P/y8vL/8/Pz//X09f+fwJ7/S403/1qQVv+Lqp7/aot4/0uYOv87iiD/YZRC/+Hl
+        3v/09PT/8vLy//Pz8//w8PD/8/Pz//Pz8//z8/T/1+fW/4nBev9rrVP/wMTQ/1xhhP9GdVf/PIE0/1d9
+        Tv/R19z/6+3v//Pz8//z8/P/8PDw//Pz8//y8vL/8vLy//b09v/V5NP/bKpQ/8LQwv9xjIT/RnBb/4mS
+        lv+CmLP/Z7jr/7HU6//08/L/8/Pz//Dw8P/z8/P/8vLy//Ly8v/18/P/wODj/16eev+Et37/Y7Fa/1Kv
+        Q//V5dL/vdXr/2y+7v+qz+j/9PPy//Pz8//w8PD/8/Pz//Ly8v/y8vL/8/Pz/+Tt7P/K3NP/y9fk/7DN
+        0/9rp2n/ir1+/8zdz//j6/D/6u3w//Py8v/z8/P/8PDw//Pz8//y8vL/8vLy//Pz8//u7e//2tvj/6+4
+        1f+5yOv/ebGE/0WuMP9tuWH/4uni//Tz9P/y8/P/8/Pz//Dw8P/z8/P/8vLy//Ly8v/z8/P/6urt/8DB
+        0f+YnLz/kJa3/1uZV/9JsTT/Ta49/8PYw//19PX/8vLy//Pz8//w8PD/8vLy//Pz8//z8/P/8/Pz/+ns
+        6v+Yr5//bJBx/2CUXP9NqTn/SbE2/1GxQf/L3sr/9fT1//Pz8//z8/P/8PDw//Ly8v/z8/P/8/Pz//Pz
+        8//r7uv/t820/2ClUP9ErTD/R7Az/0itNv+FwH3/6+7s//Pz8//z8/P/8/Pz//Dw8P/y8vL/8/Pz//Pz
+        8//y8vL/8/Pz//X09v/U4dT/mcmT/4fBgf+nyqX/5Ojl//Tz9P/y8vL/8/Pz//Pz8//w8PD/8vLy//Pz
+        8//z8/P/8/Pz//Ly8v/z8/L/9PP0//Tz9P/y8fP/9fP1//Pz8//y8vL/8vLy//Pz8//z8/P/8PDw//Pz
+        8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Dw
+        8P/y8vL/8vLy//Ly8v/y8vL/8vLy//Ly8v/y8vL/8vLy//Ly8v/y8vL/8vLy//Ly8v/y8vL/8vLy//Ly
+        8v/v7/D/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

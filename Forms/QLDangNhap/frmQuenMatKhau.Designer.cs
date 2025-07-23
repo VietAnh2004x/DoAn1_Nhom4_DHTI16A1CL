@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 namespace DoAn.Forms.QLDangNhap
 {
-    public partial class usQuenMatKhau : Form
+    public partial class frmQuenMatKhau : Form
     {
         private Label lblTitle;
         private Label lblUsername;

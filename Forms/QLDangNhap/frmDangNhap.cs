@@ -3,13 +3,13 @@ using Microsoft.Data.SqlClient;
 
 namespace DoAn.Forms.QLDangNhap
 {
-    public partial class usDangNhap : Form
+    public partial class frmDangNhap : Form
     {
         private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=QLXe;Integrated Security=True";
         private System.Windows.Forms.Timer colorTimer;
         private Color[] titleColors;
         private int currentColorIndex = 0;
-        public usDangNhap()
+        public frmDangNhap()
         {
             InitializeComponent();
             KhoiTaoGiaoDienDong(); // Gọi hàm tạo hiệu ứng động         
@@ -138,7 +138,7 @@ namespace DoAn.Forms.QLDangNhap
 
         private void LinkForgot_Click(object sender, EventArgs e)
         {
-            usQuenMatKhau forgotForm = new usQuenMatKhau();
+            frmQuenMatKhau forgotForm = new frmQuenMatKhau();
             forgotForm.ShowDialog(); // Hiển thị form quên mật khẩu dưới dạng dialog
         }
     }

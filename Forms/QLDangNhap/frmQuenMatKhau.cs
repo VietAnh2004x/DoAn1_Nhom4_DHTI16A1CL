@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace DoAn.Forms.QLDangNhap
 {
-    public partial class usQuenMatKhau : Form
+    public partial class frmQuenMatKhau : Form
     {     
-        public usQuenMatKhau()
+        public frmQuenMatKhau()
         {
             InitializeComponent();
             GiaoDienDong();

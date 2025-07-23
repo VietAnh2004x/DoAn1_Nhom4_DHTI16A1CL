@@ -7,7 +7,7 @@ using System.IO;
 using System.Windows.Forms;
 namespace DoAn.Forms.QLDangNhap
 {
-     public partial class usDangNhap : Form
+     public partial class frmDangNhap : Form
     {
         private PictureBox picLogo;
         private Label lblTitle;
@@ -21,7 +21,7 @@ namespace DoAn.Forms.QLDangNhap
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usDangNhap));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangNhap));
             picLogo = new PictureBox();
             lblTitle = new Label();
             lblUsername = new Label();
@@ -37,6 +37,7 @@ namespace DoAn.Forms.QLDangNhap
             // picLogo
             // 
             picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+            picLogo.BackColor = Color.FromArgb(240, 248, 255);
             picLogo.Location = new Point(165, 23);
             picLogo.Name = "picLogo";
             picLogo.Size = new Size(150, 150);
@@ -115,7 +116,6 @@ namespace DoAn.Forms.QLDangNhap
             btnLogin.TabIndex = 7;
             btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = false;
-            this.AcceptButton = btnLogin;
             // 
             // linkForgot
             // 
@@ -130,8 +130,9 @@ namespace DoAn.Forms.QLDangNhap
             linkForgot.TabStop = true;
             linkForgot.Text = "Quên mật khẩu?";
             // 
-            // usDangNhap
+            // frmDangNhap
             // 
+            AcceptButton = btnLogin;
             BackColor = Color.FromArgb(240, 248, 255);
             ClientSize = new Size(484, 561);
             Controls.Add(picLogo);
@@ -144,13 +145,14 @@ namespace DoAn.Forms.QLDangNhap
             Controls.Add(btnLogin);
             Controls.Add(linkForgot);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            Name = "usDangNhap";
+            Name = "frmDangNhap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
-            PerformLayout();           
+            PerformLayout();
         }
 
     }

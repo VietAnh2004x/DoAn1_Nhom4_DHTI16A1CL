@@ -140,7 +140,7 @@ namespace DoAn.Forms.Main
                 Session.NhanVienDangNhap = null;
 
                 // Mở lại form đăng nhập
-                Forms.QLDangNhap.usDangNhap loginForm = new Forms.QLDangNhap.usDangNhap();
+                Forms.QLDangNhap.frmDangNhap loginForm = new Forms.QLDangNhap.frmDangNhap();
                 loginForm.Show();
 
                 // Đóng form chính hiện tại
