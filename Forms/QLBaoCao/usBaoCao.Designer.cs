@@ -148,11 +148,12 @@
             // 
             cboLoaiThongKe.Anchor = AnchorStyles.None;
             cboLoaiThongKe.FormattingEnabled = true;
-            cboLoaiThongKe.Items.AddRange(new object[] { "Xe Đạp Điện", "Xe Máy Điện" });
+            cboLoaiThongKe.Items.AddRange(new object[] { "Loại Xe", "Nhân Viên" });
             cboLoaiThongKe.Location = new Point(553, 27);
             cboLoaiThongKe.Name = "cboLoaiThongKe";
             cboLoaiThongKe.Size = new Size(138, 28);
             cboLoaiThongKe.TabIndex = 2;
+            cboLoaiThongKe.SelectedIndexChanged += cboLoaiThongKe_SelectedIndexChanged;
             // 
             // btnThongKe
             // 
@@ -231,10 +232,10 @@
             lbl1.Anchor = AnchorStyles.Right;
             lbl1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl1.ForeColor = Color.FromArgb(50, 50, 50);
-            lbl1.Location = new Point(90, 27);
+            lbl1.Location = new Point(90, 22);
             lbl1.Margin = new Padding(5, 0, 5, 0);
             lbl1.Name = "lbl1";
-            lbl1.Size = new Size(204, 25);
+            lbl1.Size = new Size(204, 34);
             lbl1.TabIndex = 0;
             lbl1.Text = "Label1";
             lbl1.Visible = false;
@@ -256,10 +257,10 @@
             lbl2.Anchor = AnchorStyles.Right;
             lbl2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl2.ForeColor = Color.FromArgb(50, 50, 50);
-            lbl2.Location = new Point(688, 26);
+            lbl2.Location = new Point(688, 24);
             lbl2.Margin = new Padding(5, 0, 5, 0);
             lbl2.Name = "lbl2";
-            lbl2.Size = new Size(204, 26);
+            lbl2.Size = new Size(204, 30);
             lbl2.TabIndex = 1;
             lbl2.Text = "Label2";
             lbl2.Visible = false;
@@ -280,10 +281,10 @@
             lbl3.Anchor = AnchorStyles.Right;
             lbl3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl3.ForeColor = Color.FromArgb(50, 50, 50);
-            lbl3.Location = new Point(389, 106);
+            lbl3.Location = new Point(306, 104);
             lbl3.Margin = new Padding(5, 0, 5, 0);
             lbl3.Name = "lbl3";
-            lbl3.Size = new Size(204, 25);
+            lbl3.Size = new Size(287, 30);
             lbl3.TabIndex = 6;
             lbl3.Text = "Label3";
             lbl3.Visible = false;
@@ -346,7 +347,6 @@
             Name = "usBaoCao";
             Padding = new Padding(17, 15, 17, 15);
             Size = new Size(1243, 796);
-            Load += usBaoCao_Load;
             tbTong.ResumeLayout(false);
             grpKQThongKe.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvThongKe).EndInit();

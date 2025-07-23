@@ -2,6 +2,7 @@
 using DoAn.Data_Access_Layer;
 using OfficeOpenXml;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -20,45 +21,205 @@ namespace DoAn.Forms.QLBaoCao
             // EPPlus 5.x - 7.x: cần cấu hình context license
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
         }
-
-        private void usBaoCao_Load(object sender, EventArgs e)
+        private void SetThongKeControlsVisibility(bool visible)
         {
-            cboLoaiThongKe.Items.Clear();
-            cboLoaiThongKe.Items.AddRange(new[] { "Xe Điện", "Xe Máy Điện", "Xe Đạp Điện" });
-            cboLoaiThongKe.SelectedIndex = 0;
+            lbl1.Visible = visible;
+            lbl2.Visible = visible;
+            lbl3.Visible = visible;
+            txt1.Visible = visible;
+            txt2.Visible = visible;
+            txt3.Visible = visible;
         }
-
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-            DateTime bd = dtpNgayBatDau.Value.Date;
-            DateTime kt = dtpNgayKetThuc.Value.Date;
-            string loai = cboLoaiThongKe.SelectedItem?.ToString() ?? "Xe Điện";
+            string selectedMainOption = cboLoaiThongKe.SelectedItem?.ToString();
+            string selectedSubOption = cboLuaChon.SelectedItem?.ToString();
+            DateTime startDate = dtpNgayBatDau.Value;
+            DateTime endDate = dtpNgayKetThuc.Value;
+            SetThongKeControlsVisibility(true);
 
-            var data = (from hd in context.HoaDon
-                        join ct in context.ChiTietHoaDon on hd.maHoaDon equals ct.maHoaDon
-                        join xe in context.ThongTinXe on ct.maXe equals xe.maXe
-                        join dong in context.DongXe on xe.maDongXe equals dong.maDongXe
-                        where hd.ngayLap >= bd && hd.ngayLap <= kt
-                              && (loai == "Xe Điện" || dong.loaiXe == loai)
-                        select new
-                        {
-                            MaHoaDon = hd.maHoaDon,
-                            TenXe = xe.tenXe,
-                            MauSac = xe.mauSac,
-                            SoBinhAcQuy = xe.soBinhAcQuy,
-                            DungLuongAcQuy = xe.dungLuongAcQuy,
-                            TongTien = hd.tongTien,
-                            NgayBan = hd.ngayLap,
-                            LoaiXe = dong.loaiXe
-                        }).ToList();
+            if (selectedMainOption == "Loại Xe")
+            {
+                lbl1.Text = "Tổng doanh thu:";
+                lbl2.Text = "Tổng số xe bán ra:";
+                lbl3.Text = "Tổng khách hàng:";
 
-            dgvThongKe.DataSource = data;
-            dgvThongKe.Columns["TongTien"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
+                var dongXe = context.DongXe.FirstOrDefault(dx => dx.loaiXe == selectedSubOption);
+                if (dongXe == null) return;
 
-            txt2.Text = baoCaoBLL.ThongKeSoXeBanRa(bd, kt, loai).ToString();
-            txt1.Text = baoCaoBLL.ThongKeTongDoanhThu(bd, kt, loai);
-            txt3.Text = baoCaoBLL.ThongKeTongSoXeTheoLoai(bd, kt, loai).ToString();
+                // Tính toán các giá trị tổng
+                var tongDoanhThu = context.ChiTietHoaDon
+                    .Join(context.HoaDon,
+                        cthd => cthd.maHoaDon,
+                        hd => hd.maHoaDon,
+                        (cthd, hd) => new { cthd, hd })
+                    .Join(context.ThongTinXe,
+                        temp => temp.cthd.maXe,
+                        xe => xe.maXe,
+                        (temp, xe) => new { temp.cthd, temp.hd, xe })
+                    .Where(x => x.xe.maDongXe == dongXe.maDongXe &&
+                                x.hd.ngayLap >= startDate &&
+                                x.hd.ngayLap <= endDate)
+                    .Sum(x => x.hd.tongTien);
+
+                txt1.Text = tongDoanhThu.ToString("N0") + " VNĐ";
+
+                var tongXeBanRa = context.ChiTietHoaDon
+                    .Join(context.HoaDon,
+                        cthd => cthd.maHoaDon,
+                        hd => hd.maHoaDon,
+                        (cthd, hd) => new { cthd, hd })
+                    .Join(context.ThongTinXe,
+                        temp => temp.cthd.maXe,
+                        xe => xe.maXe,
+                        (temp, xe) => new { temp.cthd, xe, temp.hd })
+                    .Where(x => x.xe.maDongXe == dongXe.maDongXe &&
+                                x.hd.ngayLap >= startDate &&
+                                x.hd.ngayLap <= endDate)
+                    .Count();
+
+                txt2.Text = tongXeBanRa.ToString();
+
+                var tongKhachHang = context.ChiTietHoaDon
+                    .Join(context.HoaDon,
+                        cthd => cthd.maHoaDon,
+                        hd => hd.maHoaDon,
+                        (cthd, hd) => new { cthd, hd })
+                    .Join(context.ThongTinXe,
+                        temp => temp.cthd.maXe,
+                        xe => xe.maXe,
+                        (temp, xe) => new { temp.hd, xe })
+                    .Where(x => x.xe.maDongXe == dongXe.maDongXe &&
+                                x.hd.ngayLap >= startDate &&
+                                x.hd.ngayLap <= endDate)
+                    .Select(x => x.hd.maKhachHang)
+                    .Distinct()
+                    .Count();
+
+                txt3.Text = tongKhachHang.ToString();
+
+                // Hiển thị chi tiết trong DataGridView
+                var chiTietThongKe = context.ChiTietHoaDon
+                    .Join(context.HoaDon,
+                        cthd => cthd.maHoaDon,
+                        hd => hd.maHoaDon,
+                        (cthd, hd) => new { cthd, hd })
+                    .Join(context.ThongTinXe,
+                        temp => temp.cthd.maXe,
+                        xe => xe.maXe,
+                        (temp, xe) => new { temp.cthd, temp.hd, xe })
+                    .Where(x => x.xe.maDongXe == dongXe.maDongXe &&
+                                x.hd.ngayLap >= startDate &&
+                                x.hd.ngayLap <= endDate)
+                    .Select(x => new
+                    {
+                        x.hd.maHoaDon,
+                        x.xe.maXe,
+                        x.xe.tenXe,
+                        x.xe.mauSac,
+                        TongTien = x.hd.tongTien.ToString("N0", CultureInfo.InvariantCulture).Replace(",", "."), // Lấy từ HoaDon thay vì ChiTietHoaDon
+                        GhiChuKhuyenMai = x.cthd.ghiChuKhuyenMai ?? "Không có",
+                        NgayBan = x.hd.ngayLap
+                    })
+                    .ToList();
+
+                dgvThongKe.DataSource = chiTietThongKe;
+                dgvThongKe.Columns["maHoaDon"].HeaderText = "Mã Hóa Đơn";
+                dgvThongKe.Columns["maXe"].HeaderText = "Mã Xe";
+                dgvThongKe.Columns["tenXe"].HeaderText = "Tên Xe";
+                dgvThongKe.Columns["mauSac"].HeaderText = "Màu Sắc";
+                dgvThongKe.Columns["TongTien"].HeaderText = "Tổng Tiền";
+                dgvThongKe.Columns["GhiChuKhuyenMai"].HeaderText = "Ghi Chú Khuyến Mãi";
+                dgvThongKe.Columns["NgayBan"].HeaderText = "Ngày Bán";
+            }
+            else if (selectedMainOption == "Nhân Viên")
+            {
+                lbl1.Text = "Tổng xe bán được:";
+                lbl2.Text = "Tổng doanh thu:";
+                lbl3.Text = "Tổng khách hàng đã xử lí:";
+
+                var nhanVien = context.NhanVien.FirstOrDefault(nv => nv.hoTen == selectedSubOption);
+                if (nhanVien == null) return;
+
+                // Tính toán các giá trị tổng
+                var tongXeBanDuoc = context.ChiTietHoaDon
+                    .Join(context.HoaDon,
+                        cthd => cthd.maHoaDon,
+                        hd => hd.maHoaDon,
+                        (cthd, hd) => new { cthd, hd })
+                    .Where(x => x.hd.TaiKhoan!.tenTaiKhoan == nhanVien.tenTaiKhoan &&
+                                x.hd.ngayLap >= startDate &&
+                                x.hd.ngayLap <= endDate)
+                    .Count();
+
+                txt1.Text = tongXeBanDuoc.ToString();
+
+                var tongDoanhThu = context.ChiTietHoaDon
+                    .Join(context.HoaDon,
+                        cthd => cthd.maHoaDon,
+                        hd => hd.maHoaDon,
+                        (cthd, hd) => new { cthd, hd })
+                    .Where(x => x.hd.TaiKhoan!.tenTaiKhoan == nhanVien.tenTaiKhoan &&
+                                x.hd.ngayLap >= startDate &&
+                                x.hd.ngayLap <= endDate)
+                    .Sum(x => x.cthd.donGia);
+
+                txt2.Text = tongDoanhThu.ToString("N0") + " VNĐ";
+
+                var tongKhachHang = context.HoaDon
+                    .Where(hd => hd.TaiKhoan!.tenTaiKhoan == nhanVien.tenTaiKhoan &&
+                                 hd.ngayLap >= startDate &&
+                                 hd.ngayLap <= endDate)
+                    .Select(hd => hd.maKhachHang)
+                    .Distinct()
+                    .Count();
+
+                txt3.Text = tongKhachHang.ToString();
+
+                // Hiển thị chi tiết trong DataGridView
+                var chiTietThongKe = context.ChiTietHoaDon
+                    .Join(context.HoaDon,
+                        cthd => cthd.maHoaDon,
+                        hd => hd.maHoaDon,
+                        (cthd, hd) => new { cthd, hd })
+                    .Join(context.ThongTinXe,
+                        temp => temp.cthd.maXe,
+                        xe => xe.maXe,
+                        (temp, xe) => new { temp.cthd, temp.hd, xe })
+                    .Join(context.DongXe,
+                        temp => temp.xe.maDongXe,
+                        dx => dx.maDongXe,
+                        (temp, dx) => new { temp.cthd, temp.hd, temp.xe, dx })
+                    .Join(context.KhachHang,
+                        temp => temp.hd.maKhachHang,
+                        kh => kh.maKhachHang,
+                        (temp, kh) => new { temp.cthd, temp.hd, temp.xe, temp.dx, kh })
+                    .Where(x => x.hd.TaiKhoan!.tenTaiKhoan == nhanVien.tenTaiKhoan &&
+                                x.hd.ngayLap >= startDate &&
+                                x.hd.ngayLap <= endDate)
+                    .Select(x => new
+                    {
+                        x.xe.maXe,
+                        x.hd.maKhachHang,
+                        TenKhach = x.kh.hoTen,
+                        x.xe.tenXe,
+                        TongTien = x.hd.tongTien.ToString("N0", CultureInfo.InvariantCulture).Replace(",", "."),
+                        LoaiXe = x.dx.loaiXe,
+                        ThoiGianXuLi = x.hd.ngayLap
+                    })
+                    .ToList();
+
+                dgvThongKe.DataSource = chiTietThongKe;
+                dgvThongKe.Columns["maXe"].HeaderText = "Mã Xe";
+                dgvThongKe.Columns["maKhachHang"].HeaderText = "Mã KH";
+                dgvThongKe.Columns["TenKhach"].HeaderText = "Tên Khách Hàng";
+                dgvThongKe.Columns["tenXe"].HeaderText = "Tên Xe";
+                dgvThongKe.Columns["TongTien"].HeaderText = "Tổng Tiền";
+                dgvThongKe.Columns["LoaiXe"].HeaderText = "Loại Xe";
+                dgvThongKe.Columns["ThoiGianXuLi"].HeaderText = "Thời Gian Xử Lý";
+            }
         }
+
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
@@ -101,6 +262,31 @@ namespace DoAn.Forms.QLBaoCao
             // Lưu file
             File.WriteAllBytes(dlg.FileName, package.GetAsByteArray());
             MessageBox.Show("Xuất file Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void cboLoaiThongKe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Xóa các mục cũ trong cboLuaChon
+            cboLuaChon.Items.Clear();
+
+            string selectedOption = cboLoaiThongKe.SelectedItem?.ToString();
+
+            if (selectedOption == "Loại Xe")
+            {
+                cboLuaChon.Items.AddRange(new object[] { "Xe Đạp Điện", "Xe Máy Điện" });
+                cboLuaChon.SelectedIndex = 0; // Chọn mặc định "Xe Đạp Điện"
+            }
+            else if (selectedOption == "Nhân Viên")
+            {
+                // Lấy danh sách nhân viên từ database
+                // Giả sử bạn có DbSet<NhanVien> trong DataDbContext và NhanVien có thuộc tính TenNhanVien
+                var danhSachNhanVien = context.NhanVien.Select(nv => nv.hoTen).ToList();
+                cboLuaChon.Items.AddRange(danhSachNhanVien.ToArray());
+                if (cboLuaChon.Items.Count > 0)
+                {
+                    cboLuaChon.SelectedIndex = 0; // Chọn nhân viên đầu tiên
+                }
+            }
         }
     }
 }
