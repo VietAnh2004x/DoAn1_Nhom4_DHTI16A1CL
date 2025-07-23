@@ -2,6 +2,7 @@
 using DoAn.Data_Access_Layer;
 using OfficeOpenXml;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -59,7 +60,7 @@ namespace DoAn.Forms.QLBaoCao
                     .Where(x => x.xe.maDongXe == dongXe.maDongXe &&
                                 x.hd.ngayLap >= startDate &&
                                 x.hd.ngayLap <= endDate)
-                    .Sum(x => x.cthd.donGia);
+                    .Sum(x => x.hd.tongTien);
 
                 txt1.Text = tongDoanhThu.ToString("N0") + " VNĐ";
 
@@ -116,9 +117,8 @@ namespace DoAn.Forms.QLBaoCao
                         x.xe.maXe,
                         x.xe.tenXe,
                         x.xe.mauSac,
-                        x.xe.soBinhAcQuy,
-                        x.xe.dungLuongAcQuy,
-                        TongTien = x.cthd.donGia,
+                        TongTien = x.hd.tongTien.ToString("N0", CultureInfo.InvariantCulture).Replace(",", "."), // Lấy từ HoaDon thay vì ChiTietHoaDon
+                        GhiChuKhuyenMai = x.cthd.ghiChuKhuyenMai ?? "Không có",
                         NgayBan = x.hd.ngayLap
                     })
                     .ToList();
@@ -128,9 +128,8 @@ namespace DoAn.Forms.QLBaoCao
                 dgvThongKe.Columns["maXe"].HeaderText = "Mã Xe";
                 dgvThongKe.Columns["tenXe"].HeaderText = "Tên Xe";
                 dgvThongKe.Columns["mauSac"].HeaderText = "Màu Sắc";
-                dgvThongKe.Columns["soBinhAcQuy"].HeaderText = "Số Bình Ắc Quy";
-                dgvThongKe.Columns["dungLuongAcQuy"].HeaderText = "Dung Lượng Ắc Quy";
                 dgvThongKe.Columns["TongTien"].HeaderText = "Tổng Tiền";
+                dgvThongKe.Columns["GhiChuKhuyenMai"].HeaderText = "Ghi Chú Khuyến Mãi";
                 dgvThongKe.Columns["NgayBan"].HeaderText = "Ngày Bán";
             }
             else if (selectedMainOption == "Nhân Viên")
@@ -204,7 +203,7 @@ namespace DoAn.Forms.QLBaoCao
                         x.hd.maKhachHang,
                         TenKhach = x.kh.hoTen,
                         x.xe.tenXe,
-                        TongTien = x.cthd.donGia,
+                        TongTien = x.hd.tongTien.ToString("N0", CultureInfo.InvariantCulture).Replace(",", "."),
                         LoaiXe = x.dx.loaiXe,
                         ThoiGianXuLi = x.hd.ngayLap
                     })
