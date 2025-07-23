@@ -22,7 +22,7 @@ namespace DoAn.Forms.QLXe
             _context = new DataDbContext();
 
             // Gắn sự kiện cho mã xe
-            txtMaXeDoi.Leave += txtMaXeDoi_Leave!;
+            txtMaXeDoi.Leave += txtMaXeDoi_Leave;
         }
 
         private string TaoMaGiaoDichMoi()

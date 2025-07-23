@@ -79,7 +79,7 @@ namespace DoAn.Forms.QLXe
         {
             try
             {
-                
+
 
                 var xe = new ThongTinXe
                 {
@@ -94,7 +94,7 @@ namespace DoAn.Forms.QLXe
                     giaBan = Convert.ToDecimal(txtGiaBan.Text.Trim())
                 };
 
-                
+
 
                 using (var context = new DataDbContext())
                 {
@@ -162,6 +162,11 @@ namespace DoAn.Forms.QLXe
                 picAnhXe.Image = null;
             }
             imagePath = null!;
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            ClearForm();
         }
     }
 }

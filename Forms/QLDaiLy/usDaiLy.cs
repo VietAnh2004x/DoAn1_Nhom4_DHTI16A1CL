@@ -63,7 +63,7 @@ namespace DoAn.Forms.QLDaiLy
             LoadDaiLy();
         }
 
-        private void dgvDSDaiLy_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDSDaiLy_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvDSDaiLy.Rows[e.RowIndex].Cells["maDaiLy"].Value != null)
             {
@@ -208,19 +208,6 @@ namespace DoAn.Forms.QLDaiLy
             }
         }
 
-        private void dgvDSDaiLy_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && dgvDSDaiLy.Rows[e.RowIndex].Cells["maDaiLy"].Value != null)
-            {
-                DataGridViewRow row = dgvDSDaiLy.Rows[e.RowIndex];
-
-                txtMaDaiLy.Text = row.Cells["maDaiLy"].Value?.ToString();
-                txtTenDaiLy.Text = row.Cells["tenDaiLy"].Value?.ToString();
-                txtDiaChi.Text = row.Cells["diaChi"].Value?.ToString();
-                txtSoDienThoai.Text = row.Cells["soDienThoai"].Value?.ToString();
-                txtEmail.Text = row.Cells["email"].Value?.ToString();
-            }
-        }
     }
 }
 

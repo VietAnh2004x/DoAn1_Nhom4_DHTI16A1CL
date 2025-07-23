@@ -15,28 +15,28 @@
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tbTong = new TableLayoutPanel();
             grpKQThongKe = new GroupBox();
             dgvThongKe = new DataGridView();
             grpChonThongKe = new GroupBox();
             tbChonThongKe = new TableLayoutPanel();
-            dtpNgayKetThuc = new DateTimePicker();
-            dtpNgayBatDau = new DateTimePicker();
+            cboLuaChon = new ComboBox();
             cboLoaiThongKe = new ComboBox();
             btnThongKe = new Button();
+            dtpNgayKetThuc = new DateTimePicker();
+            dtpNgayBatDau = new DateTimePicker();
             grpSLThongKe = new GroupBox();
             tbSLThongKe = new TableLayoutPanel();
-            txt3 = new TextBox();
-            txt1 = new TextBox();
             lbl1 = new Label();
             txt2 = new TextBox();
             lbl2 = new Label();
             lblSoKhachHang = new Label();
             lbl3 = new Label();
+            txt3 = new TextBox();
+            txt1 = new TextBox();
             panelXuatExcel = new Panel();
             btnXuatExcel = new Button();
-            cboLuaChon = new ComboBox();
             tbTong.SuspendLayout();
             grpKQThongKe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvThongKe).BeginInit();
@@ -85,22 +85,22 @@
             // dgvThongKe
             // 
             dgvThongKe.BackgroundColor = Color.White;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.SteelBlue;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvThongKe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.SteelBlue;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvThongKe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvThongKe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvThongKe.Dock = DockStyle.Fill;
             dgvThongKe.EnableHeadersVisualStyles = false;
-            dgvThongKe.Location = new Point(5, 21);
+            dgvThongKe.Location = new Point(5, 25);
             dgvThongKe.Margin = new Padding(5);
             dgvThongKe.Name = "dgvThongKe";
             dgvThongKe.RowHeadersWidth = 51;
-            dgvThongKe.Size = new Size(1189, 347);
+            dgvThongKe.Size = new Size(1189, 343);
             dgvThongKe.TabIndex = 1;
             // 
             // grpChonThongKe
@@ -128,40 +128,30 @@
             tbChonThongKe.Controls.Add(dtpNgayKetThuc, 1, 0);
             tbChonThongKe.Controls.Add(dtpNgayBatDau, 0, 0);
             tbChonThongKe.Dock = DockStyle.Fill;
-            tbChonThongKe.Location = new Point(3, 19);
+            tbChonThongKe.Location = new Point(3, 23);
             tbChonThongKe.Name = "tbChonThongKe";
             tbChonThongKe.RowCount = 1;
             tbChonThongKe.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tbChonThongKe.Size = new Size(1197, 86);
+            tbChonThongKe.Size = new Size(1197, 82);
             tbChonThongKe.TabIndex = 2;
             // 
-            // dtpNgayKetThuc
+            // cboLuaChon
             // 
-            dtpNgayKetThuc.Anchor = AnchorStyles.None;
-            dtpNgayKetThuc.Format = DateTimePickerFormat.Custom;
-            dtpNgayKetThuc.Location = new Point(306, 31);
-            dtpNgayKetThuc.Name = "dtpNgayKetThuc";
-            dtpNgayKetThuc.Size = new Size(135, 23);
-            dtpNgayKetThuc.TabIndex = 4;
-            // 
-            // dtpNgayBatDau
-            // 
-            dtpNgayBatDau.Anchor = AnchorStyles.None;
-            dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
-            dtpNgayBatDau.Location = new Point(53, 31);
-            dtpNgayBatDau.Name = "dtpNgayBatDau";
-            dtpNgayBatDau.Size = new Size(142, 23);
-            dtpNgayBatDau.TabIndex = 0;
-            dtpNgayBatDau.Value = new DateTime(2025, 1, 1, 0, 0, 0, 0);
+            cboLuaChon.Anchor = AnchorStyles.None;
+            cboLuaChon.FormattingEnabled = true;
+            cboLuaChon.Location = new Point(803, 27);
+            cboLuaChon.Name = "cboLuaChon";
+            cboLuaChon.Size = new Size(137, 28);
+            cboLuaChon.TabIndex = 5;
             // 
             // cboLoaiThongKe
             // 
             cboLoaiThongKe.Anchor = AnchorStyles.None;
             cboLoaiThongKe.FormattingEnabled = true;
             cboLoaiThongKe.Items.AddRange(new object[] { "Xe Đạp Điện", "Xe Máy Điện" });
-            cboLoaiThongKe.Location = new Point(553, 31);
+            cboLoaiThongKe.Location = new Point(553, 27);
             cboLoaiThongKe.Name = "cboLoaiThongKe";
-            cboLoaiThongKe.Size = new Size(138, 23);
+            cboLoaiThongKe.Size = new Size(138, 28);
             cboLoaiThongKe.TabIndex = 2;
             // 
             // btnThongKe
@@ -171,7 +161,7 @@
             btnThongKe.FlatStyle = FlatStyle.Flat;
             btnThongKe.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnThongKe.ForeColor = Color.White;
-            btnThongKe.Location = new Point(1037, 23);
+            btnThongKe.Location = new Point(1037, 21);
             btnThongKe.Margin = new Padding(4);
             btnThongKe.Name = "btnThongKe";
             btnThongKe.Size = new Size(118, 40);
@@ -179,6 +169,25 @@
             btnThongKe.Text = "Thống Kê";
             btnThongKe.UseVisualStyleBackColor = false;
             btnThongKe.Click += btnThongKe_Click;
+            // 
+            // dtpNgayKetThuc
+            // 
+            dtpNgayKetThuc.Anchor = AnchorStyles.None;
+            dtpNgayKetThuc.Format = DateTimePickerFormat.Custom;
+            dtpNgayKetThuc.Location = new Point(306, 27);
+            dtpNgayKetThuc.Name = "dtpNgayKetThuc";
+            dtpNgayKetThuc.Size = new Size(135, 27);
+            dtpNgayKetThuc.TabIndex = 4;
+            // 
+            // dtpNgayBatDau
+            // 
+            dtpNgayBatDau.Anchor = AnchorStyles.None;
+            dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
+            dtpNgayBatDau.Location = new Point(53, 27);
+            dtpNgayBatDau.Name = "dtpNgayBatDau";
+            dtpNgayBatDau.Size = new Size(142, 27);
+            dtpNgayBatDau.TabIndex = 0;
+            dtpNgayBatDau.Value = new DateTime(2025, 1, 1, 0, 0, 0, 0);
             // 
             // grpSLThongKe
             // 
@@ -206,7 +215,7 @@
             tbSLThongKe.Controls.Add(txt3, 2, 1);
             tbSLThongKe.Controls.Add(txt1, 1, 0);
             tbSLThongKe.Dock = DockStyle.Fill;
-            tbSLThongKe.Location = new Point(3, 19);
+            tbSLThongKe.Location = new Point(3, 23);
             tbSLThongKe.Margin = new Padding(5);
             tbSLThongKe.Name = "tbSLThongKe";
             tbSLThongKe.RowCount = 2;
@@ -214,72 +223,53 @@
             tbSLThongKe.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tbSLThongKe.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tbSLThongKe.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tbSLThongKe.Size = new Size(1197, 163);
+            tbSLThongKe.Size = new Size(1197, 159);
             tbSLThongKe.TabIndex = 8;
-            // 
-            // txt3
-            // 
-            txt3.Anchor = AnchorStyles.None;
-            txt3.BorderStyle = BorderStyle.FixedSingle;
-            txt3.Location = new Point(668, 110);
-            txt3.Margin = new Padding(5);
-            txt3.Name = "txt3";
-            txt3.ReadOnly = true;
-            txt3.Size = new Size(158, 23);
-            txt3.TabIndex = 7;
-            // 
-            // txt1
-            // 
-            txt1.Anchor = AnchorStyles.None;
-            txt1.BorderStyle = BorderStyle.FixedSingle;
-            txt1.Location = new Point(369, 29);
-            txt1.Margin = new Padding(5);
-            txt1.Name = "txt1";
-            txt1.ReadOnly = true;
-            txt1.Size = new Size(159, 23);
-            txt1.TabIndex = 3;
             // 
             // lbl1
             // 
             lbl1.Anchor = AnchorStyles.Right;
             lbl1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl1.ForeColor = Color.FromArgb(50, 50, 50);
-            lbl1.Location = new Point(90, 28);
+            lbl1.Location = new Point(90, 27);
             lbl1.Margin = new Padding(5, 0, 5, 0);
             lbl1.Name = "lbl1";
             lbl1.Size = new Size(204, 25);
             lbl1.TabIndex = 0;
             lbl1.Text = "Label1";
+            lbl1.Visible = false;
             // 
             // txt2
             // 
             txt2.Anchor = AnchorStyles.None;
             txt2.BorderStyle = BorderStyle.FixedSingle;
-            txt2.Location = new Point(968, 29);
+            txt2.Location = new Point(968, 26);
             txt2.Margin = new Padding(5);
             txt2.Name = "txt2";
             txt2.ReadOnly = true;
-            txt2.Size = new Size(157, 23);
+            txt2.Size = new Size(157, 27);
             txt2.TabIndex = 4;
+            txt2.Visible = false;
             // 
             // lbl2
             // 
             lbl2.Anchor = AnchorStyles.Right;
             lbl2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl2.ForeColor = Color.FromArgb(50, 50, 50);
-            lbl2.Location = new Point(688, 27);
+            lbl2.Location = new Point(688, 26);
             lbl2.Margin = new Padding(5, 0, 5, 0);
             lbl2.Name = "lbl2";
             lbl2.Size = new Size(204, 26);
             lbl2.TabIndex = 1;
             lbl2.Text = "Label2";
+            lbl2.Visible = false;
             // 
             // lblSoKhachHang
             // 
             lblSoKhachHang.Anchor = AnchorStyles.Right;
             lblSoKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblSoKhachHang.ForeColor = Color.FromArgb(50, 50, 50);
-            lblSoKhachHang.Location = new Point(90, 104);
+            lblSoKhachHang.Location = new Point(90, 101);
             lblSoKhachHang.Margin = new Padding(5, 0, 5, 0);
             lblSoKhachHang.Name = "lblSoKhachHang";
             lblSoKhachHang.Size = new Size(204, 35);
@@ -290,12 +280,37 @@
             lbl3.Anchor = AnchorStyles.Right;
             lbl3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lbl3.ForeColor = Color.FromArgb(50, 50, 50);
-            lbl3.Location = new Point(389, 109);
+            lbl3.Location = new Point(389, 106);
             lbl3.Margin = new Padding(5, 0, 5, 0);
             lbl3.Name = "lbl3";
             lbl3.Size = new Size(204, 25);
             lbl3.TabIndex = 6;
             lbl3.Text = "Label3";
+            lbl3.Visible = false;
+            // 
+            // txt3
+            // 
+            txt3.Anchor = AnchorStyles.None;
+            txt3.BorderStyle = BorderStyle.FixedSingle;
+            txt3.Location = new Point(668, 105);
+            txt3.Margin = new Padding(5);
+            txt3.Name = "txt3";
+            txt3.ReadOnly = true;
+            txt3.Size = new Size(158, 27);
+            txt3.TabIndex = 7;
+            txt3.Visible = false;
+            // 
+            // txt1
+            // 
+            txt1.Anchor = AnchorStyles.None;
+            txt1.BorderStyle = BorderStyle.FixedSingle;
+            txt1.Location = new Point(369, 26);
+            txt1.Margin = new Padding(5);
+            txt1.Name = "txt1";
+            txt1.ReadOnly = true;
+            txt1.Size = new Size(159, 27);
+            txt1.TabIndex = 3;
+            txt1.Visible = false;
             // 
             // panelXuatExcel
             // 
@@ -321,15 +336,6 @@
             btnXuatExcel.Text = "Xuất Excel";
             btnXuatExcel.UseVisualStyleBackColor = false;
             btnXuatExcel.Click += btnXuatExcel_Click;
-            // 
-            // cboLuaChon
-            // 
-            cboLuaChon.Anchor = AnchorStyles.None;
-            cboLuaChon.FormattingEnabled = true;
-            cboLuaChon.Location = new Point(803, 31);
-            cboLuaChon.Name = "cboLuaChon";
-            cboLuaChon.Size = new Size(137, 23);
-            cboLuaChon.TabIndex = 5;
             // 
             // usBaoCao
             // 

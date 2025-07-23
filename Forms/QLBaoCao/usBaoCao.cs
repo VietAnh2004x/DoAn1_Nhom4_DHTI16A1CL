@@ -55,7 +55,6 @@ namespace DoAn.Forms.QLBaoCao
             dgvThongKe.DataSource = data;
             dgvThongKe.Columns["TongTien"].DefaultCellStyle.Format = "#,##0 'VNĐ'";
 
-            txtSoKhachHang.Text = baoCaoBLL.ThongKeKhachHang(bd, kt, loai).ToString();
             txt2.Text = baoCaoBLL.ThongKeSoXeBanRa(bd, kt, loai).ToString();
             txt1.Text = baoCaoBLL.ThongKeTongDoanhThu(bd, kt, loai);
             txt3.Text = baoCaoBLL.ThongKeTongSoXeTheoLoai(bd, kt, loai).ToString();

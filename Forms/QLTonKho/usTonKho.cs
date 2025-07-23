@@ -19,6 +19,7 @@ namespace DoAn.Forms.QLTonKho
                 var danhSachTonXe = (from ton in context.TonXe
                                      join xe in context.ThongTinXe
                                      on ton.maXe equals xe.maXe
+                                     orderby ton.maNhap
                                      select new
                                      {
                                          ton.maNhap,
