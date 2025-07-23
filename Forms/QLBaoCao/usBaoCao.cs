@@ -32,8 +32,8 @@ namespace DoAn.Forms.QLBaoCao
         }
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-            string selectedMainOption = cboLoaiThongKe.SelectedItem?.ToString();
-            string selectedSubOption = cboLuaChon.SelectedItem?.ToString();
+            string selectedMainOption = cboLoaiThongKe.SelectedItem?.ToString()!;
+            string selectedSubOption = cboLuaChon.SelectedItem?.ToString()!;
             DateTime startDate = dtpNgayBatDau.Value;
             DateTime endDate = dtpNgayKetThuc.Value;
             SetThongKeControlsVisibility(true);
@@ -118,7 +118,7 @@ namespace DoAn.Forms.QLBaoCao
                         x.xe.tenXe,
                         x.xe.mauSac,
                         TongTien = x.hd.tongTien.ToString("N0", CultureInfo.InvariantCulture).Replace(",", "."), // Lấy từ HoaDon thay vì ChiTietHoaDon
-                        GhiChuKhuyenMai = x.cthd.ghiChuKhuyenMai ?? "Không có",
+                        GhiChuKhuyenMai = x.cthd.ghiChuKhuyenMai ?? "0%",
                         NgayBan = x.hd.ngayLap
                     })
                     .ToList();
@@ -131,6 +131,10 @@ namespace DoAn.Forms.QLBaoCao
                 dgvThongKe.Columns["TongTien"].HeaderText = "Tổng Tiền";
                 dgvThongKe.Columns["GhiChuKhuyenMai"].HeaderText = "Ghi Chú Khuyến Mãi";
                 dgvThongKe.Columns["NgayBan"].HeaderText = "Ngày Bán";
+
+                dgvThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvThongKe.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvThongKe.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             }
             else if (selectedMainOption == "Nhân Viên")
             {
@@ -217,6 +221,10 @@ namespace DoAn.Forms.QLBaoCao
                 dgvThongKe.Columns["TongTien"].HeaderText = "Tổng Tiền";
                 dgvThongKe.Columns["LoaiXe"].HeaderText = "Loại Xe";
                 dgvThongKe.Columns["ThoiGianXuLi"].HeaderText = "Thời Gian Xử Lý";
+
+                dgvThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvThongKe.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvThongKe.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             }
         }
 
@@ -269,7 +277,7 @@ namespace DoAn.Forms.QLBaoCao
             // Xóa các mục cũ trong cboLuaChon
             cboLuaChon.Items.Clear();
 
-            string selectedOption = cboLoaiThongKe.SelectedItem?.ToString();
+            string selectedOption = cboLoaiThongKe.SelectedItem?.ToString()!;
 
             if (selectedOption == "Loại Xe")
             {

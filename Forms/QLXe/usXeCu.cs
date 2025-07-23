@@ -66,6 +66,7 @@ namespace DoAn.Forms.QLXe
             // Tự động co cột cho vừa khung
             dgvDSXeCu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvDSXeCu.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvDSXeCu.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
         }
 
         private void dgvDSXeCu_CellClick(object sender, DataGridViewCellEventArgs e)

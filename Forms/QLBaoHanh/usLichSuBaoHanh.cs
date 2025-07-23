@@ -38,6 +38,11 @@ namespace DoAn.Forms.QLBaoHanh
                     dgvDSLSBaoHanh.Columns["NoiDungBaoHanh"].HeaderText = "Nội Dung Bảo Hành";
                     dgvDSLSBaoHanh.Columns["TenNV"].HeaderText = "Tên Nhân Viên";
                     dgvDSLSBaoHanh.Columns["GhiChu"].HeaderText = "Ghi Chú";
+
+                    dgvDSLSBaoHanh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dgvDSLSBaoHanh.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvDSLSBaoHanh.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+
                     var first = lichSuList.FirstOrDefault();
                     if (first != null)
                     {

@@ -65,6 +65,7 @@ namespace DoAn.Forms.QLXe
                 dgvDSXeMayDien.Columns["hinhAnh"]!.HeaderText = "Hình Ảnh";
 
                 dgvDSXeMayDien.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvDSXeMayDien.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             }
         }
 
