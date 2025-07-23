@@ -15,7 +15,9 @@ namespace DoAn1.Forms.QLXe
             using (var context = new DataDbContext())
             {
                 BindingSource xeDapDienBindingSource = new BindingSource();
-                var danhSach = context.ThongTinXe.Where(d => d.maDongXe == "1")
+
+                var danhSach = context.ThongTinXe
+                    .Where(d => d.maDongXe == "1")
                     .Select(x => new
                     {
                         x.maXe,
@@ -24,20 +26,36 @@ namespace DoAn1.Forms.QLXe
                         x.dungLuongAcQuy,
                         x.soBinhAcQuy,
                         gia = x.giaBan,
-                        x.hinhAnh
+                        x.hinhAnh,
+
+                        // Tính tồn kho: tổng nhập - số hóa đơn bán ra
+                        soLuong =
+                            (context.TonXe
+                                .Where(t => t.maXe == x.maXe)
+                                .Sum(t => (int?)t.soLuong) ?? 0)
+                            -
+                            (context.ChiTietHoaDon
+                                .Where(h => h.maXe == x.maXe)
+                                .Count())
                     })
                     .ToList();
 
                 xeDapDienBindingSource.DataSource = danhSach;
                 dgvDSXeMayDien.DataSource = xeDapDienBindingSource;
 
+                // Tự động co giãn cột
                 dgvDSXeMayDien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-                // Định dạng số tiền
+                // Định dạng giá
                 if (dgvDSXeMayDien.Columns.Contains("gia"))
                     dgvDSXeMayDien.Columns["gia"]!.DefaultCellStyle.Format = "#,##0 'VNĐ'";
 
-                // ập nhật tiêu đề tiếng Việt
+                if (dgvDSXeMayDien.Columns.Contains("soLuong"))
+                {
+                    dgvDSXeMayDien.Columns["soLuong"]!.HeaderText = "Số Lượng";
+                    dgvDSXeMayDien.Columns["soLuong"]!.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+
                 dgvDSXeMayDien.Columns["maXe"]!.HeaderText = "Mã Xe";
                 dgvDSXeMayDien.Columns["tenXe"]!.HeaderText = "Tên Xe";
                 dgvDSXeMayDien.Columns["mauSac"]!.HeaderText = "Màu Sắc";
@@ -46,10 +64,7 @@ namespace DoAn1.Forms.QLXe
                 dgvDSXeMayDien.Columns["gia"]!.HeaderText = "Giá Bán";
                 dgvDSXeMayDien.Columns["hinhAnh"]!.HeaderText = "Hình Ảnh";
 
-                // ✅ Căn giữa tiêu đề và không xuống dòng
                 dgvDSXeMayDien.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvDSXeMayDien.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
-
             }
         }
 
@@ -68,7 +83,7 @@ namespace DoAn1.Forms.QLXe
             txtMauSac.Clear();
             txtDungLuongAcQuy.Clear();
             txtSoBinhAcQuy.Clear();
-
+            txtSoLuong.Clear();
             picAnhXe.Image = null;
 
             loadDanhSachXe();
@@ -203,7 +218,7 @@ namespace DoAn1.Forms.QLXe
                 txtMauSac.Text = row.Cells["mauSac"]?.Value?.ToString() ?? "";
                 txtDungLuongAcQuy.Text = row.Cells["dungLuongAcQuy"]?.Value?.ToString() ?? "";
                 txtSoBinhAcQuy.Text = row.Cells["soBinhAcQuy"]?.Value?.ToString() ?? "";
-
+                txtSoLuong.Text = row.Cells["soLuong"]?.Value?.ToString() ?? "0";
                 // Lấy tên file ảnh từ cột "HinhAnh" (ví dụ: A105A.jpg)
                 string imageName = row.Cells["HinhAnh"]!.Value!.ToString()!;
 

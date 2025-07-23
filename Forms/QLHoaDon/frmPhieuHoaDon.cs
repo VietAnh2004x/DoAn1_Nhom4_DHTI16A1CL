@@ -156,7 +156,7 @@ namespace DoAn1.Forms.QLHoaDon
                 {
                     maHoaDon = newMaHD,
                     maXe = maXe,
-                    
+
                     donGia = giaBan,
                     ghiChuKhuyenMai = khuyenMai.ToString() + "%"
                 };
@@ -172,6 +172,8 @@ namespace DoAn1.Forms.QLHoaDon
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            txtMaKH.Clear();
+            txtMaNV.Clear();
             txtTenKhachHang.Clear();
             txtTenNhanVien.Clear();
             txtMaXe.Clear();
@@ -185,6 +187,65 @@ namespace DoAn1.Forms.QLHoaDon
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtMaKH_Leave(object sender, EventArgs e)
+        {
+            using (var context = new DataDbContext())
+            {
+                string maKH = txtMaKH.Text.Trim();
+
+                var kh = context.KhachHang.FirstOrDefault(k => k.maKhachHang == maKH);
+                if (kh != null)
+                {
+                    txtTenKhachHang.Text = kh.hoTen;
+                }
+                else
+                {
+                    txtTenKhachHang.Text = "";
+                    MessageBox.Show("Không tìm thấy khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void txtMaNV_Leave(object sender, EventArgs e)
+        {
+            using (var context = new DataDbContext())
+            {
+                string maNV = txtMaNV.Text.Trim();
+
+                var nv = context.NhanVien.FirstOrDefault(n => n.maNV == maNV);
+                if (nv != null)
+                {
+                    txtTenNhanVien.Text = nv.hoTen;
+                }
+                else
+                {
+                    txtTenNhanVien.Text = "";
+                    MessageBox.Show("Không tìm thấy nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void txtMaXe_Leave(object sender, EventArgs e)
+        {
+            using (var context = new DataDbContext())
+            {
+                string maXe = txtMaXe.Text.Trim();
+
+                var xe = context.ThongTinXe.FirstOrDefault(x => x.maXe == maXe);
+                if (xe != null)
+                {
+                    txtTenXe.Text = xe.tenXe;
+                    txtGiaBan.Text = xe.giaBan.ToString("N0"); // Hiển thị có dấu phân cách hàng nghìn
+                }
+                else
+                {
+                    txtTenXe.Text = "";
+                    txtGiaBan.Text = "";
+                    MessageBox.Show("Không tìm thấy xe với mã này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

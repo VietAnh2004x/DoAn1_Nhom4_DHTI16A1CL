@@ -24,6 +24,12 @@
             btnLamMoi = new Button();
             btnThem = new Button();
             grpThongTinKhachHang = new GroupBox();
+            txtMaNV = new TextBox();
+            label4 = new Label();
+            txtMaKH = new TextBox();
+            label3 = new Label();
+            txtMaXe = new TextBox();
+            label2 = new Label();
             cbbPTTT = new ComboBox();
             label1 = new Label();
             txtTongTien = new TextBox();
@@ -38,8 +44,8 @@
             lblNgayNhap = new Label();
             txtTenKhachHang = new TextBox();
             lblTenKhachHang = new Label();
-            txtMaXe = new TextBox();
-            label2 = new Label();
+            txtTenXe = new TextBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             grpThongTinKhachHang.SuspendLayout();
             SuspendLayout();
@@ -131,6 +137,12 @@
             // grpThongTinKhachHang
             // 
             grpThongTinKhachHang.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            grpThongTinKhachHang.Controls.Add(txtTenXe);
+            grpThongTinKhachHang.Controls.Add(label5);
+            grpThongTinKhachHang.Controls.Add(txtMaNV);
+            grpThongTinKhachHang.Controls.Add(label4);
+            grpThongTinKhachHang.Controls.Add(txtMaKH);
+            grpThongTinKhachHang.Controls.Add(label3);
             grpThongTinKhachHang.Controls.Add(txtMaXe);
             grpThongTinKhachHang.Controls.Add(label2);
             grpThongTinKhachHang.Controls.Add(cbbPTTT);
@@ -157,6 +169,69 @@
             grpThongTinKhachHang.TabIndex = 19;
             grpThongTinKhachHang.TabStop = false;
             grpThongTinKhachHang.Text = "Thông tin hóa đơn";
+            // 
+            // txtMaNV
+            // 
+            txtMaNV.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMaNV.Location = new Point(822, 37);
+            txtMaNV.Margin = new Padding(4, 2, 4, 2);
+            txtMaNV.Name = "txtMaNV";
+            txtMaNV.Size = new Size(290, 31);
+            txtMaNV.TabIndex = 40;
+            txtMaNV.Leave += txtMaNV_Leave;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(647, 41);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(122, 25);
+            label4.TabIndex = 39;
+            label4.Text = "Mã nhân viên:";
+            // 
+            // txtMaKH
+            // 
+            txtMaKH.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMaKH.Location = new Point(205, 40);
+            txtMaKH.Margin = new Padding(4, 2, 4, 2);
+            txtMaKH.Name = "txtMaKH";
+            txtMaKH.Size = new Size(279, 31);
+            txtMaKH.TabIndex = 38;
+            txtMaKH.Leave += txtMaKH_Leave;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(38, 43);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(137, 25);
+            label3.TabIndex = 37;
+            label3.Text = "Mã khách hàng:";
+            // 
+            // txtMaXe
+            // 
+            txtMaXe.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMaXe.Location = new Point(219, 232);
+            txtMaXe.Margin = new Padding(4, 2, 4, 2);
+            txtMaXe.Name = "txtMaXe";
+            txtMaXe.Size = new Size(290, 31);
+            txtMaXe.TabIndex = 36;
+            txtMaXe.Leave += txtMaXe_Leave;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(44, 236);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(62, 25);
+            label2.TabIndex = 35;
+            label2.Text = "Mã Xe";
             // 
             // cbbPTTT
             // 
@@ -189,7 +264,7 @@
             // txtKhuyenMai
             // 
             txtKhuyenMai.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtKhuyenMai.Location = new Point(822, 196);
+            txtKhuyenMai.Location = new Point(822, 248);
             txtKhuyenMai.Margin = new Padding(4, 2, 4, 2);
             txtKhuyenMai.Name = "txtKhuyenMai";
             txtKhuyenMai.Size = new Size(290, 31);
@@ -198,7 +273,7 @@
             // txtGiaBan
             // 
             txtGiaBan.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtGiaBan.Location = new Point(822, 124);
+            txtGiaBan.Location = new Point(822, 176);
             txtGiaBan.Margin = new Padding(4, 2, 4, 2);
             txtGiaBan.Name = "txtGiaBan";
             txtGiaBan.Size = new Size(290, 31);
@@ -219,7 +294,7 @@
             // 
             lblKhuyenMai.AutoSize = true;
             lblKhuyenMai.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblKhuyenMai.Location = new Point(655, 199);
+            lblKhuyenMai.Location = new Point(655, 251);
             lblKhuyenMai.Margin = new Padding(4, 0, 4, 0);
             lblKhuyenMai.Name = "lblKhuyenMai";
             lblKhuyenMai.Size = new Size(108, 25);
@@ -230,7 +305,7 @@
             // 
             lblGiaBan.AutoSize = true;
             lblGiaBan.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblGiaBan.Location = new Point(647, 128);
+            lblGiaBan.Location = new Point(647, 180);
             lblGiaBan.Margin = new Padding(4, 0, 4, 0);
             lblGiaBan.Name = "lblGiaBan";
             lblGiaBan.Size = new Size(76, 25);
@@ -240,7 +315,7 @@
             // txtTenNhanVien
             // 
             txtTenNhanVien.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTenNhanVien.Location = new Point(822, 49);
+            txtTenNhanVien.Location = new Point(822, 88);
             txtTenNhanVien.Margin = new Padding(4, 2, 4, 2);
             txtTenNhanVien.Name = "txtTenNhanVien";
             txtTenNhanVien.Size = new Size(290, 31);
@@ -250,7 +325,7 @@
             // 
             lblTenNhanVien.AutoSize = true;
             lblTenNhanVien.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTenNhanVien.Location = new Point(647, 53);
+            lblTenNhanVien.Location = new Point(647, 92);
             lblTenNhanVien.Margin = new Padding(4, 0, 4, 0);
             lblTenNhanVien.Name = "lblTenNhanVien";
             lblTenNhanVien.Size = new Size(123, 25);
@@ -281,7 +356,7 @@
             // txtTenKhachHang
             // 
             txtTenKhachHang.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTenKhachHang.Location = new Point(215, 50);
+            txtTenKhachHang.Location = new Point(205, 91);
             txtTenKhachHang.Margin = new Padding(4, 2, 4, 2);
             txtTenKhachHang.Name = "txtTenKhachHang";
             txtTenKhachHang.Size = new Size(279, 31);
@@ -291,32 +366,32 @@
             // 
             lblTenKhachHang.AutoSize = true;
             lblTenKhachHang.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTenKhachHang.Location = new Point(48, 53);
+            lblTenKhachHang.Location = new Point(38, 94);
             lblTenKhachHang.Margin = new Padding(4, 0, 4, 0);
             lblTenKhachHang.Name = "lblTenKhachHang";
             lblTenKhachHang.Size = new Size(138, 25);
             lblTenKhachHang.TabIndex = 21;
             lblTenKhachHang.Text = "Tên khách hàng:";
             // 
-            // txtMaXe
+            // txtTenXe
             // 
-            txtMaXe.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMaXe.Location = new Point(219, 266);
-            txtMaXe.Margin = new Padding(4, 2, 4, 2);
-            txtMaXe.Name = "txtMaXe";
-            txtMaXe.Size = new Size(290, 31);
-            txtMaXe.TabIndex = 36;
+            txtTenXe.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTenXe.Location = new Point(219, 289);
+            txtTenXe.Margin = new Padding(4, 2, 4, 2);
+            txtTenXe.Name = "txtTenXe";
+            txtTenXe.Size = new Size(290, 31);
+            txtTenXe.TabIndex = 42;
             // 
-            // label2
+            // label5
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(44, 270);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(62, 25);
-            label2.TabIndex = 35;
-            label2.Text = "Mã Xe";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(44, 293);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(63, 25);
+            label5.TabIndex = 41;
+            label5.Text = "Tên Xe";
             // 
             // frmPhieuHoaDon
             // 
@@ -366,5 +441,11 @@
         private ComboBox cbbPTTT;
         private TextBox txtMaXe;
         private Label label2;
+        private TextBox txtMaNV;
+        private Label label4;
+        private TextBox txtMaKH;
+        private Label label3;
+        private TextBox txtTenXe;
+        private Label label5;
     }
 }

@@ -29,6 +29,8 @@ namespace DoAn1.Forms.QLXe
             btnXoa = new Button();
             btnLamMoi = new Button();
             grpTTXe = new GroupBox();
+            txtSoLuong = new TextBox();
+            lba = new Label();
             txtSoBinhAcQuy = new TextBox();
             txtDungLuongAcQuy = new TextBox();
             txtMauSac = new TextBox();
@@ -115,7 +117,6 @@ namespace DoAn1.Forms.QLXe
             dgvDSXeDapDien.Size = new Size(582, 556);
             dgvDSXeDapDien.TabIndex = 0;
             dgvDSXeDapDien.CellClick += dgvDSXeDapDien_CellClick;
-            
             // 
             // grpTacVu
             // 
@@ -213,6 +214,8 @@ namespace DoAn1.Forms.QLXe
             // 
             // grpTTXe
             // 
+            grpTTXe.Controls.Add(txtSoLuong);
+            grpTTXe.Controls.Add(lba);
             grpTTXe.Controls.Add(txtSoBinhAcQuy);
             grpTTXe.Controls.Add(txtDungLuongAcQuy);
             grpTTXe.Controls.Add(txtMauSac);
@@ -231,6 +234,22 @@ namespace DoAn1.Forms.QLXe
             grpTTXe.TabIndex = 1;
             grpTTXe.TabStop = false;
             grpTTXe.Text = "Thông tin xe";
+            // 
+            // txtSoLuong
+            // 
+            txtSoLuong.BorderStyle = BorderStyle.FixedSingle;
+            txtSoLuong.Location = new Point(187, 628);
+            txtSoLuong.Name = "txtSoLuong";
+            txtSoLuong.Size = new Size(167, 34);
+            txtSoLuong.TabIndex = 17;
+            // 
+            // lba
+            // 
+            lba.Location = new Point(6, 630);
+            lba.Name = "lba";
+            lba.Size = new Size(152, 28);
+            lba.TabIndex = 16;
+            lba.Text = "Số Lượng";
             // 
             // txtSoBinhAcQuy
             // 
@@ -368,5 +387,7 @@ namespace DoAn1.Forms.QLXe
         private Label lblMauSac;
         private Label lblGia;
         private Label lblTenXe;
+        private TextBox txtSoLuong;
+        private Label lba;
     }
 }
