@@ -139,9 +139,9 @@
             // 
             cboLuaChon.Anchor = AnchorStyles.None;
             cboLuaChon.FormattingEnabled = true;
-            cboLuaChon.Location = new Point(803, 27);
+            cboLuaChon.Location = new Point(792, 27);
             cboLuaChon.Name = "cboLuaChon";
-            cboLuaChon.Size = new Size(137, 28);
+            cboLuaChon.Size = new Size(159, 28);
             cboLuaChon.TabIndex = 5;
             // 
             // cboLoaiThongKe
@@ -149,9 +149,9 @@
             cboLoaiThongKe.Anchor = AnchorStyles.None;
             cboLoaiThongKe.FormattingEnabled = true;
             cboLoaiThongKe.Items.AddRange(new object[] { "Loại Xe", "Nhân Viên" });
-            cboLoaiThongKe.Location = new Point(553, 27);
+            cboLoaiThongKe.Location = new Point(542, 27);
             cboLoaiThongKe.Name = "cboLoaiThongKe";
-            cboLoaiThongKe.Size = new Size(138, 28);
+            cboLoaiThongKe.Size = new Size(160, 28);
             cboLoaiThongKe.TabIndex = 2;
             cboLoaiThongKe.SelectedIndexChanged += cboLoaiThongKe_SelectedIndexChanged;
             // 
@@ -175,18 +175,18 @@
             // 
             dtpNgayKetThuc.Anchor = AnchorStyles.None;
             dtpNgayKetThuc.Format = DateTimePickerFormat.Custom;
-            dtpNgayKetThuc.Location = new Point(306, 27);
+            dtpNgayKetThuc.Location = new Point(295, 27);
             dtpNgayKetThuc.Name = "dtpNgayKetThuc";
-            dtpNgayKetThuc.Size = new Size(135, 27);
+            dtpNgayKetThuc.Size = new Size(157, 27);
             dtpNgayKetThuc.TabIndex = 4;
             // 
             // dtpNgayBatDau
             // 
             dtpNgayBatDau.Anchor = AnchorStyles.None;
             dtpNgayBatDau.Format = DateTimePickerFormat.Custom;
-            dtpNgayBatDau.Location = new Point(53, 27);
+            dtpNgayBatDau.Location = new Point(42, 27);
             dtpNgayBatDau.Name = "dtpNgayBatDau";
-            dtpNgayBatDau.Size = new Size(142, 27);
+            dtpNgayBatDau.Size = new Size(164, 27);
             dtpNgayBatDau.TabIndex = 0;
             dtpNgayBatDau.Value = new DateTime(2025, 1, 1, 0, 0, 0, 0);
             // 

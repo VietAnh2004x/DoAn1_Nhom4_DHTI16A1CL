@@ -132,7 +132,7 @@ namespace DoAn.Forms.QLBaoCao
                 dgvThongKe.Columns["GhiChuKhuyenMai"].HeaderText = "Ghi Chú Khuyến Mãi";
                 dgvThongKe.Columns["NgayBan"].HeaderText = "Ngày Bán";
 
-                dgvThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvThongKe.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvThongKe.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             }
@@ -203,6 +203,7 @@ namespace DoAn.Forms.QLBaoCao
                                 x.hd.ngayLap <= endDate)
                     .Select(x => new
                     {
+                        x.hd.maHoaDon,
                         x.xe.maXe,
                         x.hd.maKhachHang,
                         TenKhach = x.kh.hoTen,
@@ -214,15 +215,16 @@ namespace DoAn.Forms.QLBaoCao
                     .ToList();
 
                 dgvThongKe.DataSource = chiTietThongKe;
+                dgvThongKe.Columns["maHoaDon"].HeaderText = "Mã Hóa Đơn";
                 dgvThongKe.Columns["maXe"].HeaderText = "Mã Xe";
-                dgvThongKe.Columns["maKhachHang"].HeaderText = "Mã KH";
+                dgvThongKe.Columns["maKhachHang"].HeaderText = "Mã Khách Hàng";
                 dgvThongKe.Columns["TenKhach"].HeaderText = "Tên Khách Hàng";
                 dgvThongKe.Columns["tenXe"].HeaderText = "Tên Xe";
                 dgvThongKe.Columns["TongTien"].HeaderText = "Tổng Tiền";
                 dgvThongKe.Columns["LoaiXe"].HeaderText = "Loại Xe";
                 dgvThongKe.Columns["ThoiGianXuLi"].HeaderText = "Thời Gian Xử Lý";
 
-                dgvThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvThongKe.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvThongKe.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             }

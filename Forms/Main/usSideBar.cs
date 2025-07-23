@@ -123,7 +123,7 @@ namespace DoAn.Forms.Main
         {
             subMenuVisible = !subMenuVisible;
             subMenuPanel.Visible = subMenuVisible;
-            subMenuPanel.Height = subMenuVisible ? 550 : 0;
+            subMenuPanel.Height = subMenuVisible ? 450 : 0;
             RaiseMenuEvent("Quản Lý Danh Mục", IconChar.FolderOpen, new usRong());
         }
 
